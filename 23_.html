@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>1. 일반적인 ul>li들은 아래와 같다</p>
+    <ul>
+        <li>li-1</li>
+        <li>li-2</li>
+        <li>li-3</li>
+        <li>li-4</li>
+        <li>li-5</li>
+    </ul>
+    <p>2. 일반적인 ul.list-group>li.list-group-item들은 아래와 같다</p>
+    <p> - li들을 카드형태로 이어준다.</p>
+    <p> - active와 disabled class를 사용할 수 있게 된다.</p>
+    <ul class="list-group">
+        <li class="list-group-item">li-1</li>
+        <li class="list-group-item">li-2</li>
+        <li class="list-group-item">li-3</li>
+        <li class="list-group-item active">li-4 active</li>
+        <li class="list-group-item disabled">li-5 disabled</li>
+    </ul>
+    <p>3. 실제로 링크a태그와 연계할 때는, ul과 li태그 대신 div.list-group>a.list-group-item으로 사용한다.</p>
+    <p> - 추가로 테마는 각 item에 list-group-item-색으로 주면 되는데, list-group-item-action이 무난한 것으로 존재한다</p>
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">a-list-group-item-action</a>
+        <a href="#" class="list-group-item list-group-item-danger">a-list-group-item-danger</a>
+        <a href="#" class="list-group-item list-group-item-info">a-list-group-item-info</a>
+        <a href="#" class="list-group-item list-group-item-info active">a-list-group-item-info active</a>
+        <a href="#" class="list-group-item list-group-item-info disabled">a-list-group-item-info disabled</a>
+    </div>
+    <p>4. list-group에 list-group-flush를 주면, border가 사라진다.</p>
+    <p> - 추가로 테마는 각 item에 list-group-item-색으로 주면 되는데, list-group-item-action이 무난한 것으로 존재한다</p>
+    <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action">a-list-group-item-action</a>
+        <a href="#" class="list-group-item list-group-item-danger">a-list-group-item-danger</a>
+        <a href="#" class="list-group-item list-group-item-info">a-list-group-item-info</a>
+        <a href="#" class="list-group-item list-group-item-info active">a-list-group-item-info active</a>
+        <a href="#" class="list-group-item list-group-item-info disabled">a-list-group-item-info disabled</a>
+    </div>
+    <p>5. list-group에 list-group-horizontal을 추가하면 가로로 배열된다.</p>
+    <p> - horizontal-sm으로 size를 줘서, size `이상`부터 horizontal로 만들어보자.</p>
+    <div class="list-group list-group-horizontal-sm">
+        <a href="#" class="list-group-item list-group-item-action">item</a>
+        <a href="#" class="list-group-item list-group-item-action">item</a>
+        <a href="#" class="list-group-item list-group-item-action">item</a>
+        <a href="#" class="list-group-item list-group-item-action active">item active</a>
+        <a href="#" class="list-group-item list-group-item-action disabled">item disabled</a>
+    </div>
+
+    <p>6. 다시 ul>li로 돌아와서, 각 item 내부에 span.badge.bg-색 과 연계하기</p>
+    <p> - badge는 기본적으로 흰색글자라서 bg-색과 함께 쓴다</p>
+    <p> - 이 때, list-group-item에 .d-flex.justify-content-between로 => 내부 text와 span을 2개요소로서 양옆으로 떨어뜨리기</p>
+    <p>    - 일반text <-> 같이 섞여있는 span태그를 서로 형제flex-item 요소로 인식된다. </p>
+    <p> - 추가로 align-items-center도 넣어, flex-item들이 수직가운데정렬되게 한다.</p>
+    <ul class="list-group list-group-horizontal-sm">
+        <li href="#" class="list-group-item d-flex justify-content-between align-items-center">
+            item
+            <span class="badge bg-primary">99</span>
+        </li>
+        <li href="#" class="list-group-item d-flex justify-content-between align-items-center">
+            item
+            <span class="badge bg-danger">99</span>
+        </li>
+        <li href="#" class="list-group-item active d-flex justify-content-between align-items-center">
+            item active
+            <span class="badge bg-warning">99</span>
+        </li>
+        <li href="#" class="list-group-item disabled d-flex justify-content-between align-items-center">
+            item disabled
+            <span class="badge bg-success">99</span>
+        </li>
+    </ul>
+</div>
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

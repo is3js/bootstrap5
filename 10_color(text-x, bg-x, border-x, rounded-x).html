@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <span class="text-primary">js work </span>
+    <span class="text-secondary">js work </span>
+    <span class="text-success">js work </span>
+    <span class="text-danger">js work </span>
+    <span class="text-warning">js work </span>
+    <span class="text-info">js work </span>
+    <span class="text-dark">js work </span>
+    <span class="text-muted">색은  text-*</span>
+    <br>
+    <span class="text-white bg-dark">js work </span>
+    <span class="text-white-50 bg-dark">js work </span>
+    <span class="text-warning bg-info">배경은 bg-* </span>
+    <span class="text-muted bg-transparent">bg-transparent for icon?</span>
+    <br>
+
+    <a href="" class="text-danger">a태그에 일반색은 삼킬 수 있다.</a>
+    <br>
+    <p>border-색으로 색을 나타내는데, border, border-top ... border 방향도 border-방향</p>
+    <div class="wh border-success border"></div>
+    <div class="wh border-success border-top"></div>
+    <div class="wh border-success border-end"></div>
+    <div class="wh border-success border-bottom"></div>
+    <div class="wh border-success border-start"></div>
+    <div class="clearfix"></div>
+    <br>
+    <p>border-숫자로 두께를 주는데, border(전방향) + border-방향-0으로 특정방향만 뚫을 수 있다.</p>
+    <div class="wh border-success border"></div>
+    <div class="wh border-success border border-top-0"></div>
+    <div class="wh border-success border border-end-0"></div>
+    <div class="wh border-success border border-bottom-0"></div>
+    <div class="wh border-success border border-start-0"></div>
+    <div class="clearfix"></div>
+    <br>
+    <p>rounded or rounderd-방향으로 방향에 대해 2꼭지를 둥글게 할 수 있다.</p>
+    <div class="wh border-success border rounded"></div>
+    <div class="wh border-success border rounded-top"></div>
+    <div class="wh border-success border rounded-end"></div>
+    <div class="wh border-success border rounded-bottom"></div>
+    <div class="wh border-success border rounded-start"></div>
+    <div class="clearfix"></div>
+    <br>
+    <p>rounded-pill(정사각형 아닐 때) or rounded-circle로 둥근정도를 더 줄 수 있다.</p>
+    <div class="wh border-success border rounded"></div>
+    <div class="wh border-success border rounded-pill" style="width: 200px;"></div>
+    <div class="wh border-success border rounded-circle"></div>
+    <div class="wh border-success border rounded-0"></div>
+    <div class="clearfix"></div>
+    <br>
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

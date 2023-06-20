@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<style>
+
+    .splide .splide__slider {
+        /* Slide객체에서 width에 따라 heightRatio를 정했으니 */
+        /* width의 제한을 둔다. 제한에 따라 img태그는 알아서 fluid로 100을 채운다 */
+        max-width: 400px;
+        /* 옵션. 너무 붙어있어서*/
+        /*padding: 0 1rem;*/
+    }
+    .splide .splide__pagination {
+        /* 기존 상하패딩 1em -> 상하 여백을 줄임*/
+        padding: 0.2em 0;
+    }
+
+    .splide .splide__pagination--ttb {
+        /* 기존 left:auto; right:0.5em -> right 0으로  */
+        right: 0;
+    }
+
+    .splide .splide__pagination li {
+        /*  flex-column의 li들의 행간으로 indicator간격 조절  */
+        /*  기존 행간 1 -> 0.1 */
+        line-height: 0.1;
+    }
+
+</style>
+<div class="container ">
+    <div class="row">
+        <div class="col-4 d-flex align-items-center">
+            <div class="splide d-none d-md-block bg-transparent">
+                <div class="splide__slider">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img class="img-fluid" src="images/001.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img class="img-fluid" src="images/002.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img class="img-fluid" src="images/003.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img class="img-fluid" src="images/004.png" alt="">
+                            </li>
+<!--                            <li class="splide__slide">-->
+<!--                                <img class="img-fluid" src="images/004.png" alt="">-->
+<!--                            </li>-->
+<!--                            <li class="splide__slide">-->
+<!--                                <img class="img-fluid" src="images/vertical_banner3.png" alt="">-->
+<!--                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<script src="js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+    var splide;
+
+    window.document.addEventListener('DOMContentLoaded', () => {
+        splide = new Splide('.splide', {
+            // vertical
+            arrows: false,
+            direction: 'ttb', // 슬라이드방향 -> height or heightRatio필수
+            heightRatio: 0.27, // direction 바뀔 때 height or heightRatio필수
+            paginationDirection: 'ttb', // 페지네이션 방향
+            // 기본설정 'loop' 무한반복, 'slide' 1회석
+            type: 'loop',
+            perPage: 1,
+            perMove: 1,
+            start: 0,
+            wheel: true,
+            autoplay: true,
+            interval: 4000,
+            // speed: 100,
+        }).mount();
+
+    });
+</script>
+</body>
+
+</html>

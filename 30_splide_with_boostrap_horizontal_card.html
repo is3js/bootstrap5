@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<style>
+
+    .splide .splide__slider {
+        /* Slide객체에서 width에 따라 heightRatio를 정했으니 */
+        /* width의 제한을 둔다. 제한에 따라 img태그는 알아서 fluid로 100을 채운다 */
+        max-width: 400px;
+        /* 옵션. 너무 붙어있어서*/
+        /*padding: 0 1rem;*/
+    }
+
+    .splide .splide__pagination {
+        /* 기존 상하패딩 1em -> 상하 여백을 줄임*/
+        padding: 0.2em 0;
+    }
+
+    .splide .splide__pagination--ttb {
+        /* 기존 left:auto; right:0.5em -> right 0으로  */
+        right: 0;
+    }
+
+    .splide .splide__pagination li {
+        /*  flex-column의 li들의 행간으로 indicator간격 조절  */
+        /*  기존 행간 1 -> 0.1 */
+        line-height: 0.1;
+    }
+
+</style>
+<p>1. bootsrap horizontal 으로 만들기</p>
+<p>
+    1) 가장 기본 card 가져오기
+    2) .card의 width 지우기(flex+block부모며, 자식들은 .card-img or .card-img-top 등으로 card내부요소들은 width:100%으로 인해 가로로 꽉참)
+    3) 자식들은 100%로 채우고 있으니 부모 .card에 max-width줘서 특정크기로 제한시키고 그 중 .card img태그에 max-width를 %로 차지하게 준다.
+    4) 부모인 .card를 flex-direction: row 로 변경한다.
+    5) %자식인 .card img에 이미지를 늘려서 꽉 채우던 것을, margin:auto로 상하 및 좌우의 가운데 정렬시킨다
+    6) .card img에 padding을 줘서 텍스트 및 card와 간격을 약간 주고, border-radius도 준다.
+    7) 이제 이미지를 1:1사이즈로 유지하기 위해 heigth:auto; + aspect-ratio: 1/1;로 준다.
+    8) card body에는 img와의 간격을 패딩으로 주고, flex-column으로 만든 뒤, subtitle과 title을 수직가운데 정렬되게 한다.
+    9) subtitle, title에 custom css를 준 뒤, fontsize, 굵기, 자간을 반응형으로 정의한다.
+
+
+
+</p>
+<style>
+    .card {
+        /* 1 */
+        /*max-width: 400px;*/
+
+        /* 2 */
+        flex-direction: row;
+
+    }
+
+    .card img {
+        /* 1 */
+        max-width: 25%;
+        /* 5 */
+        height: auto;
+        aspect-ratio: 1/0.95; /* 높이를 너비의 3:2 비율로 지정 (예시 비율) */
+        /* 3 */
+        margin: auto;
+        /* 4 */
+        padding: 0.1em;
+        /*border-radius: 1em;*/
+    }
+
+    .top-left-banner-subtitle {
+        font-size: 1.0rem;
+        font-weight: 600;
+        letter-spacing: -1px;
+        color:#FC5230;
+
+    }
+
+    .top-left-banner-title {
+        font-size: 1.2rem;
+        font-weight: 900;
+        letter-spacing: -1px;
+        color:#12887A;
+    }
+
+    @media screen and (max-width: 950px) {
+        .top-left-banner-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: -1.5px;
+        }
+
+        .top-left-banner-title {
+            font-size: 0.8rem;
+            letter-spacing: -1.5px;
+        }
+    }
+    /* sm 까지는 pagination 탭 안나오게 + title은 subtitle만큼 글자크기 줄이면서 자간은 더 줄이기*/
+    @media screen and (max-width: 763px) {
+        .splide ul.splide__pagination {
+            display: none;
+        }
+
+
+        .top-left-banner-title {
+            font-size: 0.75rem;
+            letter-spacing: -1.8px;
+        }
+
+    }
+
+
+</style>
+<div class="container ">
+    <div class="card d-flex align-items-center">
+        <img src="images/qrcode.png" class="card-img rounded-start" alt="...">
+        <div class="card-body m-0 p-0 d-flex flex-column justify-content-center">
+            <div class="card-title top-left-banner-subtitle text-truncate">부부한의사의</div>
+            <p class="card-text top-left-banner-title text-truncate">일관성 있는 동일 진료</p>
+        </div>
+    </div>
+
+</div>
+<div class="container ">
+    <div class="row">
+        <div class="col-4 m-1 d-flex align-items-center p-0 p-sm-1">
+<!--            <div class="splide d-none d-md-block bg-transparent">-->
+            <div class="splide d-none d-sm-block bg-transparent">
+                <div class="splide__slider position-relative">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide ">
+                                <div class="card border-0 border-dark">
+                                    <img src="images/new-001.png" class="card-img-top rounded-start" alt="...">
+                                    <div class="card-body p-0 ps-2 d-flex flex-column justify-content-center">
+                                        <div class="card-title top-left-banner-subtitle text-truncate mb-1">부부한의사의</div>
+                                        <div class="card-text top-left-banner-title text-truncate my-0">일관성 있는 동일 진료</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide ">
+                                <div class="card border-0 border-dark">
+                                    <img src="images/new-002.png" class="card-img-top rounded-start" alt="...">
+                                    <div class="card-body p-0 ps-2 d-flex flex-column justify-content-center">
+                                        <div class="card-title top-left-banner-subtitle text-truncate mb-1">조재성원장님</div>
+                                        <div class="card-text top-left-banner-title text-truncate my-0">근골격계/추나/재활치료</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide ">
+                                <div class="card border-0 border-dark">
+                                    <img src="images/new-003.png" class="card-img-top rounded-start" alt="...">
+                                    <div class="card-body p-0 ps-2 d-flex flex-column justify-content-center">
+                                        <div class="card-title top-left-banner-subtitle text-truncate mb-1">김석영원장님</div>
+                                        <div class="card-text top-left-banner-title text-truncate my-0">피부/미용/여성질환</div>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+                            <!--                            <li class="splide__slide">-->
+                            <!--                                <img class="img-fluid" src="images/vertical_banner2.png" alt="">-->
+                            <!--                            </li>-->
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<script src="js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+    var splide;
+
+    window.document.addEventListener('DOMContentLoaded', () => {
+        splide = new Splide('.splide', {
+            // vertical
+            arrows: false,
+            direction: 'ttb', // 슬라이드방향 -> height or heightRatio필수
+            heightRatio: 0.25, // direction 바뀔 때 height or heightRatio필수
+            paginationDirection: 'ttb', // 페지네이션 방향
+            // 기본설정 'loop' 무한반복, 'slide' 1회석
+            type: 'loop',
+            perPage: 1,
+            perMove: 1,
+            start: 0,
+            wheel: true,
+            autoplay: true,
+            interval: 4000,
+            // speed: 100,
+        }).mount();
+
+    });
+</script>
+</body>
+
+</html>

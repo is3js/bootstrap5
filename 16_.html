@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--flex test-->
+flex-fill과 grow, shrink
+<div class="container">
+    <p>1. (flex-item에서)flex-fill을 주면, 안준 item의 content차지후 부모의 나머지 공간을 다 차지한다</p>
+    <p>flex-fill의 flex-item이 여러개일 경우, 나눠서 남은 공간을 차지한다</p>
+    <p>구체적으로는 flex-grow-1 + flex-shrink-1이 동시에 적용된 flex: 1 1 auto를 의미한다.</p>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success ">item2</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+    </div>
+    <div class="d-flex flex-column border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <div class="d-flex flex-column border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+    </div>
+    <div class="d-flex flex-column border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+        <div class="p-2 border border-success flex-fill">flex-fill</div>
+    </div>
+</div>
+
+<div class="container">
+    <p>2. (flex-item에)flex-grow-1 을 주면, 안준 item의 content차지후 부모의 나머지 공간을 다 차지한다</p>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success flex-grow-1">flex-grow-1</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <p>3. (flex-item에)flex-shrink-1 을 주면, 부모와 같이 축소하여, 넘치는 content들이 안삐져나가고, height로 간다</p>
+    <p> - 안준 flex-item들은  축소안하고, content들이 삐져나오게 된다</p>
+    <p> - w-100인 item과 같은 행에 위치한다면, 자신은 줄어들만큼만 미리 축소된 상태다</p>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success">item2</div>
+        <div class="p-2 border border-success flex-shrink-1">flex-shrink-1</div>
+    </div>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success w-100">w-100</div>
+        <div class="p-2 border border-success flex-shrink-1">flex-shrink-1</div>
+    </div>
+    <p> - w-100인 item과 같은 행에 위치할 때, 축소를 방지한체로 존재하고 싶다면, flex-shrink-0을 준다</p>
+    <div class="d-flex border border-dark my-2" style="height: 200px;">
+        <div class="p-2 border border-success w-100">w-100</div>
+        <div class="p-2 border border-success flex-shrink-0">flex-shrink-0</div>
+    </div>
+</div>
+flex-item들과 margin-auto (남은 공간으로 몰기)<br>
+flex-row 일 때, 밀기
+<div class="container">
+    <div class="d-flex border border-dark my-2" >
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success">item2</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <p>1. 남은 공간으로, 이후item들을 오른쪽으로 밀고 싶다면, 오른쪽 첫item에 ms-auto를 준다.</p>
+    <div class="d-flex border border-dark my-2" >
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success">item2</div>
+        <div class="p-2 border border-success ms-auto">ms-auto</div>
+    </div>
+    <div class="d-flex border border-dark my-2" >
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success ms-auto">ms-auto</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <p>2. 남은 공간으로, item들을 가운데 넣고 싶다면, 왼쪽끝item에 me-auto, 오른쪽첫item에 ms-auto를 준다</p>
+    <div class="d-flex border border-dark my-2" >
+        <div class="p-2 border border-success me-auto">me-auto</div>
+        <div class="p-2 border border-success">item2</div>
+        <div class="p-2 border border-success">item3</div>
+        <div class="p-2 border border-success">item4</div>
+        <div class="p-2 border border-success ms-auto">ms-auto</div>
+    </div>
+    <div class="d-flex border border-dark my-2" >
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success me-auto">me-auto</div>
+        <div class="p-2 border border-success">item3</div>
+        <div class="p-2 border border-success ms-auto">ms-auto</div>
+        <div class="p-2 border border-success ">item5</div>
+    </div>
+</div>
+
+flex-column 일 때, 밀기
+<div class="container">
+    <div class="d-flex flex-column border border-dark my-2" style="height: 200px;" >
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success">item2</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <p>1. 남은 공간으로, item들을 가운데 넣고 싶다면, 위쪽 끝 item에 mb-auto, 바닥 첫item에 mt-auto를 준다</p>
+    <div class="d-flex flex-column border border-dark my-2" style="height: 200px;" >
+        <div class="p-2 border border-success">item1</div>
+        <div class="p-2 border border-success mt-auto">mt-auto</div>
+        <div class="p-2 border border-success">item3</div>
+    </div>
+    <p>2. 남은 공간으로, 이후item들을 바닥으로 밀고 싶다면, 바닥의 첫item에 mt-auto를 준다.</p>
+    <div class="d-flex flex-column border border-dark my-2" style="height: 200px;" >
+        <div class="p-2 border border-success mb-auto">mb-auto</div>
+        <div class="p-2 border border-success ">item2</div>
+        <div class="p-2 border border-success mt-auto">mt-auto</div>
+    </div>
+</div>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

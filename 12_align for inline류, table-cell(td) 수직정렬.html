@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border 색 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<style>
+    span {
+        background: #efefef;
+        /* inline은 상하간격, width/height를 무시하고 컨텐츠만 차지해서, height줄때 display 변경 */
+        display: inline-block;
+        /*height: 60px;*/
+    }
+</style>
+<p>인라인, 인라인 블록, 인라인 테이블, 테이블 셀 요소의 수직 정렬을 변경</p>
+<p class="fw-bold"> flex의 align-self-xxx의  inline버전</p>
+<p>이 속성은 대부분 이미지와 텍스트를 같은 요소에서 중간으로 배치하기 위해 많이 사용하고 있다 </p>
+<p> - 텍스트 요소에는 line-height 를 주고 img 태그에 vertical-align: top 주고 쓰면 웬만한 경우에서는 원하는 결과를 낸다. </p>
+<p>align-baseline : <strong>인라인</strong>, 인라인 블록, 인라인 테이블, <strong>테이블 셀 요소</strong>를 부모 요소의 baseline에 정렬합니다.<br>
+    align-items-baseline : flexbox 요소</p>
+<p>inline: 한줄에 컨텐츠의 크기 만큼만 공간을 차지 -> 주의할 점은, width와 height 속성을 지정해도 무시 + 상하간격 반영안됨.</p>
+<p>block:  전후 줄바꿈이 들어가 다른 엘리먼트들을 다른 줄로 밀어내고 혼자 한 줄을 차지합니다. 대표적인 block 엘리먼트로 div이나 p, h1</p>
+<p>inline-block:  inline 엘리먼트처럼 전후 줄바꿈 없이 한 줄에 다른 엘리먼트들과 나란히 배치되지만, block 엘리먼트처럼 width와 height 속성 지정 및 margin과 padding 속성의 상하 간격 지정이 가능. button이나 input, select 태그 </p>
+<p>inline-block:  inline과 달리, 여러 개의 엘리먼트를 한 줄에 정확히 원하는 너비만큼 배치할 수 있기 때문에 레이아웃에 활용 </p>
+<p>참고 : https://mygumi.tistory.com/368 </p>
+<div class="container bg-warning block"  >
+    <span class="fs-3 p-0 border border-success" style="height: 80px;">부모요소x</span>
+    <span class="align-baseline">align-baseline</span>
+    <br>
+    <span class="fs-3 p-0 border border-success" style="height: 80px;">부모요소x</span>
+    <span class="align-text-top">align-text-top</span>
+    <br>
+    <span class="fs-3 p-0 border border-success" style="height: 80px;">부모요소x</span>
+    <span class="align-top">align-top</span>
+    <br>
+    <span class="fs-3 p-0 border border-success align-top" style="height: 80px;">큰요소(이미지)에 align-top</span>
+    <span  style="font-size:10px;line-height: 80px;">text요소에 행간& 1줄 총높이인 line-height 큰요소의 height만큼</span>
+    <br>
+    <span class="fs-3 p-0 border border-success" style="height: 80px;">부모요소x</span>
+    <span class="align-middle">align-middle</span>
+    <br>
+    <span class="fs-3 p-0 border border-success" style="height: 80px;">부모요소x</span>
+    <span class="align-bottom">align-bottom</span>
+    <br>
+    <span class="fs-3 p-0 border border-success" style="height: 80px;">부모요소x</span>
+    <span class="align-text-bottom">align-text-bottom</span>
+
+</div>
+
+<p>inline들 중에서도 table의 cell(td태그)에 가장 많이 쓴다.align-x</p>
+<p>이 때, table의 height가 지정되어있어야 그 기준으로 정렬된다.</p>
+<div class="container" >
+    <table class="table table-borderd" style="height: 200px;">
+        <tr>
+            <td>align-baseline</td>
+            <td>align-text-top</td>
+            <td>align-top</td>
+            <td>align-middle</td>
+            <td>align-bottom</td>
+            <td>align-text-bottom</td>
+        </tr>
+        <tr>
+            <td class="align-baseline">align-baseline</td>
+            <td class="align-text-top">align-text-top</td>
+            <td class="align-top">align-top</td>
+            <td class="align-middle">align-middle</td>
+            <td class="align-bottom">align-bottom</td>
+            <td class="align-text-bottom">align-text-bottom</td>
+        </tr>
+    </table>
+</div>
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

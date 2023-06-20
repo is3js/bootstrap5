@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>alert는 div.alert.alert-색으로 만들면 된다.</p>
+    <div class="alert alert-success">알림창</div>
+    <div class="alert alert-primary">알림창</div>
+    <div class="alert alert-secondary">알림창</div>
+    <div class="alert alert-danger">알림창</div>
+    <div class="alert alert-warning">알림창</div>
+    <div class="alert alert-info">알림창</div>
+    <div class="alert alert-light">알림창</div>
+    <div class="alert alert-dark">알림창</div>
+</div>
+
+<div class="container">
+    <p>alert 내부의 link는 a.alert-link 로 a태그를 추가한다.</p>
+    <div class="alert alert-success">
+        알림창
+        <a href="" class="alert-link">링크</a>
+    </div>
+</div>
+
+<div class="container">
+    <p>alert의 head는 h4.alert-heading(부모글자색 상속)으로 추가한다. 선은 hr로 추가하고, 하고싶은말은 p.m-0로 한다</p>
+    <div class="alert alert-success">
+        <h4 class="alert-heading">.alert-heading 축하합니다.</h4>
+        <p class="m-0">p여기에 당첨되었어요</p>
+        <hr>
+        <p class="m-0">
+            p자세한 내용은
+            <a href="" class="alert-link">.alert-link링크</a>
+            를 클릭해주세요.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <p>닫기버튼은 div.alert.alert-색에 <br>
+        (1).alert-dismissible 필수에 애니메이션 .fade.show를 추가하고 <br>
+        (2) button.btn-close를 만든 뒤<br>
+        (3) button 속성에 data-bs-dismiss="alert"의 트리거를 추가한다</p>
+    <div class="alert alert-warning alert-dismissible fade show">
+        <p class="m-0"><strong >축하합니다.</strong> 좋은 하루 보내세요.</p>
+
+        <button class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

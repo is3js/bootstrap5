@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+navigation 디자인
+<!--row/col test -->
+<div class="container">
+    <p>1. nav도 ul>li의 뼈대를 가지며, li속에 a태그를 사용한다</p>
+    <ul>
+        <li><a href="">home</a></li>
+        <li><a href="">item1</a></li>
+        <li><a href="">item2</a></li>
+        <li><a href="">item3</a></li>
+    </ul>
+    <p>2. 본격적으로 ul.nav로 flex를 만들며<br>
+        > li 속 > a.nav-link를 통해 text-decoration-none + block으로 만든다.</p>
+    <p>.nav>.nav-link에는 active가 없고 disabled만 있다.</p>
+    <ul class="nav">
+        <li><a class="nav-link" href="">home</a></li>
+        <li><a class="nav-link" href="">nav-link</a></li>
+        <li><a class="nav-link active" href="">nav-link active(x)</a></li>
+        <li><a class="nav-link disabled" href="">nav-link disabled</a></li>
+    </ul>
+    <p>3. list-group의 ul>li를 div>a태그로 바꿨듯이, ul>li를 nav.nav>a.nav-link태그로 바꿔서 사용한다</p>
+    <nav class="nav">
+        <a class="nav-link" href="">home</a>
+        <a class="nav-link" href="">nav-link</a>
+        <a class="nav-link active" href="">nav-link active</a>
+        <a class="nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+    <p>4. .nav는 flex(-row)를 만드므로, 내부 아이템들을 수평정렬(justify-content-x)할 수 있다.</p>
+    justify-content-center
+    <nav class="nav justify-content-center">
+
+        <a class="nav-link" href="">home</a>
+        <a class="nav-link" href="">nav-link</a>
+        <a class="nav-link active" href="">nav-link active</a>
+        <a class="nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+    <p>5. nav.nav에 flex-column을 주면, 수직배치가 정방향이 된다.</p>
+    <nav class="nav flex-column">
+        <a class="nav-link" href="">home</a>
+        <a class="nav-link" href="">nav-link</a>
+        <a class="nav-link active" href="">nav-link active</a>
+        <a class="nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+</div>
+
+tabs 디자인
+<div class="container">
+    <p>6. nav.nav에 .nav-tabs를 추가하면, 자식인 a.nav-link 를 tab으로 만들 수 있다.</p>
+    <p> - tab에서는 active가 필수다.</p>
+    <p> - tab으로서의 기능은 아직 안하는 상태다.</p>
+    <nav class="nav nav-tabs">
+        <a class="nav-link active" href="">nav-link active</a>
+        <a class="nav-link" href="">nav-link</a>
+        <a class="nav-link " href="">nav-link</a>
+        <a class="nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+    <p>7. nav.nav.nav-tabs를 사용한다면, 자식들은 .nav-item이 들어간다고 한다.</p>
+    <p> - 예시에는 ul.nav.nav-tabs > li.nav-item > a.nav-link로 연결된다.</p>
+    <p> - nav-item은 글자색, 배경색, border색만 변경하는데, nav-link와의 차이점은 모르겠다. </p>
+    <nav class="nav nav-tabs">
+        <a class="nav-item nav-link active" href="">nav-link active</a>
+        <a class="nav-item nav-link" href="">nav-link</a>
+        <a class="nav-item nav-link " href="">nav-link</a>
+        <a class="nav-item nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+    <p>8. .nav-tabs 대신 .nav-pills 를 사용하면, tab요소들이 버튼처럼 생기게 변한다..</p>
+    <nav class="nav nav-pills">
+        <a class="nav-item nav-link active" href="">nav-link active</a>
+        <a class="nav-item nav-link" href="">nav-link</a>
+        <a class="nav-item nav-link " href="">nav-link</a>
+        <a class="nav-item nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+    <p>9. nav.nav.nav-pills에 nav-fill을 추가하면 active된 nav-item들이, 남은공간을 가득채운다.</p>
+    <nav class="nav nav-pills nav-fill">
+        <a class="nav-item nav-link active" href="">nav-link active</a>
+        <a class="nav-item nav-link" href="">nav-link</a>
+        <a class="nav-item nav-link active" href="">nav-link active</a>
+        <a class="nav-item nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+    <p>10. nav.nav.nav-pills에 nav-fill 대신 nav-justified를 사용하면, active와 상관없이 nav-link 요소들이 남은공간을 똑같은 width로 가득채운다..</p>
+    <nav class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link active" href="">nav-link active</a>
+        <a class="nav-item nav-link" href="">nav-link</a>
+        <a class="nav-item nav-link active" href="">nav-link active</a>
+        <a class="nav-item nav-link disabled" href="">nav-link disabled</a>
+    </nav>
+</div>
+
+tab 작동
+<div class="container">
+    <p>11. nav.nav-tabs를 작동시키려면 </p>
+    <p>(1) 각 a.nav-item.nav-link에 data-bs-toggle="tab"을 추가하고</p>
+    <p>(2) 새로운 div.tab-content를 생성한 뒤, 자식으로는 div#id.tab-pane.fade를 기본으로 장착하고, 첫 .tab-pane에 .show.actice를 붙여준다. 내용을 작성한다</p>
+    <p> - .tab-content는 자식.tab-pane이 있을 경우, active를 제외한 친구들을 display:none;을 기본으로 지정해준다.(style은 x)</p>
+    <p>(3) 각 a.nav-item.nav-link에 data-bs-target=""에  각 .tab-pane의 #id를 지정해준다. </p>
+    <p>(4) 각 a.nav-item.nav-link가 a태그인 경우는 href=""에 #id를 지정해줘도 된다.</p>
+    <nav class="nav nav-tabs">
+        <a class="nav-item nav-link active" data-bs-toggle="tab" href="#step1">step1 active</a>
+        <a class="nav-item nav-link" data-bs-toggle="tab"  href="#step2">step2</a>
+        <a class="nav-item nav-link " data-bs-toggle="tab"  href="#step3">step3</a>
+        <a class="nav-item nav-link " data-bs-toggle="tab"  data-bs-target="#step4">step4</a>
+        <a class="nav-item nav-link" data-bs-toggle="tab"  data-bs-target="#step5">step5</a>
+        <a class="nav-item nav-link " data-bs-toggle="tab"  data-bs-target="#step6">step6</a>
+    </nav>
+    <div class="tab-content">
+        <div id="step1" class="tab-pane fade show active">step1</div>
+        <div id="step2" class="tab-pane fade">step2</div>
+        <div id="step3" class="tab-pane fade">step3</div>
+        <div id="step4" class="tab-pane fade">step4</div>
+        <div id="step5" class="tab-pane fade">step5</div>
+        <div id="step6" class="tab-pane fade">step6</div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

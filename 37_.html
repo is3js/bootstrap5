@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>1. form(block)에 label for + input id 로 구성된다.</p>
+    <form action="">
+        <label for="user">user: </label>
+        <input type="text" id="user">
+    </form>
+    <br>
+    <p>2. label태그에는 .form-label(mb추가) input태그에 .form-control cls를 주면, w-100 및 style들이 적용된다. </p>
+    <form action="">
+        <label for="user2" class="form-label">user2: </label>
+        <input type="text" id="user2" class="form-control">
+    </form>
+    <form action="">
+        <label for="pass" class="form-label">pass: </label>
+        <input type="text" id="pass" class="form-control">
+    </form>
+
+    <p>3. checkbox의 경우, form>label과 input에 대해 form > div.form-check > input.form-check-input + label.form-check-label형태로 사용한다</p>
+    <p> - input -> label형태로 사용하며</p>
+    <p> - input은 type="checkbox" value=""가 기본이다.</p>
+    <form action="">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox" value="">
+            <label class="form-check-label" for="checkbox">label.form-check-label</label>
+        </div>
+    </form>
+    <p>4. radio의 경우, checkbox랑 같은데, type만="radio"로 변경하고, name은 여러개의 div.form-check가 다 동일하게 생성한다.</p>
+    <form action="">
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="radioExample" id="radio" value="">
+            <label class="form-check-label" for="radio">radio1</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="radioExample" id="radio2" value="" checked>
+            <label class="form-check-label" for="radio2">radio2</label>
+        </div>
+    </form>
+    <p>5. chekcbox or radio는 inline으로 바로 만들 수 있다.</p>
+    <p> - 각 div.form-check에 .form-check-inline을 추가된다.</p>
+    <form action="">
+        <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioExample" id="radio3" value="">
+            <label class="form-check-label" for="radio3">radio3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioExample" id="radio4" value="" checked>
+            <label class="form-check-label" for="radio4">radio4</label>
+        </div>
+    </form>
+
+    <p>6. select는 label.form-label + select.form-select > option태그들 을 사용한다.</p>
+    <p>- default option은 selected 속성을 맨 위에 추가한다</p>
+    <label for="select" class="form-label">도시선택: </label>
+    <select name="select" id="select" class="form-select">
+        <option selected>선택해주세요.</option>
+        <option value="1">option1</option>
+        <option value="2">option2</option>
+        <option value="3">option3</option>
+    </select>
+    <p>7. select에서 여러개를 선택해야한다면, multiple 속성을 추가하면 된다.</p>
+    <p> - control 누르고 다중선택한다.</p>
+    <p> - 이 때는, default option을 제거한다</p>
+    <label for="selectMultiple" class="form-label">도시선택: </label>
+    <select multiple name="selectMultiple" id="selectMultiple" class="form-select">
+        <option value="1">option1</option>
+        <option value="2">option2</option>
+        <option value="3">option3</option>
+    </select>
+
+    <p>8. textarea도 input type="text"처럼, label.form-label + textrea.form-control로 사용한다</p>
+    <p> 이 때, cols="" rows=""가 추가된다.</p>
+    <form action="">
+        <label for="textArea" class="form-label">textArea: </label>
+        <textarea id="textArea" class="form-control" rows="5" cols="30"></textarea>
+    </form>
+
+    <p>9. file은 input의 type만 "file"로 바꾼다. </p>
+    <form action="">
+        <label for="file" class="form-label">file: </label>
+        <input type="file" id="file" class="form-control">
+    </form>
+    <p>10. input의 스타일은 input.form-control에  form-control-size 만 추가한다.</p>
+    <form action="">
+        <label for="email1" class="form-label">form-control-sm: </label>
+        <input type="text" id="email1" class="form-control form-control-sm">
+    </form>
+    <form action="">
+        <label for="email2" class="form-label">form-control-lg:  </label>
+        <input type="text" id="email2" class="form-control form-control-lg">
+    </form>
+
+    <p>11. range는 input.form-range 에 type="range"로 만들면 된다.</p>
+    <form action="">
+        <label for="range" class="form-label">range:  </label>
+        <input type="range" id="range" class="form-range">
+    </form>
+    <p> - min, max를 정해줄 수잇고</p>
+    <form action="">
+        <label for="range" class="form-label">range_min0_max5:  </label>
+        <input type="range" id="range_min0_max5" class="form-range" min="0" max="5">
+    </form>
+    <p> - step으로는 step="0.5" 처럼 정해주면 된다.</p>
+    <form action="">
+        <label for="range" class="form-label">range_min0_max5_step05:  </label>
+        <input type="range" id="range_min0_max5_step05" class="form-range" min="0" max="5" step="0.5">
+    </form>
+
+    <p>12. form 태그에 class="row"를 추가하고, 각 label+input에 div.col을 씌우거나, 부모가 있다면, col만 추가한다</p>
+    <p> - 각 col-sm-6으로 하면, 가장 작을때만 한줄, 그 이후(sm)부터는 절반씩 차지한다</p>
+    <form action="" class="row">
+        <div class="col-sm-6">
+            <label for="user3" class="form-label">user3: </label>
+            <input type="text" id="user3" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label for="pass2" class="form-label">pass2: </label>
+            <input type="text" id="pass2" class="form-control"></div>
+    </form>
+
+    <p>13. checkbox or radio의 경우, div.form-check라는 부모를 가졌으니 col만 추가한다. inline은 어차피 한줄이니, 새로운 부모를 싸서 만든다</p>
+    <form action="" class="row">
+        <div class="form-check col-sm-4">
+            <input type="radio" class="form-check-input" name="radioExample" id="radio5" value="">
+            <label class="form-check-label" for="radio5">radio1</label>
+        </div>
+        <div class="form-check col-sm-4">
+            <input type="radio" class="form-check-input" name="radioExample" id="radio6" value="" checked>
+            <label class="form-check-label" for="radio6">radio2</label>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="radioExample" id="radio7" value="">
+                <label class="form-check-label" for="radio7">radio3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="radioExample" id="radio8" value="" checked>
+                <label class="form-check-label" for="radio8">radio4</label>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

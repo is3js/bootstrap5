@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border 색 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="container">
+    <button class="btn-close fs-6 float-end">&times;</button>
+</div>
+<br>
+
+<div class="container">
+    <div class="wh float-start">left</div>
+    <div class="wh float-end">right</div>
+    <div class="clearfix"></div>
+    <div class="wh float-none">none -> clearfix역할</div>
+</div>
+
+미리 div.clearfix부모안에서 float를 해도 된다.
+<div class="container clearfix">
+    <div class="wh float-start">left</div>
+    <div class="wh float-end">right</div>
+</div>
+<br>
+md부터 float되고, 그전에는 원래배치를 float-size-방향으로 할 수 있다.
+<p>- 지금은 기본이 float-left라서 왼쪽정렬되어있지만, 각 div는 block이다.</p>
+<div class="container clearfix">
+    <div class="wh float-md-start">float-md-start</div>
+    <div class="wh float-md-end">float-md-end</div>
+</div>
+
+<br>
+<p>br과 함꼐 있는 text의 경우 해당div에 overflow된다.</p>
+<div class="container clearfix">
+    <div class="wh float-md-start">
+        float-md-start2;<br>
+        float-md-start2;<br>
+        float-md-start2;<br>
+        float-md-start2;<br>
+        float-md-start2;<br>
+
+    </div>
+    <div class="wh float-md-end">
+        float-md-end2;<br>
+        float-md-end2;<br>
+        float-md-end2;<br>
+        float-md-end2;<br>
+        float-md-end2;<br>
+    </div>
+</div>
+<br>
+<p class="fw-bold">이 때, .overflow-auto는 스크롤을 / .overflow-hidden은 그대로 잘라서 숨긴다.</p>
+<div class="container clearfix">
+    <div class="wh float-md-start overflow-auto">
+        overflow-auto<br>
+        overflow-auto<br>
+        overflow-auto<br>
+        overflow-auto<br>
+        overflow-auto<br>
+
+    </div>
+    <div class="wh float-md-end overflow-hidden">
+        overflow-hidden<br>
+        overflow-hidden<br>
+        overflow-hidden<br>
+        overflow-hidden<br>
+        overflow-hidden<br>
+    </div>
+</div>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+    .row {
+      border:dashed 1px red;
+      margin: 10px 0;
+      height: 100px;
+    }
+    .ca
+    {
+      border: solid 1px blue;
+      background: #EFEFEF;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+    order-숫자 는 no-order보다 뒤에서 순위정렬
+  <div class="row">
+    <div class="ca col-sm-3 order-3">1열(order-3)</div>
+    <div class="ca col-sm-3">2열(no-order)</div>
+    <div class="ca col-sm-3 order-1">3열(order-1)</div>
+  </div>
+</div>
+
+<div class="container">
+    order-first, last 는 no-order보다 우선 순위정렬
+  <div class="row">
+    <div class="ca col-sm-3 order-last">1열(order-last)</div>
+    <div class="ca col-sm-3">2열(no-order)</div>
+    <div class="ca col-sm-3 order-first">3열(order-first)</div>
+  </div>
+</div>
+
+<div class="container">
+  col-12를 못채울 때, offset-x을 남는 `col만큼 왼쪽여백` 작동시킨다. 만약 col적용안된상태라면, container를 넘어간다
+  <div class="row">
+    <div class="ca col-sm-3 offset-1">1열(offset-1)</div>
+    <div class="ca col-sm-3">2열</div>
+    <div class="ca col-sm-3 offset-2">3열(offset-2)</div>
+  </div>
+</div>
+
+<div class="container">
+  col-12를 못채울 때, ms-x로 왼쪽여백을 작게 줄 수 있다. 만약 col적용안된상태라면, container를 넘어간다
+  <div class="row">
+    <div class="ca col-sm-3 ms-1">1열(ms-1)</div>
+    <div class="ca col-sm-3 ms-2 me-2">2열</div>
+    <div class="ca col-sm-3 ms-3">3열(ms-3)</div>
+  </div>
+</div>
+
+<div class="container">
+  col-12를 못채울 때, ms-x, me-y로 좌우여백을 작게 줄 수 있다. 만약 col적용안된상태라면, container를 넘어간다
+  <div class="row">
+    <div class="ca col-sm-3 ">1열</div>
+    <div class="ca col-sm-3 ms-2 me-2">2열(ms-2, me-2)</div>
+    <div class="ca col-sm-3 ">3열</div>
+  </div>
+</div>
+
+
+<div class="container">
+  col-12를 못채울 때, ms-auto로, 남는col공간을 모두 자신의 왼쪽margin으로 쏟아부어, 서로 밀린다.
+  <div class="row">
+    <div class="ca col-sm-3 ">1열</div>
+    <div class="ca col-sm-3 ">2열</div>
+    <div class="ca col-sm-3 ms-auto">3열(ms-auto)</div>
+  </div>
+</div>
+<div class="container">
+  col-12를 못채울 때, me-auto로, 남는col공간을 모두 오른쪽margin으로 쏟아부어, 서로 밀린다.
+  <div class="row">
+    <div class="ca col-sm-3 me-auto">1열(me-auto)</div>
+    <div class="ca col-sm-3 ">2열</div>
+    <div class="ca col-sm-3 ">3열</div>
+  </div>
+</div>
+<div class="container">
+  col-12를 못채울 때, me-auto, ms-auto로, 남는col공간들을 서로 나누어 margin을 쏟아부어, 서로 민다.
+  <div class="row">
+    <div class="ca col-sm-3 me-auto">1열(me-auto)</div>
+    <div class="ca col-sm-3 ">2열</div>
+    <div class="ca col-sm-3 ms-auto">3열(ms-auto)</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="ca col-sm-3 me-auto">1열(me-auto)</div>
+    <div class="ca col-sm-3 me-auto">2열(me-auto)</div>
+    <div class="ca col-sm-3 ms-auto">3열(ms-auto)</div>
+  </div>
+</div>
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

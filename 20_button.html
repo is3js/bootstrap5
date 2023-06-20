@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+버튼 속성관련
+<!--row/col test -->
+<div class="container">
+    <p>1. 기본적으로는 button.btn.btn-색 으로 사용한다.</p>
+    <button>버튼</button>
+    <button class="btn">버튼.btn</button>
+    <button class="btn btn-primary">버튼.btn.btn-색</button>
+    <br><br>
+    <button class="btn btn-primary">btn-primary</button>
+    <button class="btn btn-secondary">btn-secondary</button>
+    <button class="btn btn-success">btn-success</button>
+    <button class="btn btn-danger">btn-danger</button>
+    <button class="btn btn-warning">btn-warning</button>
+    <button class="btn btn-info">btn-info</button>
+    <button class="btn btn-dark">btn-dark</button>
+    <button class="btn btn-light">btn-light</button>
+    <button class="btn btn-link">btn-link</button>
+</div>
+
+
+<div class="container">
+    <p>2. a태그나, input[type='button'] 에도 .btn.btn-색을 사용할 수 있다.</p>
+    <a href="" class="btn btn-success">a태그.btn.btn-색</a>
+    <input type="button" class="btn btn-success" value="input[type='button'].btn.btn-색">
+</div>
+
+<div class="container">
+    <p>3. button.btn.btn-outline-색 도 존재한다.</p>
+    <button class="btn btn-outline-primary">btn-outline-primary</button>
+    <button class="btn btn-outline-secondary">btn-outline-secondary</button>
+    <button class="btn btn-outline-success">btn-outline-success</button>
+    <button class="btn btn-outline-danger">btn-outline-danger</button>
+    <button class="btn btn-outline-warning">btn-outline-warning</button>
+    <button class="btn btn-outline-info">btn-outline-info</button>
+    <button class="btn btn-outline-dark">btn-outline-dark</button>
+    <button class="btn btn-outline-light">btn-outline-light</button>
+    <button class="btn btn-outline-link">btn-outline-link</button>
+</div>
+
+<div class="container">
+    <p>4. 버튼사이즈는 .btn-lg,-sm 을 추가하면 된다.</p>
+    <button class="btn btn-success btn-lg">btn-lg</button>
+    <button class="btn btn-success ">no option</button>
+    <button class="btn btn-success btn-sm">btn-sm</button>
+</div>
+<div class="container">
+    <p>5. 버튼을 화면 width로 채우고 싶다면, w-x을 활용한다(4에선 btn-block)</p>
+    <button class="btn btn-success w-100" >button.btn.btn-success.w-100</button>
+
+</div>
+<div class="container">
+    <p>6. disabled cls으로 비활성화 표시를 한다</p>
+    <p>disabled 속성으로 줘도 된다. 하지만, a태그에선 disabled속성이 없어서 cls로 해야한다.</p>
+    <button class="btn btn-success disabled" >disabled클래스 버튼</button>
+    <button class="btn btn-success " disabled >disabled속성 버튼</button>
+    <a href="" class="btn btn-success disabled" >disabled클래스 a태그 </a>
+    <a href="" class="btn btn-success" disabled>disabled속성 a태그 -> 안됨</a>
+    <input type="button" class="btn btn-success disabled" value="disabled클래스 버튼 input[type='button']">
+    <input type="button" class="btn btn-success" disabled value="disabled속성버튼 input[type='button']">
+</div>
+
+<div class="container">
+    <p>7. data-bs-toggle="button"은 button 클릭시 active cls가 부여된다.</p>
+    <button class="btn btn-outline-danger" >no toggle"</button>
+    <button class="btn btn-outline-danger" data-bs-toggle="button" >data-bs-toggle="button"</button>
+</div>
+
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

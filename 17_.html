@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+flex-wrap 관련
+<!--flex test-->
+<div class="container">
+    <p>div.d-flex는 block으로 width를 한줄을 다 차지하는 것 같지만, 일정사이즈보다 작아지면, 요소들이 빠져나올 공간이 생긴다 </p>
+    <p>기본적으로, flex-nowrap 으로서, width를 삐져나온 flex-item들을 처리안한 체로 삐져나가게 둔다.</p>
+    <p>- 직접 width를 div.d-flex에 줘서 삐져나오게해보자.</p>
+    <p>- flex-item들은, 부모width내에 height로 보내려면 flex-wrap은 거의 필수옵션?!</p>
+    width 300, heght 150
+    <div class="d-flex flex-row  border border-dark my-2 bg-warning" style="width: 300px;height: 150px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+    </div>
+</div>
+
+<div class="container">
+    <p>1. (div.d-flex에) flew-wrap을 주면, 정해진 width 영역을 넘어간 것에 대해 height로 보낸다.</p>
+    <div class="d-flex flex-row flex-wrap border border-dark my-2 bg-warning" style="width: 300px;height: 150px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+    </div>
+</div>
+
+<div class="container">
+    <p>2. flex-wrap-reverse를 주면, 정해진 width를 넘겨 height를 보낼 때, 아래부터 채우되, 좌->우 순서는 유지된다</p>
+    <div class="d-flex flex-row flex-wrap-reverse border border-dark my-2 bg-warning" style="width: 300px;height: 150px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+    </div>
+</div>
+
+
+flex-item에도 row>col에 매겼떤 order-숫자 를 매길 수 있음.
+<!--flex test-->
+<div class="container">
+    <p>row(flex)아래, col에 order를 매긴것처럼 개별 flex-item에도 order-1,2,3을 매길 수 있다.</p>
+    <p> - 이 때, order-숫자가 없는 item들이 먼저 배치되고, 그다음이 order-숫자 순으로 배치된다.</p>
+    <div class="d-flex flex-row flex-wrap border border-dark my-2 bg-warning" style="">
+        <div class="p-2 border border-success order-2">item1-order-2</div>
+        <div class="p-2 border border-success order-1">item2-order-1</div>
+        <div class="p-2 border border-success">item3-no-order</div>
+    </div>
+</div>
+
+
+align-content-start: height가 정해져있는 flex에서, flex-wrap으로 생기는 row(행)들에 대해 stretch 풀기
+<div class="container">
+    <p>flex-wrap시, 행을 넘어갈 경우,<br>
+        부모의 높이를 꽉채우도록 align-content-stretch가 적용되어있다.</p>
+    <div class="d-flex flex-row flex-wrap border border-dark my-2 bg-warning" style="height: 300px">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+        <div class="p-2 border border-success">flex-item9</div>
+        <div class="p-2 border border-success">flex-item10</div>
+    </div>
+    <p>이 때, item들에 대해, align-items-start를 적용한다면, 새로생기는 row의 위치가 stretch위치로 잡히게 된다.</p>
+    <div class="d-flex flex-row flex-wrap align-items-start border border-dark my-2 bg-warning" style="height: 300px">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+        <div class="p-2 border border-success">flex-item9</div>
+        <div class="p-2 border border-success">flex-item10</div>
+    </div>
+    <p>부모height존재 + flex-wrap으로 다음줄로 넘기는 경우 -> 항상 align-content-start로, item+row까지 stretch를 방지하자</p>
+    <div class="d-flex flex-row flex-wrap align-content-start border border-dark my-2 bg-warning" style="height: 300px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+        <div class="p-2 border border-success">flex-item9</div>
+        <div class="p-2 border border-success">flex-item10</div>
+    </div>
+    <p>item + row에 대해 start뿐만 아니라 center, end, between, around로도 수직정렬할 수 있다.(evenly는 없다)</p>
+    <p>align-content-center</p>
+    <div class="d-flex flex-row flex-wrap align-content-center border border-dark my-2 bg-warning" style="height: 300px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+        <div class="p-2 border border-success">flex-item9</div>
+        <div class="p-2 border border-success">flex-item10</div>
+    </div>
+    <p>align-content-end</p>
+    <div class="d-flex flex-row flex-wrap align-content-end border border-dark my-2 bg-warning" style="height: 300px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+        <div class="p-2 border border-success">flex-item9</div>
+        <div class="p-2 border border-success">flex-item10</div>
+    </div>
+    <p>align-content-between</p>
+    <div class="d-flex flex-row flex-wrap align-content-between border border-dark my-2 bg-warning" style="height: 300px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+        <div class="p-2 border border-success">flex-item4</div>
+        <div class="p-2 border border-success">flex-item5</div>
+        <div class="p-2 border border-success">flex-item6</div>
+        <div class="p-2 border border-success">flex-item7</div>
+        <div class="p-2 border border-success">flex-item8</div>
+        <div class="p-2 border border-success">flex-item9</div>
+        <div class="p-2 border border-success">flex-item10</div>
+    </div>
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

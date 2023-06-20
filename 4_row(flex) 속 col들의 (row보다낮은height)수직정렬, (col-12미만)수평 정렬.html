@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+    .row {
+      border:dashed 1px red;
+      margin: 10px 0;
+      height: 100px;
+    }
+    .ca
+    {
+      border: solid 1px blue;
+      background: #EFEFEF;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<!--flex가 아니라면 text-center(text-align: center !important)로 수평정렬 가능-->
+<h1 class="text-center align-self-center">수직 정렬</h1>
+
+<div class="container">
+  row(flex)에 align-items-xxx를 안주면, default align-items-start로 col들을 top에 정렬
+  <div class="row">
+    <div class="ca col-sm">1열</div>
+    <div class="ca col-sm">2열</div>
+    <div class="ca col-sm">3열</div>
+  </div>
+</div>
+<div class="container">
+  row(flex)에 align-items-center(aic)를 주면, col들 수직 가운데 정렬
+  <div class="row align-items-center">
+    <div class="ca col-sm">1열</div>
+    <div class="ca col-sm">2열</div>
+    <div class="ca col-sm">3열</div>
+  </div>
+</div>
+<div class="container">
+  row(flex)에 align-items-end(aie)를 주면, col들 bottom에 정렬
+  <div class="row align-items-end">
+    <div class="ca col-sm">1열</div>
+    <div class="ca col-sm">2열</div>
+    <div class="ca col-sm">3열</div>
+  </div>
+</div>
+<div class="container">
+  부모인 row에서 말고, col자체적으로, 부모에 대해 self를 정렬할 수 있다.
+  <div class="row align-items-end">
+    <div class="ca col-sm align-self-start">align-self-start(default)</div>
+    <div class="ca col-sm align-self-center">align-self-center(asc)</div>
+    <div class="ca col-sm align-self-end">align-self-end(ase)</div>
+  </div>
+</div>
+
+<h1 class="text-center align-self-center">수평정렬</h1>
+<p class="text-center">col 총합이 12가 안되도록 설정 후, row(flex)에 수평정렬 할 수 있다.</p>
+<div class="container">
+  col-12안채운 row(flex)에 justify-content-xxx 를 안주면, default justify-content-start(jcs) col들 왼쪽 정렬
+  <div class="row ">
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+  </div>
+</div>
+<div class="container">
+  col-12안채운 row(flex)에 justify-content-center(jcc) col들 가운데정렬
+  <div class="row justify-content-center">
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+  </div>
+</div>
+<div class="container">
+  col-12안채운 row(flex)에 justify-content-end(jce) col들 우측 정렬
+  <div class="row justify-content-end">
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+  </div>
+</div>
+
+<div class="container">
+  col-12안채운 row(flex)에 justify-content-around(jca) col들 양끝간격1/2씩포함 등간격 정렬
+  <div class="row justify-content-around">
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+  </div>
+</div>
+<div class="container">
+  col-12안채운 row(flex)에 justify-content-evenly(jce) col들 양끝간격 포함 등간격 정렬
+  <div class="row justify-content-evenly">
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+  </div>
+</div>
+<div class="container">
+  col-12안채운 row(flex)에 justify-content-between(jcb) col들 양끝간격 미포함 등간격 정렬
+  <div class="row justify-content-between">
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+    <div class="ca col-sm-3 ">3</div>
+  </div>
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

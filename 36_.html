@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>1. model은 div.modal>div.modal-dialog>div.modal-content 안에 div.modal-header, -body, -footer로 구성되며.</p>
+    <p> (1) div.modal에는 id를 배정하고, </p>
+    <p> (2) modal을 띄울 버튼을 만든 뒤, data-bs-target="#id"를 타겟삼고, data-bs-toggle="modal"로 띄울 수 있다.</p>
+    <p> - 이 때, div.modal-footer만 우측정렬(justify-content: flex-end;)이 기본이다.</p>
+    <p> (3) modal-header에는 제목 + 닫기버튼 button.btn.btn-close를 만드는데, data-bs-dismiss="modal"을 지정해줘야한다. </p>
+    <p> -  header는 양측정렬 justify-content: space-between; 되어있어서, 제목 + 닫기버튼이 양쪽으로 정렬된다.</p>
+    <p> (4) body가 길어질 경우를 대비해, div.modal-dialog에는 modal-dialog-scrollable을 기본으로 추가한다.</p>
+    <p> (5) modal의 크기도, div.modal-dialog에 .modal-size 로 준다.</p>
+    <p> (6) modal-footer에는 주로 버튼 2개를 준다(확인, 취소)</p>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-dialog-scrollable modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>modal 제목</h5>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                   <p>body</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success">확인</button>
+                    <button class="btn btn-secondary">취소</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-success" data-bs-target="#myModal" data-bs-toggle="modal">modal</button>
+</div>
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

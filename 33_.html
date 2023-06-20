@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>1. span태그에 logo + ul>li>a에 태그를 링크를 작성해서 시작한다.</p>
+    <span>Logo</span>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+    </ul>
+    <p>2. span + ul>li>a 를 nav.navbar로 둘러싸고, ul에는 .navbar-nav > li에는 .nav-item > a.nav-link을 추가한다</p>
+    <p> - nav.navbar는 flex를 만들어, span태그 + ul태그를 row로 나열하고</p>
+    <p> - ul.navbar-nav는 flex-column를 만들어, li태그들을 column방향으로 나열하고, list-style을 제거한다</p>
+    <p> - a.navbar-link a태그의 색을 변경한다</p>
+    <nav class="navbar"><span>Logo</span>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴3</a></li>
+        </ul>
+    </nav>
+    <p>3. nav.navbar에는 navbar-dark(글자흰색) + bg-dark(배경검은색) or -light, -light의 테마를 추가할 수 있다.</p>
+    <p>   span태그에 .navbar-brand를 줘서, 테마에 맞게 로고를 변경할 수 있다.</p>
+<!--    <nav class="navbar navbar-dark bg-dark">-->
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand">Logo</span>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴3</a></li>
+        </ul>
+    </nav>
+    <p>4. nav.navbar에 .navbar-expand-size를 통해, 특정크기부터만 flex-column으로, 그 이전에는 flex-row로 만들 수 있다.</p>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class="navbar-brand">Logo</span>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴3</a></li>
+        </ul>
+    </nav>
+    <p>5. ul.navbar-nav 에 ms-auto를 넣어, 남은 공간을 왼쪽에 밀어넣어, expand상황에서 우측정렬 할 수 있다.</p>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class="navbar-brand">Logo</span>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">메뉴3</a></li>
+        </ul>
+    </nav>
+    <p>6. 메뉴들인 ul태그를 div.collapse를 씌우면 사라진다. collapse css를 가진 것을 열려면, id를 배정해놓고, 그것을 열 button + data-bs-toggle="collapse" + data-bs-target="#id"가 필요하다</p>
+    <p> (1) ul태그를 감싸는 div.collapse에 .navbar-collapse를 추가하여, expand상황에서는 등장하게 한다.</p>
+    <p> (2) span <-> div.collapse 사이에 button.navbar-toggler을 만들고 내부에 span.navbar-toggler-icon으로 아이콘을 추가한다 </p>
+    <p> (3) div.collapse에 id="navbar"를 주고, button.navbar-toggler에 data-bs-target으로 준 뒤, data-bs-toggle="collapse"를 준다.</p>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class="navbar-brand">Logo</span>
+
+        <button class="navbar-toggler" data-bs-target="#navbar"  data-bs-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">메뉴1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">메뉴2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">메뉴3</a></li>
+            </ul>
+        </div>
+    </nav>
+    <p>7. div.collapse 내부를 ul>li>a 대신, div>a로 단축적용한다. 이 때 li의 nav-item a.nav-link에 추가한다.</p>
+    <p> - 각 a.nav-item.nav-link 에 active와 disabled 를 추가한다.</p>
+    <p> - a태그가 아니라 그냥 text는 span.navbar-text로 추가할 수 있따.</p>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <span class="navbar-brand">Logo</span>
+
+        <button class="navbar-toggler" data-bs-target="#navbar2"  data-bs-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar2">
+            <div class="navbar-nav ">
+                <a class="nav-item nav-link" href="#">Home</a>
+                <a class="nav-item nav-link" href="#">메뉴1</a>
+                <a class="nav-item nav-link active" href="#">메뉴2 active</a>
+                <a class="nav-item nav-link disabled" href="#">메뉴3 disabled</a>
+                <span class="navbar-text"> span.navbar-text</span>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

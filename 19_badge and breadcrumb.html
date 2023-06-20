@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+badge
+<!--row/col test -->
+<div class="container">
+    <p>1. badge는 span.badge.bg-배경색.text-글자색 이며, default 흰글자사용시 .text-글자색은 생략한다</p>
+    <p>글자색은 text-색으로 줄 수 있다.</p>
+    <h1>조재성 <span class="badge bg-primary">count</span></h1>
+    <h3>조재성 <span class="badge bg-secondary">count</span></h3>
+    <h2>조재성 <span class="badge bg-success">count</span></h2>
+    <h4>조재성 <span class="badge bg-danger">count</span></h4>
+    <h5>조재성 <span class="badge bg-warning text-dark">count</span></h5>
+    <h6>조재성 <span class="badge bg-info text-dark">count</span></h6>
+    <h6>조재성 <span class="badge bg-light text-dark">count</span></h6>
+    <h6>조재성 <span class="badge bg-dark">count</span></h6>
+
+    <p>2. rounded-pill 을 추가하면 태그모양이 만들어진다.</p>
+    <p>글자색은 text-색으로 줄 수 있다.</p>
+    <span class="badge rounded-pill bg-primary">count</span>
+    <span class="badge rounded-pill bg-secondary">count</span>
+    <span class="badge rounded-pill bg-success">count</span>
+    <span class="badge rounded-pill bg-danger">count</span>
+    <span class="badge rounded-pill bg-warning text-dark">count</span>
+    <span class="badge rounded-pill bg-info text-dark">count</span>
+    <span class="badge rounded-pill bg-light text-dark">count</span>
+    <span class="badge rounded-pill bg-dark">count</span>
+
+    <br>
+    <span class="badge rounded-pill bg-primary">1</span>
+    <span class="badge rounded-pill bg-secondary">2</span>
+    <span class="badge rounded-pill bg-success">3</span>
+    <span class="badge rounded-pill bg-danger">4</span>
+    <span class="badge rounded-pill bg-warning text-dark">5</span>
+    <span class="badge rounded-pill bg-info text-dark">6</span>
+    <span class="badge rounded-pill bg-light text-dark">7</span>
+    <span class="badge rounded-pill bg-dark">8</span>
+
+</div>
+breadcrumb
+<div class="container">
+    <p>1. nav태그안에서 ol.breadcrumb>li.breadcrumb-item.active>a태그로 만든다</p>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+                <a href="">home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="">Java</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="">Python</a>
+            </li>
+        </ol>
+    </nav>
+    <p>2. divider를 / 대신 >를 주고 싶다면, nav태그에 style="--bs-breadcrumb-divider: '>';를 추가한다</p>
+    <nav style="--bs-breadcrumb-divider: '>';">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="">home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="">Java</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="">Python</a>
+            </li>
+        </ol>
+    </nav>
+
+    <p>3. divider를 image로 주고 싶다면, style에서 url(svg)를 활용한다</p>
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="">home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="">Java</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="">Python</a>
+            </li>
+        </ol>
+    </nav>
+</div>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+    </style>
+</head>
+<body>
+
+타이틀 관련
+<div class="container">
+    <h1>tag h1</h1>
+    <h2>tag h2</h2>
+    <h3>tag h3</h3>
+    <h4>tag h4</h4>
+    <h5>tag h5</h5>
+    <h6>tag h6</h6>
+
+    <div class="h1">div.h1</div>
+    <div class="h2">div.h2</div>
+    <div class="h3">div.h3</div>
+    <p class="h4">p.h4</p>
+    <p class="h5">p.h5</p>
+    <p class="h6">p.h6</p>
+
+    <h1>현재보다 조금 작게(small) 글자색 변경은 중간에 <small class="text-muted">small.text-muted</small></h1>
+
+    h1보다 더 크게는 h1.display-x
+    <h1 class="display-1">h1.display-1</h1>
+    <h1 class="display-2">h1.display-2</h1>
+    <h1 class="display-3">h1.display-3</h1>
+    <h1 class="display-4">h1.display-4</h1>
+</div>
+
+텍스트 관련
+<div class="container">
+    <p>일반적인 p태그</p>
+    <p class="lead">중요한 단락(p)에서 fw-300+1.25rem의 p.lead 태그</p>
+    <p>일반적인 p태그 속<mark>mark태그</mark>는 <span class="mark">span.mark</span>와 동일하 음영색</p>
+    <p>일반적인 p태그 속<del>del태그</del> 혹은 <s>s태그</s>는 취소선</p>
+    <p>일반적인 p태그 속 축약어 <abbr title="Cascading Style Sheets">CSS</abbr>를 abbr태그로 설명하면, dashsed dot으로 underline이 생겨요</p>
+
+    <blockquote class="blockquote text-center">
+        <p>blockquote.blockquote.text-center안에 p태그는 인용문의 내용</p>
+        <footer class="blockquote-footer">blockquote.blockquote안에 footer.blockquote-footer는 인용문의 출저</footer>
+    </blockquote>
+    <blockquote class="blockquote text-end">
+        <p>blockquote.blockquote.text-end</p>
+        <footer class="blockquote-footer">인용문의 출저</footer>
+    </blockquote>
+</div>
+
+list 관련
+<div class="container">
+    <ul>
+        <li>Java</li>
+        <li>Python</li>
+        <li>PHP</li>
+        <li>Javascript</li>
+    </ul>
+</div>
+<div class="container">
+    ul.list-unstyled 로 들여쓰기 점 제거
+    <ul class="list-unstyled">
+        <li>Java</li>
+        <li>Python</li>
+        <li>PHP</li>
+        <li>Javascript</li>
+        ul안에 ul -> 또 list-unstyled 해줘야한다. -> 모든 들여쓰기가 삭제된다.
+        <ul>
+            <li>Linux</li>
+            <li>Apache</li>
+            <li>MySql</li>
+        </ul>
+        <ul class="list-unstyled">
+            <li>Linux</li>
+            <li>Apache</li>
+            <li>MySql</li>
+        </ul>
+    </ul>
+    ul.list-inline > li.list-inline-item 조합으로 list요소들을 가로배열 할 수 있다.
+    <ul class="list-inline">
+        <li class="list-inline-item">Java</li>
+        <li class="list-inline-item">Python</li>
+        <li class="list-inline-item">PHP</li>
+        <li class="list-inline-item">Javascript</li>
+    </ul>
+</div>
+
+defenition list + text-truncate
+<div class="container">
+    <p>table대신 div.container>dl.row>(합12의 dt.col+dd.col)*숫자를 활용해 용어박스list를 만든다.</p>
+    div.container>dl.row>dt.col-sm-3+dd.col-sm-3
+    - dd(description)은 기본적으로 margin-inline-start:40px이 있다. -> mb-0을 추가하면 사라진다.
+    div.container>dl.row>dt.col-sm-3+dd.mb-0.col-sm-3
+    <div class="container">
+        <dl class="row">
+            <dt class="ca col-sm-3">조재성</dt>
+            <dd class="ca col-sm-9 ">개발자이자 한의사</dd>
+
+            <dt class="ca col-sm-3">김석영</dt>
+            <dd class="ca col-sm-9 mb-0">한의사</dd>
+
+            <dt class="ca col-sm-3">조삼현</dt>
+            <dd class="ca col-sm-9 mb-0">미래의 아들이다. 나올지 안나올지 모른다 ㅋㅋㅋㅋㅋㅋㅋ</dd>
+
+            <dt class="ca col-sm-3 text-truncate">text-truncate</dt>
+            <dd class="ca col-sm-9 mb-0 text-truncate">미래의 아들이다. 나올지 안나올지 모른다 ㅋㅋㅋㅋㅋㅋㅋ</dd>
+        </dl>
+    </div>
+
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

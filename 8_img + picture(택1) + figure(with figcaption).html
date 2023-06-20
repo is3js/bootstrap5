@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+    .row {
+      border:dashed 1px red;
+      margin: 10px 0;
+    }
+    .ca
+    {
+      border: solid 1px blue;
+      background: #EFEFEF;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+  <p>img태그는 기본 원본크기로, container를 뚫고 나타난다</p>
+  <img src="images/banner.jpg" alt="">
+  <p>큰 이미지는 max-width:100%로 부모(container)의 margin+padding 제외 폭width를 채우고, height는 auto를 통해 비율에 맞게 축소되게 한다</p>
+  <img src="images/banner.jpg" style="max-width: 100%;height: auto;" alt="">
+  <p>max-width:100%로 height는 auto를 img.img-fluid로 바로 해결할 수 있다.</p>
+  <img src="images/banner.jpg" class="img-fluid" alt="">
+
+  <p>정사각형 이미지</p>
+  <img src="images/qrcode.png" class="" alt="">
+  <p>img.img-thumbnail을 둥근border+padding약간으로 채우면서 img-fluid다</p>
+  <img src="images/qrcode.png" class="img-thumbnail" alt="">
+
+
+  <p>img.float-start .float-end는 한줄에 좌/우측정렬로 몰아낸다. float가 아닌 것들은 left, right로 몰린 것 사이에서 정렬된다</p>
+  <p>마치 inline-block과 같이 작동하며, 부유 속성이 아닌 것들이 감싸게 된다.</p>
+  <img src="images/qrcode.png" class="img-thumbnail float-start" alt="">
+  not-float-1
+  <p class="text-bg-warning float-start" >float-start2번째</p>
+  <img src="images/qrcode.png" class="img-thumbnail float-end" alt="">
+  not-float-2
+  <p class="text-bg-primary float-end" >float-end2번째</p>
+  <p class="text-bg-danger float-end" >float-end3번째</p>
+
+  <div class="clearfix"></div>
+  <p>부유 속성을 div.clearfix로 끝낸다.</p>
+
+  <p>img태그(inline)를 자식들이 아닌 부모에 대해  자신이 가운데 정렬(self-center)하려면, block으로 만들고 margin으로 가운데 정렬한다.</p>
+  <p>img.d-block.mx-auto</p>
+  <img src="images/qrcode.png" class="d-block mx-auto" alt="">
+  <p>img태그(inline)를 부모에서 가운데 정렬하려면, 부모div.text-center로 하면 된다.</p>
+  <p>img.d-block은 부모의 text-center는 안먹는다.(자신의 content 및 자식만 적용?) d-block부터는 자신이 margin으로 가운데정렬</p>
+  <div class="text-center">
+    <img src="images/qrcode.png" class="" alt="">
+  </div>
+</div>
+picture for size별 택1
+<div class="container">
+  <p>여러개의 이미지를 size에 맞게 택1일 할 때는, picture> source size별 여러이미지 + else size용 img태그 </p>
+  <p>아래는 작을때는 qrcode이미지, else는 img태그로 banner이미지</p>
+  <picture>
+    <source media="(max-width: 600px)" srcset="images/qrcode.png" class="d-block mx-auto">
+    <img src="images/banner.jpg" class="img-fluid" alt="">
+  </picture>
+
+</div>
+
+figure for figcaption
+<div class="container">
+  <p>img태그에 caption을 달고 싶다면 figure.figure안에 img태그 + figcaption.figure-caption</p>
+  <p> - figure태그는 원래block인데 .figure 가 내부 img태그처럼 inline으로 만든다.</p>
+  <p> - img.figure-img는 margin-bottom과 line-height만 약간 준다. for figcaption과의 간격?</p>
+  <p> - figcaption은 원래block이며, .figure-caption은 글자정렬을 위해 inline을 안만들고, 글자크기+색만 조절한 뒤, block용 자신content 정렬용 text-center와 함께 쓰인다 </p>
+  <p> 다 처리됬으면, img태그에 img-thumbnail을 통해 img-fluid + border패딩을 준다.</p>
+
+  <figure class="figure">
+    <img src="images/qrcode.png" alt="" class="figure-img img-thumbnail">
+    <figcaption class="figure-caption text-center">QR코드</figcaption>
+  </figure>
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

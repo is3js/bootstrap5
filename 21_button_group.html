@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+버튼 group 관련 <-> checkbox
+<!--row/col test -->
+<div class="container">
+    <input type="checkbox">check박스는
+    <input type="checkbox">복수선택용
+    <input type="checkbox" checked>input이다
+    <br>
+    <p>1. input[type="checkbox"]를 label.btn.btn-색 으로 감싸면 이뻐진다.</p>
+    <p> - 이 때, checked표시할 때, active cls와 를 같이주자</p>
+    <p> - input태그는 name=으로 백엔드에 줄 준비도 해야한다.</p>
+    <label class="btn btn-secondary">
+        <input type="checkbox" name="option">check박스는
+    </label>
+    <label class="btn btn-secondary">
+        <input type="checkbox" name="option">복수선택용
+    </label>
+    <label class="btn btn-secondary active">
+        <input type="checkbox" name="option" checked>input이다
+    </label>
+</div>
+
+<div class="container">
+    <p>2. 이 때, input[type="checkbox"]나 radio 등 버튼이 여러개일 때, 부모div.btn-group을 주면, 버튼들이 알아서 붙는다.</p>
+    <div class="btn-group" role="group">
+        <label class="btn btn-secondary active">
+            <input type="checkbox" name="option" checked>check박스는
+        </label>
+        <label class="btn btn-secondary">
+            <input type="checkbox" name="option">복수선택용
+        </label>
+        <label class="btn btn-secondary">
+            <input type="checkbox" name="option">input이다
+        </label></div>
+</div>
+<div class="container">
+    <p>3. 이 때, input[type="radio"]도 마찬가지다</p>
+    <div class="btn-group" role="group">
+        <label class="btn btn-secondary">
+            <input type="radio" name="sex">남자
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="sex">여자
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="sex">radio
+        </label></div>
+</div>
+<div class="container">
+    <p>4. input[type="button"]을 label에서 분리한 뒤, 위쪽에서 #id부여 후 .btn-check 를 추가하여, 안보이도록 만들고 </p>
+    <p>하단에서 label태그가 for="#id"로 연결하면, chekcbox없이 label들끼리 active하는 tab이 된다.</p>
+    <div class="btn-group " role="group">
+        <input type="checkbox" id="btncheck1" class="btn-check" name="option">
+        <label class="btn btn-outline-secondary" for="btncheck1">check로</label>
+        <input type="checkbox" id="btncheck2" class="btn-check" name="option">
+        <label class="btn btn-outline-secondary" for="btncheck2">복수개</label>
+        <input type="checkbox" id="btncheck3" class="btn-check" name="option">
+        <label class="btn btn-outline-secondary" for="btncheck3">선택</label>
+    </div>
+    <br>
+    <br>
+    <div class="btn-group " role="group">
+        <input type="radio" id="btnradio1" class="btn-check" name="sex">
+        <label class="btn btn-outline-secondary" for="btnradio1">남자</label>
+        <input type="radio" id="btnradio2" class="btn-check" name="sex">
+        <label class="btn btn-outline-secondary" for="btnradio2">여자</label>
+        <input type="radio" id="btnradio3" class="btn-check" name="sex">
+        <label class="btn btn-outline-secondary" for="btnradio3">radio</label>
+    </div>
+</div>
+
+<div class="container">
+    <p>5. 버튼의 크기를 .btn-group-size로 한번에 조절할 수 있다.</p>
+    <div class="btn-group" role="group">
+        <button class="btn btn-secondary">1</button>
+        <button class="btn btn-secondary">2</button>
+        <button class="btn btn-secondary">3</button>
+    </div>
+
+    <div class="btn-group btn-group-sm" role="group">
+        <button class="btn btn-secondary">1</button>
+        <button class="btn btn-secondary">2</button>
+        <button class="btn btn-secondary">3</button>
+
+    </div>
+
+    <div class="btn-group btn-group-lg" role="group">
+        <button class="btn btn-secondary">6</button>
+        <button class="btn btn-secondary">7</button>
+        <button class="btn btn-secondary">8</button>
+    </div>
+</div>
+<div class="container">
+    <p>6. .btn-group 대신 .btn-group-vertical을 주면 세로로 그룹을 만든다.</p>
+    <div class="btn-group-vertical" role="group">
+        <button class="btn btn-secondary">1</button>
+        <button class="btn btn-secondary">2</button>
+        <button class="btn btn-secondary">3</button>
+    </div>
+</div>
+<div class="container">
+    <p>7. 여러개의 버튼group을 부모div.btn-toolbar으로 flex로 만들어, 1줄에 모을 수 있다.</p>
+    <p>- 간격은 me-x 로 벌리면 된다.</p>
+    <div class="btn-toolbar">
+        <div class="btn-group me-2" role="group">
+            <button class="btn btn-secondary">1</button>
+            <button class="btn btn-secondary">2</button>
+            <button class="btn btn-secondary">3</button>
+            <button class="btn btn-secondary">4</button>
+            <button class="btn btn-secondary">5</button>
+        </div>
+        <div class="btn-group " role="group">
+            <button class="btn btn-secondary">6</button>
+            <button class="btn btn-secondary">7</button>
+            <button class="btn btn-secondary">8</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p>1. 카드의 기본사용은 div.card>div.card-body로 만든 flex-column에 width를 주는 것이다.</p>
+    <p>- card-body는 flex:11auto 로 확대축소된다 </p>
+    <p>- flex-column은, 세로로 flex로서 content만큼 height차지하지만, width를 안주면 div.block으로서 width 한줄을 다 차지한다 </p>
+    <div class="d-flex flex-column bg-warning">
+        div.d-flex.flex-column은 세로로 content만큼 차지하고, 가로는 block처럼 전체를 차지한다.
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            no width -> 세로방향 flex-column은 width를 다 차지한다.
+        </div>
+    </div>
+    <p>2. card-body 내부에는 h5.card-title / h6.card-subtitle.text-muted / p.card-text 을 줄 수 있다.</p>
+    <div class="card" style="width: 300px;">
+        <div class="card-body">
+            <h5 class="card-title">
+                제목입니다.
+            </h5>
+            <h6 class="card-subtitle text-muted">
+                부 제목입니다.
+            </h6>
+            <p class="card-text">
+                내용입니다.
+            </p>
+        </div>
+    </div>
+    <p>3. div.card-body 대신 div.card-header + 세로형 list-group을 만들 수 있다.</p>
+    <p> - list-group에 list-group-flush를 섞어줘야 list-group-item마다 감싼 border가 안나온다.</p>
+    <p>div.card>div.card-header+ul.list-group.list-group-flush>li.list-group-item</p>
+    <div class="card" style="width: 300px;">
+        <div class="card-header">
+            list-group 제목
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">list-group-item1</li>
+            <li class="list-group-item">list-group-item2</li>
+            <li class="list-group-item">list-group-item3</li>
+        </ul>
+    </div>
+    <p>4. card-header + card-body + card-footer로 조합을 만들 수 있다.</p>
+    <p> - div.card는 flex-column이라, width를 안주면, 한줄을 다 차지한다.</p>
+    <div class="card">
+        <div class="card-header">
+            card-header
+        </div>
+        <div class="card-body">
+            card-body
+        </div>
+        <div class="card-footer">
+            card-footer
+        </div>
+    </div>
+    <p>5. width block의 flex-column인 div.card는 row+col 조합으로 여러개를 width를 갈라쓸 수 있다.</p>
+    <p> - div.container>div.row>(div.col-sm-4>div.card>div.card-header+div.card-body+div.card-footer) * 여러개</p>
+    <p> - col-sm-4로서, sm보다 작은 사이즈일 땐, col-12를 자동으로 차지하게 하여, 1개의 칼럼=1개의 card만 나타나게 된다</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">header1</div>
+                    <div class="card-body">body1</div>
+                    <div class="card-footer">footer1</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">header2</div>
+                    <div class="card-body">body2</div>
+                    <div class="card-footer">footer2</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">header3</div>
+                    <div class="card-body">body3</div>
+                    <div class="card-footer">footer3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <p>6. card속에 이미지 넣기</p>
+    <p>(1) card내부에서 card-body보다 위쪽에 그냥 img태그를 넣어보자. -> 카드 상단부에 어느정도 맞춰 들어간다.</p>
+    <p> - 자동으로 한줄을 다채우면서, 반응형이 된다.</p>
+    <div class="card">
+        <img src="images/banner.jpg" alt="">
+        <div class="card-body">
+            body
+        </div>
+        <div class="card-footer">
+            footer
+        </div>
+    </div>
+    <p>(2) 하지만, img태그를 img.card-img-top 으로 상단cls를 걸어주면, border-radius가 반영되면서 자리잡힌다</p>
+    <p> -  a.card-link 를 달아주면 margin-left가 반영되지만, 티가 안난다?</p>
+    <div class="card">
+        <img class="card-img-top" src="images/banner.jpg" alt="">
+        <div class="card-body">
+            body
+            <br>
+            <a href="">일반 a태그</a>
+            <a class="card-link" href="">a.card-link태그</a>
+            <br>
+            <a class="card-link" href="">a.card-link태그</a>
+            <a href="">일반 a태그</a>
+        </div>
+        <div class="card-footer">
+            footer
+        </div>
+    </div>
+
+    <p>7. card속에 이미지에 겹침을 유발하려면, img.card-img-top 밑에 div.card-img-overlay를 만들어서 글자를 입력하면 된다.</p>
+    <div class="card">
+        <img class="card-img-top" src="images/banner.jpg" alt="">
+        <div class="card-img-overlay text-light">
+            div.card-img-overlay
+        </div>
+        <div class="card-body">
+            body
+            <br>
+            <a href="">일반 a태그</a>
+            <a class="card-link" href="">a.card-link태그</a>
+            <br>
+            <a class="card-link" href="">a.card-link태그</a>
+            <a href="">일반 a태그</a>
+        </div>
+        <div class="card-footer">
+            footer
+        </div>
+    </div>
+
+    <p>8. 배너를 원할 땐, card-body를 빼고, .card에 w-x에 어느정도 위치를 잡고나서</p>
+    <p> - card에 줘도 되지만, card-img-overlay에 .text-center.text-색 을 준다.</p>
+    <p> - cf) text-center는 block자신에게 줘서 가운데정렬,  inline일 경우 부모에줘서, 텍스트를 가운데 정렬한다.</p>
+    <div class="card w-75 ">
+        <img class="card-img-top" src="images/banner.jpg" alt="">
+        <div class="card-img-overlay text-center text-white">
+            text-center text-white
+        </div>
+
+    </div>
+    <p>9. sm이상부터는 이미지|텍스트 반반을 잡고 싶을 땐,</p>
+    <p> - div.row>div.col-sm-6*2에 img.card-img + div.card-title+div.card-text를 나눠서 준다.(card-body까지는 아니다?)</p>
+    <p> - 항상 top에 위치시킬 경우가 아니라면, card-img-top 대신 card-img로 준다.</p>
+    <p> - div.card-img-overlay는 반응형 col-sm-6내부가 아닌 전체로 작용해버리니 제거한다(position: absolute 사용)</p>
+    <p> - 이 때, 이미지의 height가 텍스트부분보다 커야지 꽉차게 나온다.</p>
+    <p> - 6:6에서도 텍스트가 가운데 정렬이 되고 싶다면, card자체에 text-center를 준다.</p>
+    <p> - 나는 h-100을 주고, object-fit-cover를 img태그에 씌웠따.</p>
+    <div class="card w-75 bg-info text-center">
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="card-img h-100 object-fit-cover" src="images/banner.jpg" alt="">
+<!--                <div class="card-img-overlay text-center text-white">-->
+<!--                    text-center text-white-->
+<!--                </div>-->
+            </div>
+            <div class="col-sm-6">
+                <div class="card-title">card-title</div>
+                <div class="card-text">card-text</div>
+            </div>
+        </div>
+    </div>
+
+    <p>10. 여러개의 card를 row/col없이 div.card-group 에 넣어서 관리할 수 있다.</p>
+    <p> - flex-column방향의 flex였던 card와 달리, card-group은 flex-row로서 여러 card들을 가로방향으로 나열해준다.</p>
+    <p> - card-group에 넣으면 서로 다른 card-body에 대해 footer위치까지 맞춰준다.</p>
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="images/banner.jpg" alt="">
+            <div class="card-img-overlay text-light">
+                div.card-img-overlay
+            </div>
+            <div class="card-body">
+                body
+            </div>
+            <div class="card-footer">
+                footer
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="images/banner.jpg" alt="">
+            <div class="card-img-overlay text-light">
+                div.card-img-overlay
+            </div>
+            <div class="card-body">
+                body
+            </div>
+            <div class="card-footer">
+                footer
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="images/banner.jpg" alt="">
+            <div class="card-img-overlay text-light">
+                div.card-img-overlay
+            </div>
+            <div class="card-body">
+                body<br>
+                body<br>
+                body<br>
+                body<br>
+            </div>
+            <div class="card-footer">
+                footer
+            </div>
+        </div>
+    </div>
+
+    <p>10. 여러개의 card를 row/col없이 div.card-group 에 넣어서 관리할 수 있다.</p>
+
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="images/banner.jpg" alt="">
+            <div class="card-img-overlay text-light">
+                div.card-img-overlay
+            </div>
+            <div class="card-body">
+                body
+            </div>
+            <div class="card-footer">
+                footer
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="images/banner.jpg" alt="">
+            <div class="card-img-overlay text-light">
+                div.card-img-overlay
+            </div>
+            <div class="card-body">
+                body
+            </div>
+            <div class="card-footer">
+                footer
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="images/banner.jpg" alt="">
+            <div class="card-img-overlay text-light">
+                div.card-img-overlay
+            </div>
+            <div class="card-body">
+                body<br>
+                body<br>
+                body<br>
+                body<br>
+            </div>
+            <div class="card-footer">
+                footer
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

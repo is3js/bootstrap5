@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border 색 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+shadow는 -none, 기본, sm, lg 4종류가 있다
+<div class="container">
+    <div class="border w-50 m-5 shadow-none">shadow-none</div>
+    <div class="border w-50 m-5 shadow">shadow</div>
+    <div class="border w-50 m-5 shadow-sm">shadow</div>
+    <div class="border w-50 m-5 shadow-lg">shadow</div>
+</div>
+
+iframe은 inline, 300px 고정, iframe내부는 미반응형인데,
+div.ratio.ratio-size를 부모로 씌우면, 특정비율의 반응형이 된다. (video도 해당)
+<!--<div class="container">-->
+<!--    <iframe src="https://www.eduwork.cn/" frameborder="0"></iframe>-->
+<!--    <br>-->
+<!--</div>-->
+<!--<div class="ratio ratio-4x3">-->
+<!--    <iframe src="https://www.eduwork.cn/" frameborder="0"></iframe>-->
+<!--</div>-->
+
+<br><br><br>
+text-x 류
+<div class="container">
+    width가 정해진 공간에, text가 x축으로 삐져나오게 되면, 기본적으로는 넘친다.(text-nowrap)
+    <div class="border border-success text-nowrap" style="width: 50px;">
+        text-nowrap
+    </div>
+    text-wrap을 하면, 드디어 흘러넘치던 것을 height로 보낸다
+    <div class="border border-success text-wrap" style="width: 50px;">
+        text-wrap
+    </div>
+    text-break는 wrap과 비슷하지만, 텍스트가 공백 문자나 하이픈이 아닌 다른 문자에서 줄 바꿈될 수 있도록 합니다.
+    이 클래스는 긴 URL이나 긴 단어 등 텍스트 블록을 줄 바꿈할 때 유용합니다.
+    <div class="border border-success text-break" style="width: 50px;">
+        text-break
+    </div>
+    text-truncate를, 흘러넘치는 것을 ...의 1줄로 마무리한다(다음줄X)
+    <div class="border border-success text-truncate" style="width: 50px;">
+        text-truncate
+    </div>
+    text-lowercase
+    <div class="border border-success text-lowercase" style="width: 50px;">
+        Text-Lowercase
+    </div>
+    text-uppercase
+    <div class="border border-success text-uppercase" style="width: 50px;">
+        Text-Uppercase
+    </div>
+    text-capitalize
+    <div class="border border-success text-capitalize" style="width: 50px;">
+        Text-capitalize
+    </div>
+    text-데코 in 부모 -> text-reset in a태그
+    - text-reset은 진짜reset이 아니고, 자신의 글자색을 부모에게 물려받는다.
+    <div class="border border-success text-success" >
+        <a href="">일반a태그</a>
+        <br>
+        <a href="" class="text-reset">text-reset a태그</a>
+    </div>
+    text-decoration-none은, 원래 글자색을 제외한 style만 제거한다
+    <div class="border border-success text-reset" >
+        <a href="">일반a태그</a>
+        <br>
+        <a href="" class="text-decoration-none">text-decoration-none a태그</a>
+        <br>
+        <a href="" class="text-reset text-decoration-none">글자색부모로초기화(text-reset) 스타일 초기화text-decoration-none a태그</a>
+    </div>
+
+
+</div>
+
+<br><br><br>
+fw- 류, fst(font-style)-italic
+<div class="container">
+    <div class="fw-bold">fw-bold</div>
+    <div class="fw-normal">fw-normal</div>
+    <div class="fw-light">fw-light</div>
+    <div class="fst-italic">fst-italic</div>
+</div>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

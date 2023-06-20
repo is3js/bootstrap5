@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<pre>
+    0. 이미지들 링크:
+    1. section.form-wrapper > container > row > 이미지를 위한 여러컨셉의 col을 만든다.
+        - text-center로 요소들 가운데 보낼 준비
+        - sm부터 가운데 8을 차지하기 위해, 나머지4 중 앞쪽 2를 offset으로 준다 >  col-sm-8 + offset-sm-2
+        - lg부터는 가운데 6, 나머지 6중 앞쪽 3을 offset > col-lg-6 offset-lg-3
+        - xl부터는 가운데 4, 나머지 8중 앞쪽 4을 offset >col-xl-4 offset-xl-4
+    2. col안에서 div.logo wrapper를 만들고, img.img-fluid로 w-100적용으로 가득차게 한다.
+    3. col안에서 form.rounded.bg-white.shadow.p-5 를 만들고,
+        - h3.fs-4태그로 제목을 적는다. text-색, fw-bolder를 추가한다.
+        - div.text-muted.fw-normal로 회원가입여부를 물어보고, mb-4로 아래 form input들과 거리를 둔 뒤,  내부 a.text-decoration-none으로  회원가입링크를 건다
+    4. form내부에 bootstrap5 floaing-label예시를 가져온다
+    5. div.text-end.mt-2>a태그로 우측정렬된 비밀번호 찾기를 만들어준다.
+    6. 로그인 버튼은 button[type="submit"].w-100 기본으로 .btn.btn-primary.my-4로 꾸미고, 나중에 줄 옵션으로 .submit-btn을 추가한다
+    7. 가운데 OR를 새기기 위해 div.text-center.text-muted.text-uppercase를 만든다
+    8. sns버튼은 a태그.w-100으로 만들며, .btn.btn-light 배경에 mb-3간격 및 나중을 위한 .login_with를 미치 추가한다
+        - a가 .btn이 들어가면 text-decoration-none 필요없는 듯.
+        - a태그 내부에는 img.img-fluid로 svg파일을 읽어온다(파일 자체 48x48으로 약간 큰 상태로 들어간다) + me-3로 글자와 간격을 준다.
+        - 복사해서 소셜로그인 다 만든다.
+    9. :root 및 기본 설정
+        1. 구글폰트 @import를 가져와서 입력하고, :root{}에 변수로 저장하고, body {}에서 var(변수)로 지정해준다.
+    10. form-wrapper 배경설정
+        - padding을 아래에만 100px 주고, bgimage + bgposition + bgrepeat + bgsize + bgattachment + min-height:100%를 설정한다
+        - position을 center가 아니라 앞에 bottom도 추가하면, 가운데에 있으면서 바닥부터 시작한다
+    11. .form-wrapper .logo img 태그는 내부에서 img.img-fluid로 띄워놨는데, 크기를 확인하고 반응형의 width 100%를 max-width %로 조절한다
+        - 또한, .form-wrapper .login_with img 태그는 내부에서 img.img-fluid로 띄워놨는데 반응형 width 100%를 max-width %로 조절한다
+    12. 평소 모양 input태그에 쓸, bgc, border-color, color 를 :root에 정의하고 -> .form-wrapper input {}에 var()로 갖다쓴다.
+        - --light-white(배경 및 보더까지 동일 색), --gray(글자색)을 정의해준다
+    13. .form-wrapper input:focus {} 에는 bootstrap 구린 box-shadow를 제거 해준다
+    14. 이제 버튼의 크기를 font-size + padding으로 만든다.
+        - .form-wrapper .submit_btn {} : 패딩15, 글자크기 15, fw-500
+        - .form-wrapper .login_with {} : 패딩15, 글자크기 15, fw-500, transition: 0.3s ease-in-out;
+    15. 각 btn(btn들어간 button, a태그) focus: 까지 input:focus처럼 box-shadow를 제거해준다.(키보드로 tab하면 활성화)
+        - .form-wrapper .submit_btn:focus, .form-wrapper .login_with:focus { box-shadow:none;}
+    16. :root{}에 sns로그인(.login_with) :hover시 사용될 동일 보더색+배경색 --gray-1으로 정의해놓고 hover시 적용되도록 준다
+
+</pre>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+
+    :root {
+        --primary-font-family: 'Gowun Batang', sans-serif;
+
+        /* input 배경+보더색 */
+        --light-white: #f5f8fa;
+        /* input 글자색 */
+        --gray: #5e6278;
+        /* sns 로그인 배경+보더색 */
+        --gray-1: #e3e3e3;
+    }
+
+    body {
+        font-family: var(--primary-font-family);
+    }
+
+    .form-wrapper {
+        padding: 0 0 100px;
+        background-image: url("images/40/bg.png");
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: contain;
+        background-attachment: fixed;
+        min-height: 100%;
+
+    }
+
+    .form-wrapper .logo img {
+        max-width: 40%;
+    }
+
+    /* input에 대한 배경+보더색 및 글자색 */
+    .form-wrapper input {
+        background-color: var(--light-white);
+        border-color: var(--light-white);
+        color: var(--gray);
+
+        padding-left: 0.2em;
+    }
+
+    .form-wrapper input:focus {
+        box-shadow: none;
+    }
+
+    /* 추가 label 글자색 및 애니메이션 */
+    /* input:focus 에다 주면 애니메이션은되는데, 글자색이 적용이 안되더라.*/
+    /*.form-wrapper input:focus + label,*/
+    /*.form-wrapper input:focus + label {*/
+    /*    color: blue;*/
+    /*    transition: all .5s;*/
+    /*}*/
+
+    .form-floating .form-control:focus + label,
+    .form-floating .form-select:focus + label {
+        color: var(--gray);
+        transition: all .5s;
+    }
+
+    .form-wrapper .submit_btn {
+        padding: 15px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .form-wrapper .login_with {
+        padding: 15px;
+        font-size: 15px;
+        font-weight: 500;
+        transition: 0.3s ease-in-out;
+    }
+
+    .form-wrapper .submit_btn:focus, .form-wrapper .login_with:focus {
+        box-shadow: none;
+    }
+
+    .form-wrapper .login_with:hover {
+        background-color: var(--gray-1);
+        border-color: var(--gray-1);
+    }
+
+    .form-wrapper .login_with img {
+        max-width: 8%;
+    }
+
+</style>
+<!--row/col test -->
+<section class="form-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="ca text-center col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <div class="logo">
+                    <img src="images/40/logo.png" alt="" class="img-fluid">
+                </div>
+                <form action="" class="rounded bg-white shadow p-5">
+                    <h3 class="fs-4 text-dark fw-bolder ">로그인</h3>
+                    <div class="text-muted fw-normal mb-4">
+                        처음이신가요? <a href="#" class="text-decoration-none text-primary fw-bold">회원가입하기</a>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <div class="text-end mt-2">
+                        <a href="#" class="text-decoration-none text-primary fw-bold">비밀번호찾기</a>
+                    </div>
+
+                    <button type="submit" class="w-100 btn btn-primary submit_btn my-3 ">로그인</button>
+                    <div class="text-center text-muted text-uppercase mb-3">OR</div>
+                    <a href="#" class="w-100 btn btn-light mb-3 login_with">
+                        <img src="images/40/google-icon.svg" alt="" class="img-fluid me-3">구글 로그인 하기
+                    </a>
+                    <a href="#" class="w-100 btn btn-light mb-3 login_with">
+                        <img src="images/40/facebook-icon.svg" alt="" class="img-fluid me-3">페북 로그인 하기
+                    </a>
+                    <a href="#" class="w-100 btn btn-light mb-3 login_with">
+                        <img src="images/40/linkedin-icon.svg" alt="" class="img-fluid me-3">링크드인 로그인
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

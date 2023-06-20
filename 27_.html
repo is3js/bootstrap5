@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>1. 일단 div> 개별이미지당 div>img.w-100으로 여러개 이미지를 올려보자.</p>
+    <div>
+        <div>
+            <div><img src="images/slider1.jpg" alt="" class="w-100"></div>
+            <div><img src="images/slider2.jpg" alt="" class="w-100"></div>
+            <div><img src="images/slider3.jpg" alt="" class="w-100"></div>
+        </div>
+    </div>
+    <p>2. 이번엔 div.carousel>div.carousel-inner에  개별이미지당 div.carousel-item>img.w-100으로 여러개 이미지를 올려보자.</p>
+    <p> - 첫번째 이미지만 carousel-item에 active cls를 추가</p>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img src="images/slider1.jpg" alt="" class="w-100"></div>
+            <div class="carousel-item"><img src="images/slider2.jpg" alt="" class="w-100"></div>
+            <div class="carousel-item"><img src="images/slider3.jpg" alt="" class="w-100"></div>
+        </div>
+    </div>
+    <p>3. div.carousel>div.carousel-inner>div.carousel-item>img.w-100.active(첫 item)에서</p>
+    <p> - div.carousel에 data-bs-ride="carousel"을 추가하면 자동으로 넘어가기 시작한다.</p>
+    <p> - div.carousel[data-bs-ride="carousel"]>div.carousel-inner>div.carousel-item>img.w-100.active(첫 item)에서</p>
+    <div class="carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img src="images/slider1.jpg" alt="" class="w-100"></div>
+            <div class="carousel-item"><img src="images/slider2.jpg" alt="" class="w-100"></div>
+            <div class="carousel-item"><img src="images/slider3.jpg" alt="" class="w-100"></div>
+        </div>
+    </div>
+    <br>
+    <p>4. interval변경 시, ride되는 캐러셀의 interval은 id를 주고 -> js로 찾아서 수정해야한다.</p>
+    <p>- wrap 여부가 순환여부다. true로 줘야됨.</p>
+    <p>The .slide class adds a CSS transition and animation effect, which makes the items slide when showing a new item. Omit this class if you do not want this effect.</p>
+    <pre>
+        <code>
+            var myCarousel = document.querySelector('#indexCarousel')
+            var carousel = new bootstrap.Carousel(myCarousel, {
+              interval: 1000,
+              wrap: true
+            })
+        </code>
+    </pre>
+    <div class="carousel slide" id="indexCarousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img src="images/slider1.jpg" alt="" class=" w-100"></div>
+            <div class="carousel-item"><img src="images/slider2.jpg" alt="" class=" w-100"></div>
+            <div class="carousel-item"><img src="images/slider3.jpg" alt="" class=" w-100"></div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <p>5. 슬라이드 화살표 추가는, carousel에 carousel-inner의 형제로 button.carousel-control-prev, next 버튼 2개를 형제로 추가하는 것이다.</p>
+    <p> - 각 button에는  data-bs-target="#indexCarousel2"의 carousel id를 공통적으로 target하고</p>
+    <p> - prev버튼에는 data-bs-slide="prev", next버튼에는 data-bs-slide="next"를 추가한다</p>
+    <p> - button이 아니라 a태그로 한다면 role="button"을 추가해야한다</p>
+
+    <div class="carousel slide" id="indexCarousel2" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img src="images/slider1.jpg" alt="" class=" w-100"></div>
+            <div class="carousel-item"><img src="images/slider2.jpg" alt="" class=" w-100"></div>
+            <div class="carousel-item"><img src="images/slider3.jpg" alt="" class=" w-100"></div>
+        </div>
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#indexCarousel2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#indexCarousel2" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <p>6. indicator를 추가하고 싶다면, carousel 자식으로서 div.carousel-indicators를 주고, 각 button들로 data-bs-target을 캐러셀로 잡는다.</p>
+    <p> - 또한, 각 button들에는 data-bs-slide-to=""에 0부터 지정해줘야한다.</p>
+    <div class="carousel slide" id="indexCarousel3" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#indexCarousel3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#indexCarousel3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#indexCarousel3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img src="images/slider1.jpg" alt="" class=" w-100"></div>
+            <div class="carousel-item"><img src="images/slider2.jpg" alt="" class=" w-100"></div>
+            <div class="carousel-item"><img src="images/slider3.jpg" alt="" class=" w-100"></div>
+        </div>
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#indexCarousel3" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#indexCarousel3" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <p>7. 각 carousel-item 마다 img외 caption을 적용하려면, img태그 형제로 div.carousel-caption.d-none.d-md-block으로
+    <p> - md부터 나타나는 캡션을 만들어주면 된다. 알아서 가운데 정렬 + 흰색 글자로 지정되어 있다.</p>
+    <div class="carousel slide" id="indexCarousel4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#indexCarousel4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#indexCarousel4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#indexCarousel4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/slider1.jpg" alt="" class=" w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5> Slider 1</h5>
+                    <p> 1번 배너입니다.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/slider2.jpg" alt="" class=" w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5> Slider 2</h5>
+                    <p> 2번 배너입니다.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/slider3.jpg" alt="" class=" w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5> Slider 3</h5>
+                    <p> 3번 배너입니다.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#indexCarousel4" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#indexCarousel4" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+
+<script src="js/bootstrap.js"></script>
+
+<script>
+    var indexCarousel = document.querySelector('#indexCarousel')
+    var carousel = new bootstrap.Carousel(indexCarousel, {
+        interval: 1000,
+        wrap: true
+    })
+
+
+</script>
+
+</body>
+</html>

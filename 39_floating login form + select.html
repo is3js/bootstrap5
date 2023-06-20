@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<pre>
+    1. div.container 안에 div.form-wrapper 안에 bootstrap 공식예제 중 floating label 것을 복붙한다.
+     + selects예시 + textarea 예시도 하나 더 추가한다.
+    2. 각 요소의 부모div인 form-floating에 mb-3를 각각 추가한다
+    3. 마지막에 input[type="submit"].btn.btn-outline-primary 를 추가한다.
+    4. .form-floating 속 .form-control 스타일링 css를 수정한다
+                      속 .form-select도 콤마로 추가해야한다.
+        - border 제거, border-radius 제거border-bottom만 1px solid  검은색
+        - padding-left도 0.2em정도로 줄여준다
+    5. .form-control:focus, .form-select:focus 도 수정한다
+        - bootstrap기본인 box-shadow를 제거하고, border-bottom을 2px로 더 진하게 + color를 파란색으로 강조한다
+    6. .form-control:focus, .form-select:focus 상태일 때의 label태그의 속성을  .form-floating .form-control:focus + label 로 변경한다
+        - 여기서 + 란, 앞의 selector의 바로 뒤 형제 selector선택한다는 의미다.
+        - label의 글자색만 blue로 변경해준다
+        - label의 padding-left을 0으로 땡겨준다
+        - 걸려있는 애니메이션의 속도를 0.5s로 늘려준다
+    7. form-wrapper에 border와 padding + shadow + 반응형 width 주기
+        - 반응형으로 md(768부터)는 width 50%만 차지하기 + 남은부분은 가운데 정렬 margin: 0 auto;
+    8. .btn-색에 해당하는 .btn-outline-primary에 style을 지정한다. +  :hover, :focus 2개를 동일하게 설정 변경하기
+        - 색+테두리색을 blue로 통일하고 radius 제거
+        - hover, focus시 bgc 동일하게 + box-shadow 추가
+
+
+
+
+</pre>
+<style>
+    .form-wrapper {
+        border: 1px solid #f1f1f1;
+        padding: 1em;
+
+        box-shadow: 0 4px 6px 0 rgba(22, 22, 26, .18);
+    }
+
+    @media screen and (min-width: 768px) {
+        .form-wrapper {
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+
+    .form-floating .form-control,
+    .form-floating .form-select {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #000;
+        padding-left: 0.2em;
+    }
+
+    .form-floating .form-control:focus,
+    .form-floating .form-select:focus {
+        box-shadow: none;
+        border-bottom: 2.3px solid blue;
+    }
+
+    .form-floating .form-control:focus + label,
+    .form-floating .form-select:focus + label {
+        color: blue;
+        padding-left: 0;
+        transition: all .5s;
+
+        top: -5px;
+    }
+
+    .btn-outline-primary {
+        color: blue;
+        border-color: blue;
+        border-radius: 0;
+    }
+
+    .btn-outline-primary:hover,
+    .btn-outline-primary:focus
+    {
+        background-color: blue;
+        box-shadow: 0 4px 6px 0 rgba(22, 22, 26, .18);
+    }
+
+
+</style>
+<div class="container">
+    <div class="form-wrapper">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">이메일</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">비밀번호</label>
+        </div>
+        <div class="form-floating mb-3">
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <option value="1">유저</option>
+                <option value="2">직원</option>
+                <option value="3">관리자</option>
+            </select>
+            <label for="floatingSelect">로그인 타입</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                      style="height: 100px"></textarea>
+            <label for="floatingTextarea2">자기소개</label>
+        </div>
+        <input type="submit" class="btn btn-outline-primary" value="Submit">
+    </div>
+</div>
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

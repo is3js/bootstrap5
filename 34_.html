@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>0. 33_.html에서 만든 navbar를 가져와 div.collapse id만 변경해서 사용한다</p>
+    <p> - ul태그 동급 div.navbar-nav에 ms-auto를 추가해서 메뉴들을 오른쪽에 몬다</p>
+    <p> - nav.navbar에 navbar-dark bg-dark를 추가해 다크버전으로 만든다</p>
+
+    <p>1. nav외 새로운 div에 h3태그+p태그를 nav-link만큼 추가한 뒤, div에 고정된 height + overflow:scroll;은 준다</p>
+    <p>2. nav태그에 id를 주고, 내용  div컨텐츠공간에 data-bs-target="#id"를 잡는다.</p>
+    <p>3. div컨텐츠공간에 data-bs-spy="scroll"을 주고, 각 h태그에 id를 준 뒤, a.nav-link의 href에 h태그 id를 각 배정해준다.</p>
+    <p> - 스크롤을 내리면 그에 대응해서 a태그가 active가 된다.</p>
+    <p>div공간에 data-bs-offset="0" 에 "80"을 주면 80px위에 dropdown메뉴가 내려온다고 한다.</p>
+
+    <nav id="myNav" class="navbar navbar-expand-md navbar-dark bg-dark">
+        <span class="navbar-brand">Logo</span>
+
+        <button class="navbar-toggler" data-bs-target="#navbar"  data-bs-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav ms-auto ">
+                <a class="nav-item nav-link" href="#one">Home</a>
+                <a class="nav-item nav-link" href="#two">메뉴1</a>
+                <a class="nav-item nav-link active" href="#three">메뉴2 active</a>
+                <a class="nav-item nav-link disabled" href="#">메뉴3 disabled</a>
+                <span class="navbar-text"> span.navbar-text</span>
+            </div>
+        </div>
+    </nav>
+
+    <div data-bs-target="#myNav" style="height: 300px; overflow: scroll" data-bs-spy="scroll" data-bs-offset="0">
+        <h3 id="one">목차1</h3>
+        <p>글내용1</p>
+        <p>글내용1</p>
+        <p>글내용1</p>
+        <p>글내용1</p>
+        <p>글내용1</p>
+        <p>글내용1</p>
+
+        <h3 id="two">목차2</h3>
+        <p>글내용2</p>
+        <p>글내용2</p>
+        <p>글내용2</p>
+        <p>글내용2</p>
+        <p>글내용2</p>
+        <p>글내용2</p>
+
+        <h3 id="three">목차3</h3>
+        <p>글내용3</p>
+        <p>글내용3</p>
+        <p>글내용3</p>
+        <p>글내용3</p>
+        <p>글내용3</p>
+        <p>글내용3</p>
+
+    </div>
+</div>
+
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

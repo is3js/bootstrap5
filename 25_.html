@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+pagination
+<div class="container">
+    <p>1. pagination도, ul>li>a태그 로 기본틀을 구성한다.</p>
+    <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+    </ul>
+    <p>2. 본격적으로 ul.pagination으로 flex를 만들고,</p>
+    <p> - li.page-item 속 > a.page-link 로 구성한다.</p>
+    <p> - active와 disabled를 cls로 줄 수 있다.</p>
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link active" href="#">1</a></li>
+        <li class="page-item"><a class="page-link disabled" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+    </ul>
+    <p>3. 본격적으로 ul.pagination에 pagination-size를 추가하여 크기를 바꿀 수 있다.</p>
+    <p>pagination-sm</p>
+    <ul class="pagination pagination-sm">
+        <li class="page-item"><a class="page-link active" href="#">1</a></li>
+        <li class="page-item"><a class="page-link disabled" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+    </ul>
+    <p>pagination-lg</p>
+    <ul class="pagination pagination-lg">
+        <li class="page-item"><a class="page-link active" href="#">1</a></li>
+        <li class="page-item"><a class="page-link disabled" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+    </ul>
+    <p>4. flex이므로 justify-content-xxx 로 정렬할 수 있다.</p>
+    <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link active" href="#">1</a></li>
+        <li class="page-item"><a class="page-link disabled" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+    </ul>
+</div>
+
+progress
+<div class="container">
+    <p>1. div.progress> div.progress-bar로 빈 bar가 완성되며, w-x로 bar를 채울 수 있다.</p>
+    <p>w-25, 50, 75, 100외 상세수치를 쓰려면 style="width:%"로 주면 된다.</p>
+    <p>- 높이를 주려면, progress-bar가 아닌, progress에 줘야한다</p>
+    <div class="progress">
+        <div class="progress-bar w-25">w-25</div>
+    </div>
+    <br>
+    <div class="progress">
+        <div class="progress-bar" style="width: 33%;">width:33%</div>
+    </div>
+    <br>
+    <div class="progress" style="height: 30px;">
+        <div class="progress-bar w-50" >height 30px > w-50 </div>
+    </div>
+    <br>
+
+    <p>2. bar의 색은 progres-bar의 bg-x로 주면 된다.</p>
+    <div class="progress">
+        <div class="progress-bar w-25 bg-danger">w-25</div>
+    </div>
+    <br>
+    <div class="progress">
+        <div class="progress-bar bg-success" style="width: 33%;">width:33%</div>
+    </div>
+    <br>
+    <div class="progress" style="height: 30px;">
+        <div class="progress-bar w-50 bg-warning" >height 30px > w-50 </div>
+    </div>
+
+    <br><br>
+    <p>3. 여러색의 bar를 합치려면, progress 1개안에 여러개의 progress-bar를 w-x 로 나눠 넣으면 된다.</p>
+    <div class="progress">
+        <div class="progress-bar w-25 bg-warning" >w-25</div>
+        <div class="progress-bar w-50 bg-danger" >w-50</div>
+        <div class="progress-bar w-25 bg-success" >w-25</div>
+    </div>
+    <p>4. 줄무늬는 progress-bar에 progress-bar-striped를 추가하고, 움직일려면 progress-bar-animated까지 추가한다.</p>
+    <div class="progress">
+        <div class="progress-bar w-50 bg-warning progress-bar-striped" >w-50</div>
+    </div>
+    <br>
+    <div class="progress">
+        <div class="progress-bar w-50 bg-warning progress-bar-striped progress-bar-animated" >w-50</div>
+    </div>
+
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

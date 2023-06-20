@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+    </style>
+</head>
+<body>
+
+
+code관련
+<div class="container">
+    var a = b + c;
+    function demo(a, b){
+    alert('this is a test!');
+    }
+    <p>code태그를 주면 핑크색/다른글씨체로 인식된다.</p>
+    <code>
+        var a = b + c;
+        function demo(a, b){
+        alert('this is a test!');
+        }
+    </code>
+    <p>pre>code태그를 줘야 들여쓰기 등이 적용.</p>
+    <pre >
+    <code>
+        var a = b + c;
+        function demo(a, b){
+        alert('this is a test!');
+        }
+    </code>
+    </pre>
+
+    <p>pre태그에 height를 주면, default overflow:auto 스크롤이 항상 생긴다.</p>
+    <pre class="" style="width: 500px;height: 100px;">
+    <code>
+        var a = b + c;
+    </code>
+    </pre>
+    <p>pre태그에 height를 주고 pre.overflow-y-scroll>code태글를 주면, 항상 생긴다?!</p>
+    <pre class="overflow-y-scroll" style="width: 500px;height: 100px;">
+    <code>
+        var a = b + c;
+                var a = b + c;
+        function demo(a, b){
+            alert('this is a test!');
+        }
+    </code>
+    </pre>
+
+    <pre class="overflow-y-scroll" style="width: 500px;height: 100px;">
+    <code>
+        <var>var a = b + c;</var>
+
+    </code>
+    </pre>
+
+    <p>kbd태그를 이용하면 key를 표현할 수 잇다</p>
+    <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>
+
+    <samp>sample output samp태그입니다.</samp>
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

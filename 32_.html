@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+dropdown부터는 poppper.min.js가 필요하다.
+<br>
+부트스트랩js 이전에 popper.js를 추가하던지 or  부트스트랩 대신 bundle.js를 사용하면 된다.
+
+<div class="container">
+    <p>1. dropdown은 (0) div.dropdown내부에 (1) button.btn이 data-bs-toggle="dropdown" 버튼과 + 같은 공간내형제 (2)div.dropdown-menu > a.dropdown-item 의
+        열리는 공간으로 시작된다.</p>
+    <p> - 버튼에 .dropdown-toggle 을 추가하면 화살표가 생긴다 </p>
+    <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown">드랍다운</button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+        </div>
+    </div>
+
+    <p>2. .dropdown-toggle만 떼고, 앞에 이름만 가진 버튼을 만든 뒤, 밖의 div.dropdown에 .btn-group을 추가하면 화살표만 기능을 가지게 한다</p>
+    <p> - dropdown-toggle 쪽에 .dropdown-toggle-split를 추가해서 줄어딘 패딩을 적용한다.</p>
+    <div class="dropdown btn-group">
+        <button class="btn btn-success " type="button" >드랍다운이름</button>
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+        </div>
+    </div>
+    <p>3. dropdown-menu 중간에 div.dropdown-divider를 추가하면 hr태그와 비슷한 줄이 생긴다.</p>
+    <p> - dropdown-item에 active cls를 추가하면 파란색 음영이 찬다.</p>
+    <p> - dropdown-item에 disabled cls도 줄 수 있다.</p>
+    <div class="dropdown btn-group">
+        <button class="btn btn-success " type="button" >드랍다운이름</button>
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item active">dropdown-item active</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item disabled">dropdown-item disabled</a>
+        </div>
+    </div>
+    <p>4. 버튼의 사이즈는 btn-group이라도 이름이 적힌 첫번째 button에  .btn-lg  or .btn-sm을 추가하면 된다.</p>
+    <div class="dropdown btn-group">
+        <button class="btn btn-success btn-lg " type="button" >btn-lg</button>
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item active">dropdown-item active</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item disabled">dropdown-item disabled</a>
+        </div>
+    </div>
+    <div class="dropdown btn-group">
+        <button class="btn btn-success btn-sm " type="button" >btn-sm</button>
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item active">dropdown-item active</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item disabled">dropdown-item disabled</a>
+        </div>
+    </div>
+    <br><br>
+    <p>6. data-bs-toggle="dropdown"을 가진 버튼에 대해 dropdown 메뉴 나타나는 방향은 버튼+메뉴의 부모div(.dropdown.btn-group)에 .dropstart or .dropend를 추가한다.</p>
+    <p> - 화살표의 방향이 바뀐다</p>
+    <div class="dropdown btn-group dropup">
+        <button class="btn btn-success  " type="button" >dropup</button>
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item active">dropdown-item active</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item disabled">dropdown-item disabled</a>
+        </div>
+    </div>
+    <div class="dropdown btn-group dropend">
+        <button class="btn btn-success " type="button" >dropend</button>
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item active">dropdown-item active</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item disabled">dropdown-item disabled</a>
+        </div>
+    </div>
+
+    <br><br>
+    <p>8. div.dropdown-menu의 끝라인 정렬은 div.dropdown-menu 에 .dropdown-menu-끝라인정렬방향  을 추가하면 된다.</p>
+    <p> - 이 때, data-bs-toggle="dropdown"이 걸린 button에 대해서 끝라인을 정렬하니, 전체 버튼에 대해 왼쪽에 끝라인을 정렬하려면, btn-group을 제거하고 1개의 1버튼으로 만들어서 왼쪽에 맞춰도 된다.</p>
+    <div class="dropdown  " >
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown">dropdown-menu-start</button>
+        <div class="dropdown-menu dropdown-menu-start">
+            <a href="#" class="dropdown-item active">dropdown-item active</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item disabled">dropdown-item disabled</a>
+        </div>
+    </div>
+    <br><br>
+    <div class="dropdown btn-group ">
+        <button class="btn btn-success " type="button" > dropdown-menu-end </button>
+        <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown"></button>
+        <div class="dropdown-menu dropdown-menu-end">
+            <a href="#" class="dropdown-item active">dropdown-item active</a>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">dropdown-item</a>
+            <a href="#" class="dropdown-item disabled">dropdown-item disabled</a>
+        </div>
+    </div>
+</div>
+
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

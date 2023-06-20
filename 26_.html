@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p>1. spinner는 div.spinner-border가 기본이고, 색을 text-색으로 추가한다</p>
+    <div class="spinner-border">spinner-border</div>
+    <div class="spinner-border text-success"></div>
+    <div class="spinner-border text-danger"></div>
+    <div class="spinner-border text-info"></div>
+    <div class="spinner-border text-primary"></div>
+    <div class="spinner-border text-warning"></div>
+    <br>
+
+    <p>2. div.spinner-grow 도 있다.</p>
+    <div class="spinner-grow">spinner-grow</div>
+    <div class="spinner-grow text-success"></div>
+    <div class="spinner-grow text-danger"></div>
+    <div class="spinner-grow text-info"></div>
+    <div class="spinner-grow text-primary"></div>
+    <div class="spinner-grow text-warning"></div>
+    <br>
+    <p>3. spinner-border-sm 나 spinner-grow-sm를 추가 축소가 가능하다</p>
+    <div class="spinner-border spinner-border-sm"></div>
+    <div class="spinner-grow spinner-grow-sm"></div>
+    <br>
+    <p>4. inline으로서, 부모에서 div.text-center로 가운데 정렬할 수 있다.</p>
+    <div class="text-center">
+        <div class="spinner-border "></div>
+        <div class="spinner-grow "></div>
+    </div>
+    <br>
+    <p>5. inline으로서, 버튼 내부에 div.spinner-border.spinner-border-sm + Loading...텍스트를 넣어 응용한다</p>
+    <p> - button.btn.btn-success>div.div.spinner-border.spinner-border-sm+span.ms-2{Loading...}</p>
+    <button class="btn btn-success">
+        <div class="div spinner-border spinner-border-sm"></div>
+        <span class="ms-2">Loading...</span>
+    </button>
+
+</div>
+
+
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

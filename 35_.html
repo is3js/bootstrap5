@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!--row/col test -->
+<div class="container">
+    <p>1. div.toast.show > div.toast-header + div.toast-body로 구성된다.</p>
+    <p> 이 때, div.toast에 show cls를 추가하지 않으면 안보인다.</p>
+    <p> - 띄우기 전에 div.toast.show로 디자인을 잡는다.</p>
+    <div class="toast show">
+        <div class="toast-header">toast-header</div>
+        <div class="toast-body">toast-body</div>
+    </div>
+    <br>
+
+    <p>2. div.toast-header에 img or h태그 + button.btn.btn-close를 추가한다.</p>
+    <p> - 이 때, h태그에는 .me-auto를 추가해서, 닫기버튼을 오른쪽으로 보낸다.</p>
+    <p> - 닫기버튼을 작동시키려면, data-bs-dismiss="toast"를 추가해야 닫힌다.</p>
+    <div class="toast show">
+        <div class="toast-header">
+            <h6 class="fw-bold me-auto">안내메세지</h6>
+            <button class="btn btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">toast-body</div>
+    </div>
+
+    <p>3. 특정위치에 띄우려면 z-index + position-fixed 작업이 필요하다.</p>
+    <p> (2) div.toast.show 바깥에 div.position-fixed.bottom-0.end-0.p-3 + style="z-index:11"로 고정된 앞쪽 공간안으로 옮겨준다.</p>
+<!--    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">-->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div class="toast show">
+            <div class="toast-header">
+                <h6 class="fw-bold me-auto">안내메세지</h6>
+                <small> 11분 전</small>
+                <button class="btn btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                toast-body
+            </div>
+        </div>
+    </div>
+
+    <p>4. 여러개의 toast를 띄우고 싶다면, div.toast-container를 바깥에 한번 더 씌운다 여러 div.toast를 만든다.</p>
+    <p> - div.toast-container > div.position-fixed > 여러개의 div.toast.show</p>
+    <p> - div.toast-container와 div.position-fixed의 순서가 바뀌면 안됨.</p>
+    <div class="toast-container">
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div class="toast show">
+                <div class="toast-header">
+                    <h6 class="fw-bold me-auto">안내메세지</h6>
+                    <small> 11분 전</small>
+                    <button class="btn btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body">
+                    toast-body
+                </div>
+            </div>
+            <div class="toast show">
+                <div class="toast-header">
+                    <h6 class="fw-bold me-auto">안내메세지</h6>
+                    <small> 11분 전</small>
+                    <button class="btn btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body">
+                    toast-body
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

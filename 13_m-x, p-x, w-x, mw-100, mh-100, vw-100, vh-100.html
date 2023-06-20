@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border 색 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            /*margin: 10px;*/
+        }
+    </style>
+</head>
+<body>
+
+p-x가 영역을 넘어서는 경우, top, left를 우선 띄우고 나머지를 띄운다.
+<div class="container clearfix bg-warning p-0">
+    <div class="wh m-1 p-1">m-1 p-1</div>
+    <div class="wh m-2 p-2">m-2 p-2</div>
+    <div class="wh m-3 p-3">m-3 p-3</div>
+    <div class="wh m-4 p-4">m-4 p-4</div>
+    <div class="wh m-5 p-5">m-5 p-5</div>
+    <div class="wh m-6 p-6">m-6 p-6</div>
+</div>
+
+방향이 같다면, 추가가 아니라, 더 큰 cls가 우위인 것 같다.
+<div class="container clearfix bg-info p-0">
+    <div class="wh me-5 me-1 ">me-5 me-1</div>
+    <div class="wh me-5 me-2 ">me-5 me-2</div>
+    <div class="wh me-5 me-3 ">me-5 me-3</div>
+    <div class="wh me-5 me-4 ">me-5 me-4</div>
+    <div class="wh me-5 me-5 ">me-5 me-5</div>
+    <div class="wh me-5 me-6 ">me-5 me-6</div>
+</div>
+
+w-x는  left부터 시작해 부모content영역에 대한 %를 차지한다
+- 안에 아무것도 없으면 영역차지를 시작안한다.
+- block인 div의 경우, 기본적으로 1줄을 다 차지할텐데, 사이즈를 줄일 수 있다.
+<div class="container clearfix bg-warning p-0">
+    <div class="bg-danger">block</div>
+    <div class="w-100 bg-danger">w-100</div>
+    <div class="w-75 bg-danger">w-75</div>
+    <div class="w-50 bg-danger">w-50</div>
+    <div class="w-25 bg-danger">w-25</div>
+    <div class="w-auto bg-danger">w-auto</div>
+</div>
+
+
+h-x는  left부터 시작해 부모content영역에 대한 %를 차지한다
+- 높이를 확인시, 부모에게 border + 충분히 높은 height를 주고
+- 높이 확인시, 자식이 block(div)이면, inline-block으로 1행에 놓고 확인해야한다
+- w-auto와 달리, h-auto는 content만큼 잡아먹는다.
+
+<div class="container clearfix bg-warning p-0 border border-success" style="height: 200px;">
+    <div class="d-inline-block h-100 bg-danger">h-100</div>
+    <div class="d-inline-block h-75 bg-danger">h-75</div>
+    <div class="d-inline-block h-50 bg-danger">h-50</div>
+    <div class="d-inline-block h-25 bg-danger">h-25</div>
+    <div class="d-inline-block h-auto bg-danger">h-auto</div>
+</div>
+
+w-x 대신, mw-100, mh-100은, 100%만 가능하며, 가능할때만 100%를 차지하면서 같이 축소하게 한다.
+- 근데, block이면 자동 100고, inline/inline-block이면 width는 작동하지만 max-width는 content크기만큼만 작동하여
+- 이미 확정된 inline-block(img)이 아니라면, width/height가 아니라면 안통한다?!???
+<div class="container clearfix bg-warning p-0 border border-success" style="height: 200px;">
+    <div class="d-inline-block mw-100 bg-danger mh-100">mw-100 mh-100</div>
+</div>
+
+
+vw-100, vh-100: 자신이 시작하는 곳에서, 화면의 크기만큼 영역을 차지한다.?
+- 시작위치에서부터 container를 뚫고 나올 것임?!
+<div class="container clearfix bg-warning p-0 border border-success" style="height: 200px;">
+    <div class="vw-100 vh-100 bg-danger mh-100">vw-100 vh-100   </div>
+</div>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

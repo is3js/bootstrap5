@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border 색 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+row/col 방향
+<div class="container">
+    <p>row없이, div.flex를 d-flex로 만든다.</p>
+    <p>default로 row방향의 `flex-row`가 설정되어있다.</p>
+    <div class="d-flex border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+
+    <p>row 역방향(우측정렬시작) flex는 `flex-row-reverse`을 준다.</p>
+    <div class="d-flex flex-row-reverse border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>col방향 flex는 `flex-column`을 준다.</p>
+    <div class="d-flex flex-column border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>col방향 역방향은 flex는 `flex-column-reverse`을 준다.</p>
+    <div class="d-flex flex-column-reverse border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+</div>
+
+flex-item들 수평 정렬
+<div class="container">
+    <p>수평정렬은 justify-content-xxxx다</p>
+    <p>1. row방향 <br>
+        justify-content-end</p>
+    <div class="d-flex justify-content-end border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>row방향 justify-content-center</p>
+    <div class="d-flex justify-content-center border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>row방향 justify-content-around</p>
+    <div class="d-flex justify-content-around border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>row방향 justify-content-between</p>
+    <div class="d-flex justify-content-between border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>row방향 justify-content-evenly</p>
+    <div class="d-flex justify-content-evenly border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+
+
+    <p>2. col방향 justify-content-end <br>
+        (수직으로 우측정렬이므로 bottom에 정렬) -> height필요</p>
+    <div class="d-flex flex-column justify-content-end border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-center</p>
+    <div class="d-flex flex-column justify-content-center border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-around</p>
+    <div class="d-flex flex-column justify-content-around border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-between</p>
+    <div class="d-flex flex-column justify-content-between border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-evenly</p>
+    <div class="d-flex flex-column justify-content-evenly border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+
+
+    <p>3. row 역방향 justify-content-end</p>
+    <div class="d-flex flex-row-reverse justify-content-end border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-center</p>
+    <div class="d-flex flex-row-reverse justify-content-center border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-around</p>
+    <div class="d-flex flex-row-reverse justify-content-around border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-between</p>
+    <div class="d-flex flex-row-reverse justify-content-between border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+    <p>justify-content-evenly</p>
+    <div class="d-flex flex-row-reverse justify-content-evenly border border-dark">
+        <div class="p-2 border border-success">flex-item1</div>
+        <div class="p-2 border border-success">flex-item2</div>
+        <div class="p-2 border border-success">flex-item3</div>
+    </div>
+</div>
+
+flex-item들을 부모flex-container에서 수직 정렬
+<div class="container">
+    <p>수평정렬은 align-items-xxxx다</p>
+    <p>부모flex가 height가 있어야 수직정렬을 할 수 있다</p>
+    <p>1. align-items- 기본세팅이 `align-items-stretch`라서 <strong>flex-item들은 [시작]시점부터 부모높이를 가능한 다 채운다.</strong></p>
+    <div class="d-flex flex-row  border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item#1</div>
+        <div class="p-2 border border-success">flex-item#2</div>
+        <div class="p-2 border border-success">flex-item#3</div>
+    </div>
+    <p>2. align-items-end 를 통해, [바닥부터 시작]하게 하면, 바닥으로 정렬되면 stretch가 풀리고 content높이만큼 차지한다.</p>
+    <div class="d-flex flex-row align-items-end border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item#1</div>
+        <div class="p-2 border border-success">flex-item#2</div>
+        <div class="p-2 border border-success">flex-item#3</div>
+    </div>
+    <p>2. align-items-start</p>
+    <div class="d-flex flex-row align-items-start border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item#1</div>
+        <div class="p-2 border border-success">flex-item#2</div>
+        <div class="p-2 border border-success">flex-item#3</div>
+    </div>
+    <p>3. align-items-center</p>
+    <div class="d-flex flex-row align-items-center border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item#1</div>
+        <div class="p-2 border border-success">flex-item#2</div>
+        <div class="p-2 border border-success">flex-item#3</div>
+    </div>
+    <p>4. align-items-stretch</p>
+    <div class="d-flex flex-row align-items-stretch border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success">flex-item#1</div>
+        <div class="p-2 border border-success">flex-item#2</div>
+        <div class="p-2 border border-success">flex-item#3</div>
+    </div>
+</div>
+
+flex-item들 스스로가 부모에 대해 수직 정렬
+<div class="container">
+    <p>역시 옵션이 없을 땐 시작위치에서 stretch이다.</p>
+    <p>1. row 정방향</p>
+    <div class="d-flex flex-row  border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success ">no option</div>
+        <div class="p-2 border border-success align-self-start">align-self-start</div>
+        <div class="p-2 border border-success align-self-center">align-self-center</div>
+        <div class="p-2 border border-success align-self-end">align-self-end</div>
+        <div class="p-2 border border-success align-self-stretch">align-self-stretch</div>
+    </div>
+    <p>2. column 정방향</p>
+    <div class="d-flex flex-column  border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success ">no option</div>
+        <div class="p-2 border border-success align-self-start">align-self-start</div>
+        <div class="p-2 border border-success align-self-center">align-self-center</div>
+        <div class="p-2 border border-success align-self-end">align-self-end</div>
+        <div class="p-2 border border-success align-self-stretch">align-self-stretch</div>
+    </div>
+    <p>3. row 역방향(flex-row-reverse)</p>
+    <div class="d-flex flex-row-reverse  border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success ">no option</div>
+        <div class="p-2 border border-success align-self-start">align-self-start</div>
+        <div class="p-2 border border-success align-self-center">align-self-center</div>
+        <div class="p-2 border border-success align-self-end">align-self-end</div>
+        <div class="p-2 border border-success align-self-stretch">align-self-stretch</div>
+    </div>
+    <p>4. column 역방향(flex-column-reverse)</p>
+    <div class="d-flex flex-column-reverse  border border-dark" style="height: 200px;">
+        <div class="p-2 border border-success ">no option</div>
+        <div class="p-2 border border-success align-self-start">align-self-start</div>
+        <div class="p-2 border border-success align-self-center">align-self-center</div>
+        <div class="p-2 border border-success align-self-end">align-self-end</div>
+        <div class="p-2 border border-success align-self-stretch">align-self-stretch</div>
+    </div>
+</div>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
+
