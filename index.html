@@ -6,6 +6,17 @@
     <title>Bootstrap</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <style>
+        :root {
+            --color-main: #FC5230;
+        }
+
+        .text-main {
+            color: var(--color-main);
+        }
+
+        .bg-main {
+            background-color: var(--color-main);
+        }
 
         /*nav, header, section, footer {*/
         /*    width: 100%;*/
@@ -15,36 +26,61 @@
         /*}*/
 
         /*row & col test*/
-        .col,
-        .col-4, .col-sm-4, .col-md,
-        .col-sm-12, .col-lg-8, .col-lg-4,
-        .col-1, .col-2,
-        .col-3,
-        .col-12, .col-sm-6, .col-lg-3,
-        .col-md-2, col-md-10
-        {
-            border: solid 1px blue;
-            background: #EFEFEF;
-            padding: 10px;
+        /*.col,*/
+        /*.col-4, .col-sm-4, .col-md,*/
+        /*.col-sm-12, .col-lg-8, .col-lg-4,*/
+        /*.col-1, .col-2,*/
+        /*.col-3,*/
+        /*.col-12, .col-sm-6, .col-lg-3,*/
+        /*.col-md-2, col-md-10*/
+        /*{*/
+        /*    border: solid 1px blue;*/
+        /*    background: #EFEFEF;*/
+        /*    padding: 10px;*/
+        /*}*/
+
+        /*.row {*/
+        /*    border: dashed 1px red;*/
+        /*    !*margin: 10px 0;*!*/
+        /*}*/
+
+        /* top메뉴 */
+        #navbarSupportedContent > ul > li > a,
+        nav .dropdown-menu > li >a {
+            font-size: small;
+        }
+        /* top메뉴 */
+        #navbarSupportedContent > ul > li >a:hover,
+        #navbarSupportedContent > ul > li >a:focus {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: var(--color-main)!important;
         }
 
-        .row {
-            border: dashed 1px red;
-            /*margin: 10px 0;*/
+        .fs-13 {
+            font-size: 13px;
         }
 
 
-        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
-        /*  border, 색, m/p 등 알아볼 때 사용함*/
-        .wh {
-            width: 100%;
-            height: 100px;
-            background: #efefef;
-            float: left;
-            margin: 10px;
+        @media screen and (max-width: 768px){
+            /* top메뉴 */
+            #navbarSupportedContent > ul > li > a,
+            nav .dropdown-menu > li > a {
+                font-size: 1em;
+                margin: 2px 0;
+            }
+
+            #navbarSupportedContent > ul > li> a:hover,
+            #navbarSupportedContent > ul > li> a:focus {
+                font-size: 1.05em;
+                font-weight: bold;
+                color: var(--color-main)!important;
+            }
+
+            .fs-13 {
+                font-size: 1em;
+            }
         }
-
-
     </style>
 </head>
 <body>
@@ -52,8 +88,118 @@
 <nav>
     <div class="container">
         <div class="row">
-            <div class="col">
-                네비
+            <div class="col shadow-sm">
+                <nav class="navbar p-0 py-2 navbar-expand-sm navbar-white bg-white">
+                    <div class="container-fluid">
+                        <!--logo-->
+                        <a class="navbar-brand navbar-toggler border-0" href="#">
+                            <img src="images/logo.png" alt="" class="img-fluid" style="max-width: 150px">
+                        </a>
+                        <!--hambergur-->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- top 메뉴-->
+                        <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
+                            <!--<ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">-->
+                            <!--ul(flex)에 align-items-center를 주면, 햄버거에서 가운데 정렬된다.-->
+                            <ul class="navbar-nav me-auto mb-lg-0">
+                                <li class="nav-item">
+<!--                                       style="background: url('images/icons/logo.png') no-repeat 0 center; background-size:contain; padding-left: 25px"-->
+                                    <a class="nav-link active py-0 my-1 my-md-0 fw-bolder " href="#"
+                                    >
+                                        우아한한의원
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active py-0 my-1 my-md-0" href="#"
+                                       style="background: url('images/icons/doctors.png') no-repeat 0 center; background-size:contain; padding-left: 26px"
+                                    >
+                                        의료진 소개
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <!--                                       style="background: url('images/icons/path.png') no-repeat 0 center; padding-left: 20px"-->
+                                    <a class="nav-link py-0 my-1 my-md-0" href="#"
+                                       style="background: url('images/icons/path.png') no-repeat 0 center; background-size:contain; padding-left: 25px"
+                                    >
+                                        길찾기
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link py-0 my-1 my-md-0 dropdown-toggle d-sm-none d-lg-block" href="#" id="navbarDropdown3"
+                                       role="button"
+                                       style="background: url('images/icons/self_diagnosis.png') no-repeat 0 center; background-size:contain; padding-left: 25px"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        자가진단
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                        <li><a class="dropdown-item" href="#">체질 진단</a></li>
+                                        <li><a class="dropdown-item" href="#">허리디스크 진단</a></li>
+                                        <li><a class="dropdown-item" href="#">목디스크 진단</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">자녀 키 예상</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item d-sm-none d-lg-block">
+                                    <a class="nav-link py-0 my-1 my-md-0" href="#"
+                                       style="background: url('images/icons/report.png') no-repeat 0 center; background-size:contain; padding-left: 25px"
+                                    >
+                                        연구실적
+                                    </a>
+                                </li>
+                                <li class="nav-item d-sm-none d-lg-block">
+                                    <a class="nav-link py-0 my-1 my-md-0" href="#"
+                                       style="background: url('images/icons/youtube.png') no-repeat 0 center; background-size:contain; padding-left: 25px"
+                                    >
+                                        유튜브
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown d-sm-none d-lg-block">
+                                    <a class="nav-link py-0 my-1 my-md-0 dropdown-toggle" href="#" id="navbarDropdown"
+                                       role="button"
+                                       style="background: url('images/icons/hand.png') no-repeat 0 center; background-size:contain; padding-left: 25px"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        비급여진료비
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">치료</a></li>
+                                        <li><a class="dropdown-item" href="#">제증명수수료</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">약제</a></li>
+                                        <li><a class="dropdown-item" href="#">재료</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <!--justify-content-center justify-content-md-end 넣으면, 햄버거에서 가운데 정렬-->
+                            <div class="d-flex align-items-center fs-13 fw-bold">
+                                <a class="nav-link disabled d-sm-none d-lg-block fst-italic text-dark me-2 "
+                                   href="#"
+                                >
+                                    <span class="text-main ">토, 일요일</span> 정상진료
+                                </a>
+
+                                <div class="p-1 px-2 rounded-pill bg-main text-white">
+                                    <a class="nav-link py-0 pe-1 my-1 my-md-0" href="tel:02-4600-6243"
+                                       style="background: url('images/icons/call.png') no-repeat 0 center; padding-left: 20px;"
+                                       >
+                                        예약문의
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </nav>
+
+
             </div>
         </div>
     </div>
@@ -170,7 +316,6 @@
 
         <div class="row">
             <div class="col-1"></div>
-            <div class="col-3"></div>
             <div class="col-4"></div>
             <div class="col-3"></div>
             <div class="col-1"></div>

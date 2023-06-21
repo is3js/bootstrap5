@@ -321,6 +321,7 @@
 ### 32 dropdown
 
 ### 33 navbar
+- [예시](../33_navbar.html)
 
 ### 34 scrollpy로 만드는 cotents
 
