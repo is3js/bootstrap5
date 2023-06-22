@@ -86,7 +86,7 @@
         #topLeftBanner .splide__pagination__page {
             /* 각 점들은 button 태그로 구성됨. background + opacity로 색*/
             background: var(--color-main);
-            opacity: 0.3;
+            opacity: 0.2;
             /* ~md까지*/
             /*width: 5px; !*8px 기본*!*/
             /*height: 5px;*/
@@ -148,6 +148,7 @@
                 width: 5px; /*8px 기본*/
                 height: 5px;
             }
+
             /* pagination 공간 */
             #topLeftBanner .splide__pagination--ttb {
                 /* 기존 left:auto; right:0.5em -> right -4px으로  */
@@ -156,7 +157,7 @@
 
         }
 
-        @media screen and (max-width: 950px) {
+        @media screen and (max-width: 998px) {
             .top-left-banner-title {
                 font-size: 0.75rem;
                 letter-spacing: -1.5px;
@@ -182,10 +183,11 @@
                             <img src="images/logo.png" alt="" class="img-fluid" style="max-width: 150px">
                         </a>
                         <!--hambergur-->
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        <button class="navbar-toggler border-0 fs-13" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <!--                            <span class="navbar-toggler-icon"></span>-->
+                            <span class=" text-main text-muted"> 메뉴 펼쳐보기</span>
                         </button>
                         <!-- top 메뉴-->
                         <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
@@ -366,7 +368,7 @@
                                 class="btn btn-sm  dropdown-toggle bg-transparent text-main fw-bold border-0"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                            1초 로그인
+                            간편 로그인
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item fs-13" href="#">카카오톡 로그인</a></li>
@@ -636,11 +638,35 @@
 <!--병원 둘러보기 섹션 끝-->
 
 <!--푸터 시작-->
-<footer class="mt-4">
+<footer class="mt-4 bg-dark text-light small">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-10"></div>
-            <div class="col-sm-12 col-md-2"></div>
+        <div class="row pt-3 pb-5">
+            <div class="col-sm-12 col-md-10">
+                <div class="pt-4">
+                    <p class="mb-2">경상남도 남해군 스포츠로 26 동신타워 1층 우아한한의원</p>
+                    <ul class="nav">
+                        <li class="nav-item"><a href="#" class="nav-link text-white ps-0">한의원 소개</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-white ps-0">이용약관</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-white ps-0">개인정보처리방침</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-white ps-0">이메일무단수집거부</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-white ps-0">비급여진료비</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-white ps-0">길찾기</a></li>
+                    </ul>
+
+                    <div class="text-white-50">
+                         <i>ⓒ 2023</i> <span class="mx-3"> <a href="#" class="text-decoration-none text-white">WOOWAHAN HOSPITAL</a></span> RIGHTS RESERVED
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-md-2 text-center text-md-end p-0">
+                <figure class="figure mt-3">
+                    <img src="images/qrcode.png" alt="qrcode" class="figure-img img-thumbnail"
+                         style="max-width: 100px" >
+                    <figcaption class="figure-caption text-center text-light"> 예약하기 </figcaption>
+                </figure>
+            </div>
         </div>
     </div>
 </footer>

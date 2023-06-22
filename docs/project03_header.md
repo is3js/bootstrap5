@@ -224,5 +224,5 @@ splide = new Splide('#topLeftBanner', {
 ```
    
 
-![img.png](header-sm.png)
+![img.png](../ui/header-sm.png)
 ![img.png](header-lg.png)
