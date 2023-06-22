@@ -4,10 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap</title>
+
     <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- index.html 전용   -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <style>
         :root {
             --color-main: #FC5230;
+            --color-submain: #12887A;
         }
 
         .text-main {
@@ -16,6 +20,10 @@
 
         .bg-main {
             background-color: var(--color-main);
+        }
+
+        .fs-13 {
+            font-size: 13px;
         }
 
         /*nav, header, section, footer {*/
@@ -46,23 +54,71 @@
 
         /* top메뉴 */
         #navbarSupportedContent > ul > li > a,
-        nav .dropdown-menu > li >a {
+        nav .dropdown-menu > li > a {
             font-size: small;
         }
+
         /* top메뉴 */
-        #navbarSupportedContent > ul > li >a:hover,
-        #navbarSupportedContent > ul > li >a:focus {
+        #navbarSupportedContent > ul > li > a:hover,
+        #navbarSupportedContent > ul > li > a:focus {
             font-weight: bold;
             font-size: 0.9em;
-            color: var(--color-main)!important;
+            color: var(--color-main) !important;
         }
 
-        .fs-13 {
-            font-size: 13px;
+        /*top-left-banner*/
+        .top-left-banner-title {
+            font-size: 1.0rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            color: var(--color-main);
+
         }
 
+        .top-left-banner-subtitle {
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--color-submain);
+        }
 
-        @media screen and (max-width: 768px){
+        /* 각 점들*/
+        #topLeftBanner .splide__pagination__page {
+            /* 각 점들은 button 태그로 구성됨. background + opacity로 색*/
+            background: var(--color-main);
+            opacity: 0.3;
+            /* ~md까지*/
+            /*width: 5px; !*8px 기본*!*/
+            /*height: 5px;*/
+        }
+
+        /* pagination 공간 */
+        #topLeftBanner .splide__pagination--ttb {
+            /* ~md까지*/
+            /* 기존 left:auto; right:0.5em -> right 0으로  */
+            /*right: -4px;*/
+        }
+
+        /* pagination 공간 2(내부) for padding */
+        #topLeftBanner .splide__pagination {
+            padding: 0.2em 0;
+        }
+
+        #topLeftBanner .splide__pagination li {
+            /*  flex-column의 li들의 행간으로 indicator간격 조절  */
+            /*  기존 행간 1 -> 0.1 */
+            line-height: 0.1;
+        }
+
+        #topLeftBanner .splide__slider {
+            /* Slide객체에서 width에 따라 heightRatio를 정했으니 */
+            /* width의 제한을 둔다. 제한에 따라 img태그는 알아서 fluid로 100을 채운다 */
+            /*max-width: 400px;*/
+            /* 옵션. 너무 붙어있어서*/
+            /*padding: 0 1rem;*/
+        }
+
+        @media screen and (max-width: 768px) {
             /* top메뉴 */
             #navbarSupportedContent > ul > li > a,
             nav .dropdown-menu > li > a {
@@ -70,15 +126,45 @@
                 margin: 2px 0;
             }
 
-            #navbarSupportedContent > ul > li> a:hover,
-            #navbarSupportedContent > ul > li> a:focus {
+            #navbarSupportedContent > ul > li > a:hover,
+            #navbarSupportedContent > ul > li > a:focus {
                 font-size: 1.05em;
                 font-weight: bold;
-                color: var(--color-main)!important;
+                color: var(--color-main) !important;
             }
 
             .fs-13 {
                 font-size: 1em;
+            }
+
+            /*top-left-banner*/
+            .top-left-banner-subtitle {
+                font-size: 0.75rem;
+                letter-spacing: -1.8px;
+            }
+
+            /* 각 점들*/
+            #topLeftBanner .splide__pagination__page {
+                width: 5px; /*8px 기본*/
+                height: 5px;
+            }
+            /* pagination 공간 */
+            #topLeftBanner .splide__pagination--ttb {
+                /* 기존 left:auto; right:0.5em -> right -4px으로  */
+                right: -8px;
+            }
+
+        }
+
+        @media screen and (max-width: 950px) {
+            .top-left-banner-title {
+                font-size: 0.75rem;
+                letter-spacing: -1.5px;
+            }
+
+            .top-left-banner-subtitle {
+                font-size: 0.8rem;
+                letter-spacing: -1.5px;
             }
         }
     </style>
@@ -107,7 +193,7 @@
                             <!--ul(flex)에 align-items-center를 주면, 햄버거에서 가운데 정렬된다.-->
                             <ul class="navbar-nav me-auto mb-lg-0">
                                 <li class="nav-item">
-<!--                                       style="background: url('images/icons/logo.png') no-repeat 0 center; background-size:contain; padding-left: 25px"-->
+                                    <!--                                       style="background: url('images/icons/logo.png') no-repeat 0 center; background-size:contain; padding-left: 25px"-->
                                     <a class="nav-link active py-0 my-1 my-md-0 fw-bolder " href="#"
                                     >
                                         우아한한의원
@@ -129,7 +215,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link py-0 my-1 my-md-0 dropdown-toggle d-sm-none d-lg-block" href="#" id="navbarDropdown3"
+                                    <a class="nav-link py-0 my-1 my-md-0 dropdown-toggle d-sm-none d-lg-block" href="#"
+                                       id="navbarDropdown3"
                                        role="button"
                                        style="background: url('images/icons/self_diagnosis.png') no-repeat 0 center; background-size:contain; padding-left: 25px"
                                        data-bs-toggle="dropdown" aria-expanded="false">
@@ -189,7 +276,7 @@
                                 <div class="p-1 px-2 rounded-pill bg-main text-white">
                                     <a class="nav-link py-0 pe-1 my-1 my-md-0" href="tel:02-4600-6243"
                                        style="background: url('images/icons/call.png') no-repeat 0 center; padding-left: 20px;"
-                                       >
+                                    >
                                         예약문의
                                     </a>
                                 </div>
@@ -205,13 +292,95 @@
     </div>
 </nav>
 <!--메뉴 끝-->
+
 <!--헤더 시작-->
-<header class="mt-4">
+<header class="mt-2">
     <div class="container">
-        <div class="row">
-            <div class="col">LOGO</div>
-            <div class="col">SLOGEN</div>
-            <div class="col">TOOL BTN</div>
+        <div class="row py-0 py-lg-2 align-items-center">
+            <!--top left banner by splide-->
+            <div class="col-5 col-md-4">
+                <div class="splide" id="topLeftBanner">
+                    <div class="splide__slider position-relative">
+                        <div class="splide__track">
+                            <ul class="splide__list ">
+                                <li class="splide__slide">
+                                    <div class="card border-0 flex-row ">
+                                        <img src="images/new-001.png" class="card-img-top my-auto" alt="..."
+                                             style="max-width: 25%;height: auto;margin:auto">
+                                        <div class="card-body d-flex flex-column justify-content-center text-truncate p-0 ps-2">
+                                            <h5 class="card-title text-truncate mb-1 top-left-banner-title">
+                                                부부 한의사의
+                                            </h5>
+                                            <p class="card-text text-truncate my-0 top-left-banner-subtitle">
+                                                일관성 있는 동일진료
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="card border-0 flex-row ">
+                                        <img src="images/new-002.png" class="card-img-top my-auto" alt="..."
+                                             style="max-width: 25%;height: auto;margin:auto">
+                                        <div class="card-body d-flex flex-column justify-content-center text-truncate p-0 ps-2">
+                                            <h5 class="card-title text-truncate mb-1 top-left-banner-title">
+                                                조재성원장님
+                                            </h5>
+                                            <p class="card-text text-truncate my-0 top-left-banner-subtitle">
+                                                근골격계/추나/재활치료
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="splide__slide">
+                                    <div class="card border-0 flex-row ">
+                                        <img src="images/new-003.png" class="card-img-top my-auto" alt="..."
+                                             style="max-width: 25%;height: auto;margin:auto">
+                                        <div class="card-body d-flex flex-column justify-content-center text-truncate p-0 ps-2">
+                                            <h5 class="card-title text-truncate mb-1 top-left-banner-title">
+                                                김석영원장님
+                                            </h5>
+                                            <p class="card-text text-truncate my-0 top-left-banner-subtitle">
+                                                피부/미용/여성질환
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--slogen or logo-->
+            <div class="col pt-2 d-none d-lg-block">
+                <blockquote class="blockquote text-center">
+                    <p class="text-truncate ">우아와 함께 건강 생활 지켜나가기</p>
+                </blockquote>
+            </div>
+
+            <!--login-->
+            <div class="col">
+                <div class="text-end">
+                    <div class="btn-group">
+                        <button type="button"
+                                class="btn btn-sm  dropdown-toggle bg-transparent text-main fw-bold border-0"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            1초 로그인
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item fs-13" href="#">카카오톡 로그인</a></li>
+                            <li><a class="dropdown-item fs-13" href="#">네이버 로그인</a></li>
+                            <li><a class="dropdown-item fs-13" href="#">구글 로그인</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item fs-13" href="#">빠른 회원가입</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </header>
@@ -479,5 +648,31 @@
 
 
 <script src="js/bootstrap.bundle.js"></script>
+
+<!--index.html 전용-->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+    var splide;
+
+    window.document.addEventListener('DOMContentLoaded', () => {
+        splide = new Splide('#topLeftBanner', {
+            // vertical
+            arrows: false,
+            direction: 'ttb', // 슬라이드방향 -> height or heightRatio필수
+            heightRatio: 0.25, // direction 바뀔 때 height or heightRatio필수
+            paginationDirection: 'ttb', // 페지네이션 방향
+            // 기본설정 'loop' 무한반복, 'slide' 1회석
+            type: 'loop',
+            perPage: 1,
+            perMove: 1,
+            start: 0,
+            wheel: true,
+            autoplay: true,
+            interval: 4000,
+            // speed: 100,
+        }).mount();
+
+    });
+</script>
 </body>
 </html>
