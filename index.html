@@ -6,9 +6,13 @@
     <title>Bootstrap</title>
 
     <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- index.html 전용   -->
+    <!-- index.html 전용 splidejs css (top left banner)  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-
+    <!-- index.html 전용 swiperjs css (병원 둘러보기) -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
@@ -17,7 +21,6 @@
             --color-submain: #12887A;
 
             --primary-font-family: 'Noto Sans KR', sans-serif;
-
         }
 
         body {
@@ -410,7 +413,7 @@
 
 <!-- mobile 배너 섹션 시작-->
 <section class="mt-1 d-lg-none">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <div id="carouselMainMobile" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -422,10 +425,6 @@
                         <button type="button" data-bs-target="#carouselMainMobile" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselMainMobile" data-bs-slide-to="3"
-                                aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselMainMobile" data-bs-slide-to="4"
-                                aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselMainMobile" data-bs-slide-to="5"
                                 aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
@@ -762,19 +761,131 @@
 <!--벤치마킹 섹션 끝-->
 
 <!--병원 둘러보기 섹션 시작-->
-<section class="mt-4">
+<style>
+    /* swiper 전체 공간 */
+    .facilitySwiper {
+        /*max-width: 992px;*/
+        max-width: 1140px;
+        /*test*/
+        /*background-color: blue;*/
+    }
+    /* flex wrapper */
+    .facilitySwiper .swiper-wrapper {
+        align-items: center;
+    }
+    /* 1개 slide */
+    .facilitySwiper .swiper-slide {
+        max-width: 290px;
+        /*max-width: 400px;*/
+        /*test*/
+        /*background-color: red;*/
+    }
+
+
+    @media screen and (min-width: 776px) {
+        /*active slide*/
+        .facilitySwiper .swiper-slide-active .card{
+            transform: scale(1.2);
+            transition: .4s;
+        }
+
+        .facilitySwiper .swiper-slide-active .card .card-body {
+            transform: scale(0.833333); /* 1 / 1.2 = 0.833333 */
+            transition: inherit;
+        }
+
+        .facilitySwiper {
+            /* p-5(3rem)보다 약간 더 크게*/
+            padding: 4rem !important;
+        }
+
+        .facilitySwiper .swiper-slide {
+            max-width: 400px;
+        }
+    }
+
+
+
+    .facilitySwiper .swiper-pagination {
+        bottom: 0!important;
+    }
+    .facilitySwiper .swiper-pagination-bullet{
+        background-color: var(--color-submain);
+    }
+
+</style>
+<section class="mt-4 ">
     <div class="container">
         <div class="row">
             <div class="col">
                 <div>
                     <h4 class="d-inline-block">병원 둘러보기</h4>
-                    <small class="text-muted ps-2">병원을 한눈에 파악하기</small>
+                    <small class="text-muted ps-2">몸과 마음의 치유가 시작되는 곳</small>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col"></div>
+        <div class="row ">
+            <div class="col">
+                <!-- Swiper -->
+                <div class="swiper facilitySwiper pb-4">
+                    <div class="swiper-wrapper">
+                        <!-- slide 1-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f1.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">치료실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">한방 치료가 이루어지는 공간</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 2-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f2.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">치료실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">한방 치료가 이루어지는 공간</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 3-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f3.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">재활센터</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">증상별 맞춤치료로 빠른 회복을 돕습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 4-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f4.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">재활센터</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">증상별 맞춤치료로 빠른 회복을 돕습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 5-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f5.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">재활센터</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">증상별 맞춤치료로 빠른 회복을 돕습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -841,6 +952,7 @@
             wheel: true,
             autoplay: true,
             interval: 4000,
+            // autoHeight: true,
             // speed: 100,
         }).mount();
 
@@ -932,6 +1044,38 @@
     })
 
 </script>
+
+<!-- index.html 전용: swiperjs(병원 둘러보기) 설정-->
+<!--swiper js-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".facilitySwiper", {
+        // slidesPerView: 3,
+        slidesPerView: 'auto',
+        // 추가1
+        centeredSlides: true,
+        spaceBetween: 30,
+        breakpoints: {
+            776: {
+                spaceBetween: 90
+            }
+        },
+        // 추가2
+        grabCursor: true,
+
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        // navigation: {
+        //     nextEl: ".swiper-button-next",
+        //     prevEl: ".swiper-button-prev",
+        // },
+    });
+</script>
+
 
 </body>
 </html>

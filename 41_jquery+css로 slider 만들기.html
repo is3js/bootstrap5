@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /*row & col test*/
+        .row {
+            border: dashed 1px red;
+            margin: 10px 0;
+        }
+
+        .ca {
+            border: solid 1px blue;
+            background: #EFEFEF;
+        }
+
+        /*  div.wh(block 정사각형)을 flex or row 속 col아닌데 수평배치 하는 방법*/
+        /*  border, 색, m/p 등 알아볼 때 사용함*/
+        .wh {
+            width: 100px;
+            height: 100px;
+            background: #EFEFEF;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<style>
+    /* wrap */
+    .wrap {
+        margin: 50px auto;
+        width: 1134px;
+        height: 437px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pic {
+        width: 679px;
+        height: 437px;
+        cursor: pointer;
+    }
+
+    .pic1 {
+        background: url('images/facilities/f1.png');
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .pic_num1 {
+        width: 74px;
+        height: 79px;
+        position: absolute;
+        top: 40px;
+        left: 17px;
+        background: url('images/facilities/pic_num.png');
+        background-position: 0 0;
+        display: none;
+    }
+
+    .pic2 {
+        background: url('images/facilities/f2.png');
+        position: absolute;
+        top: 0;
+        left: 679px;
+        z-index: 3;
+    }
+
+    .pic_num2 {
+        width: 74px;
+        height: 79px;
+        position: absolute;
+        top: 40px;
+        left: 17px;
+        background: url('images/facilities/pic_num.png');
+        background-position: -69px 0;
+    }
+
+    .pic3 {
+        background: url('images/facilities/f3.png');
+        position: absolute;
+        top: 0;
+        left: 770px;
+        z-index: 5;
+    }
+
+    .pic_num3 {
+        width: 74px;
+        height: 79px;
+        position: absolute;
+        top: 40px;
+        left: 17px;
+        background: url('images/facilities/pic_num.png');
+        background-position: -138px 0;
+    }
+
+    .pic4 {
+        background: url('images/facilities/f4.png');
+        position: absolute;
+        top: 0;
+        left: 861px;
+        z-index: 7;
+    }
+
+    .pic_num4 {
+        width: 74px;
+        height: 79px;
+        position: absolute;
+        top: 40px;
+        left: 17px;
+        background: url('images/facilities/pic_num.png');
+        background-position: -207px 0;
+    }
+
+    .pic5 {
+        background: url('images/facilities/f5.png');
+        position: absolute;
+        top: 0;
+        left: 952px;
+        z-index: 9;
+    }
+
+    .pic_num5 {
+        width: 73px;
+        height: 79px;
+        position: absolute;
+        top: 40px;
+        left: 18px;
+        background: url('images/facilities/pic_num.png');
+        background-position: -276px 0;
+    }
+
+    .pic6 {
+        background: url('images/facilities/f6.png');
+        position: absolute;
+        top: 0;
+        left: 1043px;
+        z-index: 11;
+    }
+
+    .pic_num6 {
+        width: 73px;
+        height: 79px;
+        position: absolute;
+        top: 40px;
+        left: 18px;
+        background: url('images/facilities/pic_num.png');
+        background-position: -345px 0;
+    }
+</style>
+<!--row/col test -->
+<div class="container">
+    <div class="row">
+        <div class="ca col">
+
+
+            <div class="wrap">
+                <div class="pic1 pic">
+                    <div class="pic_num1 pic_num"></div>
+                </div>
+                <div class="pic2 pic">
+                    <div class="pic_num2 pic_num"></div>
+                </div>
+                <div class="pic3 pic">
+                    <div class="pic_num3 pic_num"></div>
+                </div>
+                <div class="pic4 pic">
+                    <div class="pic_num4 pic_num"></div>
+                </div>
+                <div class="pic5 pic">
+                    <div class="pic_num5 pic_num"></div>
+                </div>
+                <div class="pic6 pic">
+                    <div class="pic_num6 pic_num"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <!--<script src="js/bootstrap.js"></script>-->
+    <script src="js/bootstrap.bundle.js"></script>
+
+    <script>/* CSS Document */
+    $(function () {
+        /*图片轮换的js*/
+
+        /*********初始设置**************/
+
+        /*获取节点对象*/
+        var imgOuter = $('.wrap');//所有图片所处的容器
+        var imgDiv = $('.pic');//各图片所在的div容器
+
+        /* //设置部分初始值与计算*/
+        var timeId = null;//记录如片轮换的定时器，自动轮换与鼠标控制切换时用到
+
+        var edgeDistance = 91;//记录相邻图片错开的距离
+
+        var imgNow = 0;//记录当前显示的第几张图片，此处为默认值0
+        var imgMouse = 0;//记录鼠标停留在第几张图片上
+
+        var imgOuterWidth = imgOuter.width();//记录所有图片最外层容器的宽度，计算即将显示第一张图片时的，其他图片移动的距离
+        /*// alert(imgDiv.size());*/
+        /**********方法*************/
+
+        /*图片自动轮换的方法主体*/
+        function autoSlide() {
+            /*计算第几张图片开始运动*/
+            if (imgNow == imgDiv.size() - 1) {
+                imgNow = 0;
+            } else {
+                imgNow++;
+            }
+
+            /*显示第一张图片和显示后面图片的移动方式不同*/
+            if (imgNow == 0) {/*显示第一张图片*/
+                imgDiv.eq(imgNow).children().hide().siblings().children().show();
+                imgDiv.eq(imgNow).siblings().children().show();
+                /*图片运动*/
+                for (var i = imgDiv.size() - 1; i > 0; i--) {
+                    imgDiv.eq(i).animate({'left': imgOuterWidth - (imgDiv.size() - i) * edgeDistance + 'px'}, 300);
+                }
+            } else {/*显示第一张之外的任意图片*/
+                imgDiv.eq(imgNow).children().hide().siblings().children().show();
+                imgDiv.eq(imgNow).siblings().children().show();
+                /*图片运动*/
+                imgDiv.eq(imgNow).animate({'left': edgeDistance * imgNow + 'px'}, 300);
+            }
+        }
+
+        /*鼠标影响图片轮换的方法主体*/
+        function mouseSlide() {
+            /*判断鼠标所在图片是否已轮换过，选择右边图片移动或左边图片移动*/
+            if (imgMouse > imgNow) {/*鼠标左边图片移动，即鼠标选中的是当前图片右边的图片*/
+                for (var i = imgNow + 1; i <= imgMouse; i++) {
+                    imgDiv.eq(imgMouse).children().hide();
+                    imgDiv.eq(imgMouse).siblings().children().show();
+                    /*图片移动*/
+                    imgDiv.eq(i).stop().animate({'left': edgeDistance * i + 'px'}, 300);
+                }
+                /*重置当前图片的索引*/
+                imgNow = imgMouse;
+            } else {//鼠标右边图片移动，即鼠标选中的是当前图片左边的图片
+                for (var i = imgNow; i > imgMouse; i--) {
+                    //图片左上角数字样式改变
+                    imgDiv.eq(imgMouse).children().hide();
+                    imgDiv.eq(imgMouse).siblings().children().show();
+                    //图片移动
+                    imgDiv.eq(i).stop().animate({'left': imgOuterWidth - (imgDiv.size() - i) * edgeDistance + 'px'}, 300);
+                }
+                //重置当前图片的索引
+                imgNow = imgMouse;
+            }
+        }
+
+        /**********图片控制事件*************/
+        /*图片自动轮换*/
+        timeId = setInterval(autoSlide, 4000);
+        /*鼠标影响图片轮换*/
+        imgDiv.hover(function () {
+            //鼠标移入，停止自动轮换
+            clearInterval(timeId);
+            //获得鼠标停留在第几张图片，调用鼠标事件的方法
+            imgMouse = $(this).index();
+            if (imgMouse != imgNow) {
+                mouseSlide();
+            }
+        }, function () {
+            //鼠标离开，继续自动轮换
+            timeId = setInterval(autoSlide, 4000);
+        }).bind('click', function () {
+            imgNow = $(this).index();
+        });
+
+    });</script>
+</body>
+</html>
