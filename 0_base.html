@@ -6,6 +6,35 @@
     <title>Bootstrap</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+        :root {
+            --color-main: #FC5230;
+            --color-submain: #12887A;
+
+            --primary-font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .bg-main {
+            background-color: var(--color-main);
+        }
+        .bg-main-50 {
+            background-color: rgba(var(--color-main), 0.5);
+        }
+
+        .bg-submain {
+            background-color: var(--color-submain);
+        }
+        bg-submain-50 {
+            background-color: rgba(var(--color-submain), 0.5);
+        }
+
+
+        body {
+            font-family: var(--primary-font-family);
+        }
+
         /*row & col test*/
         .row {
             border: dashed 1px red;
