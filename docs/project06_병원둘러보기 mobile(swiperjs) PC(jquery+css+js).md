@@ -192,6 +192,7 @@ var swiper = new Swiper(".facilitySwiper", {
    }
    ```
    - **또한, breakpoint마다 spacebetween이 달라야한다. 확대적용되는 576+200 (`768`)이상부터 30 -> 90으로 준다**
+
 ```html
 <script>
     var swiper = new Swiper(".facilitySwiper", {
@@ -216,7 +217,6 @@ var swiper = new Swiper(".facilitySwiper", {
     });
 </script>
 ```
-   
 
 15. 글자크기는 확실히 확대되기전에는 md(max 768)에서 줄어들어야한다
    - 한번에 수정하기 위해 card-body만 타겟팅해서 축소시킨다
