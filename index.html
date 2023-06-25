@@ -155,7 +155,7 @@
                 color: var(--color-main) !important;
             }
 
-            .fs-13 {
+            #topLeftBanner .fs-13 {
                 font-size: 1em;
             }
 
@@ -188,6 +188,16 @@
             .top-left-banner-subtitle {
                 font-size: 0.8rem;
                 letter-spacing: -1.5px;
+            }
+        }
+
+        /* 클리닉*/
+        .fs-clinic {
+            font-size: 13px;
+        }
+        @media screen and (min-width: 768px) {
+            .fs-clinic {
+                font-size: 1rem;
             }
         }
     </style>
@@ -540,7 +550,7 @@
 <!-- PC 배너 섹션 끝 -->
 
 <!--치료 클리닉 섹션 시작-->
-<section class="mt-4">
+<section class="py-4" style="background: #f3f3f3">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -551,10 +561,10 @@
             </div>
         </div>
 
-        <div class="row gy-2 gy-md-0">
+        <div class="row gy-2">
             <!--            <div class="col-4 col-sm-4 col-md"></div>-->
             <div class="col-4 col-md-4 col-lg " style="height: 120px">
-                <div class="text-center w-100 h-100 rounded text-white shadow"
+                <div class="text-start ps-2    ps-md-4 pt-md-4   w-100 h-100 rounded text-white shadow"
                      style="background-image: url('images/clinics/001_AB90CD.png');
                             background-repeat: no-repeat;
                             background-position: bottom right;
@@ -562,7 +572,7 @@
                             background-color: #AB90CD;
                 "
                 >
-                디스크 클리닉
+                    <small class="fs-clinic">목/허리 디스크</small>
                 </div>
             </div>
             <div class="col-4 col-md-4 col-lg " style="height: 120px">
@@ -630,6 +640,35 @@
     </div>
 </section>
 <!--치료 클리닉 섹션 끝-->
+
+<!--자가진단 섹션 시작-->
+<section class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h4 class="d-inline-block">우아한 진단</h4>
+                    <small class="text-muted ps-2">진료 전 진단을 셀프 진단을 해보아요.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-4 col-md-4 col-lg " style="height: 60px;line-height: 60px;">
+                <a href="#" class="text-decoration-none text-white">
+                    <h4>허리디스크</h4>
+                </a>
+            </div>
+            <div class="col-4 col-md-4 col-lg " style="height: 60px;line-height: 60px;">
+                2
+            </div>
+            <div class="col-4 col-md-4 col-lg " style="height: 60px;line-height: 60px;">
+                3
+            </div>
+        </div>
+    </div>
+</section>
+<!--자가진단 섹션 끝-->
 
 <!--유튜브 및 공지사항 섹션 시작-->
 <section class="mt-4">
