@@ -242,3 +242,32 @@
  .contain i {position:absolute; top:0; left:0; width: 100% !important;height: 100%;
      border-radius: 5px; background: rgba(0, 0, 0, 0.4); opacity: 0;}
 ```
+5. 배경div를 png bottom right 버전으로 적용하고, bg-main-80, bg-submain-80을 구현후, shadow와 함께 적용
+```css
+.bg-main-80 {
+   background-color: rgb(252,82,48, 0.8);
+}
+.bg-submain-80 {
+   background-color: rgb(26,168,151, .80);
+}
+```
+```html
+<div class="w-100 h-100 bg-submain-80 shadow text-center rounded position-relative "
+     style="background-image: url('images/faqs/001.png');
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: cover;
+                ">
+    <a href="#" class="d-inline-block text-decoration-none text-white ">
+        <h4 class="fs-index text-shadow-lg">Q. 비침습 치료로 병이 낫나요?</h4>
+        <i class=""></i>
+        <div class="span ">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </a>
+</div>
+```
+![img.png](../ui/faq_final_styling.png)
