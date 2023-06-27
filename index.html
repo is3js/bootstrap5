@@ -42,6 +42,14 @@
         .bg-submain {
             background-color: var(--color-submain);
         }
+        .bg-main-80 {
+            background-color: rgb(252,82,48, 0.8);
+        }
+        .bg-submain-80 {
+            background-color: rgb(26,168,151, .80);
+        }
+
+
 
         .fs-13 {
             font-size: 13px;
@@ -191,15 +199,26 @@
             }
         }
 
-        /* 클리닉*/
-        .fs-clinic {
+        /* 클리닉 & 진단 & 자주묻는질문 */
+        .fs-index {
             font-size: 13px;
         }
 
         @media screen and (min-width: 768px) {
-            .fs-clinic {
+            .fs-index {
                 font-size: 1rem;
             }
+        }
+
+        /* 글자 그림자 */
+        /* - 배경 어두울 때 */
+        .text-shadow {
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* - 배경 밝을 때 */
+        .text-shadow-lg {
+            text-shadow: 1px 1px 1px #000000;
         }
     </style>
 </head>
@@ -551,11 +570,6 @@
 <!-- PC 배너 섹션 끝 -->
 
 <!--치료 클리닉 섹션 시작-->
-<style>
-    .text-shadow {
-        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    }
-</style>
 <section class="py-4" style="background: #f3f3f3">
     <div class="container">
         <div class="row">
@@ -578,7 +592,7 @@
                             background-color: #AB90CD;
                 "
                 >
-                    <small class="fs-clinic text-shadow">목/허리 디스크</small>
+                    <small class="fs-index text-shadow">목/허리 디스크</small>
                 </div>
             </div>
             <div class="col-4 col-md-4 col-lg " style="height: 120px">
@@ -659,11 +673,9 @@
                             background-repeat: no-repeat;
                             background-position: top center;
                             background-size: cover;
-                            background-color: #c4c4c4;
-
-">
+                            background-color: #c4c4c4;">
                     <a href="#" class="d-inline-block text-decoration-none text-white ">
-                        <h4 class="fs-clinic text-shadow">디스크 진단</h4>
+                        <h4 class="fs-index text-shadow">디스크 진단</h4>
                     </a>
                 </div>
             </div>
@@ -680,37 +692,97 @@
 
 <!--FAQ 섹션 시작-->
 <style>
-    .contain .col-4 { display: block; position: relative;}
+    .contain .col-4 {
+        display: block;
+        position: relative;
+    }
 
-    /* 그림배경 hover on i태그 */
-    .contain i {position:absolute; top:3px; left:0; width: 100%;height: 112px;
-        border-radius: 5px; background: url('images/patterns/link.png') no-repeat center top; opacity: 0;}
-    /*.contain a:hover i{opacity: 1;}*/
-    .contain a:hover i{opacity: 1;}
+    /* 그림 -> 반투명 배경 hover on i태그 */
+    .contain i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.2);
+        opacity: 0;
+    }
+
+    /*border-radius: 5px; background: url('images/patterns/link.png') no-repeat center top; opacity: 0;}*/
+    .contain a:hover i {
+        opacity: 1;
+    }
 
     /* 이어지는 테두리 on span태그 */
     /* - 부모공간 만들어 자리 잡기 */
-    .contain .span  {position: absolute; width: 80%;height: 80%; left:10%; top:10%;}
+    .contain .span {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        left: 5%;
+        top: 10%;
+    }
+
     /* - 자식 span태그들 일괄 적용*/
-    .contain .span span { display: inline-block; position: absolute; background: #ff8e3b;}
-    .contain .span span { transition: .3s;}
+    /*.contain .span span { display: inline-block; position: absolute; background: #CEA869;}*/
+    .contain .span span {
+        display: inline-block;
+        position: absolute;
+        background: #ffffff;
+    }
+
+    .contain .span span {
+        transition: .4s;
+    }
 
     /* - 개별 span태그에서 테두리 시작점 잡아놓기*/
     /*  bottom left -> 위로 올라가기 */
-    .contain .span span:nth-child(1) { width: 1.5px; height: 0; bottom: 0;left: 0;}
-    .contain a:hover .span span:nth-child(1) { height: 100%;}
-    .contain .span span:nth-child(2) { width: 0; height: 1.5px; top: 0;left: 0;}
-    .contain a:hover .span span:nth-child(2) { width: 100%;}
-    .contain .span span:nth-child(3) { width: 1.5px; height: 0; top: 0;right: 0;}
-    .contain a:hover .span span:nth-child(3) { height: 100%;}
-    .contain .span span:nth-child(4) { width: 0; height: 1.5px; bottom: 0;right: 0;}
-    .contain a:hover .span span:nth-child(4) { width: 100%;}
-
-
-    /* h4 그림자 */
-    h4.th4 {
-        text-shadow: 1px 1px 1px #000000;
+    .contain .span span:nth-child(1) {
+        width: 1.2px;
+        height: 0;
+        bottom: 0;
+        left: 0;
     }
+
+    .contain a:hover .span span:nth-child(1) {
+        height: 88%;
+    }
+
+    .contain .span span:nth-child(2) {
+        width: 0;
+        height: 1px;
+        top: 0;
+        left: 0;
+    }
+
+    .contain a:hover .span span:nth-child(2) {
+        width: 98%;
+    }
+
+    .contain .span span:nth-child(3) {
+        width: 1.2px;
+        height: 0;
+        top: 0;
+        right: 0;
+    }
+
+    .contain a:hover .span span:nth-child(3) {
+        height: 88%;
+    }
+
+    .contain .span span:nth-child(4) {
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        right: 0;
+    }
+
+    .contain a:hover .span span:nth-child(4) {
+        width: 98%;
+    }
+
+
 </style>
 <section class="mt-4">
     <div class="container">
@@ -724,11 +796,15 @@
         </div>
 
         <div class="row contain">
-            <div class="col-4 col-md-4 col-lg p-1 " style="height: 120px;line-height: 120px;">
-                <div class="w-100 h-100 text-center rounded"
-                     style="background: url('images/patterns/001.png');">
-                    <a href="#" class="d-inline-block text-decoration-none text-white">
-                        <h4 class="th4">치료기간?</h4>
+            <div class="col-6 col-md-4 col-lg p-1 " style="height: 60px;line-height: 55px;">
+                <div class="w-100 h-100 text-center rounded position-relative bg-dark bg-opacity-25"
+                     style="background-image: url('images/faqs/001.png');
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: cover;
+                ">
+                    <a href="#" class="d-inline-block text-decoration-none text-white ">
+                        <h4 class="fs-index text-shadow-lg">Q. 비침습 치료로 병이 낫나요?</h4>
                         <i class=""></i>
                         <div class="span ">
                             <span></span>
@@ -739,11 +815,16 @@
                     </a>
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-lg p-1 " style="height: 120px;line-height: 120px;">
-                <div class="w-100 h-100 text-center rounded"
-                     style="background: url('images/patterns/002.png');">
-                    <a href="#" class="d-inline-block text-decoration-none text-white">
-                        <h4 class="th4">치료기간?</h4>
+            <div class="col-6 col-md-4 col-lg p-1 " style="height: 60px;line-height: 55px;">
+                <div class="w-100 h-100 text-center rounded position-relative bg-dark bg-opacity-25"
+
+                     style="background-image: url('images/faqs/002.png');
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: cover;
+                ">
+                    <a href="#" class="d-inline-block text-decoration-none text-white ">
+                        <h4 class="fs-index text-shadow-lg">Q. 치료기간은 얼마나 걸려요?</h4>
                         <i class=""></i>
                         <div class="span ">
                             <span></span>
@@ -754,11 +835,15 @@
                     </a>
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-lg p-1 " style="height: 120px;line-height: 120px;">
-                <div class="w-100 h-100 text-center rounded"
-                     style="background: url('images/patterns/003.png');">
-                    <a href="#" class="d-inline-block text-decoration-none text-white">
-                        <h4 class="th4">치료기간?</h4>
+            <div class="col-6 col-md-4 col-lg p-1 " style="height: 60px;line-height: 55px;">
+                <div class="w-100 h-100 text-center rounded position-relative bg-dark bg-opacity-25"
+                     style="background-image: url('images/faqs/003.png');
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: cover;
+                ;">
+                    <a href="#" class="d-inline-block text-decoration-none text-white ">
+                        <h4 class="fs-index text-shadow-lg">Q. 비용은 얼마나 들어요?</h4>
                         <i class=""></i>
                         <div class="span ">
                             <span></span>
@@ -769,11 +854,15 @@
                     </a>
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-lg p-1 " style="height: 120px;line-height: 120px;">
-                <div class="w-100 h-100 text-center rounded"
-                     style="background: url('images/patterns/004.png');">
-                    <a href="#" class="d-inline-block text-decoration-none text-white">
-                        <h4 class="th4">치료기간?</h4>
+            <div class="col-6 col-md-4 col-lg p-1 " style="height: 60px;line-height: 55px;">
+                <div class="w-100 h-100 text-center rounded position-relative bg-dark bg-opacity-25"
+                     style="background-image: url('images/faqs/004.png');
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: cover;
+                background-color: #C4C4C4;">
+                    <a href="#" class="d-inline-block text-decoration-none text-white ">
+                        <h4 class="fs-index text-shadow-lg">Q. 한약은 효과가 있어요?</h4>
                         <i class=""></i>
                         <div class="span ">
                             <span></span>
@@ -784,36 +873,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-4 col-md-4 col-lg p-1 " style="height: 120px;line-height: 120px;">
-                <div class="w-100 h-100 text-center rounded"
-                     style="background: url('images/patterns/005.png');">
-                    <a href="#" class="d-inline-block text-decoration-none text-white">
-                        <h4 class="th4">치료기간?</h4>
-                        <i class=""></i>
-                        <div class="span ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4 col-md-4 col-lg p-1 " style="height: 120px;line-height: 120px;">
-                <div class="w-100 h-100 text-center rounded"
-                     style="background: url('images/patterns/003.png');">
-                    <a href="#" class="d-inline-block text-decoration-none text-white">
-                        <h4 class="th4">치료기간?</h4>
-                        <i class=""></i>
-                        <div class="span ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
@@ -1211,8 +1271,6 @@
 <!--푸터 끝-->
 
 
-
-
 <!--임시 jquery: boostrap 전에 추가-->
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 
@@ -1365,38 +1423,39 @@
 
 <!-- fixed 메뉴 -->
 <style>
-    .fuceng{
+    .fuceng {
         position: fixed;
         top: 12%;
         right: 0rem;
         width: 120px;
         /*height: 1.3rem ;*/
-        background: rgba( 234,233,238,0.7 );
+        background: rgba(234, 233, 238, 0.7);
         /*box-shadow: 3px 3px 3px rgba(234,233,238,0.4 ) ;*/
         /*border: 2px solid #f3f1f4;*/
         border-radius: 0.8rem 0 0 0.8rem;
-        z-index: 10 ;
+        z-index: 10;
     }
-    .fuceng img{
-        padding: 0.1rem ;
+
+    .fuceng img {
+        padding: 0.1rem;
         /*width: 1.1rem ;*/
         /*height: 1.1rem ;*/
     }
 </style>
 <div class="fuceng rounded-start-circle" id="fuceng">
-    <img class="d-none d-lg-block img-fluid w-75 rounded-circle m-2 bg-white" src="images/new-002.png" />
+    <img class="d-none d-lg-block img-fluid w-75 rounded-circle m-2 bg-white" src="images/new-002.png"/>
 </div>
 <script>
 
-    function move(){
+    function move() {
         var _x_start, _y_start, _x_move, _y_move, _x_end, _y_end, left_start, top_start;
         // press
         document.getElementById("fuceng").addEventListener("touchstart", function (e) {
             _x_start = e.touches[0].pageX; // Start click
             position_y_start = e.touches[0].pageY; // Start click position
-            left_start = $("#fuceng").css("left") ; // Element left margin
+            left_start = $("#fuceng").css("left"); // Element left margin
             top_start = $("#fuceng").css("top"); // Element top margin
-            $(".fuceng").css({"background":"initial","border" :'none' });
+            $(".fuceng").css({"background": "initial", "border": 'none'});
         });
         // Move
         document.getElementById("fuceng").addEventListener("touchmove", function (e) {
@@ -1405,10 +1464,10 @@
             _y_move = e.touches[0].pageY; // A collection list of all touch points on the current screen
             // Left margin = current Touch point - mouse initial click position + initial left margin
             $("#fuceng").css("left", parseFloat(_x_move) - parseFloat(_x_start) + parseFloat(
-                left_start) + "px" );
+                left_start) + "px");
             // top margin=current touch point-mouse initial click position+starting top margin
             $("#fuceng").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(top_start) +
-                "px" );
+                "px");
         });
         // Release
         document.getElementById("fuceng").addEventListener("touchend", function (e) {
@@ -1418,30 +1477,38 @@
             var bodyH = $(window).height(); // screen height
             var _x_end = e.changedTouches[0].pageX; // release position
             var _y_end = e.changedTouches[0].pageY; // release position
-            var divH = $("#fuceng").height (); // Element height
+            var divH = $("#fuceng").height(); // Element height
             var divW = $("#fuceng").width();// Element width
             // When the final position is in the left half of the screen
             if (_x_end < bodyW) {
-                $( "#fuceng").css("left", "0px" );
-                $( ".fuceng").css({"background":"rgba(234,233,238,0.7)","border":'2px solid #f3f1f4',"borderRadius":'0 0.8rem 0.8rem 0'}) ;
-                $( ".fuceng img").css("float","right" )
-            } else  if (_x_end >= bodyW) { // When the final position is in the left half of the screen
+                $("#fuceng").css("left", "0px");
+                $(".fuceng").css({
+                    "background": "rgba(234,233,238,0.7)",
+                    "border": '2px solid #f3f1f4',
+                    "borderRadius": '0 0.8rem 0.8rem 0'
+                });
+                $(".fuceng img").css("float", "right")
+            } else if (_x_end >= bodyW) { // When the final position is in the left half of the screen
                 $("#fuceng").css("left", $(window).width() - parseFloat(divW))
-                $( ".fuceng").css({"background":"rgba(234,233,238,0.7)","border":'2px solid #f3f1f4',"borderRadius":'0.8rem 0 0 0.8rem' }) ;
-                $( ".fuceng img").css("float","left" )
+                $(".fuceng").css({
+                    "background": "rgba(234,233,238,0.7)",
+                    "border": '2px solid #f3f1f4',
+                    "borderRadius": '0.8rem 0 0 0.8rem'
+                });
+                $(".fuceng img").css("float", "left")
             }
             // When the top of the element is off-screen
-            if (parseFloat($("#fuceng").css("top")) < 0 ) {
+            if (parseFloat($("#fuceng").css("top")) < 0) {
                 // Place it on top
-                $("#fuceng").css("top" , 0); // put to the top
+                $("#fuceng").css("top", 0); // put to the top
             }
             // when the bottom of the element is offscreen
-            if (parseFloat($("#fuceng").css("bottom")) < 0 ) {
+            if (parseFloat($("#fuceng").css("bottom")) < 0) {
                 // put to the bottom
                 $(" #fuceng").css("top", bodyH - parseFloat(divH)); // put at the bottom
             }
         });
-        $( "#fuceng").click( function () {
+        $("#fuceng").click(function () {
             // floating layer click event
         });
 

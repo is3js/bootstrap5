@@ -163,3 +163,82 @@
  }
 ```
 ![img.png](../ui/h4태그%20그림자%20th4.png)
+
+
+### 커스텀
+1. 일단 col의 높이를 절반으로 줄인다(120->60px) 
+```html
+<div class="col-4 col-md-4 col-lg p-1 " style="height: 60px;line-height: 60px;">
+```
+2. 배경그림을 채우는 i태그 absolute의 부모가 배경을 채우는  div가 될 수있도록 `배경div에 position-relative`를 추가하고, `.contain i태그`의 크기 height를 120px -> 100%로 바꾼다
+```html
+<div class="w-100 h-100 text-center rounded position-relative"
+     style="background: url('images/patterns/001.png');">
+    <a href="#" class="d-inline-block text-decoration-none text-white ">
+        <h4 class="fs-index text-shadow-lg">치료기간?</h4>
+        <i class=""></i>
+        <div class="span ">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </a>
+</div>
+```
+```css
+ /* 그림배경 hover on i태그 */
+ .contain i {position:absolute; top:0; left:0; width: 100%;height: 100%;
+     border-radius: 5px; background: url('images/patterns/link.png') no-repeat center top; opacity: 0;}
+ /*.contain a:hover i{opacity: 1;}*/
+ .contain a:hover i{opacity: 1;}
+```
+2. 글자크기를 `fs-index`로 만들어 주고, 어두운배경시  shadow를 `text-shadow`, 지금같이 밝을 때 shadow를 `text-shadow-lg`로 만들어준다 
+
+```css
+/* 클리닉*/
+.fs-index {
+   font-size: 13px;}
+
+@media screen and (min-width: 768px) {
+   .fs-index {
+      font-size: 1rem;
+   }
+}
+```
+```css
+  /* 글자 그림자 */
+  /* - 배경 어두울 때 */
+  text-shadow {
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+  /* - 배경 밝을 때 */
+  text-shadow-lg {
+      text-shadow: 1px 1px 1px #000000;
+  }
+```
+3. span태그 늘어나는 것을 100%로 수정
+```css
+/* 이어지는 테두리 on span태그 */
+/* - 부모공간 만들어 자리 잡기 */
+.contain .span  {position: absolute; width: 90%;height: 80%; left:5%; top:10%;}
+/* - 자식 span태그들 일괄 적용*/
+.contain .span span { display: inline-block; position: absolute; background: rgb(196, 196, 196);}
+.contain .span span { transition: .4s;}
+
+/* - 개별 span태그에서 테두리 시작점 잡아놓기*/
+/*  bottom left -> 위로 올라가기 */
+.contain .span span:nth-child(1) { width: 1px; height: 0; bottom: 0;left: 0;}
+.contain a:hover .span span:nth-child(1) { height: 100%;}
+.contain .span span:nth-child(2) { width: 0; height: 1px; top: 0;left: 0;}
+.contain a:hover .span span:nth-child(2) { width: 100%;}
+.contain .span span:nth-child(3) { width: 1px; height: 0; top: 0;right: 0;}
+.contain a:hover .span span:nth-child(3) { height: 100%;}
+.contain .span span:nth-child(4) { width: 0; height: 1px; bottom: 0;right: 0;}
+.contain a:hover .span span:nth-child(4) { width: 100%;}
+```
+4. i태그에 그림이 아닌 검은색반투명 배경으로 변경
+```css
+ .contain i {position:absolute; top:0; left:0; width: 100% !important;height: 100%;
+     border-radius: 5px; background: rgba(0, 0, 0, 0.4); opacity: 0;}
+```
