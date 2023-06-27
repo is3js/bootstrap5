@@ -111,6 +111,15 @@
 ![img.png](../ui/새소식bagde.png)
 
 
-10. **왼쪽 유튜브 col에 height를 고정하고, 새소식의 heigth를 지워 item갯수만큼만 차지하게 한다**
+10. **왼쪽 유튜브 col에 height를 고정하고, 새소식의 heigth -> max-heigth만 유튜브와 동일하게 줘서 item갯수만큼만 차지하게 한다**
+```html
+
+<div class="row">
+    <!-- 블로그 소식 -->
+   <div class="col-sm-12 col-lg-4" style="max-height: 349px;"></div>
+     <!-- 유튜브 -->
+     <div class="col-sm-12 col-lg-8" style="height: 349px;"></div>
+ </div>
+```
 ![img.png](../ui/새소식%20no%20height.png)
 ![img.png](../ui/새소식 no-height-lg.png)
