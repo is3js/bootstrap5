@@ -647,7 +647,6 @@
         background: #424242;
         position: absolute;
         right: 0;
-        _right: -45px;
         top: 0;
         z-index: 100;
     }
@@ -664,7 +663,6 @@
         background: url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;
         width: 150px;
         left: -19px;
-        _background: url('images/youtube/T19UakXlxiXXXXXXXX-296-79.gif') no-repeat 0 2px;
     }
 
     .film_focus ul.film_focus_nav li img {
@@ -793,16 +791,16 @@
                             <!--                                <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"-->
                             <!--                                     style="width: auto;height:349px;">-->
                             <li>
-                                <div id="dplayer1" style="width: 100%;height: 100%"></div>
+                                <div id="dplayer1" style="width: 100%;height: 100%" data-caption="asdfasfd"></div>
                             </li>
                             <li>
-                                <div id="dplayer2" style="width: 100%;height: 100%"></div>
+                                <div id="dplayer2" style="width: 100%;height: 100%" data-caption="asdfasfd"></div>
                             </li>
                             <li>
-                                <div id="dplayer3" style="width: 100%;height: 100%"></div>
+                                <div id="dplayer3" style="width: 100%;height: 100%" data-caption="asdfasfd"></div>
                             </li>
                             <li>
-                                <div id="dplayer4" style="width: 100%;height: 100%"></div>
+                                <div id="dplayer4" style="width: 100%;height: 100%" data-caption="asdfasfd"></div>
                             </li>
                         </ul>
                     </div>
@@ -1736,6 +1734,7 @@
                 url: 'videos/video2.mp4',
                 // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
                 live: true,
+                mutex: true,
             }
         });
         dp3 = new DPlayer({
@@ -1744,6 +1743,7 @@
                 url: 'videos/video3.mp4',
                 // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
                 live: true,
+                mutex: true,
             }
         });
         dp4 = new DPlayer({
@@ -1752,6 +1752,7 @@
                 url: 'videos/video4.mp4',
                 // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
                 live: true,
+                mutex: true,
             }
         });
     })
@@ -1778,7 +1779,10 @@
 
             return this.each(function () {
 
-                var O = A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
+                var O =     A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
+
+                var Y = O.find("h3"), X = Y.height();
+                Y.height(0).html((0+1) + " " + A(D + " li").eq(0).find("img").attr("alt")).animate({height: X}, 300)
 
                 function N(R) {
                     var V = K * R * -1;
@@ -1792,7 +1796,13 @@
                     }
                     A(B, O).stop().animate({top: V}, F, function () {
                         var Y = O.find("h3"), X = Y.height();
-                        Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+                        console.log('Y', Y)
+                        console.log(A(B + " li")) /*init(4) [li, li, li, li, prevObject: init(1), context: document, selector: '.film_focus_imgs li']*/
+                        // console.log(A(B + " li").eq(R).find("div.dplayer" + (R+1)))
+                        // Y.height(0).html(A(B + " li").eq(R).find("div").attr("data-caption")).animate({height: X}, 600)
+                        // Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+                        // Y.height(0).html(A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+                        Y.height(0).html((R+1) + " " + A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 300)
                     });
                     A(D + " li").eq(R).addClass(C).siblings().removeClass(C)
 
@@ -1816,13 +1826,11 @@
 
                 // 각 영상객체마다 play시 interval 멈추기
                 dp1.on('play', function () {
-                    console.log('dp1 play')
                     if (I) {
                         clearInterval(I)
-                        console.log('I', I)
-                        console.log('dp1 play -> clearInterval(I)')
                     }
-                });
+                })
+
                 dp2.on('play', function () {
                     if (I) {
                         clearInterval(I)
@@ -1844,8 +1852,8 @@
                         clearInterval(I)
                     }
                 }, function () {
-                    // hover해도 모두 정지시에만 재시작?!
-                    if (dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+                    // hover해도 모두 정지시에만 재시작 => 하나라도 play 중이면 작동안하게 한다
+                    if (dp1.video.paused && dp2.video.paused && dp3.video.paused && dp4.video.paused) {
                         Q()
                     }
                 });
@@ -1887,8 +1895,8 @@
         $(".film_focus").th_video_focus({
             navContainerClass: ".film_focus_nav",
             focusContainerClass: ".film_focus_imgs",
-            // delayTime: 5000
-            delayTime: 3000
+            // delayTime: 3000
+            delayTime: 5000
         });
     });
 </script>

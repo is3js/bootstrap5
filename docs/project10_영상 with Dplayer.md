@@ -155,8 +155,8 @@
                         clearInterval(I)
                     }
                 }, function () {
-                    // 수정
-                    // if(dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+                    // 추가: 하나라도 실행중이면 안넘어가도록
+                    // if(dp1.video.paused && dp2.video.paused && dp3.video.paused && dp4.video.paused) {
                     //     Q()
                     // }
                 });
@@ -404,17 +404,19 @@ dp1 = new DPlayer({
 });
 ```
 5. 실행시는 자동 넘김 안되도록, **hover시, 모두 정지상태에만 돌아가도록 하는 코드 주석 해제**한다
+   - **즉, 하나라도 실행 중이면, 안넘어가게 하는 코드**
 ```js
 O.hover(function () {
-  if (I) {
+   if (I) {
       clearInterval(I)
-  }
+   }
 }, function () {
-  // hover해도 모두 정지시에만 돌아가도록
-  if(dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+   // hover해도 모두 정지시에만 재시작 => 하나라도 play 중이면 작동안하게 한다
+   if (dp1.video.paused && dp2.video.paused && dp3.video.paused && dp4.video.paused) {
       Q()
-  }
+   }
 });
+
 ```
 
 6. **이제 어떤 것이 play신호를 받았다면, interval을 멈추도록, `dp객체`들에게 리스너를 달아주자.**
@@ -433,7 +435,7 @@ O.hover(function () {
 
         dp1 = new DPlayer({
 ```
-   - 이제 밑에 있는 영상 js설정 파트로 가서 dp1, dp2 ... 마다 `.on('play', )` 리스너를 달아서 `I`가 있다면 멈추도록 하는 `clearInterval(I)`를 구동시켜준다
+   - **이제 밑에 있는 영상 js설정 파트로 가서 dp1, dp2 ... 마다 `.on('play', )` 리스너를 달아서 `I`가 있다면 멈추도록 하는 `clearInterval(I)`를 구동시켜준다**
    - Q정의와 O.hover사이에 정의해준다
 ```js
 // 각 영상객체마다 play시 interval 멈추기
@@ -458,7 +460,7 @@ dp4.on('play', function () {
     }
 })
 ```
-7. **한편,hover or 자동으로 넘어갈 때, 모든 video들이 멈추도록 function N(R) 맨 아래에 dp객체.pause()를 다 호출해준다**
+7. **한편,hover or 자동으로 넘어갈 때 실행되는 `N` function에서  모든 video들이 멈추도록 function N(R) 맨 아래에 `모든 dp객체.pause()`를 다 호출해준다**
 ```js
 function N(R) {
    var V = K * R * -1;
@@ -482,4 +484,16 @@ function N(R) {
    dp3.pause();
    dp4.pause();
 }
+```
+
+8. 이제 테스트용 시간을 3초 -> 5초마다 넘어가도록 수정해준다
+```js
+$(function () {
+  $(".film_focus").th_video_focus({
+      navContainerClass: ".film_focus_nav",
+      focusContainerClass: ".film_focus_imgs",
+      // delayTime: 3000
+      delayTime: 5000
+  });
+});
 ```
