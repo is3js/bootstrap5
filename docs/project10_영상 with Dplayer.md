@@ -61,9 +61,9 @@
 
 
 3. 이제 각 css 선택자별 css를 생성해준다
-- 이미지github: https://github.com/bylu/js-css-/tree/85354c52b625b87a33bf7afa1a2dd90c4d52afb8/banner%E8%BD%AE%E6%92%AD/images
-- 
-
+- 참고 이미지 github: https://github.com/bylu/js-css-/tree/85354c52b625b87a33bf7afa1a2dd90c4d52afb8/banner%E8%BD%AE%E6%92%AD/images
+- 참고 css
+   ![img.png](../ui/youtube%20css%20참고.png)
 
 ```html
 <style>
