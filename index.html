@@ -19,6 +19,7 @@
         :root {
             --color-main: #FC5230;
             --color-submain: #12887A;
+            --color-submain-80: rgba(26, 168, 151, .5);
 
             --primary-font-family: 'Noto Sans KR', sans-serif;
         }
@@ -35,6 +36,7 @@
             color: var(--color-submain);
         }
 
+
         .bg-main {
             background-color: var(--color-main);
         }
@@ -42,12 +44,15 @@
         .bg-submain {
             background-color: var(--color-submain);
         }
+
         .bg-main-80 {
-            background-color: rgb(252,82,48, 0.8);
+            background-color: rgb(252, 82, 48, 0.8);
         }
+
         .bg-submain-80 {
-            background-color: rgb(26,168,151, .80);
+            background-color: rgb(26, 168, 151, .80);
         }
+
         .fs-13 {
             font-size: 13px;
         }
@@ -568,32 +573,190 @@
 <!-- PC 배너 섹션 끝 -->
 
 <!--유튜브 및 블로그 소식 섹션 시작-->
+<style>
+    /* 부모는 w100에 높이를 고정하고, relative로 만들어놓는다*/
+    .film_focus {
+        width: 100%;
+        height: 349px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* 영상파트의 배경에는 로딩 이미지를 배경에 깔아둔다*/
+    .film_focus .film_focus_imgs_wrap {
+        width: 100%;
+        /*width: 80%;*/ /*내가 해본 것. 안 먹음.*/
+        height: 349px;
+        background: url('images/youtube/T16WJqXaXeXXXXXXXX-32-32.gif') no-repeat center center;
+    }
+
+    /* 영상파트는 absolute로 왼쪽상단부터 위치시킨다*/
+    /* 친구 .w-85로 인해 알아서 width를 잡는다*/
+    .film_focus ul.film_focus_imgs {
+        width: 100%;
+        height: 9999em;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    /* 영상들 부모 ul태그에서는 여백을 없애고, 리스트 스타일도 제거한다*/
+    .film_focus ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    /* 각 영상들의 부모li태그에서 height를 349로 고정한다 */
+    .film_focus ul.film_focus_imgs li {
+        height: 349px;
+        overflow: hidden;
+    }
+
+    /* Thumbnail 영역*/
+
+    /* 영상위의 설명란 설정 */
+    .film_focus .film_focus_desc h3 {
+        height: 45px;
+        line-height: 45px;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        /*background: rgba(0, 0, 0, .5);*/
+        background: var(--color-submain-80);
+        color: #fff;
+        width: 100%;
+        padding-left: 24px;
+        z-index: 99;
+        font-size: 16px;
+        /*filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr="#7F000000");*/
+
+    }
+    .film_focus ul.film_focus_nav{width:15%;height:394px;background:#424242;position:absolute;right:0;_right:-45px;top:0;z-index:100;}
+    .film_focus ul.film_focus_nav li{height:86px;background:url('images/youtube/T1WiB5Xf0EXXXXXXXX-1-75.png') repeat-x;margin:1px 1px 1px 0;padding:5px 0 0 5px;position:relative;}
+    .film_focus ul.film_focus_nav li.cur{background:url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;width:150px;left:-19px;_background:url('images/youtube/T19UakXlxiXXXXXXXX-296-79.gif') no-repeat 0 2px;}
+    .film_focus ul.film_focus_nav li img{position:absolute;left:5px;top:5px;}
+    .film_focus ul.film_focus_nav li.cur img{left:19px;margin-top: 0.1px;}
+    .film_focus ul.film_focus_nav li h4{color:#fff;}
+    .film_focus ul.film_focus_nav li p{color:#B9B9B9;line-height:1.8em;}
+    /*!* 네비게이션은 우측상단에서 시작하여 15%만 차지하게 한다. *!*/
+    /*!* - 배경은 회색으로 한다*!*/
+    /*.film_focus ul.film_focus_nav {*/
+    /*    position: absolute;*/
+    /*    right: 0;*/
+    /*    top: 0;*/
+    /*    width: 15%;*/
+    /*    !* 높이는 안먹는 듯. *!*/
+    /*    height: 349px;*/
+
+    /*    !*background: #424242;*!*/
+    /*    background: red;*/
+    /*    z-index: 100;*/
+    /*}*/
+
+    /*!* 각 영상의 부모높이는 90px로 준다? *!*/
+    /*!* - li내부 img태그는 100x79로 고정 -> 총 높이 316을 차지한다. -> 78/4의 19.5px씩 나눠 가져야한다 *!*/
+    /*!* 79px + 위쪽 패딩 5 -> 84px을 차지하고 있어야한다.*!*/
+    /*!* 원래 총 높이/4 98.5가 필요하므로, 상하마진이 14.5가 들어가야한다 *!*/
+    /*.film_focus ul.film_focus_nav li {*/
+    /*    height: 85px;*/
+    /*    margin: 1px 1px 1px 0;*/
+    /*    background: url('images/youtube/T1WiB5Xf0EXXXXXXXX-1-75.png') repeat-x;*/
+    /*    padding: 5px 0 0 5px;*/
+    /*    position: relative;*/
+    /*}*/
+
+    /*!*.film_focus ul.film_focus_nav li.cur{background:url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;width:130px;left:-19px;z-index: 100;}*!*/
+    /*.film_focus ul.film_focus_nav li.cur {*/
+    /*    background: url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;*/
+    /*    width: 147px;*/
+    /*    left: -19px;*/
+    /*    z-index: 100;*/
+    /*}*/
+
+    /*!*.film_focus ul.film_focus_nav li img{position:absolute;left:5px;top:5px;}*!*/
+    /*.film_focus ul.film_focus_nav li img {*/
+    /*    position: absolute;*/
+    /*    left: 15px;*/
+    /*    top: 5px;*/
+    /*}*/
+
+    /*!*.film_focus ul.film_focus_nav li.cur img{left:19px;width: 110px;height: 79px;margin-top: -1px;}*!*/
+    /*.film_focus ul.film_focus_nav li.cur img {*/
+    /*    left: 19px;*/
+    /*    width: 125px;*/
+    /*    height: 75px;*/
+    /*    margin-top: -1px;*/
+    /*}*/
+
+    /*.film_focus ul.film_focus_nav li h4 {*/
+    /*    color: #fff;*/
+    /*}*/
+
+    /*.film_focus ul.film_focus_nav li p {*/
+    /*    color: #B9B9B9;*/
+    /*    line-height: 1.8em;*/
+    /*}*/
+
+    .knowcon_right {
+        width: 100%;
+        height: 349px;
+        border-top: 2px #ff8e3b solid;
+        background: #FDFDFD;
+        box-shadow: 5px 5px 10px rgba(0, 0.0, 0.5);
+    }
+
+    .pulsing:before, .pulsing:after {
+        content: "";
+        position: absolute;
+    }
+
+    .main-content {
+        display: grid;
+        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        .w-85 {
+            width: 100% !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .w-85 {
+            width: 85% !important;
+        }
+    }
+</style>
+
 <section class="mt-4">
     <div class="container">
-<!--        <div class="row">-->
-<!--            <div class="col">-->
-<!--                <div>-->
-<!--                    <h4 class="d-inline-block">우아한 소식</h4>-->
-<!--                    <small class="text-muted ps-2">공지, 이벤트, 블로그, 유튜브를 한 곳에!</small>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
         <div class="row">
+            <div class="col">
+                <div>
+                    <h4 class="d-inline-block">우아한 소식</h4>
+                    <small class="text-muted ps-2">공지, 이벤트, 블로그, 유튜브를 한 곳에!</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gy-4">
             <!-- 블로그 소식 -->
-            <div class="col-sm-12 col-lg-4" style="max-height: 349px;">
-                <div class="card w-100 bg-light border-0  shadow-sm" >
+            <div class="col-12 col-lg-5" style="max-height: 349px;">
+                <div class="card w-100 bg-light border-0  shadow-sm">
                     <!--header-->
-                    <div class="card-header d-flex bg-white border-top  border-bottom-0 border-2 " style="border-color: var(--color-submain)!important;">
+                    <div class="card-header d-flex bg-white border-top  border-bottom-0 border-2 "
+                         style="border-color: var(--color-submain)!important;">
                         <h5 class="d-inline-block text-submain fs-index">
-                            새 소식 <small class="fs-13 ms-2 text-muted text-truncate fw-light">공지사항, 이벤트, 의료정보</small>
+                            새 소식 <small class="fs-13 ms-2 text-dark-emphasis text-truncate fw-light">공지사항, 이벤트, 의료정보</small>
                         </h5>
                         <div class="d-inline-block ms-auto">
-                            <a class="text-decoration-none text-dark fs-13" href="#">더보기&gt;</a>
+                            <a class="text-decoration-none text-submain fs-13" href="#"> 더보기</a>
                         </div>
                     </div>
                     <!--body-->
-                    <ul class="list-group fs-13" style="line-height: 20px;">
+                    <ul class="list-group " style="line-height: 20px;">
                         <li class="list-group-item border-0 py-1 d-flex align-items-center">
                             <span class="badge bg-light text-main me-1">공지</span>
                             <a href="#" class="card-link text-decoration-none text-dark text-truncate ">
@@ -622,11 +785,70 @@
                     </ul>
                 </div>
             </div>
+
             <!-- 유튜브 -->
-            <div class="col-sm-12 col-lg-8" style="height: 349px;"></div>
+            <!--<div class="col-12 col-lg-8" style="height: 349px;">-->
+            <div class="col-12 col-lg-7">
+                <div class="film_focus">
+                    <!-- 영상 파트 -->
+                    <div class="film_focus_imgs_wrap main-content">
+                        <ul class="film_focus_imgs w-85">
+                            <!-- 변경) 이미지의 높이고정 -> width auto해놓고, 부모에서 가운데정렬 + 검은색 배경 -->
+                            <li class="d-flex justify-content-center bg-dark">
+                                <!--                                <div id="dplayer1" style="width: 100%;height:349px;"></div>-->
+                                <!--                                <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"-->
+                                <!--                                     style="width: 100%;height:349px;"></img>-->
+                                <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"
+                                     style="width: auto;height:349px;">
+                            </li>
+                            <li class="d-flex justify-content-center bg-dark">
+                                <!--                                <div id="dplayer2" style="width: 100%;height:349px;"></div>-->
+                                <img src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"
+                                     style="width: auto;height:349px;">
+                            </li>
+                            <li class="d-flex justify-content-center bg-dark">
+                                <!--                                <div id="dplayer3" style="width: 100%;height:349px;"></div>-->
+                                <img src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"
+                                     style="width: auto;height:349px;">
+                            </li>
+                            <li class="d-flex justify-content-center bg-dark">
+                                <!--                                <div id="dplayer4" style="width: 100%;height:100%;"></div>-->
+                                <img src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"
+                                     style="width: auto;height:349px;">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- thumbnail 파트 -->
+<!--                    <div class="film_focus_desc d-none d-md-block">-->
+                    <div class="film_focus_desc">
+                        <!--영상위 설명-->
+                        <h3>우아한 한의원 유튜브입니다.</h3>
+                        <ul id="film" class="film_focus_nav d-none d-md-block">
+                            <li class="cur">
+                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"
+                                     alt="여동생을-위한-쌍둥이-오빠들의-축가-sg워너비-해바리기">
+                            </li>
+                            <li>
+                                <img width="100px" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"
+                                     alt="임시-그룹웨어-핵심기능-부서관리-및-조직도">
+                            </li>
+                            <li>
+                                <img width="100px" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"
+                                     alt="임시-그룹웨어-프로젝트-소개">
+                            </li>
+                            <li>
+                                <img width="100px" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"
+                                     alt="체스-미션-최종-5단계-구현">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 <!--유튜브 및 공지사항 섹션 끝-->
 
 <!--치료 클리닉 섹션 시작-->
@@ -854,24 +1076,27 @@
     }
 
 
-    .bg-faq-1{
+    .bg-faq-1 {
         background-color: #AB90CD;
     }
-    .bg-faq-2{
+
+    .bg-faq-2 {
         background-color: #F07F7F;
     }
-    .bg-faq-3{
+
+    .bg-faq-3 {
         background-color: #80BA96;
     }
-    .bg-faq-4{
+
+    .bg-faq-4 {
         background-color: #C6BC63;
     }
 
-    .bg-faq-5{
+    .bg-faq-5 {
         background-color: #E59D68;
     }
 
-    .bg-faq-6{
+    .bg-faq-6 {
         background-color: #E7B277;
     }
 
@@ -970,7 +1195,6 @@
     </div>
 </section>
 <!--FAQ 섹션 끝-->
-
 
 
 <!--성장 섹션 시작-->
@@ -1494,6 +1718,118 @@
     });
 </script>
 
+<!-- youtube 기본 설정-->
+<script type="text/javascript">
+    (function (A) {
+        A.fn.th_video_focus = function (E) {
+
+            var G = {
+                actClass: "cur",
+                navContainerClass: ".focus_pic_preview",
+                focusContainerClass: ".focus_pic",
+                animTime: 600,
+                delayTime: 5000
+            };
+
+            if (E) {
+                A.extend(G, E)
+            }
+
+            var C = G.actClass, D = G.navContainerClass, B = G.focusContainerClass, F = G.animTime, H = G.delayTime,
+                I = null;
+
+            return this.each(function () {
+
+                var O = A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
+
+                function N(R) {
+                    var V = K * R * -1;
+                    var U = A(B + " li", O), W = null, T = null;
+                    for (var S = 0; S <= R; S++) {
+                        W = U.eq(S);
+                        T = W.find('script[type="text/templ"]');
+                        if (T.length > 0) {
+                            W.html(T.html())
+                        }
+                    }
+                    A(B, O).stop().animate({top: V}, F, function () {
+                        var Y = O.find("h3"), X = Y.height();
+                        Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+                    });
+                    A(D + " li").eq(R).addClass(C).siblings().removeClass(C)
+                }
+
+                function Q() {
+                    if (I) {
+                        clearInterval(I)
+                    }
+                    I = setInterval(function () {
+                        var R = A(D + " li." + C).index();
+                        N((R + 1) % L)
+                    }, H)
+                }
+
+                O.hover(function () {
+                    if (I) {
+                        clearInterval(I)
+                    }
+                }, function () {
+                    // 수정
+                    // if(dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+                    //     Q()
+                    // }
+                });
+
+                var J = null;
+
+                M.hover(function () {
+
+                    var R = A(this).index();
+
+                    if (I) {
+                        clearInterval(I)
+                    }
+                    J = setTimeout(function () {
+                        N(R)
+                    }, 300)
+                }, function () {
+                    if (J) {
+                        clearTimeout(J)
+                    }
+                    Q()
+                }).click(function (T) {
+                    var R = A(this).index(), S = P.eq(R).find("a");
+                    if (document.uniqueID || window.opera) {
+                        S[0].click();
+                        T.stopPropagation();
+                        T.preventDefault()
+                    }
+                });
+
+                Q()
+
+            })
+        }
+
+    })(jQuery);
+
+    $(function () {
+
+        //第一个焦点图
+        // $(".life_focus").th_video_focus({
+        //     navContainerClass:".life_focus_nav",
+        //     focusContainerClass:".life_focus_imgs"
+        // });
+
+        //第二个焦点图
+        $(".film_focus").th_video_focus({
+            navContainerClass: ".film_focus_nav",
+            focusContainerClass: ".film_focus_imgs",
+            delayTime: 3000
+        });
+
+    });
+</script>
 
 <!-- fixed 메뉴 -->
 <style>
