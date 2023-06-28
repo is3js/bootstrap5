@@ -813,19 +813,19 @@
                         <ul id="film" class="film_focus_nav d-none d-md-block">
                             <li class="cur">
                                 <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"
-                                     alt="여동생을-위한-쌍둥이-오빠들의-축가-sg워너비-해바리기">
+                                     alt="안주와 술을 같이 먹는 방법(아빠 따라하기)">
                             </li>
                             <li>
                                 <img width="100px" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"
-                                     alt="임시-그룹웨어-핵심기능-부서관리-및-조직도">
+                                     alt="조이현 근력 영상 1">
                             </li>
                             <li>
                                 <img width="100px" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"
-                                     alt="임시-그룹웨어-프로젝트-소개">
+                                     alt="조이현 근력 영상 2">
                             </li>
                             <li>
                                 <img width="100px" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"
-                                     alt="체스-미션-최종-5단계-구현">
+                                     alt="조예찬 조커 영상">
                             </li>
                         </ul>
                     </div>
@@ -1782,7 +1782,9 @@
                 var O =     A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
 
                 var Y = O.find("h3"), X = Y.height();
-                Y.height(0).html((0+1) + " " + A(D + " li").eq(0).find("img").attr("alt")).animate({height: X}, 300)
+                var total = A(D + " li").length;
+
+                Y.height(0).html("[" + (0+1) + "/" + total + "] " + A(D + " li").eq(0).find("img").attr("alt")).animate({height: X}, 300)
 
                 function N(R) {
                     var V = K * R * -1;
