@@ -1,3 +1,4 @@
+### 돌아가는 화면 만들기 
 1. col안에 영상을 뿌려줄 파트를 작성한다.
    - **기존 잡아둔 col높이 349px를 삭제하고, 내부에서 컨텐츠로 채울 준비를 한다**
     - `.film_focus>.film_focus_imgs_wrap.main-content>ul.film_focus_imgs.w-85` 안에 여러 li태그를 만든다
@@ -57,60 +58,428 @@
     </ul>
 </div>
 ```
+- 영상용 div#id 대신 img태그로 변경하고, **이미지가 가운데 정렬되도록 d-flex justify를 내가 따로 추가했다**
+```html
+<ul class="film_focus_imgs w-85">
+    <!-- 변경) 이미지의 높이고정 -> width auto해놓고, 부모에서 가운데정렬 + 검은색 배경 -->
+    <li class="d-flex justify-content-center bg-dark">
+        <!--                                <div id="dplayer1" style="width: 100%;height:349px;"></div>-->
+        <!--                                <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"-->
+        <!--                                     style="width: 100%;height:349px;"></img>-->
+        <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"
+             style="width: auto;height:349px;">
+    </li>
+```
 ![img.png](../ui/유튜브%20초기형태2.png)
 
 
-3. 이제 각 css 선택자별 css를 생성해준다
+3. 이제 각 요소들이 돌아가도록 js를 작성해준다.
+- 중간에 주석처리된 부분은 테스트를 위한 것 + 돌아가는 시간도 5초 -> 3초 테스트를 위한 것
+```js
+ O.hover(function () {
+     if (I) {
+         clearInterval(I)
+     }
+ }, function () {
+     // 수정
+     // if(dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+     //     Q()
+     // }
+ });
+```
+```js
+ $(function () {
+     $(".film_focus").th_video_focus({
+         navContainerClass: ".film_focus_nav",
+         focusContainerClass: ".film_focus_imgs",
+         // delayTime: 5000
+         delayTime: 3000
+     });
+ });
+```
+- 전체 코드
+```html
+<!-- youtube 기본 설정-->
+<script type="text/javascript">
+    (function (A) {
+        A.fn.th_video_focus = function (E) {
+
+            var G = {
+                actClass: "cur",
+                navContainerClass: ".focus_pic_preview",
+                focusContainerClass: ".focus_pic",
+                animTime: 600,
+                delayTime: 5000
+            };
+
+            if (E) {
+                A.extend(G, E)
+            }
+
+            var C = G.actClass, D = G.navContainerClass, B = G.focusContainerClass, F = G.animTime, H = G.delayTime,
+                I = null;
+
+            return this.each(function () {
+
+                var O = A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
+
+                function N(R) {
+                    var V = K * R * -1;
+                    var U = A(B + " li", O), W = null, T = null;
+                    for (var S = 0; S <= R; S++) {
+                        W = U.eq(S);
+                        T = W.find('script[type="text/templ"]');
+                        if (T.length > 0) {
+                            W.html(T.html())
+                        }
+                    }
+                    A(B, O).stop().animate({top: V}, F, function () {
+                        var Y = O.find("h3"), X = Y.height();
+                        Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+                    });
+                    A(D + " li").eq(R).addClass(C).siblings().removeClass(C)
+                }
+
+                function Q() {
+                    if (I) {
+                        clearInterval(I)
+                    }
+                    I = setInterval(function () {
+                        var R = A(D + " li." + C).index();
+                        N((R + 1) % L)
+                    }, H)
+                }
+
+                O.hover(function () {
+                    if (I) {
+                        clearInterval(I)
+                    }
+                }, function () {
+                    // 수정
+                    // if(dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+                    //     Q()
+                    // }
+                });
+
+                var J = null;
+
+                M.hover(function () {
+
+                    var R = A(this).index();
+
+                    if (I) {
+                        clearInterval(I)
+                    }
+                    J = setTimeout(function () {
+                        N(R)
+                    }, 300)
+                }, function () {
+                    if (J) {
+                        clearTimeout(J)
+                    }
+                    Q()
+                }).click(function (T) {
+                    var R = A(this).index(), S = P.eq(R).find("a");
+                    if (document.uniqueID || window.opera) {
+                        S[0].click();
+                        T.stopPropagation();
+                        T.preventDefault()
+                    }
+                });
+
+                Q()
+
+            })
+        }
+
+    })(jQuery);
+
+    $(function () {
+        $(".film_focus").th_video_focus({
+            navContainerClass: ".film_focus_nav",
+            focusContainerClass: ".film_focus_imgs",
+            // delayTime: 5000
+            delayTime: 3000
+        });
+    });
+</script>
+```
+
+
+4. 이제 각 css 선택자별 css를 생성해준다
 - 참고 이미지 github: https://github.com/bylu/js-css-/tree/85354c52b625b87a33bf7afa1a2dd90c4d52afb8/banner%E8%BD%AE%E6%92%AD/images
 - 참고 css
    ![img.png](../ui/youtube%20css%20참고.png)
-
-```html
+- **여러 설정을 통해 찾은 col-8뿐만 아니라 col-6,7도 적용되는 css**
+```css
 <style>
+    /* 부모는 w100에 높이를 고정하고, relative로 만들어놓는다*/
+    .film_focus {
+        width: 100%;
+        height: 349px;
+        overflow: hidden;
+        position: relative;
+    }
 
-Kiln focus.fils focur_ins_wrap lwidth 100% height: 349px;background url (images/116WJqXaXeXXXXXXXX-32-32.gif) no-repeat center center.) fila focus ul.filn focurings(width 100% height: 9999en position: abrolute;left: 0; top: 0:1 fils focur lwidth: 100% height: 349px; overflow. hidden position relative;
+    /* 영상파트의 배경에는 로딩 이미지를 배경에 깔아둔다*/
+    .film_focus .film_focus_imgs_wrap {
+        width: 100%;
+        /*width: 80%;*/ /*내가 해본 것. 안 먹음.*/
+        height: 349px;
+        background: url('images/youtube/T16WJqXaXeXXXXXXXX-32-32.gif') no-repeat center center;
+    }
 
-fila focus ul (padding: 0px;margin: 0px; list-style: none:]: .fils focus ul.fils focur inge li theight: 349px;overflow:hidden:1
+    /* 영상파트는 absolute로 왼쪽상단부터 위치시킨다*/
+    /* 친구 .w-85로 인해 알아서 width를 잡는다*/
+    .film_focus ul.film_focus_imgs {
+        width: 100%;
+        height: 9999em;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
 
-film focur.fils foeur desc h31
+    /* 영상들 부모 ul태그에서는 여백을 없애고, 리스트 스타일도 제거한다*/
+    .film_focus ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
 
-height: 45px.line-height 45px.overflow:hidden position: absolute;left:0;top:0;background: rgba(0, 0.0..5).color #fff width: 100%;padding-left: 24px:-index: 99, font-size: 10px; filter progid:DXImageTransform. Microsoft. gradient (enabled='true',startColorstr='#7F000000, endColorstr="#7F000000"); 1
+    /* 각 영상들의 부모li태그에서 height를 349로 고정한다 */
+    .film_focus ul.film_focus_imgs li {
+        height: 349px;
+        overflow: hidden;
+    }
 
-film focus ul.file_focus navfwidth 10% height: 349px;background: #424242;position: absolute;right: 0px; top: 0;z-index: 100:1
+    /* Thumbnail 영역*/
 
-.fila focus ul. fila forur nav 11 height: 85px;background: url(imager/T1WiB5Xf0EXXXXXXXX-1-75.png) repeat-x;margin: 1px 1px 1px 0 padding 5px file focus ul.fila focus nav li.eur [background url (inager/T1089XmDEXXXXXXXX-398-70.png) no-repeat 0 2px width 130px; left:-10px,andex
+    /* 영상위의 설명란 설정 */
+    .film_focus .film_focus_desc h3 {
+        height: 45px;
+        line-height: 45px;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        /*background: rgba(0, 0, 0, .5);*/
+        background: var(--color-submain-80);
+        color: #fff;
+        width: 100%;
+        padding-left: 24px;
+        z-index: 99;
+        /*font-size: 16px;*/
+        /*filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr="#7F000000");*/
 
-.file focus ul.fils focus nav is ang (position absolute;left:5px;top: 5px;}
+    }
+    .film_focus ul.film_focus_nav{width:15%;height:394px;background:#424242;position:absolute;right:0;_right:-45px;top:0;z-index:100;}
+    .film_focus ul.film_focus_nav li{height:86px;background:url('images/youtube/T1WiB5Xf0EXXXXXXXX-1-75.png') repeat-x;margin:1px 1px 1px 0;padding:5px 0 0 5px;position:relative;}
+    .film_focus ul.film_focus_nav li.cur{background:url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;width:150px;left:-19px;_background:url('images/youtube/T19UakXlxiXXXXXXXX-296-79.gif') no-repeat 0 2px;}
+    .film_focus ul.film_focus_nav li img{position:absolute;left:5px;top:5px;}
+    .film_focus ul.film_focus_nav li.cur img{left:19px;margin-top: .1px;}
+    .film_focus ul.film_focus_nav li h4{color:#fff;}
+    .film_focus ul.film_focus_nav li p{color:#B9B9B9;line-height:1.8em;}
 
-.fils focus ul.fila foeur nav 11. cur ing (left 19px:width 110px height: 79px;margin-top:-1px:1
+    .knowcon_right {
+        width: 100%;
+        height: 349px;
+        border-top: 2px #ff8e3b solid;
+        background: #FDFDFD;
+        box-shadow: 5px 5px 10px rgba(0, 0.0, 0.5);
+    }
 
-fil focus ul.fils focus nav 11 b4lcolor #ttt:]
+    .pulsing:before, .pulsing:after {
+        content: "";
+        position: absolute;
+    }
 
-fila forur alfils toour nav li plcolor 999;line-height: 1. Den:)
+    .main-content {
+        display: grid;
+        width: 100%;
+    }
 
-knowcon right (width 100% height: 249px border-top: 2px #8eb solid.background #FIFUFD box-shadow: 0px 5px 10px rgba(0, 0.0, 0.53)
+    @media (max-width: 767px) {
+        .w-85 {
+            width: 100% !important;
+        }
+    }
 
-140
-
--pulsing before. pulsing after festent parition abrelute.) .main-content Idisplay: grid width: 100%:1
-
-media (max-width: 767px) [
-
-65 (width: 100% portant]
-
-dis (min-width: 760px) [ 65 vidth es aportant]
-
+    @media (min-width: 768px) {
+        .w-85 {
+            width: 85% !important;
+        }
+    }
 </style>
+```
 
-alt-"EduWorkF
 
-, 100
+### youtube 이미지 부분에 dplayer js 적용하기
+1. https://cdn.jsdelivr.net/npm/dplayer@1.24.0/dist/ 여기서
+   - css / js 폴더에 다운 받아 넣는다
+2. css와 js를 추가해준다.
+   - js는 youtube 설정 코드 위에 넣어준다.
+```html
+<!-- index.html 전용 Dplayer css (새소식, Youtube) -->
+<link rel="stylesheet" href="css/DPlayer.min.css">
+```
+```html
+<!-- youtube DPlayer js 추가-->
+<script src="js/Dplayer.min.js"></script>
+<!-- youtube 기본 설정-->
+```
+3. 이제 `ul.film_focus_imgs.w-80` 내부 li 속에 img태그 대신 div#id로 바꿔준다.
+- **사용법 참고 사이트: https://www.fly63.com/article/detial/6918**
+- 4개의 영상에 대해, id를 `dplayer1`부터 4까지 주고, w-100 + height고정값으로 준다
+```html
+<div class="film_focus_imgs_wrap main-content">
+   <ul class="film_focus_imgs w-85">
+      <li class="d-flex justify-content-center bg-dark">
+         <div id="dplayer1" style="width: 100%;height:349px;"></div>
+         style="width: auto;height:349px;">-->
+      </li>
+```
+- 배경에 로딩gif가 나오도록 `bg-dark`를 삭제하고, w-100으로 인해 `d-flex justify`도 같이 삭제해준다
+```html
+<li>
+   <div id="dplayer1" style="width: 100%;height:349px;"></div>
+</li>
+```
+![img.png](../ui/youtube-dplayer-loading.png)
 
-0 5px postion relative:)
+4. jquery 실행함수로 script태그에 객체를 정의한다
+```html
+<script>
+    $(function () {
+        var dp1;
+        var dp2;
+        var dp3;
+        var dp4;
 
-본 자료
+        dp1 = new DPlayer({
+            container: document.getElementById('dplayer1'),
+            video: {
+                url: 'videos/video1.mp4',
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+                // live: true,
+            }
+        });
+        dp2 = new DPlayer({
+            container: document.getElementById('dplayer2'),
+            video: {
+                url: 'videos/video2.mp4',
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+                live: true,
+            }
+        });
+        dp3 = new DPlayer({
+            container: document.getElementById('dplayer3'),
+            video: {
+                url: 'videos/video3.mp4',
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+                live: true,
+            }
+        });
+        dp4 = new DPlayer({
+            container: document.getElementById('dplayer4'),
+            video: {
+                url: 'videos/video4.mp4',
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+                live: true,
+            }
+        });
+    })
+</script>
+```
+- **추가옵션으로 `mutex: true`를 넣어주면, 여러개의 dp인스턴스가 있어도, `마지막 실행된 1개의 viddeo만 작동`하게 한다**
+   - live: true로 넣어주면, 0초부터 카운팅하게 한다
+```js
+dp1 = new DPlayer({
+   container: document.getElementById('dplayer1'),
+   video: {
+       url: 'videos/video1.mp4',
+       live: true,
+       mutex: true,
+       // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+   }
+});
+```
+5. 실행시는 자동 넘김 안되도록, **hover시, 모두 정지상태에만 돌아가도록 하는 코드 주석 해제**한다
+```js
+O.hover(function () {
+  if (I) {
+      clearInterval(I)
+  }
+}, function () {
+  // hover해도 모두 정지시에만 돌아가도록
+  if(dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+      Q()
+  }
+});
+```
 
-X 40
+6. **이제 어떤 것이 play신호를 받았다면, interval을 멈추도록, `dp객체`들에게 리스너를 달아주자.**
+   - 일단 dp객체들은 전역변수가 될 수 있도록 $(function)에서 꺼내놓는다
+```html
+<script>
+    var dp1;
+    var dp2;
+    var dp3;
+    var dp4;
+    $(function () {
+        // var dp1;
+        // var dp2;
+        // var dp3;
+        // var dp4;
 
-100%
+        dp1 = new DPlayer({
+```
+   - 이제 밑에 있는 영상 js설정 파트로 가서 dp1, dp2 ... 마다 `.on('play', )` 리스너를 달아서 `I`가 있다면 멈추도록 하는 `clearInterval(I)`를 구동시켜준다
+   - Q정의와 O.hover사이에 정의해준다
+```js
+// 각 영상객체마다 play시 interval 멈추기
+dp1.on('play', function () {
+    if (I) {
+        clearInterval(I)
+    }
+})
+dp2.on('play', function () {
+    if (I) {
+        clearInterval(I)
+    }
+})
+dp3.on('play', function () {
+    if (I) {
+        clearInterval(I)
+    }
+})
+dp4.on('play', function () {
+    if (I) {
+        clearInterval(I)
+    }
+})
+```
+7. **한편,hover or 자동으로 넘어갈 때, 모든 video들이 멈추도록 function N(R) 맨 아래에 dp객체.pause()를 다 호출해준다**
+```js
+function N(R) {
+   var V = K * R * -1;
+   var U = A(B + " li", O), W = null, T = null;
+   for (var S = 0; S <= R; S++) {
+      W = U.eq(S);
+      T = W.find('script[type="text/templ"]');
+      if (T.length > 0) {
+         W.html(T.html())
+      }
+   }
+   A(B, O).stop().animate({top: V}, F, function () {
+      var Y = O.find("h3"), X = Y.height();
+      Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+   });
+   A(D + " li").eq(R).addClass(C).siblings().removeClass(C)
+
+   //추가2
+   dp1.pause();
+   dp2.pause();
+   dp3.pause();
+   dp4.pause();
+}
 ```

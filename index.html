@@ -13,6 +13,8 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
+    <!-- index.html 전용 Dplayer css (새소식, Youtube) -->
+    <link rel="stylesheet" href="css/DPlayer.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
@@ -638,71 +640,52 @@
         /*filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr="#7F000000");*/
 
     }
-    .film_focus ul.film_focus_nav{width:15%;height:394px;background:#424242;position:absolute;right:0;_right:-45px;top:0;z-index:100;}
-    .film_focus ul.film_focus_nav li{height:86px;background:url('images/youtube/T1WiB5Xf0EXXXXXXXX-1-75.png') repeat-x;margin:1px 1px 1px 0;padding:5px 0 0 5px;position:relative;}
-    .film_focus ul.film_focus_nav li.cur{background:url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;width:150px;left:-19px;_background:url('images/youtube/T19UakXlxiXXXXXXXX-296-79.gif') no-repeat 0 2px;}
-    .film_focus ul.film_focus_nav li img{position:absolute;left:5px;top:5px;}
-    .film_focus ul.film_focus_nav li.cur img{left:19px;margin-top: 0.1px;}
-    .film_focus ul.film_focus_nav li h4{color:#fff;}
-    .film_focus ul.film_focus_nav li p{color:#B9B9B9;line-height:1.8em;}
-    /*!* 네비게이션은 우측상단에서 시작하여 15%만 차지하게 한다. *!*/
-    /*!* - 배경은 회색으로 한다*!*/
-    /*.film_focus ul.film_focus_nav {*/
-    /*    position: absolute;*/
-    /*    right: 0;*/
-    /*    top: 0;*/
-    /*    width: 15%;*/
-    /*    !* 높이는 안먹는 듯. *!*/
-    /*    height: 349px;*/
 
-    /*    !*background: #424242;*!*/
-    /*    background: red;*/
-    /*    z-index: 100;*/
-    /*}*/
+    .film_focus ul.film_focus_nav {
+        width: 15%;
+        height: 394px;
+        background: #424242;
+        position: absolute;
+        right: 0;
+        _right: -45px;
+        top: 0;
+        z-index: 100;
+    }
 
-    /*!* 각 영상의 부모높이는 90px로 준다? *!*/
-    /*!* - li내부 img태그는 100x79로 고정 -> 총 높이 316을 차지한다. -> 78/4의 19.5px씩 나눠 가져야한다 *!*/
-    /*!* 79px + 위쪽 패딩 5 -> 84px을 차지하고 있어야한다.*!*/
-    /*!* 원래 총 높이/4 98.5가 필요하므로, 상하마진이 14.5가 들어가야한다 *!*/
-    /*.film_focus ul.film_focus_nav li {*/
-    /*    height: 85px;*/
-    /*    margin: 1px 1px 1px 0;*/
-    /*    background: url('images/youtube/T1WiB5Xf0EXXXXXXXX-1-75.png') repeat-x;*/
-    /*    padding: 5px 0 0 5px;*/
-    /*    position: relative;*/
-    /*}*/
+    .film_focus ul.film_focus_nav li {
+        height: 86px;
+        background: url('images/youtube/T1WiB5Xf0EXXXXXXXX-1-75.png') repeat-x;
+        margin: 1px 1px 1px 0;
+        padding: 5px 0 0 5px;
+        position: relative;
+    }
 
-    /*!*.film_focus ul.film_focus_nav li.cur{background:url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;width:130px;left:-19px;z-index: 100;}*!*/
-    /*.film_focus ul.film_focus_nav li.cur {*/
-    /*    background: url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;*/
-    /*    width: 147px;*/
-    /*    left: -19px;*/
-    /*    z-index: 100;*/
-    /*}*/
+    .film_focus ul.film_focus_nav li.cur {
+        background: url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;
+        width: 150px;
+        left: -19px;
+        _background: url('images/youtube/T19UakXlxiXXXXXXXX-296-79.gif') no-repeat 0 2px;
+    }
 
-    /*!*.film_focus ul.film_focus_nav li img{position:absolute;left:5px;top:5px;}*!*/
-    /*.film_focus ul.film_focus_nav li img {*/
-    /*    position: absolute;*/
-    /*    left: 15px;*/
-    /*    top: 5px;*/
-    /*}*/
+    .film_focus ul.film_focus_nav li img {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
 
-    /*!*.film_focus ul.film_focus_nav li.cur img{left:19px;width: 110px;height: 79px;margin-top: -1px;}*!*/
-    /*.film_focus ul.film_focus_nav li.cur img {*/
-    /*    left: 19px;*/
-    /*    width: 125px;*/
-    /*    height: 75px;*/
-    /*    margin-top: -1px;*/
-    /*}*/
+    .film_focus ul.film_focus_nav li.cur img {
+        left: 19px;
+        margin-top: .1px;
+    }
 
-    /*.film_focus ul.film_focus_nav li h4 {*/
-    /*    color: #fff;*/
-    /*}*/
+    .film_focus ul.film_focus_nav li h4 {
+        color: #fff;
+    }
 
-    /*.film_focus ul.film_focus_nav li p {*/
-    /*    color: #B9B9B9;*/
-    /*    line-height: 1.8em;*/
-    /*}*/
+    .film_focus ul.film_focus_nav li p {
+        color: #B9B9B9;
+        line-height: 1.8em;
+    }
 
     .knowcon_right {
         width: 100%;
@@ -734,7 +717,6 @@
         }
     }
 </style>
-
 <section class="mt-4">
     <div class="container">
         <div class="row">
@@ -749,12 +731,13 @@
         <div class="row gy-4">
             <!-- 블로그 소식 -->
             <div class="col-12 col-lg-5" style="max-height: 349px;">
+                <!--            <div class="col-12 col-lg-5" style="height: 50px;overflow: hidden">-->
                 <div class="card w-100 bg-light border-0 shadow-sm">
                     <!--header-->
                     <div class="card-header d-flex bg-white border-top  border-bottom-0 border-2 "
                          style="border-color: var(--color-submain)!important;">
                         <h5 class="d-inline-block text-submain fs-index">
-                            새 소식 <small class="fs-13 ms-2 text-dark-emphasis text-truncate fw-light">공지사항, 이벤트, 의료정보</small>
+                            새 소식 <small class="fs-13 ms-2 text-dark-emphasis text-truncate fw-light">공지사항 및 이벤트</small>
                         </h5>
                         <div class="d-inline-block ms-auto">
                             <a class="text-decoration-none text-submain fs-13" href="#"> 더보기</a>
@@ -763,23 +746,30 @@
                     <!--body-->
                     <ul class="list-group fs-index " style="line-height: 20px;">
                         <li class="list-group-item border-0 py-1 d-flex align-items-center">
-                            <span class="badge bg-light text-main me-1">공지</span>
+                            <span class="badge bg-light me-1 text-main ">공지</span>
                             <a href="#" class="card-link text-decoration-none text-dark  text-truncate ">
                                 진료일정표 변경입니다.
                             </a>
                             <small class="text-muted ms-auto" style="white-space: nowrap;"> 2023-06-01</small>
                         </li>
                         <li class="list-group-item border-0 py-1 d-flex align-items-center">
-                            <span class="badge bg-light text-submain me-1">이벤트</span>
+                            <span class="badge bg-light me-1 text-submain ">이벤트</span>
                             <a href="#" class="card-link text-decoration-none text-dark  text-truncate ">
                                 7월 다이어트 패키지 이벤트
                             </a>
                             <small class="text-muted ms-auto " style="white-space: nowrap;"> 2023-06-01</small>
                         </li>
                         <li class="list-group-item border-0 py-1 d-flex align-items-center">
-                            <span class="badge bg-light text-muted me-1">블로그</span>
+                            <span class="badge bg-light me-1 text-muted ">블로그</span>
                             <a href="#" class="card-link text-decoration-none text-dark  text-truncate ">
                                 여성 난임에 대해서 알아보겠습니다ddddddddd
+                            </a>
+                            <small class="text-muted ms-auto " style="white-space: nowrap;"> 2023-06-01</small>
+                        </li>
+                        <li class="list-group-item border-0 py-1 d-flex align-items-center">
+                            <span class="badge bg-light me-1 text-danger ">유튜브</span>
+                            <a href="#" class="card-link text-decoration-none text-dark  text-truncate ">
+                                xxx가 소개하는 우리 한의원!
                             </a>
                             <small class="text-muted ms-auto " style="white-space: nowrap;"> 2023-06-01</small>
                         </li>
@@ -799,33 +789,26 @@
                     <div class="film_focus_imgs_wrap main-content">
                         <ul class="film_focus_imgs w-85">
                             <!-- 변경) 이미지의 높이고정 -> width auto해놓고, 부모에서 가운데정렬 + 검은색 배경 -->
-                            <li class="d-flex justify-content-center bg-dark">
-                                <!--                                <div id="dplayer1" style="width: 100%;height:349px;"></div>-->
-                                <!--                                <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"-->
-                                <!--                                     style="width: 100%;height:349px;"></img>-->
-                                <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"
-                                     style="width: auto;height:349px;">
+                            <!--                            <li class="d-flex justify-content-center bg-dark">-->
+                            <!--                                <img src="https://i3.ytimg.com/vi/jlUAviuAuGk/hqdefault.jpg"-->
+                            <!--                                     style="width: auto;height:349px;">-->
+                            <li>
+                                <div id="dplayer1" style="width: 100%;height: 100%"></div>
                             </li>
-                            <li class="d-flex justify-content-center bg-dark">
-                                <!--                                <div id="dplayer2" style="width: 100%;height:349px;"></div>-->
-                                <img src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"
-                                     style="width: auto;height:349px;">
+                            <li>
+                                <div id="dplayer2" style="width: 100%;height: 100%"></div>
                             </li>
-                            <li class="d-flex justify-content-center bg-dark">
-                                <!--                                <div id="dplayer3" style="width: 100%;height:349px;"></div>-->
-                                <img src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"
-                                     style="width: auto;height:349px;">
+                            <li>
+                                <div id="dplayer3" style="width: 100%;height: 100%"></div>
                             </li>
-                            <li class="d-flex justify-content-center bg-dark">
-                                <!--                                <div id="dplayer4" style="width: 100%;height:100%;"></div>-->
-                                <img src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"
-                                     style="width: auto;height:349px;">
+                            <li>
+                                <div id="dplayer4" style="width: 100%;height: 100%"></div>
                             </li>
                         </ul>
                     </div>
 
                     <!-- thumbnail 파트 -->
-<!--                    <div class="film_focus_desc d-none d-md-block">-->
+                    <!--                    <div class="film_focus_desc d-none d-md-block">-->
                     <div class="film_focus_desc">
                         <!--영상위 설명-->
                         <h3 class="fs-index text-shadow">우아한 한의원 유튜브입니다.</h3>
@@ -1723,6 +1706,56 @@
     });
 </script>
 
+<!-- youtube DPlayer js 추가-->
+<script src="js/Dplayer.min.js"></script>
+<!-- youtube DPlayer 초기화 및 설정-->
+<script>
+    var dp1;
+    var dp2;
+    var dp3;
+    var dp4;
+    $(function () {
+        // var dp1;
+        // var dp2;
+        // var dp3;
+        // var dp4;
+
+        dp1 = new DPlayer({
+            container: document.getElementById('dplayer1'),
+            // logo: 'https://i.loli.net/2019/06/06/5cf8c5d94521136430.png',
+            video: {
+                url: 'videos/video1.mp4',
+                live: true,
+                mutex: true,
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+            }
+        });
+        dp2 = new DPlayer({
+            container: document.getElementById('dplayer2'),
+            video: {
+                url: 'videos/video2.mp4',
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+                live: true,
+            }
+        });
+        dp3 = new DPlayer({
+            container: document.getElementById('dplayer3'),
+            video: {
+                url: 'videos/video3.mp4',
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+                live: true,
+            }
+        });
+        dp4 = new DPlayer({
+            container: document.getElementById('dplayer4'),
+            video: {
+                url: 'videos/video4.mp4',
+                // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
+                live: true,
+            }
+        });
+    })
+</script>
 <!-- youtube 기본 설정-->
 <script type="text/javascript">
     (function (A) {
@@ -1762,6 +1795,13 @@
                         Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
                     });
                     A(D + " li").eq(R).addClass(C).siblings().removeClass(C)
+
+                    //추가2
+                    dp1.pause();
+                    dp2.pause();
+                    dp3.pause();
+                    dp4.pause();
+
                 }
 
                 function Q() {
@@ -1774,15 +1814,40 @@
                     }, H)
                 }
 
+                // 각 영상객체마다 play시 interval 멈추기
+                dp1.on('play', function () {
+                    console.log('dp1 play')
+                    if (I) {
+                        clearInterval(I)
+                        console.log('I', I)
+                        console.log('dp1 play -> clearInterval(I)')
+                    }
+                });
+                dp2.on('play', function () {
+                    if (I) {
+                        clearInterval(I)
+                    }
+                });
+                dp3.on('play', function () {
+                    if (I) {
+                        clearInterval(I)
+                    }
+                });
+                dp4.on('play', function () {
+                    if (I) {
+                        clearInterval(I)
+                    }
+                })
+
                 O.hover(function () {
                     if (I) {
                         clearInterval(I)
                     }
                 }, function () {
-                    // 수정
-                    // if(dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
-                    //     Q()
-                    // }
+                    // hover해도 모두 정지시에만 재시작?!
+                    if (dp1.video.pause && dp2.video.pause && dp3.video.pause && dp4.video.pause) {
+                        Q()
+                    }
                 });
 
                 var J = null;
@@ -1819,20 +1884,12 @@
     })(jQuery);
 
     $(function () {
-
-        //第一个焦点图
-        // $(".life_focus").th_video_focus({
-        //     navContainerClass:".life_focus_nav",
-        //     focusContainerClass:".life_focus_imgs"
-        // });
-
-        //第二个焦点图
         $(".film_focus").th_video_focus({
             navContainerClass: ".film_focus_nav",
             focusContainerClass: ".film_focus_imgs",
+            // delayTime: 5000
             delayTime: 3000
         });
-
     });
 </script>
 
