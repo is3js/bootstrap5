@@ -632,8 +632,8 @@
         position: absolute;
         left: 0;
         top: 0;
-        /*background: rgba(0, 0, 0, .5);*/
-        background: var(--color-submain-80);
+        background: rgba(0, 0, 0, .3);
+        /*background: var(--color-submain-80);*/
         /*background: transparent;*/
         color: #fff;
         width: 100%;
@@ -646,7 +646,7 @@
     }
 
     .film_focus ul.film_focus_nav {
-        width: 15%;
+        /*width: 15%;*/
         height: 394px;
         background: #424242;
         position: absolute;
@@ -665,7 +665,8 @@
 
     .film_focus ul.film_focus_nav li.cur {
         background: url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;
-        width: 150px;
+        /*width: 150px;*/
+        width: 120%;
         left: -19px;
     }
 
@@ -709,13 +710,20 @@
 
     @media (max-width: 767px) {
         .w-85 {
-            width: 100% !important;
+            width: 75% !important;
+        }
+
+        .w-15 {
+            width: 25%;
         }
     }
 
     @media (min-width: 768px) {
         .w-85 {
             width: 85% !important;
+        }
+        .w-15 {
+            width: 15%;
         }
     }
 </style>
@@ -815,10 +823,10 @@
                         <!--영상위 설명-->
                         <h3 class="fs-index text-shadow">우아한 영상 소개!</h3>
 <!--                        <ul id="film" class="film_focus_nav d-none d-md-block">-->
-                        <ul id="film" class="film_focus_nav">
+                        <ul id="film" class="film_focus_nav w-15">
                             <li class="cur">
 <!--                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"-->
-                                <img  height="73px"
+                                <img height="73px" width="100%"
                                      src="videos/001.png"
                                      alt="안주와 술을 같이 먹는 방법(아빠 따라하기)">
 <!--                                <p class="d-block d-md-none d-md-block text-white fs-index position-absolute text-wrap text-break" style="left: 19px; top:15%;max-height: 83px;">-->
@@ -828,19 +836,19 @@
                             </li>
                             <li>
 <!--                                <img width="100px" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"-->
-                                <img height="73px"
+                                <img height="73px" width="100%"
                                      src="videos/002.png"
                                      alt="조이현 근력 영상 1">
                             </li>
                             <li>
 <!--                                <img width="100px" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"-->
-                                <img  height="73px"
+                                <img height="73px" width="100%"
                                      src="videos/003.png"
                                      alt="조이현 근력 영상 2">
                             </li>
                             <li>
 <!--                                <img width="100px" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"-->
-                                <img height="73px"
+                                <img height="73px" width="100%"
                                      src="videos/004.png"
                                      alt="조예찬 조커 영상">
                             </li>

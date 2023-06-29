@@ -569,7 +569,8 @@ A(B, O).stop().animate({top: V}, F, function () {
 
 
 ### 작은화면에서도 nav가 보이도록 수정
-1. 네비 부분인 `div.film_focus_desc` 에 `d-none d-md-block`를 제거하고, img의 width를 아예 삭제한다.
+1. 네비 부분인 `div.film_focus_desc` 에 `d-none d-md-block`를 제거하고, img의 width는 nav부분이 차지하는 영역에서 100%를 차지하게 한다
+   - 85% | 15% 갈라먹고 있다.
 ```html
 <div class="film_focus_desc">
 <!--영상위 설명-->
@@ -578,6 +579,54 @@ A(B, O).stop().animate({top: V}, F, function () {
 <ul id="film" class="film_focus_nav">
     <li class="cur">
 <!--                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"-->
-        <img  height="73px"
+       <img height="73px" width="100%"
 ```
 ![img.png](../ui/소개영상nav%20-%20sm에서도%20보이도록%20수정.png)
+
+2. **작은 화면일 땐, 85대15가 아니라 75대25를 만들기 위해 `<ul class="film_focus_imgs w-85">`의 `w-85`처럼, `w-15`도 만들어서, 반응형이 25%를 차지하게 만들어주자.**
+   - 기존에 선택자를 통해 직접주던 15%의 width를 제거한다
+```css
+.film_focus ul.film_focus_nav {
+  /*width: 15%;*/
+  height: 394px;
+  background: #424242;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+```
+- `<ul id="film" class="film_focus_nav w-15">`로 w-15를 추가하고,  md보다 이하에선 25%, 그 이상에선 15%를 차지하게 추가한다
+```html
+<ul id="film" class="film_focus_nav w-15">
+    <li class="cur">
+```
+```css
+ @media (max-width: 767px) {
+     .w-85 {
+         width: 75% !important;
+     }
+
+     .w-15 {
+         width: 25%;
+     }
+ }
+
+ @media (min-width: 768px) {
+     .w-85 {
+         width: 85% !important;
+     }
+     .w-15 {
+         width: 15%;
+     }
+ }
+```
+3. 화살표 배경도 직접 150px로 늘리지말고, 화살표자리를 위한 `left-19px에 대비하여 120%`로 늘려준다
+```css
+ .film_focus ul.film_focus_nav li.cur {
+     background: url('images/youtube/T19yB9Xm0BXXXXXXXX-296-79.png') no-repeat 0 2px;
+     /*width: 150px;*/
+     width: 120%;
+     left: -19px;
+ }
+```
