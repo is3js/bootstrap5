@@ -497,3 +497,68 @@ $(function () {
   });
 });
 ```
+
+### h3태그에 영상 nav의 img태그 속 alt 텍스트 삽입하기
+1. 기본적으로 환면전환시 호출되는 `N` functiond에는
+   - `O`의 소개영상 전체파트에서 `h3`태그를 찾아, caption을 설정하는 영역으로 보고
+   - 영상파트(배너 그림파트)인 `.film_focus_imgs` 속 li 속 img태그의 alt를 가져와 h3태그의 값으로 설정시킨다
+   - 이 때, `A(B + " li").eq(R).find("img").attr("alt")`에서 `B`가 `.film_focus_imgs`를 의미하고, `R`은 0부터 시작하는 번호이다.
+```js
+function N(R) {
+    /* */
+    A(B, O).stop().animate({top: V}, F, function () {
+        var Y = O.find("h3"), X = Y.height();
+        Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+        Y.height(0).html((R + 1) + " " + A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 300)
+    });
+    /* */
+}
+```
+
+2. 영상(배너그림)파트가 아니라 `navigation 쪽 파트`의 li 속 img 속 alt를 가져오려면, **B 대신 D로 찾아야한다.**
+```js
+Y.height(0).html(A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600);
+```
+- 참고로 B와 D는 자동으로 설정되는 것 같다. class명이 우리가 작성한 css가 아닌데도, 각각을 가져온다
+   - B: 영상부분
+   - D: 네비부분(thumbnail)
+```js
+D = G.navContainerClass, B = G.focusContainerClass
+```
+
+3. 이제 각 영상의 번호를 [ R + 1 ]로 ㅍ시하면서 img태그의 alt가 h3에 삽입되게 한다
+```js
+A(B, O).stop().animate({top: V}, F, function () {
+    var Y = O.find("h3"), X = Y.height();
+    /* custom 1: thumbnail파트에서 li > img태그 속 alt를 찾도록 변경*/
+    // Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
+    /* custom 2: 글자 앞에 영상 갯수 + 현재번호 추가하기 */
+    // Y.height(0).html(A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600);
+    var total = A(D + " li").length;
+    Y.height(0).html("[" + (R + 1) + "/" + total + "] " + A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 300)
+});
+```
+
+4. 전활될때 뿐만 아니라, 처음에도 배치하도록, Y+R,A,D 등이 정의된 바로 직후 h3태그 초기화하기
+   - total은 일정한 값이니 초기화한 값 custom 3에서도 재활용하기
+```html
+<!-- 소개영상 기본 js 설정-->
+<script type="text/javascript">
+   // 재활용 변수
+    var total;
+    (function (A) {
+        A.fn.th_video_focus = function (E) {
+            var C = G.actClass, D = G.navContainerClass, B = G.focusContainerClass, F = G.animTime, H = G.delayTime,
+                I = null;
+
+            return this.each(function () {
+                var O =     A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
+
+                // custom 4 : 전환뿐만 아니라 초기에도 h3에 alt반영해주기
+                var Y = O.find("h3"), X = Y.height();
+                total = A(D + " li").length;
+                Y.height(0).html("[" + (0+1) + "/" + total + "] " + A(D + " li").eq(0).find("img").attr("alt")).animate({height: X}, 300)
+
+                function N(R) {
+                    //
+```

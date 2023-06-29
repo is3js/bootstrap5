@@ -624,17 +624,21 @@
 
     /* 영상위의 설명란 설정 */
     .film_focus .film_focus_desc h3 {
-        height: 45px;
-        line-height: 45px;
+        /*height: 45px;*/
+        /*line-height: 45px;*/
+        height: 35px;
+        line-height: 35px;
         overflow: hidden;
         position: absolute;
         left: 0;
         top: 0;
         /*background: rgba(0, 0, 0, .5);*/
         background: var(--color-submain-80);
+        /*background: transparent;*/
         color: #fff;
         width: 100%;
-        padding-left: 24px;
+        /*padding-left: 24px;*/
+        padding-left: 12px;
         z-index: 99;
         /*font-size: 16px;*/
         /*filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr="#7F000000");*/
@@ -685,18 +689,18 @@
         line-height: 1.8em;
     }
 
-    .knowcon_right {
-        width: 100%;
-        height: 349px;
-        border-top: 2px #ff8e3b solid;
-        background: #FDFDFD;
-        box-shadow: 5px 5px 10px rgba(0, 0.0, 0.5);
-    }
+    /*.knowcon_right {*/
+    /*    width: 100%;*/
+    /*    height: 349px;*/
+    /*    border-top: 2px #ff8e3b solid;*/
+    /*    background: #FDFDFD;*/
+    /*    box-shadow: 5px 5px 10px rgba(0, 0.0, 0.5);*/
+    /*}*/
 
-    .pulsing:before, .pulsing:after {
-        content: "";
-        position: absolute;
-    }
+    /*.pulsing:before, .pulsing:after {*/
+    /*    content: "";*/
+    /*    position: absolute;*/
+    /*}*/
 
     .main-content {
         display: grid;
@@ -810,21 +814,30 @@
                     <div class="film_focus_desc">
                         <!--영상위 설명-->
                         <h3 class="fs-index text-shadow">우아한 한의원 유튜브입니다.</h3>
-                        <ul id="film" class="film_focus_nav d-none d-md-block">
+<!--                        <ul id="film" class="film_focus_nav d-none d-md-block">-->
+                        <ul id="film" class="film_focus_nav">
                             <li class="cur">
-                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"
+<!--                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"-->
+                                <img class="w-100" width="100%" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"
                                      alt="안주와 술을 같이 먹는 방법(아빠 따라하기)">
+<!--                                <p class="d-block d-md-none d-md-block text-white fs-index position-absolute text-wrap text-break" style="left: 19px; top:15%;max-height: 83px;">-->
+<!--                                    1번</br>-->
+<!--                                    영상-->
+<!--                                </p>-->
                             </li>
                             <li>
-                                <img width="100px" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"
+<!--                                <img width="100px" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"-->
+                                <img class="w-100" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"
                                      alt="조이현 근력 영상 1">
                             </li>
                             <li>
-                                <img width="100px" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"
+<!--                                <img width="100px" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"-->
+                                <img class="w-100" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"
                                      alt="조이현 근력 영상 2">
                             </li>
                             <li>
-                                <img width="100px" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"
+<!--                                <img width="100px" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"-->
+                                <img class="w-100" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"
                                      alt="조예찬 조커 영상">
                             </li>
                         </ul>
@@ -1704,9 +1717,9 @@
     });
 </script>
 
-<!-- youtube DPlayer js 추가-->
+<!-- 소개영상 DPlayer js 추가-->
 <script src="js/Dplayer.min.js"></script>
-<!-- youtube DPlayer 초기화 및 설정-->
+<!-- 소개영상 DPlayer 초기화 및 설정-->
 <script>
     var dp1;
     var dp2;
@@ -1717,17 +1730,17 @@
         // var dp2;
         // var dp3;
         // var dp4;
-
         dp1 = new DPlayer({
             container: document.getElementById('dplayer1'),
             // logo: 'https://i.loli.net/2019/06/06/5cf8c5d94521136430.png',
             video: {
                 url: 'videos/video1.mp4',
-                live: true,
+                // live: true,
                 mutex: true,
                 // pic: 'https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg',
-            }
+            },
         });
+
         dp2 = new DPlayer({
             container: document.getElementById('dplayer2'),
             video: {
@@ -1757,8 +1770,10 @@
         });
     })
 </script>
-<!-- youtube 기본 설정-->
+<!-- 소개영상 기본 js 설정-->
 <script type="text/javascript">
+    // custom 3. 재활용 변수
+    var total;
     (function (A) {
         A.fn.th_video_focus = function (E) {
 
@@ -1779,12 +1794,12 @@
 
             return this.each(function () {
 
-                var O =     A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
+                var O = A(this), M = A(D + " li", O), P = A(B + " li", O), L = M.length, K = O.height();
 
+                // custom 4 : 전환뿐만 아니라 초기에도 h3에 alt반영해주기
                 var Y = O.find("h3"), X = Y.height();
-                var total = A(D + " li").length;
-
-                Y.height(0).html("[" + (0+1) + "/" + total + "] " + A(D + " li").eq(0).find("img").attr("alt")).animate({height: X}, 300)
+                total = A(D + " li").length;
+                Y.height(0).html("[" + (0 + 1) + "/" + total + "] " + A(D + " li").eq(0).find("img").attr("alt")).animate({height: X}, 300)
 
                 function N(R) {
                     var V = K * R * -1;
@@ -1798,14 +1813,14 @@
                     }
                     A(B, O).stop().animate({top: V}, F, function () {
                         var Y = O.find("h3"), X = Y.height();
-                        console.log('Y', Y)
-                        console.log(A(B + " li")) /*init(4) [li, li, li, li, prevObject: init(1), context: document, selector: '.film_focus_imgs li']*/
-                        // console.log(A(B + " li").eq(R).find("div.dplayer" + (R+1)))
-                        // Y.height(0).html(A(B + " li").eq(R).find("div").attr("data-caption")).animate({height: X}, 600)
+                        /* custom 1: thumbnail파트에서 li > img태그 속 alt를 찾도록 변경*/
                         // Y.height(0).html(A(B + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
-                        // Y.height(0).html(A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600)
-                        Y.height(0).html((R+1) + " " + A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 300)
+                        /* custom 2: 글자 앞에 영상 갯수 + 현재번호 추가하기 */
+                        // Y.height(0).html(A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 600);
+                        // var total = A(D + " li").length;
+                        Y.height(0).html("[" + (R + 1) + "/" + total + "] " + A(D + " li").eq(R).find("img").attr("alt")).animate({height: X}, 300)
                     });
+
                     A(D + " li").eq(R).addClass(C).siblings().removeClass(C)
 
                     //추가2
