@@ -569,4 +569,15 @@ A(B, O).stop().animate({top: V}, F, function () {
 
 
 ### 작은화면에서도 nav가 보이도록 수정
-
+1. 네비 부분인 `div.film_focus_desc` 에 `d-none d-md-block`를 제거하고, img의 width를 아예 삭제한다.
+```html
+<div class="film_focus_desc">
+<!--영상위 설명-->
+<h3 class="fs-index text-shadow">우아한 영상 소개!</h3>
+<!--                        <ul id="film" class="film_focus_nav d-none d-md-block">-->
+<ul id="film" class="film_focus_nav">
+    <li class="cur">
+<!--                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"-->
+        <img  height="73px"
+```
+![img.png](../ui/소개영상nav%20-%20sm에서도%20보이도록%20수정.png)
