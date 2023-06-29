@@ -1,3 +1,7 @@
+- 공식: https://dplayer.diygod.dev/guide.html#options
+- 공식데모: https://github.com/DIYgod/DPlayer/blob/master/demo/demo.js
+- 각종 player 모음: https://juejin.cn/post/7054090443180474398
+- 
 ### 돌아가는 화면 만들기 
 1. col안에 영상을 뿌려줄 파트를 작성한다.
    - **기존 잡아둔 col높이 349px를 삭제하고, 내부에서 컨텐츠로 채울 준비를 한다**
@@ -562,3 +566,7 @@ A(B, O).stop().animate({top: V}, F, function () {
                 function N(R) {
                     //
 ```
+
+
+### 작은화면에서도 nav가 보이도록 수정
+
