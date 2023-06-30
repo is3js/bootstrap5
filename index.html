@@ -1131,15 +1131,16 @@
                 </div>
             </div>
         </div>
+
         <!-- 증명사진 -->
         <div class="row justify-content-center">
-            <div class="col d-flex flex-row justify-content-center" >
+            <div class="col d-flex flex-row justify-content-center flex-wrap" >
                 <div class="card text-center border-0 m-0 doctor-hover"
                      style="width: fit-content;"
                      data-i="1"
                 >
-                    <div class="card-img overflow-hidden h-120to150 px-3">
-                        <img src="images/doctors/d001.png" alt="" class="h-100 w-auto">
+                    <div class="card-img overflow-hidden h-120to150 px-3 pt-2 rounded-0">
+                        <img src="images/doctors/d001.png" alt="" class="h-100 w-auto ">
                     </div>
                     <div class="card-body border-top py-1 ">
                         <span class="fw-bold fs-index" style="letter-spacing: 1.5px">
@@ -1151,7 +1152,7 @@
                      style="width: fit-content;"
                      data-i="2"
                 >
-                    <div class="card-img overflow-hidden h-120to150 px-3">
+                    <div class="card-img overflow-hidden h-120to150 px-3 pt-2 rounded-0">
                         <img src="images/doctors/d002.png" alt="" class="h-100 w-auto">
                     </div>
                     <div class="card-body border-top py-1 ">
@@ -1164,7 +1165,7 @@
                      style="width: fit-content;"
                      data-i="3"
                 >
-                    <div class="card-img overflow-hidden h-120to150 px-3">
+                    <div class="card-img overflow-hidden h-120to150 px-3 pt-2 rounded-0">
                         <img src="images/doctors/d003.png" alt="" class="h-100 w-auto">
                     </div>
                     <div class="card-body border-top py-1 ">
@@ -1177,7 +1178,7 @@
                      style="width: fit-content;"
                      data-i="4"
                 >
-                    <div class="card-img overflow-hidden h-120to150 px-3">
+                    <div class="card-img overflow-hidden h-120to150 px-3 pt-2 rounded-0">
                         <img src="images/doctors/d004.png" alt="" class="h-100 w-auto">
                     </div>
                     <div class="card-body border-top py-1 ">
@@ -1194,23 +1195,27 @@
         <div class="row ">
             <div class="col">
                 <div class="card border-0 w-100 rounded-0" style="margin-top: 80px">
-                    <img class="card-img " src="images/doctors/bg.png" alt="">
+                    <img id="doctor_bg" class="card-img" src="images/doctors/bg001.png" alt="">
                     <div class="card-img-overlay d-flex flex-row mt-2 pb-0">
-                        <div class="w-35to25 overflow-hidden" style="margin-top: -80px">
-                            <img class="img-fluid" src="images/doctors/doctor001.png" alt="" >
+                        <div class="w-35to25 overflow-hidden " style="margin-top: -80px">
+                            <img id="doctor_pic" class="img-fluid " src="images/doctors/doctor001.png" alt="" >
                         </div>
                         <div class="w-65to75 p-1 pt-md-2 pt-lg-4 overflow-y-auto" style="margin-top: -15px">
                             <div class="card-subtitle my-md-1">
-                                <h6 class="fs-index text-submain fw-bold d-inline-block ">근골격계 • 연구</h6>
-                                <div class="btn btn-sm btn-outline-success border-0 rounded-pill bg-submain  m-0 float-end me-md-2 fs-13  text-white">진료일정 확인</div>
+                                <h6 id="doctor_role" class="fs-index text-submain fw-bold d-inline-block ">
+                                    근골격계 • 연구
+                                </h6>
+                                <div id="doctor_btn" class="btn btn-sm btn-outline-dark border-0 rounded-pill bg-submain  m-0 float-end me-md-2 fs-13  text-white">
+                                    진료일정 확인
+                                </div>
                             </div>
                             <div class="card-title mb-2">
                                 <h4 class="fw-bold fs-doctor" >
-                                    조재성 <small class="fs-13 ">원장</small>
+                                    <span id="doctor_name">조재성</span> <small class="fs-13 ">원장</small>
                                 </h4>
                             </div>
                             <div class="card-text fs-13 fw-light text-muted ">
-                                <ul class="list-unstyled lh">
+                                <ul id="doctor_career" class="list-unstyled lh">
                                     <li>- 경희대 한의학박사 과정</li>
                                     <li>- KNOU 바이오통계학 석사</li>
                                     <li>- 강남 모커리 한방병원 병동주치의</li>
@@ -2145,10 +2150,71 @@
     $(function () {
         // $('.doctor-hover').hover(function () {
         $('.doctor-hover').on('mouseenter focusin', function() {
-            $(this).find('.card-img>img').css('transform', 'scale(1.12)')
+            /* hover 시작시*/
+            $(this).find('.card-img>img').css('transform', 'scale(1.2)') // 증명사진 확대
+            $(this).find('.card-body>span').addClass('text-shadow-sm') // 이름 shadow
+
+            var data_i = parseInt($(this).attr("data-i"));
+            var bg_i = data_i % 2;
+
+            /* 인물자세히 사진 변경 */
+            $('#doctor_pic').attr('src', 'images/doctors/doctor00' + data_i + '.png');
+
+            /* 배경 변경 */
+            $('#doctor_bg').attr('src', 'images/doctors/bg00' + bg_i + '.png');
+
+            /* 번갈아가는 글자색 및 버튼배경색 변경 */
+            if (bg_i==1){
+                $('#doctor_role').removeClass('text-main').addClass('text-submain')
+                $('#doctor_btn').removeClass('bg-main').addClass('bg-submain')
+            } else{
+                $('#doctor_role').removeClass('text-submain').addClass('text-main')
+                $('#doctor_btn').removeClass('bg-submain').addClass('bg-main')
+            }
+            switch (data_i) {
+                case 1:
+                    $('#doctor_role').text('근골격계 • 연구 • 개발');
+                    $('#doctor_name').text('조재성');
+                    $('#doctor_career').html(`
+                      <li>- 경희대 한의학박사 과정</li>
+                      <li>- KNOU 바이오통계학 석사</li>
+                      <li>- 강남 모커리 한방병원 병동주치의</li>
+                      <li>- 광주 청연한방병원 인턴</li>
+                      <li>- 서울대학교 의과대학 생명정보학교실 인턴</li>
+                      <li>- 동신대학교 한의학과 졸업</li>
+                    `)
+
+                    break;
+                case 2:
+                    $('#doctor_role').text('여성 • 피부미용 • 다이어트');
+                    $('#doctor_name').text('김석영');
+                    $('#doctor_career').html(`
+                      <li>- 前 관악구 백구한의원 진료원장</li>
+                      <li>- 광주 청연한방병원 인턴</li>
+                      <li>- 동신대학교 한의학과 졸업</li>
+                    `)
+                    break;
+                case 3:
+                    $('#doctor_role').text('연구소');
+                    $('#doctor_name').text('돌범');
+                    $('#doctor_career').html(`
+                      <li>- 동신대학교 한의학과 졸업</li>
+                    `)
+                    break;
+                case 4:
+                    $('#doctor_role').text('논문집필');
+                    $('#doctor_name').text('데이지');
+                    $('#doctor_career').html(`
+                      <li>- 동신대학교 한의학과 졸업</li>
+                    `)
+                    break;
+            }
+
         // }, function() {
         }).on('mouseleave focusout', function() {
+            /* hover 종료시*/
             $(this).find('.card-img>img').css('transform', 'scale(1)'); // 이미지 크기 원래대로 복원
+            $(this).find('.card-body>span').removeClass('text-shadow-sm') // 이름 복구
         });
     })
 </script>
