@@ -22,6 +22,7 @@
             --color-main: #FC5230;
             --color-submain: #12887A;
             --color-submain-80: rgba(26, 168, 151, .8);
+            --color-doctor: #CEA869;
 
             --primary-font-family: 'Noto Sans KR', sans-serif;
         }
@@ -36,6 +37,10 @@
 
         .text-submain {
             color: var(--color-submain);
+        }
+
+        .text-doctor {
+            color: var(--color-doctor);
         }
 
 
@@ -722,6 +727,7 @@
         .w-85 {
             width: 85% !important;
         }
+
         .w-15 {
             width: 15%;
         }
@@ -793,8 +799,8 @@
 
             <!-- 유튜브 -->
             <!--<div class="col-12 col-lg-8" style="height: 349px;">-->
-            <div class="col-12 col-lg-7">
-                <div class="film_focus">
+            <div class="col-12 col-lg-7 ">
+                <div class="film_focus rounded-3 shadow-lg">
                     <!-- 영상 파트 -->
                     <div class="film_focus_imgs_wrap main-content">
                         <ul class="film_focus_imgs w-85">
@@ -822,32 +828,32 @@
                     <div class="film_focus_desc">
                         <!--영상위 설명-->
                         <h3 class="fs-index text-shadow">우아한 영상 소개!</h3>
-<!--                        <ul id="film" class="film_focus_nav d-none d-md-block">-->
+                        <!--                        <ul id="film" class="film_focus_nav d-none d-md-block">-->
                         <ul id="film" class="film_focus_nav w-15">
                             <li class="cur">
-<!--                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"-->
+                                <!--                                <img width="100px" height="73px" src="https://i2.ytimg.com/vi/1j3wGl06pUs/hqdefault.jpg"-->
                                 <img height="73px" width="100%"
                                      src="videos/001.png"
                                      alt="안주와 술을 같이 먹는 방법(아빠 따라하기)">
-<!--                                <p class="d-block d-md-none d-md-block text-white fs-index position-absolute text-wrap text-break" style="left: 19px; top:15%;max-height: 83px;">-->
-<!--                                    1번</br>-->
-<!--                                    영상-->
-<!--                                </p>-->
+                                <!--                                <p class="d-block d-md-none d-md-block text-white fs-index position-absolute text-wrap text-break" style="left: 19px; top:15%;max-height: 83px;">-->
+                                <!--                                    1번</br>-->
+                                <!--                                    영상-->
+                                <!--                                </p>-->
                             </li>
                             <li>
-<!--                                <img width="100px" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"-->
+                                <!--                                <img width="100px" height="73px" src="https://i3.ytimg.com/vi/FoiRAZSHKUI/hqdefault.jpg"-->
                                 <img height="73px" width="100%"
                                      src="videos/002.png"
                                      alt="조이현 근력 영상 1">
                             </li>
                             <li>
-<!--                                <img width="100px" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"-->
+                                <!--                                <img width="100px" height="73px" src="https://i1.ytimg.com/vi/P_06Nvmunrk/hqdefault.jpg"-->
                                 <img height="73px" width="100%"
                                      src="videos/003.png"
                                      alt="조이현 근력 영상 2">
                             </li>
                             <li>
-<!--                                <img width="100px" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"-->
+                                <!--                                <img width="100px" height="73px" src="https://i4.ytimg.com/vi/7NER1ikd8AU/hqdefault.jpg"-->
                                 <img height="73px" width="100%"
                                      src="videos/004.png"
                                      alt="조예찬 조커 영상">
@@ -859,7 +865,6 @@
         </div>
     </div>
 </section>
-
 <!--유튜브 및 공지사항 섹션 끝-->
 
 <!--치료 클리닉 섹션 시작-->
@@ -952,7 +957,7 @@
         </div>
 
 
-        <div class="row mt-4">
+        <div class="row mt-4 mt-lg-5">
             <div class="col-4 col-md-4 col-lg px-md-4  " style="height: 50px;line-height: 50px;">
                 <div class="w-100 h-100 text-center rounded rounded-pill border shadow-sm"
                      style="background-image: url('images/selfchecks/001.png');
@@ -993,6 +998,166 @@
     </div>
 </section>
 <!-- 진단 섹션 끝 -->
+
+<!--의료진 소개 섹션 시작-->
+<style>
+    /*@media (min-width: 1400px) {*/
+    /*    .w-35to25 {*/
+    /*        width: 25%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 75% !important;*/
+    /*    }*/
+    /*}*/
+    /*@media (max-width: 1399px) {*/
+    /*    .w-35to25 {*/
+    /*        width: 26%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 74% !important;*/
+    /*    }*/
+    /*}*/
+    /*@media (max-width: 1199px) {*/
+    /*    .w-35to25 {*/
+    /*        width: 27%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 73% !important;*/
+    /*    }*/
+    /*}*/
+
+    /*@media (max-width: 991px) {*/
+    /*    .w-35to25  {*/
+    /*        width: 30%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 70% !important;*/
+    /*    }*/
+    /*}*/
+
+    /*@media (max-width: 766px) {*/
+    /*    .w-35to25  {*/
+    /*        width: 35%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 65% !important;*/
+    /*    }*/
+    /*}*/
+
+    /*!* 예외구간 처리 *!*/
+    /*@media (max-width: 575px) {*/
+    /*    .w-35to25  {*/
+    /*        width: 33%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 67% !important;*/
+    /*    }*/
+    /*}*/
+
+    /*@media (max-width: 483px) {*/
+    /*    .w-35to25  {*/
+    /*        width: 35%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 65% !important;*/
+    /*    }*/
+    /*}*/
+    /*@media (max-width: 430px) {*/
+    /*    .w-35to25  {*/
+    /*        width: 40%;*/
+    /*    }*/
+    /*    .w-65to75 {*/
+    /*        width: 60% !important;*/
+    /*    }*/
+    /*}*/
+
+
+    @media (max-width: 767px) {
+        .w-35to25 {
+            width: 35% !important;
+        }
+        .w-65to75 {
+            width: 65% !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .w-35to25 {
+            width: 33%!important;
+        }
+        .w-65to75 {
+            width: 67% !important;
+        }
+    }
+
+
+    @media (min-width: 1200px) {
+        .w-35to25 {
+            width: 25%!important;
+        }
+        .w-65to75 {
+            width: 75% !important;
+        }
+    }
+
+
+</style>
+<section class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h4 class="d-inline-block">의료진 소개</h4>
+                    <small class="text-muted ps-2">우리 동네 주치의들과 불편감을 해소해요!</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- 인물 자세히 -->
+        <!--<div class="row d-none d-lg-block">-->
+        <div class="row ">
+            <div class="col">
+                <div class="card border-0 w-100 rounded-0" style="margin-top: 80px">
+                    <img class="card-img " src="images/doctors/bg.png" alt="">
+                    <div class="card-img-overlay d-flex flex-row mt-2 pb-0">
+                        <div class="w-35to25 overflow-hidden" style="margin-top: -80px">
+                            <img class="img-fluid" src="images/doctors/doctor001.png" alt="" >
+                        </div>
+                        <div class="w-65to75 p-1 pt-lg-4 overflow-y-auto" style="margin-top: -15px">
+                            <div class="card-subtitle my-md-1">
+                                <h6 class="fs-index text-submain fw-bold d-inline-block ">근골격계 • 연구</h6>
+                                <div class="btn btn-sm btn-outline-success border-0 rounded-pill bg-submain  m-0 float-end me-md-2 fs-13  text-white">진료일정 확인</div>
+                            </div>
+                            <div class="card-title mb-2">
+                                <h4 class="fw-bold" style="letter-spacing: 2px">
+                                    조재성 <small class="fs-13 ">원장</small>
+                                </h4>
+                            </div>
+                            <div class="card-text fs-13 fw-light text-muted ">
+                                <ul class="list-unstyled lh">
+                                    <li>- 경희대 한의학박사 과정</li>
+                                    <li>- KNOU 바이오통계학 석사</li>
+                                    <li>- 강남 모커리 한방병원 병동주치의</li>
+                                    <li>- 광주 청연한방병원 일반수련의</li>
+                                    <li>- 서울대학교 의과대학 생명정보학교실 인턴</li>
+                                    <li>- 동신대학교 한의학과 졸업</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 인물 영상 -->
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-3"></div>
+            <div class="col-12 col-sm-6 col-lg-3"></div>
+            <div class="col-12 col-sm-6 col-lg-3"></div>
+            <div class="col-12 col-sm-6 col-lg-3"></div>
+        </div>
+    </div>
+</section>
+<!--의료진 소개 섹션 끝-->
 
 <!--FAQ 섹션 시작-->
 <style>
@@ -1328,31 +1493,6 @@
 </section>
 <!--목표 끝-->
 
-<!--의료진 소개 섹션 시작-->
-<section class="mt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div>
-                    <h4 class="d-inline-block">의료진 소개</h4>
-                    <small class="text-muted ps-2">우리 동네 주치의들과 불편감을 해소해요!</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col"></div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-        </div>
-    </div>
-</section>
-<!--의료진 소개 섹션 끝-->
 
 <!--벤치마킹 섹션 시작-->
 <section class="mt-4">
