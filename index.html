@@ -219,6 +219,19 @@
             }
         }
 
+        /* 원장 이름 */
+        .fs-doctor {
+            font-size: 18px;
+            letter-spacing: 4px;
+        }
+
+        @media screen and (min-width: 768px) {
+            .fs-doctor {
+                font-size: 1.5rem;
+                letter-spacing: 8px;
+            }
+        }
+
         /* 글자 그림자 */
         /* - 배경 어두울 때 */
         .text-shadow {
@@ -1079,6 +1092,9 @@
         .w-65to75 {
             width: 65% !important;
         }
+        .h-120to150 {
+            height: 120px !important;
+        }
     }
 
     @media (min-width: 768px) {
@@ -1087,6 +1103,9 @@
         }
         .w-65to75 {
             width: 67% !important;
+        }
+        .h-120to150 {
+            height: 150px !important;
         }
     }
 
@@ -1112,7 +1131,64 @@
                 </div>
             </div>
         </div>
+        <!-- 증명사진 -->
+        <div class="row justify-content-center">
+            <div class="col d-flex flex-row justify-content-center" >
+                <div class="card text-center border-0 m-0 doctor-hover"
+                     style="width: fit-content;"
+                     data-i="1"
+                >
+                    <div class="card-img overflow-hidden h-120to150 px-3">
+                        <img src="images/doctors/d001.png" alt="" class="h-100 w-auto">
+                    </div>
+                    <div class="card-body border-top py-1 ">
+                        <span class="fw-bold fs-index" style="letter-spacing: 1.5px">
+                            조재성 <small class="fw-light">원장</small>
+                        </span>
+                    </div>
+                </div>
+                <div class="card text-center border-0 m-0 doctor-hover"
+                     style="width: fit-content;"
+                     data-i="2"
+                >
+                    <div class="card-img overflow-hidden h-120to150 px-3">
+                        <img src="images/doctors/d002.png" alt="" class="h-100 w-auto">
+                    </div>
+                    <div class="card-body border-top py-1 ">
+                        <span class="fw-bold fs-index" style="letter-spacing: 1.5px">
+                            김석영 <small class="fw-light">원장</small>
+                        </span>
+                    </div>
+                </div>
+                <div class="card text-center border-0 m-0 doctor-hover"
+                     style="width: fit-content;"
+                     data-i="3"
+                >
+                    <div class="card-img overflow-hidden h-120to150 px-3">
+                        <img src="images/doctors/d003.png" alt="" class="h-100 w-auto">
+                    </div>
+                    <div class="card-body border-top py-1 ">
+                        <span class="fw-bold fs-index" style="letter-spacing: 1.5px">
+                            돌범 <small class="fw-light">원장</small>
+                        </span>
+                    </div>
+                </div>
+                <div class="card text-center border-0 m-0 doctor-hover"
+                     style="width: fit-content;"
+                     data-i="4"
+                >
+                    <div class="card-img overflow-hidden h-120to150 px-3">
+                        <img src="images/doctors/d004.png" alt="" class="h-100 w-auto">
+                    </div>
+                    <div class="card-body border-top py-1 ">
+                        <span class="fw-bold fs-index" style="letter-spacing: 1.5px">
+                            데이지 <small class="fw-light">원장</small>
+                        </span>
+                    </div>
+                </div>
+            </div>
 
+        </div>
         <!-- 인물 자세히 -->
         <!--<div class="row d-none d-lg-block">-->
         <div class="row ">
@@ -1123,13 +1199,13 @@
                         <div class="w-35to25 overflow-hidden" style="margin-top: -80px">
                             <img class="img-fluid" src="images/doctors/doctor001.png" alt="" >
                         </div>
-                        <div class="w-65to75 p-1 pt-lg-4 overflow-y-auto" style="margin-top: -15px">
+                        <div class="w-65to75 p-1 pt-md-2 pt-lg-4 overflow-y-auto" style="margin-top: -15px">
                             <div class="card-subtitle my-md-1">
                                 <h6 class="fs-index text-submain fw-bold d-inline-block ">근골격계 • 연구</h6>
                                 <div class="btn btn-sm btn-outline-success border-0 rounded-pill bg-submain  m-0 float-end me-md-2 fs-13  text-white">진료일정 확인</div>
                             </div>
                             <div class="card-title mb-2">
-                                <h4 class="fw-bold" style="letter-spacing: 2px">
+                                <h4 class="fw-bold fs-doctor" >
                                     조재성 <small class="fs-13 ">원장</small>
                                 </h4>
                             </div>
@@ -1148,13 +1224,7 @@
                 </div>
             </div>
         </div>
-        <!-- 인물 영상 -->
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-            <div class="col-12 col-sm-6 col-lg-3"></div>
-        </div>
+
     </div>
 </section>
 <!--의료진 소개 섹션 끝-->
@@ -2068,6 +2138,19 @@
             delayTime: 5000
         });
     });
+</script>
+
+<!-- 의료진 소개 -->
+<script type="text/javascript">
+    $(function () {
+        // $('.doctor-hover').hover(function () {
+        $('.doctor-hover').on('mouseenter focusin', function() {
+            $(this).find('.card-img>img').css('transform', 'scale(1.12)')
+        // }, function() {
+        }).on('mouseleave focusout', function() {
+            $(this).find('.card-img>img').css('transform', 'scale(1)'); // 이미지 크기 원래대로 복원
+        });
+    })
 </script>
 
 <!-- fixed 메뉴 -->

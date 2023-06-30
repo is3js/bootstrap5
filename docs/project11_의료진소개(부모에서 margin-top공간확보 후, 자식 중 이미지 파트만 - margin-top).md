@@ -238,14 +238,38 @@
 ![img.png](../ui/의료진소개14.png)
 
 
-7. **원장이름은 스페이스 대신 letter-spacing을 줘서, db에서 받아올때도 처리되게 한다**
+7. 글자부분은 크기가 커지면 약력 위쪽에 여백을 추가한다 `pt-lg-4`
+
+```html
+<div class="w-65to75 p-1 pt-lg-4 overflow-y-auto" style="margin-top: -15px">
+```
+
+8. **원장이름은 스페이스 대신 letter-spacing을 줘서, db에서 받아올때도 처리되게 한다**
 ```html
 <h4 class="fw-bold" style="letter-spacing: 2px">
    조재성 <small class="fs-13 ">원장</small>
 </h4>
 ```
-- 글자부분은 크기가 커지면 약력 위쪽에 여백을 추가한다 `pt-lg-4`
+- **원장이름은 글자체가 바뀔 수 있고, 글자크기도 적용해야하기 때문에 fs-index처럼 `fs-doctor`를 정의해서 ls도 같이 주자**
 
+```css
+/* 원장 이름 */
+.fs-doctor {
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    .fs-doctor {
+        font-size: 1.5rem;
+        letter-spacing: 8px;
+    }
+}
+```
 ```html
-<div class="w-65to75 p-1 pt-lg-4 overflow-y-auto" style="margin-top: -15px">
+<div class="card-title mb-2">
+   <h4 class="fw-bold fs-doctor">
+      조재성 <small class="fs-13 ">원장</small>
+   </h4>
+</div>
 ```
