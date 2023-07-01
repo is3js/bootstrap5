@@ -65,3 +65,61 @@ doctorSwiper.on("slideChangeTransitionEnd", function () {
         background-color: darkgray;
     }
 ```
+7. pagination은 약간 내려준다
+```css
+    .doctorSwiper .swiper-pagination {
+        bottom: -2px !important;
+    }
+
+    .doctorSwiper .swiper-pagination-bullet {
+        background-color: darkgray;
+    }
+```
+8. 원장한마디란을 만들기 위해, col을 offset-1 + col-6 | swiepr 5로 잡고
+   - 글자들을 세로배치하기 위해 d-flex flex-column을 주고 justify로 가운데 정렬한다
+   - 원장한마디용 폰트를 css로 정의한다(fs-desc)
+   - 원장한마디에 **after로 줄을 긋기 위해 `.doctor-desc`선택자를 주고 :after를 정의하며 after는 자식으로서 부모에게 relative를 준다**
+   - 원장한마디 내용은 focus시 바뀌도록 `id="doctor_desc`를 준다
+
+```html
+<!-- 증명사진 -->
+<div class="row align-items-center">
+    <div class="offset-1 col-6 d-flex flex-column  justify-content-center ">
+        <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-wrap">
+            솔직한 원장 한마디
+        </div>
+        <p class="fs-index text-muted" id="doctor_desc">
+            통계와 근거를 바탕으로 착한 진료를, 경험을 바탕으로 실속 진료를 추구하는 한의사!
+        </p>
+    </div>
+    <div class="col-5">
+        <!-- Swiper -->
+    </div>
+```
+```css
+.fs-desc {
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+
+@media screen and (min-width: 768px) {
+    .fs-desc {
+        font-size: 1.3rem;
+        letter-spacing: -0.5px;
+    }
+}
+```
+```css
+    .doctor-desc:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 5vw;
+        height: 2px;
+        background: var(--color-submain);
+        left: 0;
+        bottom: 0px;
+    }
+
+```
+![img.png](../ui/의료진소개22.png)
