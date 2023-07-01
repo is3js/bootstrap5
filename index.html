@@ -1095,7 +1095,7 @@
         }
 
         .h-110to150 {
-            height: 110px !important;
+            height: 90px !important;
         }
     }
 
@@ -1127,27 +1127,37 @@
 
 </style>
 <style>
-        /*active slide*/
+    /*active slide*/
+    .doctorSwiper {
+        max-width: 160px!important;
+    }
+    .doctorSwiper .swiper-slide {
+        /*max-width: 140px!important;*/
+    }
+
+    .doctorSwiper .swiper-wrapper {
+        align-items: center;
+    }
+
+    @media (max-width: 767px) {
         .doctorSwiper {
-            max-width: 290px;
-        }
-        .doctorSwiper .swiper-wrapper {
-            align-items: center;
+            max-width: 100px!important;
         }
 
         .doctorSwiper .swiper-slide {
-            max-width: 150px;
+            /*max-width: 90px !important;*/
         }
+    }
 
-        @media (max-width: 767px) {
-            .doctorSwiper {
-                max-width: 200px!important;
-            }
+    .doctorSwiper .swiper-pagination {
+        bottom: -2px !important;
+    }
 
-            .doctorSwiper .swiper-slide {
-                max-width: 110px!important;
-            }
-        }
+    .doctorSwiper .swiper-pagination-bullet {
+        background-color: darkgray;
+    }
+
+
 
 </style>
 <section class="mt-4">
@@ -1164,12 +1174,12 @@
         <!-- 증명사진 -->
         <div class="row justify-content-center align-items-center">
 
-            <div class="col-5">
+            <div class="col-10 col-md-5">
                 <!-- Swiper -->
-                <div class="swiper doctorSwiper">
+                <div class="swiper doctorSwiper m-0 ms-3 ms-md-5 pb-3">
                     <div class="swiper-wrapper">
                         <!-- slide -->
-                        <div class="swiper-slide" >
+                        <div class="swiper-slide">
                             <div class="card text-center border-0 m-0 doctor-hover "
                                  style="width: fit-content;"
                                  data-i="1"
@@ -1230,11 +1240,16 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
-            <div class="col-7 ">
-                풍부한 경험과 깊은 의술을 가진
-                한창한방병원 의료진
+            <div class="col-2 col-md-7 ">
+                <div class="d-none d-md-block">
+                    풍부한 경험과 깊은 의술을 가진
+                    한창한방병원 의료진
+
+                </div>
             </div>
 
         </div>
@@ -2200,8 +2215,8 @@
         // $('.doctor-hover').hover(function () {
         $('.doctor-hover').on('mouseenter focusin', function () {
             /* hover 시작시*/
-            $(this).find('.card-img>img').css('transform', 'scale(1.2)') // 증명사진 확대
-            $(this).find('.card-body>span').addClass('text-shadow-sm') // 이름 shadow
+            // $(this).find('.card-img>img').css('transform', 'scale(1.1)') // 증명사진 확대
+            // $(this).find('.card-body>span').addClass('text-shadow-sm') // 이름 shadow
 
             var data_i = parseInt($(this).attr("data-i"));
             var bg_i = data_i % 2;
@@ -2262,28 +2277,28 @@
             // }, function() {
         }).on('mouseleave focusout', function () {
             /* hover 종료시*/
-            $(this).find('.card-img>img').css('transform', 'scale(1)'); // 이미지 크기 원래대로 복원
-            $(this).find('.card-body>span').removeClass('text-shadow-sm') // 이름 복구
+            // $(this).find('.card-img>img').css('transform', 'scale(1)'); // 이미지 크기 원래대로 복원
+            // $(this).find('.card-body>span').removeClass('text-shadow-sm') // 이름 복구
         });
     })
 </script>
 <!-- 의료진 소개 swiper-->
 <script>
     var doctorSwiper = new Swiper(".doctorSwiper", {
-        // slidesPerView: 1,
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 20,
+        slidesPerView: 1,
+        // slidesPerView: 'auto',
+        // centeredSlides: true,
+        spaceBetween: 3,
         grabCursor: true,
         loop: true,
         autoplay: {
             delay: 4500,
             disableOnInteraction: false,
         },
-        // pagination: {
-        //     el: ".swiper-pagination",
-        //     clickable: true,
-        // },
+        pagination: {
+            el: ".doctorSwiper .swiper-pagination",
+            clickable: true,
+        },
     });
 
     doctorSwiper.on("slideChangeTransitionStart", function () {
