@@ -20,10 +20,10 @@
     delay: 4500,
     disableOnInteraction: false,
 },
-    // pagination: {
-    //     el: ".swiper-pagination",
-    //     clickable: true,
-    // },
+   pagination: {
+   el: ".doctorSwiper .swiper-pagination",
+   clickable: true,
+},
 });
 </script>
 ```
@@ -42,16 +42,26 @@ doctorSwiper.on("slideChangeTransitionEnd", function () {
 
 ![img.png](../ui/의료진소개21.png)
 
-5. **이제 slider에 여러개가 같이나오도록 설정한다.**
-   - spaceBetween이 0이라도, 1.5개 등으로 하면, 주인공을 가운데로 못보낸다?!
-   1. .xxxSwiper 선택자에서 max-width를 2개분량(300px - @)보다 약간 덜 준다.
-      - **이미 끝에까지 나오게 되면, 더이상 안굴러가고, 회전되 안되게 된다.**
-      - **3개가 어설프게 보일 예정이므로, 2개보다 약간 덜 줘야 잘 돌아간다**
-      - spaceBetween도 적당히 줘야한다
-   2. .swiper-warpper 선택자에서는 slide를 수직정렬해준다.
-   3. .swiper-slide 크기를 이미지에 맞게 조절한다.
-   4. swiperjs에서는 `slidesPerView`를 1 -> `auto`로 수정한다 + `centeredSlides: true` 를 추가한다
-
-
-6. 이제 슬라이드가 지나간 것에 focusout도 따로 해줘야한다
-7. 
+5. **제일 깔끔한 방법은 1개의 slide + pagination이다.**
+6. slide의 크기는 건들지말고, **swiper전체 크기만 1개 이미지보다 약간 더 큰 크기로 준다**
+   - h-110to150 을 h-90to150으로 수정함. 90 -> 115px,  150 -> 180px로 swiper크기만 반응형으로 잡아준다.
+```css
+<style>
+    .doctorSwiper {
+        max-width: 180px!important;
+    }
+    .doctorSwiper .swiper-wrapper {
+        align-items: center;
+    }
+    @media (max-width: 767px) {
+        .doctorSwiper {
+            max-width: 115px!important;
+        }
+    }
+    .doctorSwiper .swiper-pagination {
+        bottom: -2px !important;
+    }
+    .doctorSwiper .swiper-pagination-bullet {
+        background-color: darkgray;
+    }
+```

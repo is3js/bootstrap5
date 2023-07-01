@@ -39,7 +39,7 @@
       width: 65% !important;
    }
 
-   .h-110to150 {
+   .h-90to150 {
       height: 120px !important;
    }
 }
@@ -53,7 +53,7 @@
       width: 67% !important;
    }
 
-   .h-110to150 {
+   .h-90to150 {
       height: 150px !important;
    }
 }
@@ -62,7 +62,7 @@
 
 ```html
 <!--<div class="card-img overflow-hidden" style="height: 150px;">-->
-<div class="card-img overflow-hidden h-110to150">
+<div class="card-img overflow-hidden h-90to150">
 ```
 ![img.png](../ui/의료진소개16.png)
 
@@ -75,7 +75,7 @@
 
 ```html
 
-<div class="card-img overflow-hidden h-110to150 px-3">
+<div class="card-img overflow-hidden h-90to150 px-3">
    <img src="images/doctors/card001.png" alt="" class="h-100 w-auto">
 </div>
 ```
@@ -85,7 +85,7 @@
 
 ```html
 
-<div class="card-img overflow-hidden h-110to150 px-3 rounded-0">
+<div class="card-img overflow-hidden h-90to150 px-3 rounded-0">
    <img src="images/doctors/d001.png" alt="" class="h-100 w-auto ">
 </div>
 ```
@@ -128,7 +128,7 @@
 
 ```html
 
-<div class="card-img overflow-hidden h-110to150 px-3 pt-2 rounded-0">
+<div class="card-img overflow-hidden h-90to150 px-3 pt-2 rounded-0">
    <img src="images/doctors/d001.png" alt="" class="h-100 w-auto ">
 </div>
 ```

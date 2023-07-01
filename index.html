@@ -1094,7 +1094,7 @@
             width: 65% !important;
         }
 
-        .h-110to150 {
+        .h-90to150 {
             height: 90px !important;
         }
     }
@@ -1108,7 +1108,7 @@
             width: 67% !important;
         }
 
-        .h-110to150 {
+        .h-90to150 {
             height: 150px !important;
         }
     }
@@ -1127,25 +1127,17 @@
 
 </style>
 <style>
-    /*active slide*/
-    .doctorSwiper {
-        max-width: 180px!important;
-    }
-    .doctorSwiper .swiper-slide {
-        /*max-width: 140px!important;*/
-    }
-
     .doctorSwiper .swiper-wrapper {
         align-items: center;
     }
 
+    .doctorSwiper {
+        max-width: 180px !important;
+    }
+
     @media (max-width: 767px) {
         .doctorSwiper {
-            max-width: 115px!important;
-        }
-
-        .doctorSwiper .swiper-slide {
-            /*max-width: 90px !important;*/
+            max-width: 115px !important;
         }
     }
 
@@ -1157,8 +1149,28 @@
         background-color: darkgray;
     }
 
+    .doctor-desc:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 7vw;
+        height: 2px;
+        background: var(--color-submain);
+        left: 0;
+        bottom: 0px;
+    }
 
+    .fs-desc {
+        font-size: 16px;
+        letter-spacing: -1px;
+    }
 
+    @media screen and (min-width: 768px) {
+        .fs-desc {
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+        }
+    }
 </style>
 <section class="mt-4">
     <div class="container">
@@ -1172,9 +1184,19 @@
         </div>
 
         <!-- 증명사진 -->
-        <div class="row justify-content-center align-items-center">
+        <div class="row align-items-center">
+            <div class="offset-1 col-6 d-flex flex-column  justify-content-center ">
+                <h6 class="fs-desc lh-base doctor-desc position-relative pb-1 pb-md-3 mb-2 mb-md-4">
+                    동작과 활력을 회복주는 한의사들
+                </h6>
+                <p class="fs-index text-muted">
+                    원하는 대로 움직이고 생활의 활력을 건강하게 찾을 수 있도록
+                    양·한방 통합의학으로 근본치료합니다.
 
-            <div class="col-10 col-md-5">
+
+                </p>
+            </div>
+            <div class="col-5">
                 <!-- Swiper -->
                 <div class="swiper doctorSwiper m-0 ms-3 ms-md-5 pb-3">
                     <div class="swiper-wrapper">
@@ -1184,7 +1206,7 @@
                                  style="width: fit-content;"
                                  data-i="1"
                             >
-                                <div class="card-img overflow-hidden h-110to150 px-3 pt-2 rounded-0">
+                                <div class="card-img overflow-hidden h-90to150 px-3 pt-2 rounded-0">
                                     <img src="images/doctors/d001.png" alt="" class="h-100 w-auto ">
                                 </div>
                                 <div class="card-body border-top py-1 ">
@@ -1199,7 +1221,7 @@
                                  style="width: fit-content;"
                                  data-i="2"
                             >
-                                <div class="card-img overflow-hidden h-110to150 px-3 pt-2 rounded-0">
+                                <div class="card-img overflow-hidden h-90to150 px-3 pt-2 rounded-0">
                                     <img src="images/doctors/d002.png" alt="" class="h-100 w-auto">
                                 </div>
                                 <div class="card-body border-top py-1 ">
@@ -1214,7 +1236,7 @@
                                  style="width: fit-content;"
                                  data-i="3"
                             >
-                                <div class="card-img overflow-hidden h-110to150 px-3 pt-2 rounded-0">
+                                <div class="card-img overflow-hidden h-90to150 px-3 pt-2 rounded-0">
                                     <img src="images/doctors/d003.png" alt="" class="h-100 w-auto">
                                 </div>
                                 <div class="card-body border-top py-1 ">
@@ -1229,7 +1251,7 @@
                                  style="width: fit-content;"
                                  data-i="4"
                             >
-                                <div class="card-img overflow-hidden h-110to150 px-3 pt-2 rounded-0">
+                                <div class="card-img overflow-hidden h-90to150 px-3 pt-2 rounded-0">
                                     <img src="images/doctors/d004.png" alt="" class="h-100 w-auto">
                                 </div>
                                 <div class="card-body border-top py-1 ">
@@ -1244,13 +1266,7 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-            <div class="col-2 col-md-7 ">
-                <div class="d-none d-md-block">
-                    풍부한 경험과 깊은 의술을 가진
-                    한창한방병원 의료진
 
-                </div>
-            </div>
 
         </div>
         <!-- 인물 자세히 -->
