@@ -196,15 +196,15 @@
 </div>
 <style>
     /* 돌아가는 공간 */
-    .swiper {
+    .facilitySwiper  {
         max-width: 992px;
         background-color: blue;
     }
-    .swiper-wrapper {
+    .facilitySwiper .swiper-wrapper {
         align-items: center;
     }
     /* 1개 slide */
-    .swiper-slide {
+    .facilitySwiper .swiper-slide {
         max-width: 290px;
         /*test*/
         background-color: red;
@@ -212,18 +212,18 @@
 
 
      /*active slide*/
-    .swiper-slide-active .card{
+    .facilitySwiper  .swiper-slide-active .card{
         transform: scale(1.2);
         transition: .4s;
     }
-    .swiper-slide-active .card .card-body {
+    .facilitySwiper  .swiper-slide-active .card .card-body {
         transform: scale(0.833333); /* 1 / 1.2 = 0.833333 */
         transition: inherit;
     }
-    .swiper-pagination {
+    .facilitySwiper  .swiper-pagination {
         bottom: 0!important;
     }
-    .swiper-pagination-bullet{
+    .facilitySwiper  .swiper-pagination-bullet{
         background-color: var(--color-submain);
     }
 </style>

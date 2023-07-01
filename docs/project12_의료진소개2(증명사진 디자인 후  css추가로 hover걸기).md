@@ -28,35 +28,41 @@
 ```
 ![img.png](../ui/의료진소개15.png)
 7. div.card-img의  height를 md이상시 150px md미만시 120px로 반응형 `.h-120to150`을 정의해준다.
+
 ```css
     @media (max-width: 767px) {
    .w-35to25 {
       width: 35% !important;
    }
+
    .w-65to75 {
       width: 65% !important;
    }
-   .h-120to150 {
+
+   .h-110to150 {
       height: 120px !important;
    }
 }
 
 @media (min-width: 768px) {
    .w-35to25 {
-      width: 33%!important;
+      width: 33% !important;
    }
+
    .w-65to75 {
       width: 67% !important;
    }
-   .h-120to150 {
+
+   .h-110to150 {
       height: 150px !important;
    }
 }
 
 ```
+
 ```html
 <!--<div class="card-img overflow-hidden" style="height: 150px;">-->
-<div class="card-img overflow-hidden h-120to150">
+<div class="card-img overflow-hidden h-110to150">
 ```
 ![img.png](../ui/의료진소개16.png)
 
@@ -66,16 +72,20 @@
    <div class="col d-flex flex-row justify-content-center" >
 ```
 9. 사진들끼리 너무 붙어있는 것 같아서, border는 유지하도록 `div.card-img`에 `px-3`을 준다. ****
+
 ```html
-<div class="card-img overflow-hidden h-120to150 px-3">
+
+<div class="card-img overflow-hidden h-110to150 px-3">
    <img src="images/doctors/card001.png" alt="" class="h-100 w-auto">
 </div>
 ```
 ![img.png](../ui/의료진소개18.png)
 
 10. 축소를 해보면 `div.card-img`에 rounded가 깔려있어서 제거한다 rounded-0
+
 ```html
-<div class="card-img overflow-hidden h-120to150 px-3 rounded-0">
+
+<div class="card-img overflow-hidden h-110to150 px-3 rounded-0">
    <img src="images/doctors/d001.png" alt="" class="h-100 w-auto ">
 </div>
 ```
@@ -115,8 +125,10 @@
 ```
 
 3. **이미지에 border제외 증명사진끼리 여백을 주려고 `px-3`을 추가햇었는데, `확대시 머리가 올라갈 공간`을 위해 `pt-2`도 추가한다**
+
 ```html
-<div class="card-img overflow-hidden h-120to150 px-3 pt-2 rounded-0">
+
+<div class="card-img overflow-hidden h-110to150 px-3 pt-2 rounded-0">
    <img src="images/doctors/d001.png" alt="" class="h-100 w-auto ">
 </div>
 ```
