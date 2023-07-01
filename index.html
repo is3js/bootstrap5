@@ -1129,7 +1129,7 @@
 <style>
         /*active slide*/
         .doctorSwiper {
-            max-width: 300px;
+            max-width: 290px;
         }
         .doctorSwiper .swiper-wrapper {
             align-items: center;
@@ -1163,11 +1163,8 @@
 
         <!-- 증명사진 -->
         <div class="row justify-content-center align-items-center">
-            <div class="col-7 ">
-                풍부한 경험과 깊은 의술을 가진
-                한창한방병원 의료진
-            </div>
-            <div class="col-12 col-md-5">
+
+            <div class="col-5">
                 <!-- Swiper -->
                 <div class="swiper doctorSwiper">
                     <div class="swiper-wrapper">
@@ -1234,6 +1231,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-7 ">
+                풍부한 경험과 깊은 의술을 가진
+                한창한방병원 의료진
             </div>
 
         </div>
@@ -2272,7 +2273,7 @@
         // slidesPerView: 1,
         slidesPerView: 'auto',
         centeredSlides: true,
-        spaceBetween: 0,
+        spaceBetween: 20,
         grabCursor: true,
         loop: true,
         autoplay: {
@@ -2285,10 +2286,11 @@
         // },
     });
 
-    doctorSwiper.on("slideChangeTransitionEnd", function () {
+    doctorSwiper.on("slideChangeTransitionStart", function () {
         var activeSlide = doctorSwiper.slides[doctorSwiper.activeIndex];
         $(activeSlide).find('div.card').focusin();
 
+        // 나머지 slide들을 focusout한다
         $(doctorSwiper.slides).not(activeSlide).find('div.card').focusout();
 
     });

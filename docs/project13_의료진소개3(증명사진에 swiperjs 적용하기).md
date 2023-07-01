@@ -29,19 +29,25 @@
 ```
 
 4. **이제 `active slide`가 돌아가면, 해당 card에 focusin이 작동하도록 `swiper객체에 on`을 걸어준다.**
+   - **추가로 나머지 슬라이드들은 focusout시킨다.**
 
 ```js
 doctorSwiper.on("slideChangeTransitionEnd", function () {
     var activeSlide = doctorSwiper.slides[doctorSwiper.activeIndex];
     $(activeSlide).find('div.card').focusin();
+   // 나머지 slide들을 focusout한다
+   $(doctorSwiper.slides).not(activeSlide).find('div.card').focusout();
 });
 ```
+
 ![img.png](../ui/의료진소개21.png)
 
 5. **이제 slider에 여러개가 같이나오도록 설정한다.**
    - spaceBetween이 0이라도, 1.5개 등으로 하면, 주인공을 가운데로 못보낸다?!
-   1. .xxxSwiper 선택자에서 max-width를 1.5개분량(150px + @)보다 약간 더준다.
+   1. .xxxSwiper 선택자에서 max-width를 2개분량(300px - @)보다 약간 덜 준다.
       - **이미 끝에까지 나오게 되면, 더이상 안굴러가고, 회전되 안되게 된다.**
+      - **3개가 어설프게 보일 예정이므로, 2개보다 약간 덜 줘야 잘 돌아간다**
+      - spaceBetween도 적당히 줘야한다
    2. .swiper-warpper 선택자에서는 slide를 수직정렬해준다.
    3. .swiper-slide 크기를 이미지에 맞게 조절한다.
    4. swiperjs에서는 `slidesPerView`를 1 -> `auto`로 수정한다 + `centeredSlides: true` 를 추가한다
