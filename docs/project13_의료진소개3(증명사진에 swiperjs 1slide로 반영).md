@@ -120,6 +120,10 @@ doctorSwiper.on("slideChangeTransitionEnd", function () {
         left: 0;
         bottom: 0px;
     }
-
 ```
+- after를 입힐땐, pb로 간격을 만들고, mb로 after보다 더 아래쪽까지 간격을 준다.
+```html
+<div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-truncate">
+```
+![img.png](img.png)
 ![img.png](../ui/의료진소개22.png)

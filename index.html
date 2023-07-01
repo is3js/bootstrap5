@@ -1142,7 +1142,7 @@
     }
 
     .doctorSwiper .swiper-pagination {
-        bottom: -2px !important;
+        bottom: 0px !important;
     }
 
     .doctorSwiper .swiper-pagination-bullet {
@@ -1155,7 +1155,7 @@
         position: absolute;
         width: 5vw;
         height: 2px;
-        background: var(--color-submain);
+        background: var(--color-doctor);
         left: 0;
         bottom: 0px;
     }
@@ -1185,15 +1185,8 @@
 
         <!-- 증명사진 -->
         <div class="row align-items-center">
-            <div class="offset-1 col-6 d-flex flex-column  justify-content-center ">
-                <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-wrap">
-                    솔직한 원장 한마디
-                </div>
-                <p class="fs-index text-muted" id="doctor_desc">
-                    통계와 근거를 바탕으로 착한 진료를, 경험을 바탕으로 실속 진료를 추구하는 한의사!
-                </p>
-            </div>
-            <div class="col-5">
+
+            <div class="col-5 d-flex justify-content-end">
                 <!-- Swiper -->
                 <div class="swiper doctorSwiper m-0 ms-3 ms-md-5 pb-3">
                     <div class="swiper-wrapper">
@@ -1264,11 +1257,18 @@
                 </div>
             </div>
 
-
+            <div class="col-7 d-flex flex-column  justify-content-start ">
+                <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-doctor text-truncate">
+                    원장 한마디
+                </div>
+                <p class="fs-index text-muted fw-light" id="doctor_desc">
+                    통계와 근거를 바탕으로 착한 진료를, 경험을 바탕으로 실속 진료를 추구하는 한의사!
+                </p>
+            </div>
         </div>
         <!-- 인물 자세히 -->
         <!--<div class="row d-none d-lg-block">-->
-        <div class="row" style="margin-top: -40px">
+        <div class="row" style="margin-top: -30px">
             <div class="col">
                 <div class="card border-0 w-100 rounded-0" style="margin-top: 80px">
                     <img id="doctor_bg" class="card-img" src="images/doctors/bg001.png" alt="">
@@ -2308,7 +2308,7 @@
         grabCursor: true,
         loop: true,
         autoplay: {
-            delay: 65000,
+            delay: 6500,
             disableOnInteraction: false,
         },
         pagination: {
