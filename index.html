@@ -1153,7 +1153,7 @@
         content: "";
         display: block;
         position: absolute;
-        width: 7vw;
+        width: 5vw;
         height: 2px;
         background: var(--color-submain);
         left: 0;
@@ -1161,7 +1161,7 @@
     }
 
     .fs-desc {
-        font-size: 16px;
+        font-size: 15px;
         letter-spacing: -1px;
     }
 
@@ -1186,14 +1186,11 @@
         <!-- 증명사진 -->
         <div class="row align-items-center">
             <div class="offset-1 col-6 d-flex flex-column  justify-content-center ">
-                <h6 class="fs-desc lh-base doctor-desc position-relative pb-1 pb-md-3 mb-2 mb-md-4">
-                    동작과 활력을 회복주는 한의사들
-                </h6>
-                <p class="fs-index text-muted">
-                    원하는 대로 움직이고 생활의 활력을 건강하게 찾을 수 있도록
-                    양·한방 통합의학으로 근본치료합니다.
-
-
+                <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-wrap">
+                    원장 한마디
+                </div>
+                <p class="fs-index text-muted" id="doctor_desc">
+                    통계와 근거를 바탕으로 착한 진료를, 경험을 바탕으로 실속 진료를 추구합니다. 의료 서비스를 최적화하기 위해, 통계와 개발(코딩) 및 연구에 정진하고 있습니다. 믿고 맡길 수 있는 한의사가 되겠습니다.
                 </p>
             </div>
             <div class="col-5">
@@ -2263,6 +2260,7 @@
                       <li>- 서울대학교 의과대학 생명정보학교실 인턴</li>
                       <li>- 동신대학교 한의학과 졸업</li>
                     `)
+                    $('#doctor_desc').text('통계와 근거를 바탕으로 착한 진료를, 경험을 바탕으로 실속 진료를 추구합니다. 의료 서비스를 최적화하기 위해, 통계와 개발(코딩) 및 연구에 정진하고 있습니다. 믿고 맡길 수 있는 한의사가 되겠습니다.');
 
                     break;
                 case 2:
@@ -2273,6 +2271,8 @@
                       <li>- 광주 청연한방병원 인턴</li>
                       <li>- 동신대학교 한의학과 졸업</li>
                     `)
+                    $('#doctor_desc').text('한의사가 되기 전부터 한의원을 다니면서 한의학을 사랑하게 된 찐 한의사! 가족과 지인들을 돌보듯이 환자분들을 대하겠습니다');
+
                     break;
                 case 3:
                     $('#doctor_role').text('연구소');
@@ -2308,7 +2308,7 @@
         grabCursor: true,
         loop: true,
         autoplay: {
-            delay: 4500,
+            delay: 65000,
             disableOnInteraction: false,
         },
         pagination: {
