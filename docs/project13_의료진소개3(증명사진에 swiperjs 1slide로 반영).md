@@ -125,5 +125,5 @@ doctorSwiper.on("slideChangeTransitionEnd", function () {
 ```html
 <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-truncate">
 ```
-![img.png](img.png)
+![img.png](../ui/test.png)
 ![img.png](../ui/의료진소개22.png)

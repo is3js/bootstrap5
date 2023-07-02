@@ -60,6 +60,10 @@
             background-color: rgb(26, 168, 151, .80);
         }
 
+        .bg-doctor {
+            background-color: var(--color-doctor);
+        }
+
         .fs-13 {
             font-size: 13px;
         }
@@ -1014,77 +1018,6 @@
 
 <!--의료진 소개 섹션 시작-->
 <style>
-    /*@media (min-width: 1400px) {*/
-    /*    .w-35to25 {*/
-    /*        width: 25%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 75% !important;*/
-    /*    }*/
-    /*}*/
-    /*@media (max-width: 1399px) {*/
-    /*    .w-35to25 {*/
-    /*        width: 26%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 74% !important;*/
-    /*    }*/
-    /*}*/
-    /*@media (max-width: 1199px) {*/
-    /*    .w-35to25 {*/
-    /*        width: 27%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 73% !important;*/
-    /*    }*/
-    /*}*/
-
-    /*@media (max-width: 991px) {*/
-    /*    .w-35to25  {*/
-    /*        width: 30%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 70% !important;*/
-    /*    }*/
-    /*}*/
-
-    /*@media (max-width: 766px) {*/
-    /*    .w-35to25  {*/
-    /*        width: 35%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 65% !important;*/
-    /*    }*/
-    /*}*/
-
-    /*!* 예외구간 처리 *!*/
-    /*@media (max-width: 575px) {*/
-    /*    .w-35to25  {*/
-    /*        width: 33%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 67% !important;*/
-    /*    }*/
-    /*}*/
-
-    /*@media (max-width: 483px) {*/
-    /*    .w-35to25  {*/
-    /*        width: 35%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 65% !important;*/
-    /*    }*/
-    /*}*/
-    /*@media (max-width: 430px) {*/
-    /*    .w-35to25  {*/
-    /*        width: 40%;*/
-    /*    }*/
-    /*    .w-65to75 {*/
-    /*        width: 60% !important;*/
-    /*    }*/
-    /*}*/
-
-
     @media (max-width: 767px) {
         .w-35to25 {
             width: 35% !important;
@@ -1278,7 +1211,8 @@
                         </div>
                         <div class="w-65to75 p-1 pt-md-2 pt-lg-4 overflow-y-auto" style="margin-top: -15px">
                             <div class="card-subtitle my-md-1">
-                                <h6 id="doctor_role" class="fs-index text-submain fw-bold d-inline-block" style="letter-spacing: -0.7px">
+                                <h6 id="doctor_role" class="fs-index text-submain fw-bold d-inline-block"
+                                    style="letter-spacing: -0.7px">
                                     근골격계 • 연구
                                 </h6>
                                 <div id="doctor_btn"
@@ -1310,6 +1244,165 @@
     </div>
 </section>
 <!--의료진 소개 섹션 끝-->
+
+
+<!--병원 둘러보기 섹션 시작-->
+<style>
+    /* swiper 전체 공간 */
+    .facilitySwiper {
+        /*max-width: 992px;*/
+        max-width: 1320px;
+        /*test*/
+        /*background-color: blue;*/
+    }
+
+    /* flex wrapper */
+    .facilitySwiper .swiper-wrapper {
+        align-items: center;
+    }
+
+    /* 1개 slide */
+    .facilitySwiper .swiper-slide {
+        max-width: 280px;
+        /*max-width: 400px;*/
+        /*test*/
+        /*background-color: red;*/
+    }
+
+
+    @media screen and (min-width: 768px) {
+        /*active slide*/
+        .facilitySwiper .swiper-slide-active .card {
+            transform: scale(1.2);
+            transition: .4s;
+        }
+
+        .facilitySwiper .swiper-slide-active .card .card-body {
+            transform: scale(0.833333); /* 1 / 1.2 = 0.833333 */
+            transition: inherit;
+        }
+
+        .facilitySwiper {
+            /* p-5(3rem)보다 약간 더 크게*/
+            padding: 4rem !important;
+        }
+
+        .facilitySwiper .swiper-slide {
+            max-width: 400px;
+        }
+    }
+
+
+    .facilitySwiper .swiper-pagination {
+        bottom: 0 !important;
+    }
+
+    .facilitySwiper .swiper-pagination-bullet {
+        background-color: var(--color-submain);
+    }
+
+
+    /* 확대 전까지는, 평소보다 글자 80% 작게 */
+    @media screen and (max-width: 768px) {
+        .facilitySwiper .card .card-body {
+            transform: scale(0.833333);
+            transition: inherit;
+        }
+    }
+
+</style>
+<section class="mt-4 ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h4 class="d-inline-block">병원 둘러보기</h4>
+                    <small class="text-muted ps-2">몸과 마음의 치유가 시작되는 곳</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col">
+                <!-- Swiper -->
+                <div class="swiper facilitySwiper pb-4">
+                    <div class="swiper-wrapper">
+                        <!-- slide 1-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f1.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">외래/접수실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">한방차/마사지가 제공되는
+                                        대기공간</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 2-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f2.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">진료실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">초진/재초진 및 상담이
+                                        이루어지는 공간</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 3-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f3.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">치료실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">증상별 맞춤치료로 빠른
+                                        회복을 도모하는 공간</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 4-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f4.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">입원실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">독립된 공간으로
+                                        프라이빗한 회복 공간</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 5-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f5.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">휴게실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">따듯한 회복조명이 있는
+                                        자연친화적 휴게공간</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide 6-->
+                        <div class="swiper-slide">
+                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                                <img src="images/facilities/f6.png" class="card-img-top rounded-top-5 " alt="...">
+                                <div class="card-body  text-start">
+                                    <h5 class=" card-title fw-bold">검사실</h5>
+                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">최신장비와 시스템으로
+                                        정확한 진단 공간</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--병원 둘러보기 섹션 끝-->
 
 <!--FAQ 섹션 시작-->
 <style>
@@ -1524,6 +1617,68 @@
 </section>
 <!--FAQ 섹션 끝-->
 
+<!--벤치마킹 섹션 시작-->
+<section class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h4 class="d-inline-block">우아한 치료 특징</h4>
+                    <small class="text-muted ps-2">비교를 통해 확인해보세요.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- 제목 row -->
+        <div class="row align-items-center">
+            <div class="col">
+                <div>
+                    <div class="bg-light text-end pe-3 rounded-3 fs-index py-2">
+                        우아한 한의원
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="h4 py-1 text-center bg-light rounded-3 shadow-sm">
+                    <b class="text-doctor">비</b> <b class="text-dark">교</b>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <div class="bg-light text-start ps-3 rounded-3 fs-index py-2">
+                        기존 한의원
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="w-100 progress bg-light">
+                    <div class="progress-bar bg-light text-end pe-3 text-doctor" style="width: 33.3%">
+                        2
+                    </div>
+                    <div class="progress-bar bg-doctor text-end pe-3" style="width: 33.3%">
+                        의료진별 실시간
+                    </div>
+                    <div class="progress-bar bg-success text-end pe-3" style="width: 33.3%">
+                        네이버예약
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="rounded-3 text-center fs-index shadow-sm p-2 bg-light">예 약</div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-4"></div>
+            <div class="col"></div>
+        </div>
+    </div>
+</section>
+<!--벤치마킹 섹션 끝-->
 
 <!--성장 섹션 시작-->
 <section class="mt-4">
@@ -1645,195 +1800,6 @@
 </section>
 <!--목표 끝-->
 
-
-<!--벤치마킹 섹션 시작-->
-<section class="mt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div>
-                    <h4 class="d-inline-block">벤치마킹 치료 비교</h4>
-                    <small class="text-muted ps-2">과학적으로 인증된 치료를 경험하세요</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-2"></div>
-            <div class="col"></div>
-        </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-2"></div>
-            <div class="col"></div>
-        </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-2"></div>
-            <div class="col"></div>
-        </div>
-    </div>
-</section>
-<!--벤치마킹 섹션 끝-->
-
-<!--병원 둘러보기 섹션 시작-->
-<style>
-    /* swiper 전체 공간 */
-    .facilitySwiper {
-        /*max-width: 992px;*/
-        max-width: 1320px;
-        /*test*/
-        /*background-color: blue;*/
-    }
-
-    /* flex wrapper */
-    .facilitySwiper .swiper-wrapper {
-        align-items: center;
-    }
-
-    /* 1개 slide */
-    .facilitySwiper .swiper-slide {
-        max-width: 280px;
-        /*max-width: 400px;*/
-        /*test*/
-        /*background-color: red;*/
-    }
-
-
-    @media screen and (min-width: 768px) {
-        /*active slide*/
-        .facilitySwiper .swiper-slide-active .card {
-            transform: scale(1.2);
-            transition: .4s;
-        }
-
-        .facilitySwiper .swiper-slide-active .card .card-body {
-            transform: scale(0.833333); /* 1 / 1.2 = 0.833333 */
-            transition: inherit;
-        }
-
-        .facilitySwiper {
-            /* p-5(3rem)보다 약간 더 크게*/
-            padding: 4rem !important;
-        }
-
-        .facilitySwiper .swiper-slide {
-            max-width: 400px;
-        }
-    }
-
-
-    .facilitySwiper .swiper-pagination {
-        bottom: 0 !important;
-    }
-
-    .facilitySwiper .swiper-pagination-bullet {
-        background-color: var(--color-submain);
-    }
-
-
-    /* 확대 전까지는, 평소보다 글자 80% 작게 */
-    @media screen and (max-width: 768px) {
-        .facilitySwiper .card .card-body {
-            transform: scale(0.833333);
-            transition: inherit;
-        }
-    }
-
-</style>
-<section class="mt-4 ">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div>
-                    <h4 class="d-inline-block">병원 둘러보기</h4>
-                    <small class="text-muted ps-2">몸과 마음의 치유가 시작되는 곳</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="row ">
-            <div class="col">
-                <!-- Swiper -->
-                <div class="swiper facilitySwiper pb-4">
-                    <div class="swiper-wrapper">
-                        <!-- slide 1-->
-                        <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
-                                <img src="images/facilities/f1.png" class="card-img-top rounded-top-5 " alt="...">
-                                <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">외래/접수실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">한방차/마사지가 제공되는
-                                        대기공간</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 2-->
-                        <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
-                                <img src="images/facilities/f2.png" class="card-img-top rounded-top-5 " alt="...">
-                                <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">진료실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">초진/재초진 및 상담이
-                                        이루어지는 공간</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 3-->
-                        <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
-                                <img src="images/facilities/f3.png" class="card-img-top rounded-top-5 " alt="...">
-                                <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">치료실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">증상별 맞춤치료로 빠른
-                                        회복을 도모하는 공간</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 4-->
-                        <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
-                                <img src="images/facilities/f4.png" class="card-img-top rounded-top-5 " alt="...">
-                                <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">입원실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">독립된 공간으로
-                                        프라이빗한 회복 공간</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 5-->
-                        <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
-                                <img src="images/facilities/f5.png" class="card-img-top rounded-top-5 " alt="...">
-                                <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">휴게실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">따듯한 회복조명이 있는
-                                        자연친화적 휴게공간</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 6-->
-                        <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
-                                <img src="images/facilities/f6.png" class="card-img-top rounded-top-5 " alt="...">
-                                <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">검사실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">최신장비와 시스템으로
-                                        정확한 진단 공간</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-pagination"></div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--병원 둘러보기 섹션 끝-->
 
 <!--푸터 시작-->
 <footer class="mt-4 bg-dark text-light small">
@@ -2326,6 +2292,7 @@
 
     });
 </script>
+
 <!-- fixed 메뉴 -->
 <style>
     .fuceng {
