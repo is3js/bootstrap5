@@ -80,4 +80,36 @@
 ```
 ![img.png](../ui/벤치마킹3.png)
 
-5. 일단 
+5. width 40%로 배경과 같은색(bg-light)으로 숫자60를 적고, width 60%에 bar배경을 줘서 칸 + 글자을 채운다
+   - 숫자가 bar에 붙도록 text-end를 주고, pe-3으로 약간 띄워준다.
+   - 이제 div.progress에 height를 직접줘서, 가운데 col-2와 높이를 비슷하게 만든다.
+   - 해당 row에 my를 통해 간격을 주고, pt를 통해 자체크기를 조금 줄인다.
+```html
+<div class="row my-1 pt-2">
+    <div class="col">
+        <div class="w-100 progress bg-light" style="height: 40px;">
+            <div class="progress-bar bg-light text-end pe-3" style="width: 40%">
+                60
+            </div>
+            <div class="progress-bar bg-doctor text-end pe-3 text-doctor" style="width: 60%">
+                실시간예약
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="rounded-3 text-center fs-index shadow-sm p-2 bg-light">예 약</div>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+```
+![img.png](../ui/벤치마킹4.png)
+
+6. 글자쪽에 `.progress-bar-striped.progress-bar-animated`를 추가해서 줄무늬를 추가할 수 있다.
+
+7. 이제 우측bar는 좌측 col을 복붙해서 수정하여 반영한다
+   - 배경을 bg-dark로, 내이메이션 없애기, text-start/ps-로 변경
+
+8. 해당 row들을 복사해서 비교를 새로 만들고, 제목row에는 mt-3정도로 큰제목와 거리를 벌려준다
+9. 
