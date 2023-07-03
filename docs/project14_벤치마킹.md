@@ -310,3 +310,6 @@
 ```js
 $('#benchmarkContent').children('.row').on('mouseenter focusin', function () {
 ```
+
+6. 배경도 `#efefef`로 연하게 변경한다
+![img.png](../ui/벤치마킹7.png)
