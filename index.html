@@ -40,7 +40,7 @@
         }
 
         .text-doctor {
-            color: var(--color-doctor);
+            color: var(--color-doctor) !important;
         }
 
 
@@ -1087,7 +1087,7 @@
         display: block;
         position: absolute;
         width: 5vw;
-        height: 2px;
+        height: 1.7px;
         background: var(--color-doctor);
         left: 0;
         bottom: 0px;
@@ -1191,8 +1191,8 @@
             </div>
 
             <div class="col-7 d-flex flex-column  justify-content-start ">
-                <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-doctor text-truncate">
-                    원장 한마디
+                <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-dark text-truncate">
+                    원장 한 줄 소개
                 </div>
                 <p class="fs-index text-muted fw-light" id="doctor_desc">
                     통계와 근거를 바탕으로 착한 진료를, 경험을 바탕으로 실속 진료를 추구하는 한의사!
@@ -1766,6 +1766,140 @@
 </section>
 <!--벤치마킹 섹션 끝-->
 
+
+<!--치료과정 시작-->
+<section class="mt-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h4 class="d-inline-block">우아한 치료과정</h4>
+                    <small class="text-muted ps-2">질환별 치료과정 소개</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6 mb-4">
+                <div class="d-flex flex-column bg-white shadow">
+                    <!-- 상단 제목 -->
+                    <div class="d-flex flex-row text-white mb-1" style="background: #4B4542;">
+                        <div class="pt-3 pb-2 ps-4 me-auto"><h5 class="h5"><a class="text-decoration-none text-white" href="#">디스크 클리닉</a></h5></div>
+                        <div class="p-2 pe-4">
+                            <a class="mt-1 btn btn-sm border-white text-white rounded-0" href="#" style="background:rgba(255, 2525, 225, 0.2);">더 알아보기</a>
+                        </div>
+                    </div>
+
+                    <!-- 치료과정 content -->
+                    <div class="d-flex flex-row" style="background: #4B4542;">
+                        <!-- column방향으로 나열될 row flex-item 3개 -->
+                        <div class="flex-fill flex-column text-center">
+                            <a class="d-block" href="#">
+                                <figure class="figure mt-3">
+                                    <img src="images/clinic_process/disc_before.png" alt="" class="figure-img img-thumbnail flex-shrink-1"
+                                         style="max-width: 120px">
+                                    <figcaption class="figure-caption text-center text-white">
+                                        치료 전
+                                    </figcaption>
+                                </figure>
+                            </a>
+                            <a class="d-block" href="#">
+                                <figure class="figure mt-3">
+                                    <img src="images/clinic_process/disc_after.png" alt="" class="figure-img img-thumbnail flex-shrink-1"
+                                         style="max-width: 120px">
+                                    <figcaption class="figure-caption text-center text-white">
+                                        치료 후
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="flex-fill flex-column text-center my-3">
+                            <!-- 추나-->
+                            <div class="d-flex mx-3 my-2 pb-3">
+                                <div class="flex-shrink-0 me-1">
+                                    <img src="images/clinic_process/disc_tr001.png" class="rounded" alt="Sample Image"
+                                         style="max-width: 90px"
+                                    >
+                                </div>
+                                <div class="flex-grow-1 my-auto">
+                                    <h6><a class="text-decoration-none text-doctor text-shadow" href="#" style="color: #4B4542;">
+                                        견인 추나
+                                    </a></h6>
+                                </div>
+                            </div>
+                            <!-- 약침/도침 -->
+                            <div class="d-flex mx-3 my-2 pb-3">
+                                <div class="flex-shrink-0 me-1">
+                                    <img src="images/clinic_process/disc_tr002.png" class="rounded" alt="Sample Image"
+                                         style="max-width: 90px"
+                                    >
+                                </div>
+                                <div class="flex-grow-1 my-auto">
+                                    <h6><a class="text-decoration-none text-doctor text-shadow" href="#" style="color: #4B4542;">
+                                        약침 도침
+                                    </a></h6>
+                                </div>
+                            </div>
+                            <!-- 한약 -->
+                            <div class="d-flex mx-3 my-2 pb-3">
+                                <div class="flex-shrink-0 me-1">
+                                    <img src="images/clinic_process/disc_tr003.png" class="rounded" alt="Sample Image"
+                                         style="max-width: 90px"
+                                    >
+                                </div>
+                                <div class="flex-grow-1 my-auto">
+                                    <h6><a class="text-decoration-none text-doctor text-shadow" href="#" style="color: #4B4542;">
+                                        우아 한약
+                                    </a></h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 치료 설명 -->
+                        <div class="flex-fill d-flex flex-column text-center fs-13">
+                            <!--<div class="p-2 rounded-circle text-white text-shadow" style="width: 80px; background: #6D5F43;">-->
+                            <div class="text-center mt-3 py-2">
+                                <div class="p-2 text-white text-shadow">
+                                    추나를 통한<br>
+                                    공간확보
+                                </div>
+                            </div>
+
+                            <img class="img-fluid mx-auto" style="max-width:40px;" src="images/clinic_process/arrow-down.png" alt="">
+
+                            <div class="text-center mt-1 py-2">
+                                <div class="p-2 text-white text-shadow">
+                                    약침을 통한<br>
+                                    염증/통증 개선
+                                </div>
+                            </div>
+
+                            <img class="img-fluid mx-auto" style="max-width:40px;" src="images/clinic_process/arrow-down.png" alt="">
+
+                            <div class="text-center mt-1 py-2">
+                                <div class="p-2 text-white text-shadow">
+                                    약재를 통한<br>
+                                    순환/회복 개선
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 하단 image -->
+                    <div class="bg-white p-2">
+                        <img class="img-fluid rounded" src="images/clinic_process/disc_bottom.png" alt="" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6"></div>
+            <div class="col-sm-12 col-md-6"></div>
+            <div class="col-sm-12 col-md-6"></div>
+        </div>
+    </div>
+</section>
+<!--치료과정 끝-->
+
 <!--성장 섹션 시작-->
 <section class="mt-4">
     <div class="container">
@@ -1797,6 +1931,7 @@
     </div>
 </section>
 <!--성장 섹션 끝-->
+
 
 <!--훈련 섹션 시작-->
 <section class="mt-4">
@@ -1864,27 +1999,6 @@
 </section>
 <!--대면 섹션 끝-->
 
-<!--목표 시작-->
-<section class="mt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div>
-                    <h4 class="d-inline-block">인턴쉽 목표</h4>
-                    <small class="text-muted ps-2">새내기들의 배움터.</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 col-md-6"></div>
-            <div class="col-sm-12 col-md-6"></div>
-            <div class="col-sm-12 col-md-6"></div>
-            <div class="col-sm-12 col-md-6"></div>
-        </div>
-    </div>
-</section>
-<!--목표 끝-->
 
 
 <!--푸터 시작-->
