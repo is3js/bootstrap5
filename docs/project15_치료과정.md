@@ -248,5 +248,27 @@
 ```
 ![img.png](../ui/치료과정14.png)
 9. 이제 각 설명 + img를 복사해서 3단계로 만든다
-   - mt-4를 mt-1로 바꾸고, py-2정도로 내부간격을 만들었다.
+   - mt-4를 mt-2로 바꾸고, py-2정도로 내부간격을 만들었다.
    - 필요하다면, img태그에 py-x를 줘서 간격을 만든다.
+
+10. 이제 치료전후사진이 d-block으로서 전체를 차지하고 있는데, **border-bottom을 주며, border에 포함되지 않는 양쪽여백을 `mx-3`로 줘서 w-100에 여백을 준다**
+- 아래쪽은 border-bottom없이 mx-3만 준다.
+```html
+``<!-- 치료과정 content -->
+<div class="d-flex flex-row" style="background: #4B4542;">
+    <!-- column방향으로 나열될 row flex-item 3개 -->
+    <!-- 치료 전/후 -->
+    <div class="flex-fill flex-column text-center">
+        <a class="d-block mx-3 border-bottom border-light " href="#">
+```
+![img.png](../ui/치료과정15.png)
+
+
+11. 이제 2번째 그림 왼쪽에 border-start를 주자
+```html
+<div class="flex-fill flex-column text-center my-3 border-start border-light">
+    <!-- 추나-->
+    <div class="d-flex mx-3 my-3 pb-3">
+```
+
+![img.png](../ui/치료과정16.png)
