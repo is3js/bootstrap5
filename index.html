@@ -68,6 +68,42 @@
             font-size: 13px;
         }
 
+
+        .bg-darkgray {
+            background-color: dimgrey;
+        }
+        .bg-gray {
+            background-color: #efefef;
+        }
+        .bg-brown {
+            background-color: #4B4542;
+        }
+
+        .bg-clinic-1 {
+            background-color: #AB90CD;
+        }
+
+        .bg-clinic-2 {
+            background-color: #80BA96;
+        }
+
+        .bg-clinic-3 {
+            background-color: #F07F7F;
+        }
+
+
+        .bg-clinic-4 {
+            background-color: #C6BC63;
+        }
+
+        .bg-clinic-5 {
+            background-color: #E59D68;
+        }
+
+        .bg-clinic-6 {
+            background-color: #E7B277;
+        }
+
         /*nav, header, section, footer {*/
         /*    width: 100%;*/
         /*    height: 100px;*/
@@ -246,6 +282,19 @@
             .fs-clinic-desc {
                 font-size: 1rem;
                 letter-spacing: -2px;
+            }
+        }
+
+        /* 치료후기 header */
+        .fs-review-header {
+            font-size: 11px;
+            letter-spacing: -1px;
+        }
+
+        @media screen and (min-width: 768px) {
+            .fs-review-header {
+                font-size: 1rem;
+                letter-spacing: 0px;
             }
         }
 
@@ -1029,6 +1078,251 @@
 </section>
 <!-- 진단 섹션 끝 -->
 
+<!--치료후기 시작-->
+<section class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h4 class="d-inline-block">치료 후기 및 예약현황</h4>
+                    <small class="text-muted ps-2">클리닉별 원장님별 후기를 봐요!</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- 헤더 -->
+        <div class="row ">
+            <!--담당의-->
+            <div class="col-2 ps-0 pe-1">
+                <div class="d-flex flex-row text-white  justify-content-center bg-brown rounded py-1">
+                    <div class="my-auto">
+                        <h5 class="h5">
+                            <a class="text-decoration-none text-white text-shadow-lg fs-review-header" href="#">
+                                담당의
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <!--주요 진료-->
+            <div class="col-2 ps-0 pe-1">
+                <div class="d-flex flex-row text-doctor  justify-content-center bg-brown rounded py-1">
+                    <div class="my-auto">
+                        <h5 class="h5">
+                            <a class="text-decoration-none text-white text-shadow-lg fs-review-header" href="#">
+                                주요 진료
+                            </a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <!-- 치료후기 -->
+            <div class="col-5 ps-0 pe-1">
+                <div class="d-flex flex-row text-doctor  bg-brown rounded py-1">
+                    <div class="my-auto ps-2 me-auto">
+                        <h5 class="h5">
+                            <a class="text-decoration-none text-white text-shadow-lg fs-review-header" href="#">
+                                치료 후기(최근 10개)
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="my-auto pe-4">
+                        <a class=" btn btn-sm border-white text-white rounded-0 fs-review-header" href="#"
+                           style="background:rgba(255, 2525, 225, 0.2);">전체 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 ps-0">
+                <div class="d-flex flex-row text-doctor  bg-brown rounded py-1">
+                    <div class="my-auto ps-2 me-auto">
+                        <h5 class="h5">
+                            <a class="text-decoration-none text-white text-shadow-lg fs-review-header" href="#">
+                                예약현황
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="my-auto pe-4">
+                        <a class=" btn btn-sm border-white text-white rounded-0 fs-review-header" href="#"
+                           style="background:rgba(255, 2525, 225, 0.2);">
+                            예약하기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 내용 1 -->
+        <div class="row mt-1">
+            <!-- 담당의 -->
+            <div class="col-2 ps-0 pe-1">
+                <a class="d-block text-center bg-light w-100 " href="#">
+                    <figure class="figure mt-3">
+                        <img src="images/doctors/doctor001.png" alt=""
+                             class="figure-img"
+                             style="max-width: 65px;">
+                        <figcaption class="figure-caption text-center">
+                            <h6 class="fs-clinic-desc">조재성 원장</h6>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+            <!-- 주요진료 -->
+            <div class="col-2 ps-0 pe-1 ">
+                <div class="d-flex py-1 bg-light w-100">
+                    <div class="flex-shrink-0 mx-1">
+                        <img src="images/review/재활.png" class="rounded"
+                             alt="Sample Image"
+                             style="max-width: 57.5px"
+                        >
+                    </div>
+                    <div class="flex-grow-1 mx-1 my-auto pt-2">
+                        <h6 class="fs-clinic-desc">
+                            재활
+                        </h6>
+                    </div>
+                </div>
+                <div class="d-flex py-1 bg-light w-100 mt-1">
+                    <div class="flex-shrink-0 mx-1">
+                        <img src="images/review/추나.png" class="rounded"
+                             alt="Sample Image"
+                             style="max-width: 57.5px"
+                        >
+                    </div>
+                    <div class="flex-grow-1 mx-1 my-auto pt-2">
+                        <h6 class="fs-clinic-desc">
+                            추나
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 치료후기 -->
+            <div class="col-5 ps-0 pe-1 overflow-auto" style="height: 135px;">
+                <!-- 후기1. 좌측정렬 -->
+                <div class="d-flex  bg-light w-100 py-1">
+                    <div class="flex-grow-1 mx-1 text-start text-truncate ">
+                        <!--클리닉 명-->
+                        <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
+                        <p class="d-inline-block rounded-pill  px-2  bg-clinic-1 m-0">
+                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow ">
+                                디스크 클리닉
+                            </a>
+                            <span class="fs-13 text-white-50"> | 20대/남성</span>
+                        </p>
+
+                        <!--날짜와 평가점수-->
+                        <div class="d-flex flex-row justify-content-between fs-13 ps-1 pt-1">
+                            <div class="small text-muted">2023-07-05 | 자필스캔</div>
+                            <div class="small text-danger text-shadow-sm">❤❤❤❤❤</div>
+                        </div>
+
+                        <!--후기 -->
+                        <p class="w-100 small py-1 ps-1 m-0 text-wrap text-muted fs-13">
+                            친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0 mx-1">
+                        <img src="images/doctors/d001.png" class="rounded"
+                             alt="Sample Image"
+                             style="max-width: 45px"
+                        >
+                    </div>
+                </div>
+
+                <!-- 후기2. 우측정렬 -->
+                <div class="d-flex  bg-light w-100 py-1">
+                    <!-- 원장이미지 -->
+                    <div class="flex-shrink-0 mx-1">
+                        <img src="images/doctors/d001.png" class="rounded"
+                             alt="Sample Image"
+                             style="max-width: 45px"
+                        >
+                    </div>
+                    <!-- 글자뭉치 -->
+                    <div class="flex-grow-1 mx-1 text-end text-truncate ">
+
+                        <!--클리닉 명-->
+                        <p class="d-inline-block rounded-pill  px-2 bg-darkgray m-0">
+                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow ">
+                                일반 치료
+                            </a>
+                            <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
+                        </p>
+
+                        <!--날짜와 평가점수-->
+                        <div class="d-flex flex-row justify-content-between fs-13 ps-1 pt-1">
+                            <div class="small text-danger text-shadow-sm">❤❤❤❤❤</div>
+                            <div class="small text-muted">2023-07-05 | 직접입력</div>
+                        </div>
+
+                        <!--후기 -->
+                        <p class="w-100 small py-1 ps-1 m-0 text-wrap fs-13 text-muted text-start">
+                            친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- 날짜 -->
+            <!--            <div class="col-1 ps-0 pe-1">-->
+            <!--            </div>-->
+
+            <!-- 예약현황 -->
+            <div class="col-3 ps-0 overflow-auto" style="height: 135px;">
+                <!--예약list -->
+                <div class="list-group list-group-flush fs-13">
+                    <!--예약1. -->
+                    <div class="list-group-item bg-light d-flex flex-row justify-content-between px-3 align-items-center">
+                        <div>xxxx님</div>
+                        <div>14:30</div>
+                        <div class="text-center">
+                            <a class="btn btn-sm text-white rounded-pill fs-13 bg-clinic-3" href="#">
+                                예약대기
+                            </a>
+                        </div>
+                    </div>
+                    <!--예약2. -->
+                    <div class="list-group-item bg-light d-flex flex-row justify-content-between px-3 align-items-center">
+                        <div>xxxx님</div>
+                        <div>10:30</div>
+                        <div class="text-center">
+                            <a class="btn btn-sm text-white rounded-pill fs-13 bg-clinic-2" href="#">
+                                예약완료
+                            </a>
+                        </div>
+                    </div>
+                    <!--예약3. -->
+                    <div class="list-group-item bg-light d-flex flex-row justify-content-between px-3 align-items-center">
+                        <div>xxxx님</div>
+                        <div>09:30</div>
+                        <div class="text-center">
+                            <a class="btn btn-sm text-white rounded-pill fs-13 bg-darkgray" href="#">
+                                예약취소
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 내용 2 -->
+        <div class="row mt-1">
+            <div class="col-2 ps-0 pe-1">
+            </div>
+            <div class="col-2 ps-0 pe-1">
+            </div>
+            <div class="col-5 ps-0 pe-1">
+            </div>
+
+            <div class="col-1 ps-0 ">
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--치료후기 끝-->
+
 <!--의료진 소개 섹션 시작-->
 <style>
     @media (max-width: 767px) {
@@ -1510,30 +1804,6 @@
     }
 
 
-    .bg-faq-1 {
-        background-color: #AB90CD;
-    }
-
-    .bg-faq-2 {
-        background-color: #F07F7F;
-    }
-
-    .bg-faq-3 {
-        background-color: #80BA96;
-    }
-
-    .bg-faq-4 {
-        background-color: #C6BC63;
-    }
-
-    .bg-faq-5 {
-        background-color: #E59D68;
-    }
-
-    .bg-faq-6 {
-        background-color: #E7B277;
-    }
-
 </style>
 <section class="mt-4 ">
     <div class="container">
@@ -1548,7 +1818,7 @@
 
         <div class="row contain ">
             <div class="col-6 col-md-4 col-lg p-1 " style="height: 50px;line-height: 40px;">
-                <div class="w-100 h-100 bg-faq-1 shadow text-center rounded position-relative "
+                <div class="w-100 h-100 bg-clinic-1 shadow text-center rounded position-relative "
                      style="background-image: url('images/faqs/001.png');
                 background-repeat: no-repeat;
                 background-position: bottom right;
@@ -1567,7 +1837,7 @@
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg p-1 " style="height: 50px;line-height: 40px;">
-                <div class="w-100 h-100 bg-faq-2 shadow text-center rounded position-relative "
+                <div class="w-100 h-100 bg-clinic-2 shadow text-center rounded position-relative "
 
                      style="background-image: url('images/faqs/002.png');
                 background-repeat: no-repeat;
@@ -1587,7 +1857,7 @@
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg p-1 " style="height: 50px;line-height: 40px;">
-                <div class="w-100 h-100 bg-faq-3 shadow text-center rounded position-relative "
+                <div class="w-100 h-100 bg-clinic-3 shadow text-center rounded position-relative "
                      style="background-image: url('images/faqs/003.png');
                 background-repeat: no-repeat;
                 background-position: bottom right;
@@ -1606,7 +1876,7 @@
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg p-1 " style="height: 50px;line-height: 40px;">
-                <div class="w-100 h-100 bg-faq-4 shadow text-center rounded position-relative "
+                <div class="w-100 h-100 bg-clinic-4 shadow text-center rounded position-relative "
                      style="background-image: url('images/faqs/004.png');
                 background-repeat: no-repeat;
                 background-position: bottom right;
@@ -1798,10 +2068,13 @@
                 <div class="d-flex flex-column bg-white shadow">
                     <!-- 상단 제목 -->
                     <div class="d-flex flex-row text-white " style="background: #998E7C;">
-                        <div class="pt-3 pb-2 ps-4 me-auto"><h5 class="h5"><a
-                                class="text-decoration-none text-white text-shadow" href="#">
-                            디스크 클리닉
-                        </a></h5></div>
+                        <div class="pt-3 pb-2 ps-4 me-auto">
+                            <h5 class="h5">
+                                <a class="text-decoration-none text-white text-shadow " href="#">
+                                    디스크 클리닉
+                                </a>
+                            </h5>
+                        </div>
                         <div class="p-2 pe-4">
                             <a class="mt-1 btn btn-sm border-white text-white rounded-0" href="#"
                                style="background:rgba(255, 2525, 225, 0.2);">더 알아보기</a>
@@ -2112,50 +2385,6 @@
     </div>
 </section>
 <!--훈련 섹션 끝-->
-
-<!--대면 섹션 시작-->
-<section class="mt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div>
-                    <h4 class="d-inline-block">대면 훈련</h4>
-                    <small class="text-muted ps-2">성장을 위한 동력 축적.</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-1"></div>
-            <div class="col-3"></div>
-            <div class="col-4"></div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-1"></div>
-            <div class="col-3"></div>
-            <div class="col-4"></div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-1"></div>
-            <div class="col-3"></div>
-            <div class="col-4"></div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-1"></div>
-            <div class="col-3"></div>
-            <div class="col-4"></div>
-        </div>
-    </div>
-</section>
-<!--대면 섹션 끝-->
 
 
 <!--푸터 시작-->
