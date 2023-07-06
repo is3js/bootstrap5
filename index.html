@@ -1628,9 +1628,26 @@
         bottom: 0px !important;
     }
 
+    /*.doctorSwiper .swiper-pagination-bullet {*/
+    /*    background-color: darkgray;*/
+    /*}*/
+    /* pagination 꾸미기 */
     .doctorSwiper .swiper-pagination-bullet {
-        background-color: darkgray;
+        width: 5px;
+        height: 5px;
+        background: transparent;
+        border: 1px solid darkgrey;
+        opacity: 1;
     }
+
+    .doctorSwiper .swiper-pagination-bullet-active {
+        width: 20px;
+        transition: width .5s;
+        border-radius: 5px;
+        background: darkgrey;
+        border: 1px solid transparent;
+    }
+
 
     .doctor-desc:after {
         content: "";
@@ -2128,8 +2145,25 @@
         bottom: 0 !important;
     }
 
+    /*.facilitySwiper .swiper-pagination-bullet {*/
+    /*    background-color: var(--color-submain);*/
+    /*}*/
+
+    /* pagination 꾸미기 */
     .facilitySwiper .swiper-pagination-bullet {
-        background-color: var(--color-submain);
+        width: 10px;
+        height: 10px;
+        background: transparent;
+        border: 1px solid var(--color-submain);
+        opacity: 1;
+    }
+
+    .facilitySwiper .swiper-pagination-bullet-active {
+        width: 40px;
+        transition: width .5s;
+        border-radius: 5px;
+        background: var(--color-submain);
+        border: 1px solid transparent;
     }
 
 
@@ -2144,7 +2178,7 @@
 </style>
 <section class="mt-5">
     <div class="container">
-        <div class="row">
+        <div class="row py-3">
             <div class="col">
                 <div>
                     <h4 class="d-inline-block">병원 둘러보기</h4>
@@ -2160,66 +2194,66 @@
                     <div class="swiper-wrapper">
                         <!-- slide 1-->
                         <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                            <div class="card  rounded-5 h-100 border-0 bg-submain">
                                 <img src="images/facilities/f1.png" class="card-img-top rounded-top-5 " alt="...">
                                 <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">외래/접수실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">한방차/마사지가 제공되는
+                                    <h5 class=" card-title  text-white text-shadow">외래/접수실</h5>
+                                    <p class=" card-text text-truncate fw-lighter text-white ">한방차/마사지가 제공되는
                                         대기공간</p>
                                 </div>
                             </div>
                         </div>
                         <!-- slide 2-->
                         <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                            <div class="card  rounded-5 h-100 border-0 bg-submain">
                                 <img src="images/facilities/f2.png" class="card-img-top rounded-top-5 " alt="...">
                                 <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">진료실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">초진/재초진 및 상담이
+                                    <h5 class=" card-title text-white text-shadow">진료실</h5>
+                                    <p class=" card-text text-truncate fw-lighter text-white ">초진/재초진 및 상담이
                                         이루어지는 공간</p>
                                 </div>
                             </div>
                         </div>
                         <!-- slide 3-->
                         <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                            <div class="card  rounded-5 h-100 border-0 bg-submain">
                                 <img src="images/facilities/f3.png" class="card-img-top rounded-top-5 " alt="...">
                                 <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">치료실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">증상별 맞춤치료로 빠른
+                                    <h5 class=" card-title text-white text-shadow">치료실</h5>
+                                    <p class=" card-text text-truncate fw-lighter text-white ">증상별 맞춤치료로 빠른
                                         회복을 도모하는 공간</p>
                                 </div>
                             </div>
                         </div>
                         <!-- slide 4-->
                         <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                            <div class="card  rounded-5 h-100 border-0 bg-submain">
                                 <img src="images/facilities/f4.png" class="card-img-top rounded-top-5 " alt="...">
                                 <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">입원실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">독립된 공간으로
+                                    <h5 class=" card-title text-white text-shadow">입원실</h5>
+                                    <p class=" card-text text-truncate fw-lighter text-white ">독립된 공간으로
                                         프라이빗한 회복 공간</p>
                                 </div>
                             </div>
                         </div>
                         <!-- slide 5-->
                         <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                            <div class="card  rounded-5 h-100 border-0 bg-submain">
                                 <img src="images/facilities/f5.png" class="card-img-top rounded-top-5 " alt="...">
                                 <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">휴게실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">따듯한 회복조명이 있는
+                                    <h5 class=" card-title text-white text-shadow">휴게실</h5>
+                                    <p class=" card-text text-truncate fw-lighter text-white ">따듯한 회복조명이 있는
                                         자연친화적 휴게공간</p>
                                 </div>
                             </div>
                         </div>
                         <!-- slide 6-->
                         <div class="swiper-slide">
-                            <div class="card border-dark-subtle border-1 rounded-5 h-100">
+                            <div class="card  rounded-5 h-100 border-0 bg-submain">
                                 <img src="images/facilities/f6.png" class="card-img-top rounded-top-5 " alt="...">
                                 <div class="card-body  text-start">
-                                    <h5 class=" card-title fw-bold">검사실</h5>
-                                    <p class=" card-text text-truncate fw-lighter" style="color: darkgray">최신장비와 시스템으로
+                                    <h5 class=" card-title text-white text-shadow">검사실</h5>
+                                    <p class=" card-text text-truncate fw-lighter text-white ">최신장비와 시스템으로
                                         정확한 진단 공간</p>
                                 </div>
                             </div>
