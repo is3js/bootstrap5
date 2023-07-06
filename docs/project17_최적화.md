@@ -74,4 +74,85 @@
 <div class="d-none d-xl-block col-3
 ```
 
+![img.png](../ui/치료후기-sm.png)
+![img_1.png](../ui/치료후기-md.png)
+![img_2.png](../ui/치료후기-xl.png)
 
+
+5. col들에 margin을 주면, 맞춰진 데서 넘어가버릴 것이다. 주더라도 col-12를 차지하는 곳에서 줬다가. 뭉치는 곳에서는 풀어야한다?!
+   - col-12인 구간만 찾아서 .wp-x로 주자
+   ![img.png](../ui/wp-x예시.png)
+
+6. height도 맞춰서 조절할 수 있다.
+   - **치료후기 고정된 height를 가진 col에서 선택자를 주고 맞추자. -> 작은화면에서 col-12이므로 더 늘리자.**
+   - 먼저 bootstrap 중단점의 내용을 복사해와서 아래와 같이 수정한다.
+```css
+    @media (min-width: 380px) {
+    ...
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+    ...
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    ...
+}
+
+@media (min-width: 992px) {
+    ...
+}
+```
+- col에 특정 선택자`review-h`를 주고, lg보다 더 큰부분에서 xl일때의 높이를 그대로 준다.
+```html
+<!-- 치료후기 -->
+<div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded review-h" style="height: 135px;" ...>
+```
+```css
+@media (min-width: 992px) {
+    .review-h {
+        height: 135px;
+    }
+}
+```
+- 이제 더 작은범위에서 135보다 더 크게 준다
+```css    
+@media (max-width: 380px) {
+    .review-h {
+        height: 180px !important;
+    }
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+    .review-h {
+        height: 180px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .review-h {
+        height: 180px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .review-h {
+        height: 135px;
+    }
+}
+```
+
+- 특정범위아래에서는 동일하므로 젤 큰 max-width만 남긴다?
+```css
+@media (max-width: 991px) {
+    .review-h {
+        height: 180px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .review-h {
+        height: 135px;
+    }
+}
+```

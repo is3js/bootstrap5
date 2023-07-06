@@ -77,9 +77,11 @@
         .bg-darkgray {
             background-color: dimgrey;
         }
+
         .bg-gray {
             background-color: #efefef;
         }
+
         .bg-brown {
             background-color: #4B4542;
         }
@@ -1085,6 +1087,19 @@
 <!-- 진단 섹션 끝 -->
 
 <!--치료후기 시작-->
+<style>
+    @media (max-width: 991px) {
+        .review-h {
+            height: 180px!important;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .review-h {
+            height: 135px;
+        }
+    }
+</style>
 <section class="mt-4">
     <div class="container">
         <div class="row">
@@ -1161,8 +1176,8 @@
         <!-- 원장1 -->
         <div class="row mt-2 gy-1 px-2">
             <!-- 담당의 -->
-            <div class="col-6 col-md-6 col-lg-2 ps-0 pe-1" >
-                <a class="d-block text-center bg-gray rounded w-100 h-100 " href="#" >
+            <div class="col-6 col-md-6 col-lg-2 ps-0 pe-1">
+                <a class="d-block text-center bg-gray rounded w-100 h-100 " href="#">
                     <figure class="figure mt-3">
                         <img src="images/doctors/doctor001.png" alt=""
                              class="figure-img"
@@ -1203,7 +1218,7 @@
                 </div>
             </div>
             <!-- 치료후기 -->
-            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded " style="height: 135px;">
+            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded review-h" style="height: 135px;">
                 <!-- 후기1. 좌측정렬 -->
                 <div class="d-flex rounded w-100 py-1 ">
                     <div class="flex-grow-1 mx-1 text-start text-truncate ">
@@ -1354,7 +1369,7 @@
             </div>
 
             <!-- 치료후기 -->
-            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto" style="height: 135px;">
+            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto review-h" style="height: 135px;">
                 <!-- 후기1. 좌측정렬 -->
                 <div class="d-flex  w-100 py-1">
                     <div class="flex-grow-1 mx-1 text-start text-truncate ">
@@ -2467,7 +2482,6 @@
     </div>
 </section>
 <!--벤치마킹 섹션 끝-->
-
 
 
 <!--성장 섹션 시작-->
