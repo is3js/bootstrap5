@@ -1101,6 +1101,18 @@
         }
     }
 </style>
+<style>
+    .reviewSwiper .swiper-pagination {
+        top: 2px;
+    }
+    .reviewSwiper .swiper-wrapper{
+        padding-bottom: 30px;
+    }
+
+    .reviewSwiper .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+        bottom: 0px !important;
+    }
+</style>
 <section class="mt-4">
     <div class="container">
         <div class="row">
@@ -1220,71 +1232,80 @@
             </div>
             <!-- 치료후기 -->
             <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded review-h" style="height: 135px;">
-                <!-- 후기1. 좌측정렬 -->
-                <div class="d-flex rounded w-100 py-1 ">
-                    <div class="flex-grow-1 mx-1 text-start text-truncate ">
-                        <!--클리닉 명-->
-                        <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
-                        <p class="d-inline-block rounded-pill  px-2  bg-clinic-1 m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
-                                디스크 클리닉
-                            </a>
-                            <span class="fs-13 text-white-50"> | 20대/남성</span>
-                        </p>
+                <div class="swiper reviewSwiper ">
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-wrapper">
+                        <!-- slide -->
+                        <div class="swiper-slide">
+                            <!-- 후기1. 좌측정렬 -->
+                            <div class="d-flex rounded w-100 py-1 ">
+                                <div class="flex-grow-1 mx-1 text-start text-truncate ">
+                                    <!--클리닉 명-->
+                                    <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
+                                    <p class="d-inline-block rounded-pill  px-2  bg-clinic-1 m-0">
+                                        <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                            디스크 클리닉
+                                        </a>
+                                        <span class="fs-13 text-white-50"> | 20대/남성</span>
+                                    </p>
 
-                        <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 py-1 px-1">
-                            <div class="small text-gray">2023-07-05 | 자필스캔</div>
-                            <div class="small text-danger ">❤❤❤❤❤</div>
+                                    <!--날짜와 평가점수-->
+                                    <div class="d-flex flex-row justify-content-between fs-13 py-1 px-1">
+                                        <div class="small text-gray">2023-07-05 | 자필스캔</div>
+                                        <div class="small text-danger ">❤❤❤❤❤</div>
+                                    </div>
+
+                                    <!--후기 -->
+                                    <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13">
+                                        친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 mx-1">
+                                    <img src="images/doctors/d001.png" class="rounded"
+                                         alt="Sample Image"
+                                         style="max-width: 45px"
+                                    >
+                                </div>
+                            </div>
                         </div>
+                        <!-- slide -->
+                        <div class="swiper-slide">
+                            <!-- 후기2. 우측정렬 -->
+                            <div class="d-flex rounded w-100 py-1">
+                                <!-- 원장이미지 -->
+                                <div class="flex-shrink-0 mx-1">
+                                    <img src="images/doctors/d001.png" class="rounded"
+                                         alt="Sample Image"
+                                         style="max-width: 45px"
+                                    >
+                                </div>
+                                <!-- 글자뭉치 -->
+                                <div class="flex-grow-1 mx-1 text-end text-truncate ">
 
-                        <!--후기 -->
-                        <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13">
-                            친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
-                        </p>
-                    </div>
-                    <div class="flex-shrink-0 mx-1">
-                        <img src="images/doctors/d001.png" class="rounded"
-                             alt="Sample Image"
-                             style="max-width: 45px"
-                        >
+                                    <!--클리닉 명-->
+                                    <p class="d-inline-block rounded-pill  px-2 bg-darkgray m-0">
+                                        <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                            일반 치료
+                                        </a>
+                                        <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
+                                    </p>
+
+                                    <!--날짜와 평가점수-->
+                                    <div class="d-flex flex-row justify-content-between fs-13 px-1 py-1">
+                                        <div class="small text-danger ">❤❤❤❤❤</div>
+                                        <div class="small text-muted text-gray">2023-07-05 | 직접입력</div>
+                                    </div>
+
+                                    <!--후기 -->
+                                    <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13 text-start">
+                                        친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- 후기2. 우측정렬 -->
-                <div class="d-flex rounded w-100 py-1">
-                    <!-- 원장이미지 -->
-                    <div class="flex-shrink-0 mx-1">
-                        <img src="images/doctors/d001.png" class="rounded"
-                             alt="Sample Image"
-                             style="max-width: 45px"
-                        >
-                    </div>
-                    <!-- 글자뭉치 -->
-                    <div class="flex-grow-1 mx-1 text-end text-truncate ">
-
-                        <!--클리닉 명-->
-                        <p class="d-inline-block rounded-pill  px-2 bg-darkgray m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
-                                일반 치료
-                            </a>
-                            <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
-                        </p>
-
-                        <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 px-1 py-1">
-                            <div class="small text-danger ">❤❤❤❤❤</div>
-                            <div class="small text-muted text-gray">2023-07-05 | 직접입력</div>
-                        </div>
-
-                        <!--후기 -->
-                        <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13 text-start">
-                            친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
-                        </p>
-                    </div>
-
-                </div>
-
             </div>
             <!-- 예약현황 -->
             <div class="d-none d-xl-block col-3 ps-0 overflow-auto  " style="height: 135px;">
@@ -2928,6 +2949,27 @@
     });
 </script>
 
+
+<!-- 치료후기 swiper-->
+<script>
+    var reviewSwiper = new Swiper(".reviewSwiper", {
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 3,
+        grabCursor: true,
+        // loop: true,
+        // autoplay: {
+        //     delay: 6500,
+        //     disableOnInteraction: false,
+        // },
+        pagination: {
+            el: ".reviewSwiper .swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+<!-- 치료후기 swiper 끝-->
+
 <!-- 의료진 소개 hover -->
 <script type="text/javascript">
     $(function () {
@@ -3032,6 +3074,8 @@
 
     });
 </script>
+
+
 
 <!-- benchmark hover -->
 <script type="text/javascript">

@@ -159,3 +159,30 @@
     }
 }
 ```
+
+
+### 치료후기 swiper 적용하기
+1. col <->  후기 div.flex 사이에 `div.swiper.xxxxSwiper` > `div.swiper-wrapper` > 개별 content마다 `div.swiper-slide` 씌우기
+2. swiper안에 `<div class="swiper-pagination"></div>` 도 위치 siper-wrapper와 동일한 레벨로 잡아주기
+3. script에 `.xxxxSwiper`로 초기화해주기
+```html
+<!-- 치료후기 swiper-->
+<script>
+    var reviewSwiper = new Swiper(".reviewSwiper", {
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 3,
+        grabCursor: true,
+        // loop: true,
+        // autoplay: {
+        //     delay: 6500,
+        //     disableOnInteraction: false,
+        // },
+        pagination: {
+            el: ".reviewSwiper .swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+<!-- 치료후기 swiper 끝-->
+```
