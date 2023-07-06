@@ -143,10 +143,13 @@
 ```
 
 - 특정범위아래에서는 동일하므로 젤 큰 max-width만 남긴다?
+- 패딩까지 같이 추가해준다.
 ```css
 @media (max-width: 991px) {
     .review-h {
         height: 180px !important;
+        padding: 5px!important;
+
     }
 }
 
