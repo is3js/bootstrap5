@@ -24,6 +24,7 @@
             --color-submain-80: rgba(26, 168, 151, .8);
             --color-doctor: #CEA869;
             --color-gray: #adadad;
+            --color-brown: #4B4542;
 
             --primary-font-family: 'Noto Sans KR', sans-serif;
         }
@@ -83,7 +84,7 @@
         }
 
         .bg-brown {
-            background-color: #4B4542;
+            background-color: var(--color-brown);
         }
 
         .bg-clinic-1 {
@@ -1091,7 +1092,7 @@
     @media (max-width: 991px) {
         .review-h {
             height: 100% !important;
-            padding: 5px !important;
+            padding: 10px !important;
         }
     }
 
@@ -1102,29 +1103,22 @@
     }
 </style>
 <style>
-
+    /* wrapper에 공간을 위쪽에 만들고, pagination을 top에서 약간 위쪽으로 올린다*/
+    /* - 이 때, pagination의 높이를 자기공간만큼만 차지하게 fit-content를 줘야한다. */
     .reviewSwiper .swiper-wrapper{
-        padding-bottom: 30px;
+        padding-top: 20px;
+    }
+    .reviewSwiper .swiper-pagination {
+        top: -5px;
+        height: fit-content;
     }
 
-    .reviewSwiper .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
-        bottom: 0px !important;
-    }
-
-    /*.swiper-slide {*/
-    /*    text-align: center;*/
-    /*    font-size: 18px;*/
-    /*    background: #fff;*/
-    /*    display: flex;*/
-    /*    justify-content: center;*/
-    /*    align-items: center;*/
-    /*}*/
-
+    /* pagination 꾸미기 */
     .reviewSwiper .swiper-pagination-bullet {
         width: 6px;
         height: 6px;
         background: transparent;
-        border: 1px solid black;
+        border: 1px solid var(--color-brown);
         opacity: 1;
     }
 
@@ -1132,7 +1126,7 @@
         width: 20px;
         transition: width .5s;
         border-radius: 5px;
-        background: black;
+        background: var(--color-brown);
         border: 1px solid transparent;
     }
 </style>
@@ -1213,7 +1207,7 @@
         <div class="row mt-2 gy-1 px-2">
             <!-- 담당의 -->
             <div class="col-6 col-md-6 col-lg-2 ps-0 pe-1">
-                <a class="d-block text-center bg-gray rounded w-100 h-100 " href="#">
+                <a class="d-block text-center bg-light rounded w-100 h-100 " href="#">
                     <figure class="figure mt-3">
                         <img src="images/doctors/doctor001.png" alt=""
                              class="figure-img "
@@ -1226,7 +1220,7 @@
             </div>
             <!-- 주요진료 -->
             <div class="col-6 col-md-6 col-lg-2 ps-0 pe-1">
-                <div class="d-flex py-1 bg-gray rounded w-100">
+                <div class="d-flex py-1 bg-light rounded w-100">
                     <div class="flex-shrink-0 mx-1">
                         <img src="images/review/재활.png" class="rounded"
                              alt="Sample Image"
@@ -1239,7 +1233,7 @@
                         </h6>
                     </div>
                 </div>
-                <div class="d-flex py-1 bg-gray rounded w-100 mt-1">
+                <div class="d-flex py-1 bg-light rounded w-100 mt-1">
                     <div class="flex-shrink-0 mx-1">
                         <img src="images/review/추나.png" class="rounded"
                              alt="Sample Image"
@@ -1265,7 +1259,6 @@
                             <div class="d-flex rounded w-100 py-1 ">
                                 <div class="flex-grow-1 mx-1 text-start text-truncate ">
                                     <!--클리닉 명-->
-                                    <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
                                     <p class="d-inline-block rounded-pill  px-2  bg-clinic-1 m-0">
                                         <a href="#"
                                            class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
@@ -2992,6 +2985,8 @@
             el: ".reviewSwiper .swiper-pagination",
             clickable: true,
         },
+        // 높이 자동 조절
+        autoHeight: true,
     });
 </script>
 <!-- 치료후기 swiper 끝-->
