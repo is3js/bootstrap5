@@ -1106,7 +1106,7 @@
     /* wrapper에 공간을 위쪽에 만들고, pagination을 top에서 약간 위쪽으로 올린다*/
     /* - 이 때, pagination의 높이를 자기공간만큼만 차지하게 fit-content를 줘야한다. */
     .reviewSwiper .swiper-wrapper{
-        padding-top: 20px;
+        padding-top: 15px;
     }
     .reviewSwiper .swiper-pagination {
         top: -5px;
@@ -1211,7 +1211,7 @@
                     <figure class="figure mt-3">
                         <img src="images/doctors/doctor001.png" alt=""
                              class="figure-img "
-                             style="max-width: 65px;">
+                             style="max-width: 55px;">
                         <figcaption class="figure-caption text-center">
                             <h6 class="h6 text-dark">조재성 원장</h6>
                         </figcaption>
@@ -1224,7 +1224,7 @@
                     <div class="flex-shrink-0 mx-1">
                         <img src="images/review/재활.png" class="rounded"
                              alt="Sample Image"
-                             style="max-width: 57.5px"
+                             style="max-width: 53px"
                         >
                     </div>
                     <div class="flex-grow-1 mx-1 my-auto pt-2">
@@ -1237,7 +1237,7 @@
                     <div class="flex-shrink-0 mx-1">
                         <img src="images/review/추나.png" class="rounded"
                              alt="Sample Image"
-                             style="max-width: 57.5px"
+                             style="max-width: 53px"
                         >
                     </div>
                     <div class="flex-grow-1 mx-1 my-auto pt-2">
@@ -1249,8 +1249,8 @@
             </div>
             <!-- 치료후기 -->
             <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded review-h"
-                 style="height: 135px;">
-                <div class="swiper reviewSwiper ">
+                 style="height: 125px;">
+                <div class="swiper reviewSwiper">
                     <div class="swiper-pagination"></div>
                     <div class="swiper-wrapper">
                         <!-- slide -->
@@ -1327,7 +1327,7 @@
                 </div>
             </div>
             <!-- 예약현황 -->
-            <div class="d-none d-xl-block col-3 ps-0 overflow-auto  " style="height: 135px;">
+            <div class="d-none d-xl-block col-3 ps-0 overflow-auto  " style="height: 125px;">
                 <!--예약list -->
                 <div class="list-group list-group-flush fs-13">
                     <!--예약1. -->
@@ -1368,11 +1368,11 @@
         <div class="row mt-2 gy-1 px-2">
             <!-- 담당의 -->
             <div class="col-6 col-md-6 col-lg-2 ps-0 pe-1">
-                <a class="d-block text-center bg-gray rounded w-100 h-100" href="#">
+                <a class="d-block text-center bg-light rounded w-100 h-100" href="#">
                     <figure class="figure mt-3">
                         <img src="images/doctors/doctor002.png" alt=""
                              class="figure-img"
-                             style="max-width: 65px;">
+                             style="max-width: 55px;">
                         <figcaption class="figure-caption text-center">
                             <h6 class="h6 text-dark">김석영 원장</h6>
                         </figcaption>
@@ -1381,11 +1381,11 @@
             </div>
             <!-- 주요진료 -->
             <div class="col-6 col-md-6 col-lg-2 ps-0 pe-1 ">
-                <div class="d-flex py-1 bg-gray rounded w-100">
+                <div class="d-flex py-1 bg-light rounded w-100">
                     <div class="flex-shrink-0 mx-1">
                         <img src="images/review/미용.png" class="rounded"
                              alt="Sample Image"
-                             style="max-width: 57.5px"
+                             style="max-width: 53px"
                         >
                     </div>
                     <div class="flex-grow-1 mx-1 my-auto pt-2">
@@ -1394,11 +1394,11 @@
                         </h6>
                     </div>
                 </div>
-                <div class="d-flex py-1 bg-gray rounded w-100 mt-1">
+                <div class="d-flex py-1 bg-light rounded w-100 mt-1">
                     <div class="flex-shrink-0 mx-1">
                         <img src="images/review/다이어트.png" class="rounded"
                              alt="Sample Image"
-                             style="max-width: 57.5px"
+                             style="max-width: 53px"
                         >
                     </div>
                     <div class="flex-grow-1 mx-1 my-auto pt-2">
@@ -1410,75 +1410,85 @@
             </div>
 
             <!-- 치료후기 -->
-            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto review-h" style="height: 135px;">
-                <!-- 후기1. 좌측정렬 -->
-                <div class="d-flex  w-100 py-1">
-                    <div class="flex-grow-1 mx-1 text-start text-truncate ">
-                        <!--클리닉 명-->
-                        <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
-                        <p class="d-inline-block rounded-pill px-2  bg-clinic-3 m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
-                                다이어트 클리닉
-                            </a>
-                            <span class="fs-13 text-white-50"> | 20대/여성</span>
-                        </p>
+            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto review-h" style="height: 125px;">
+                <div class="swiper reviewSwiper">
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-wrapper">
+                        <!-- slide -->
+                        <div class="swiper-slide">
+                            <!-- 후기1. 좌측정렬 -->
+                            <div class="d-flex  w-100 py-1">
+                                <div class="flex-grow-1 mx-1 text-start text-truncate ">
+                                    <!--클리닉 명-->
+                                    <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
+                                    <p class="d-inline-block rounded-pill px-2  bg-clinic-3 m-0">
+                                        <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                            다이어트 클리닉
+                                        </a>
+                                        <span class="fs-13 text-white-50"> | 20대/여성</span>
+                                    </p>
 
-                        <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 px-1 py-1">
-                            <div class="small text-gray">2023-07-05 | 자필스캔</div>
-                            <div class="small text-danger">❤❤❤❤❤</div>
+                                    <!--날짜와 평가점수-->
+                                    <div class="d-flex flex-row justify-content-between fs-13 px-1 py-1">
+                                        <div class="small text-gray">2023-07-05 | 자필스캔</div>
+                                        <div class="small text-danger">❤❤❤❤❤</div>
+                                    </div>
+
+                                    <!--후기 -->
+                                    <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13">
+                                        친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 mx-1">
+                                    <img src="images/doctors/d002.png" class="rounded"
+                                         alt="Sample Image"
+                                         style="max-width: 45px"
+                                    >
+                                </div>
+                            </div>
                         </div>
+                        <!-- slide -->
+                        <div class="swiper-slide">
+                            <!-- 후기2. 우측정렬 -->
+                            <div class="d-flex  w-100 py-1">
+                                <!-- 원장이미지 -->
+                                <div class="flex-shrink-0 mx-1">
+                                    <img src="images/doctors/d002.png" class="rounded"
+                                         alt="Sample Image"
+                                         style="max-width: 45px"
+                                    >
+                                </div>
+                                <!-- 글자뭉치 -->
+                                <div class="flex-grow-1 mx-1 text-end text-truncate ">
 
-                        <!--후기 -->
-                        <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13">
-                            친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
-                        </p>
-                    </div>
-                    <div class="flex-shrink-0 mx-1">
-                        <img src="images/doctors/d002.png" class="rounded"
-                             alt="Sample Image"
-                             style="max-width: 45px"
-                        >
+                                    <!--클리닉 명-->
+                                    <p class="d-inline-block rounded-pill  px-2 bg-clinic-6 m-0">
+                                        <a href="#"
+                                           class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                            이명 클리닉
+                                        </a>
+                                        <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
+                                    </p>
+
+                                    <!--날짜와 평가점수-->
+                                    <div class="d-flex flex-row justify-content-between fs-13 px-1 py-1">
+                                        <div class="small text-danger">❤❤❤❤❤</div>
+                                        <div class="small text-gray">2023-07-05 | 직접입력</div>
+                                    </div>
+
+                                    <!--후기 -->
+                                    <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13  text-start">
+                                        친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- 후기2. 우측정렬 -->
-                <div class="d-flex  w-100 py-1">
-                    <!-- 원장이미지 -->
-                    <div class="flex-shrink-0 mx-1">
-                        <img src="images/doctors/d002.png" class="rounded"
-                             alt="Sample Image"
-                             style="max-width: 45px"
-                        >
-                    </div>
-                    <!-- 글자뭉치 -->
-                    <div class="flex-grow-1 mx-1 text-end text-truncate ">
-
-                        <!--클리닉 명-->
-                        <p class="d-inline-block rounded-pill  px-2 bg-clinic-6 m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
-                                이명 클리닉
-                            </a>
-                            <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
-                        </p>
-
-                        <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 px-1 py-1">
-                            <div class="small text-danger">❤❤❤❤❤</div>
-                            <div class="small text-gray">2023-07-05 | 직접입력</div>
-                        </div>
-
-                        <!--후기 -->
-                        <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13  text-start">
-                            친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
-                        </p>
-                    </div>
-
-                </div>
-
             </div>
             <!-- 예약현황 -->
-            <div class="d-none d-xl-block col-3 ps-0 overflow-auto d-none d-xl-block " style="height: 135px;">
+            <div class="d-none d-xl-block col-3 ps-0 overflow-auto d-none d-xl-block " style="height: 125px;">
                 <!--예약list -->
                 <div class="list-group list-group-flush fs-13">
                     <!--예약1. -->
@@ -2976,11 +2986,7 @@
         centeredSlides: true,
         spaceBetween: 3,
         grabCursor: true,
-        // loop: true,
-        // autoplay: {
-        //     delay: 6500,
-        //     disableOnInteraction: false,
-        // },
+
         pagination: {
             el: ".reviewSwiper .swiper-pagination",
             clickable: true,
