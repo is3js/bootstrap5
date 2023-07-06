@@ -16,7 +16,7 @@
     <!-- index.html 전용 Dplayer css (새소식, Youtube) -->
     <link rel="stylesheet" href="css/DPlayer.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Serif+KR:wght@500&display=swap');
 
         :root {
             --color-main: #FC5230;
@@ -27,11 +27,23 @@
             --color-brown: #4B4542;
 
             --primary-font-family: 'Noto Sans KR', sans-serif;
+            --secondary-font-family: 'Noto Serif KR', sans-serif;
         }
 
         body {
             font-family: var(--primary-font-family);
         }
+
+        section h4 {
+            font-family: var(--secondary-font-family);
+            font-weight: bold;
+            letter-spacing: -0.3px;
+        }
+
+        .font-gs {
+            font-family: var(--secondary-font-family);
+        }
+
 
         .text-main {
             color: var(--color-main) !important;
@@ -825,7 +837,7 @@
         <div class="row">
             <div class="col">
                 <div>
-                    <h4 class="d-inline-block">우아한 소식</h4>
+                    <h4 class="d-inline-block fs-section">우아한 소식</h4>
                     <small class="text-muted ps-2">공지, 이벤트, 블로그, 유튜브를 한 곳에!</small>
                 </div>
             </div>
@@ -1105,9 +1117,10 @@
 <style>
     /* wrapper에 공간을 위쪽에 만들고, pagination을 top에서 약간 위쪽으로 올린다*/
     /* - 이 때, pagination의 높이를 자기공간만큼만 차지하게 fit-content를 줘야한다. */
-    .reviewSwiper .swiper-wrapper{
-        padding-top: 15px;
+    .reviewSwiper .swiper-wrapper {
+        padding-top: 20px;
     }
+
     .reviewSwiper .swiper-pagination {
         top: -5px;
         height: fit-content;
@@ -1261,7 +1274,7 @@
                                     <!--클리닉 명-->
                                     <p class="d-inline-block rounded-pill  px-2  bg-clinic-1 m-0">
                                         <a href="#"
-                                           class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                           class="font-gs text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                             디스크 클리닉
                                         </a>
                                         <span class="fs-13 text-white-50"> | 20대/남성</span>
@@ -1275,7 +1288,9 @@
 
                                     <!--후기 -->
                                     <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13">
-                                        친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                                        친절하시고 좋았습니다^^
+                                        dddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋ
+                                        asdfasdfasdfsadf
                                     </p>
                                 </div>
                                 <div class="flex-shrink-0 mx-1">
@@ -1303,7 +1318,7 @@
                                     <!--클리닉 명-->
                                     <p class="d-inline-block rounded-pill  px-2 bg-darkgray m-0">
                                         <a href="#"
-                                           class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                           class="font-gs text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                             일반 치료
                                         </a>
                                         <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
@@ -1422,7 +1437,8 @@
                                     <!--클리닉 명-->
                                     <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
                                     <p class="d-inline-block rounded-pill px-2  bg-clinic-3 m-0">
-                                        <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                        <a href="#"
+                                           class="font-gs text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                             다이어트 클리닉
                                         </a>
                                         <span class="fs-13 text-white-50"> | 20대/여성</span>
@@ -1464,7 +1480,7 @@
                                     <!--클리닉 명-->
                                     <p class="d-inline-block rounded-pill  px-2 bg-clinic-6 m-0">
                                         <a href="#"
-                                           class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                           class="font-gs text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                             이명 클리닉
                                         </a>
                                         <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
@@ -1704,10 +1720,10 @@
                 </div>
             </div>
 
-            <div class="col-7 d-flex flex-column  justify-content-start ">
-                <div class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-dark text-truncate">
-                    원장 한 줄 소개
-                </div>
+            <div class="col-7 d-flex flex-column  justify-content-start font-gs">
+                <h4 class="fs-desc lh-base doctor-desc position-relative pb-2 pb-md-3 mb-2 mb-md-4 text-dark text-truncate">
+                    한 줄 소개
+                </h4>
                 <p class="fs-index text-muted fw-light" id="doctor_desc">
                     통계와 근거를 바탕으로 착한 진료를, 경험을 바탕으로 실속 진료를 추구하는 한의사!
                 </p>
@@ -1778,7 +1794,7 @@
                     <!-- 상단 제목 -->
                     <div class="d-flex flex-row text-white " style="background: #998E7C;">
                         <div class="pt-3 pb-2 ps-4 me-auto">
-                            <h5 class="h5">
+                            <h5 class="h5 font-gs">
                                 <a class="text-decoration-none text-white text-shadow " href="#">
                                     디스크 클리닉
                                 </a>
@@ -1906,10 +1922,13 @@
                 <div class="d-flex flex-column bg-white shadow">
                     <!-- 상단 제목 -->
                     <div class="d-flex flex-row text-white " style="background: #B96BC6;">
-                        <div class="pt-3 pb-2 ps-4 me-auto"><h5 class="h5"><a
-                                class="text-decoration-none text-white text-shadow" href="#">
-                            다이어트 클리닉
-                        </a></h5></div>
+                        <div class="pt-3 pb-2 ps-4 me-auto">
+                            <h5 class="h5">
+                                <a class="font-gs text-decoration-none text-white text-shadow" href="#">
+                                    다이어트 클리닉
+                                </a>
+                            </h5>
+                        </div>
                         <div class="p-2 pe-4">
                             <a class="mt-1 btn btn-sm border-white text-white rounded-0" href="#"
                                style="background:rgba(255, 2525, 225, 0.2);">더 알아보기</a>
