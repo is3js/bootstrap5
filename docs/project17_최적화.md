@@ -54,3 +54,24 @@
 <div class="col-xl-5 ">
 <div class="col-9 col-xl-5"> 
 ```
+3. 주요진료를 살리고, 예약후기는 다음줄로?
+- 2253 -> 336(x) 으로 가운데 주요진료를 살린다
+
+4. 진료후기 전의 , 담당의+주요진료 2개를, lg-2 + lg-2 를 6 6으로 시작하게 한다 
+   - 담당의 col속 부모a태그에 h-100도 추가한다
+   - 진료후기는 12로 시작하게  해서 lg에서 자리 잡는다.
+   - 즉 6+6/12 -> 2+2+8 -> 2+2+5+3 이 된다. 
+```html
+<!-- 담당의 -->
+<div class="col-6 col-md-6 col-lg-2 ps-0 pe-1">
+<!-- 주요진료 -->
+<div class="col-6 col-md-6 col-lg-2 ps-0 pe-1">
+
+<!-- 치료후기 -->
+<div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded " style="height: 135px;">
+
+<!-- 예약현황 -->
+<div class="d-none d-xl-block col-3
+```
+
+
