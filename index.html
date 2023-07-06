@@ -1090,8 +1090,8 @@
 <style>
     @media (max-width: 991px) {
         .review-h {
-            height: 180px!important;
-            padding: 5px!important;
+            height: 100% !important;
+            padding: 5px !important;
         }
     }
 
@@ -1102,15 +1102,38 @@
     }
 </style>
 <style>
-    .reviewSwiper .swiper-pagination {
-        top: 2px;
-    }
+
     .reviewSwiper .swiper-wrapper{
         padding-bottom: 30px;
     }
 
     .reviewSwiper .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
         bottom: 0px !important;
+    }
+
+    /*.swiper-slide {*/
+    /*    text-align: center;*/
+    /*    font-size: 18px;*/
+    /*    background: #fff;*/
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*    align-items: center;*/
+    /*}*/
+
+    .reviewSwiper .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        background: transparent;
+        border: 1px solid black;
+        opacity: 1;
+    }
+
+    .reviewSwiper .swiper-pagination-bullet-active {
+        width: 20px;
+        transition: width .5s;
+        border-radius: 5px;
+        background: black;
+        border: 1px solid transparent;
     }
 </style>
 <section class="mt-4">
@@ -1231,7 +1254,8 @@
                 </div>
             </div>
             <!-- 치료후기 -->
-            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded review-h" style="height: 135px;">
+            <div class="col-12 col-md-12 col-lg-8 col-xl-5 ps-0 pe-1 overflow-auto bg-white rounded review-h"
+                 style="height: 135px;">
                 <div class="swiper reviewSwiper ">
                     <div class="swiper-pagination"></div>
                     <div class="swiper-wrapper">
@@ -1243,7 +1267,8 @@
                                     <!--클리닉 명-->
                                     <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
                                     <p class="d-inline-block rounded-pill  px-2  bg-clinic-1 m-0">
-                                        <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                        <a href="#"
+                                           class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                             디스크 클리닉
                                         </a>
                                         <span class="fs-13 text-white-50"> | 20대/남성</span>
@@ -1257,7 +1282,7 @@
 
                                     <!--후기 -->
                                     <p class="w-100 bg-gray rounded small p-2 m-0 text-wrap fs-13">
-                                        친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
+                                        친절하시고 좋았습니다^^ dddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋdddddddddddddddddㅋㅋㅋ asdfasdfasdfsadf
                                     </p>
                                 </div>
                                 <div class="flex-shrink-0 mx-1">
@@ -1284,7 +1309,8 @@
 
                                     <!--클리닉 명-->
                                     <p class="d-inline-block rounded-pill  px-2 bg-darkgray m-0">
-                                        <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
+                                        <a href="#"
+                                           class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                             일반 치료
                                         </a>
                                         <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
@@ -3074,7 +3100,6 @@
 
     });
 </script>
-
 
 
 <!-- benchmark hover -->

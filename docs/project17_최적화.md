@@ -159,7 +159,15 @@
     }
 }
 ```
-
+- 작은화면에선 1개는 다 보이게 하기 위해 100%
+```css
+ @media (max-width: 991px) {
+     .review-h {
+         height: 100% !important;
+         padding: 5px !important;
+     }
+ }
+```
 
 ### 치료후기 swiper 적용하기
 1. col <->  후기 div.flex 사이에 `div.swiper.xxxxSwiper` > `div.swiper-wrapper` > 개별 content마다 `div.swiper-slide` 씌우기
