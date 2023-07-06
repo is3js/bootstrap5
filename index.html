@@ -23,6 +23,7 @@
             --color-submain: #12887A;
             --color-submain-80: rgba(26, 168, 151, .8);
             --color-doctor: #CEA869;
+            --color-gray: #adadad;
 
             --primary-font-family: 'Noto Sans KR', sans-serif;
         }
@@ -41,6 +42,10 @@
 
         .text-doctor {
             color: var(--color-doctor) !important;
+        }
+
+        .text-gray {
+            color: var(--color-gray) !important;
         }
 
 
@@ -829,8 +834,9 @@
                 <!--            <div class="col-12 col-lg-5" style="height: 50px;overflow: hidden">-->
                 <div class="card w-100 bg-light border-0 shadow-sm">
                     <!--header-->
-                    <div class="card-header d-flex bg-white border-top  border-bottom-0 border-2 "
-                         style="border-color: var(--color-submain)!important;">
+                    <div class="card-header d-flex bg-white border-top  border-bottom-0 border-3 "
+                         style="border-color: var(--color-submain)!important;"
+                    >
                         <h5 class="d-inline-block text-submain fs-index">
                             새 소식 <small class="fs-13 ms-2 text-dark-emphasis text-truncate fw-light">공지사항 및 이벤트</small>
                         </h5>
@@ -1122,7 +1128,7 @@
                     <div class="my-auto ps-2 me-auto">
                         <h5 class="h5">
                             <a class="text-decoration-none text-white text-shadow-lg fs-review-header" href="#">
-                                치료 후기(최근 10개)
+                                치료 후기 (최근 5개)
                             </a>
                         </h5>
                     </div>
@@ -1168,7 +1174,7 @@
                 </a>
             </div>
             <!-- 주요진료 -->
-            <div class="col-2 ps-0 pe-1 d-none d-xl-block">
+            <div class="d-none d-xl-block col-2 ps-0 pe-1">
                 <div class="d-flex py-1 bg-gray rounded w-100">
                     <div class="flex-shrink-0 mx-1">
                         <img src="images/review/재활.png" class="rounded"
@@ -1204,16 +1210,16 @@
                         <!--클리닉 명-->
                         <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
                         <p class="d-inline-block rounded-pill  px-2  bg-clinic-1 m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow ">
+                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                 디스크 클리닉
                             </a>
                             <span class="fs-13 text-white-50"> | 20대/남성</span>
                         </p>
 
                         <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 ps-1 pt-1">
-                            <div class="small text-muted">2023-07-05 | 자필스캔</div>
-                            <div class="small text-danger text-shadow-sm">❤❤❤❤❤</div>
+                        <div class="d-flex flex-row justify-content-between fs-13 pt-1 px-1">
+                            <div class="small text-gray">2023-07-05 | 자필스캔</div>
+                            <div class="small text-danger ">❤❤❤❤❤</div>
                         </div>
 
                         <!--후기 -->
@@ -1243,16 +1249,16 @@
 
                         <!--클리닉 명-->
                         <p class="d-inline-block rounded-pill  px-2 bg-darkgray m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow ">
+                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                 일반 치료
                             </a>
                             <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
                         </p>
 
                         <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 ps-1 pt-1">
-                            <div class="small text-danger text-shadow-sm">❤❤❤❤❤</div>
-                            <div class="small text-muted">2023-07-05 | 직접입력</div>
+                        <div class="d-flex flex-row justify-content-between fs-13 px-1 pt-1">
+                            <div class="small text-danger ">❤❤❤❤❤</div>
+                            <div class="small text-muted text-gray">2023-07-05 | 직접입력</div>
                         </div>
 
                         <!--후기 -->
@@ -1265,7 +1271,7 @@
 
             </div>
             <!-- 예약현황 -->
-            <div class="col-3 ps-0 overflow-auto d-none d-xl-block " style="height: 135px;">
+            <div class="d-none d-xl-block col-3 ps-0 overflow-auto  " style="height: 135px;">
                 <!--예약list -->
                 <div class="list-group list-group-flush fs-13">
                     <!--예약1. -->
@@ -1355,16 +1361,16 @@
                         <!--클리닉 명-->
                         <!--<p class="w-100 px-2 bg-faq-1 m-0">-->
                         <p class="d-inline-block rounded-pill  px-2  bg-clinic-3 m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow ">
+                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                 다이어트 클리닉
                             </a>
                             <span class="fs-13 text-white-50"> | 20대/여성</span>
                         </p>
 
                         <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 ps-1 pt-1">
-                            <div class="small text-muted">2023-07-05 | 자필스캔</div>
-                            <div class="small text-danger text-shadow-sm">❤❤❤❤❤</div>
+                        <div class="d-flex flex-row justify-content-between fs-13 px-1 pt-1">
+                            <div class="small text-gray">2023-07-05 | 자필스캔</div>
+                            <div class="small text-danger">❤❤❤❤❤</div>
                         </div>
 
                         <!--후기 -->
@@ -1394,16 +1400,16 @@
 
                         <!--클리닉 명-->
                         <p class="d-inline-block rounded-pill  px-2 bg-clinic-6 m-0">
-                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow ">
+                            <a href="#" class="text-decoration-none fs-13 text-truncate text-white text-shadow-sm ">
                                 이명 클리닉
                             </a>
                             <span class="fs-13 text-white-50"> | xakjsdfkd@gmail.com</span>
                         </p>
 
                         <!--날짜와 평가점수-->
-                        <div class="d-flex flex-row justify-content-between fs-13 ps-1 pt-1">
-                            <div class="small text-danger text-shadow-sm">❤❤❤❤❤</div>
-                            <div class="small text-muted">2023-07-05 | 직접입력</div>
+                        <div class="d-flex flex-row justify-content-between fs-13 px-1 pt-1">
+                            <div class="small text-danger">❤❤❤❤❤</div>
+                            <div class="small text-gray">2023-07-05 | 직접입력</div>
                         </div>
 
                         <!--후기 -->
