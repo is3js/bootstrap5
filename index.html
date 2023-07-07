@@ -15,6 +15,8 @@
     />
     <!-- index.html 전용 Dplayer css (새소식, Youtube) -->
     <link rel="stylesheet" href="css/DPlayer.min.css">
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Serif+KR:wght@500&display=swap');
         @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
@@ -573,7 +575,21 @@
 <style>
 
     :root{
-        --tab-height: 35px;
+        --tab-height: 45px;
+        --tab-margin-right: 25px;
+        --tab-font-size: 1rem;
+    }
+
+    @media screen and (max-width:776px){
+        :root{
+            --tab-height: 35px;
+            --tab-margin-right: 15px;
+            --tab-font-size: 13px;
+        }
+    }
+
+    .fs-tab {
+        font-size: var(--tab-font-size);
     }
 
     #toggle-all, #toggle-list, #toggle-prev, #toggle-next {
@@ -584,11 +600,13 @@
     /* 버튼들 */
     #toggle-all, #toggle-prev, #toggle-next {
         width: var(--tab-height);
+        padding: 0;
 
         border: none;
         background: white;
 
         position: relative;
+
     }
 
     /* 버튼 icon 그림 삽입 */
@@ -638,15 +656,21 @@
         height: 16px;
     }
 
+    #toggle-list {
+        position: relative;
+
+        height: var(--tab-height);
+
+    }
     /* scroll 공간 스타일 */
     #toggle-list ul {
         list-style: none;
         margin: 0;
         padding: 0;
 
-        height: var(--tab-height);
         white-space: nowrap;
         overflow: hidden;
+        flex: none;
 
         font-family: var(--tab-font-family);
         font-weight: 700;
@@ -657,8 +681,8 @@
     #toggle-list li {
         float:left;
 
-        margin-right: 15px;
-        padding: 10px 0px 0;
+        margin-right: var(--tab-margin-right);
+        padding: 10px 0 0;
     }
 
     #toggle-list li:hover {
@@ -675,29 +699,62 @@
         height: var(--tab-height);
     }
 
+
+    /* 가리개 */
+
+    .opacity {
+        opacity: .8;
+    }
+    .opacity.left {
+        position: absolute;
+        left:0;
+        top:0;
+        height: var(--tab-height);
+        width: 20px;
+
+        background: white;
+
+        /* draggable(1004)보다 더 위에*/
+        z-index: 1005;
+    }
+    .opacity.right {
+        position: absolute;
+        right:0;
+        top:0;
+        height: var(--tab-height);
+        width: 20px;
+
+        background: white;
+
+        z-index: 1005;
+    }
+
 </style>
 <nav>
     <div class="container mb-0">
         <h3 class="blind">탭 메뉴</h3>
         <!-- tab 메뉴 -->
-        <div class="d-inline-flex w-100 border-bottom">
+        <div class="d-inline-flex w-100 border-bottom border-top">
             <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
-            <button id="toggle-all">
+            <button id="toggle-all" class="me-1" >
                 <span class="blind">전체 메뉴</span>
                 <span class="tab-icon"></span>
             </button>
 
             <!-- scroll 공간-->
-            <div id="toggle-list" class="flex-grow-1  fs-13">
+            <div id="toggle-list" class="flex-grow-1 fs-tab overflow-hidden border-start d-flex">
+                <!-- 가리개 -->
+                <div class="opacity left"></div>
                 <ul>
                     <li class="on">한의원 소개</li>
-                    <li>클리닉</li>
+                    <li>길찾기</li>
                     <li>자가진단</li>
                     <li>치료후기</li>
-                    <li>자주묻는 질문</li>
                     <li>연구실적</li>
                     <li>비급여진료비</li>
+                    <li>자주묻는 질문</li>
                 </ul>
+                <div class="opacity right"></div>
             </div>
 
             <button id="toggle-prev" class="border-start">
@@ -2864,10 +2921,36 @@
 <!--임시 jquery: boostrap 전에 추가-->
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 
+<script src="js/TweenMax.min.js"></script>
+<script src="js/Draggable.min.js"></script>
+
 <script src="js/bootstrap.bundle.js"></script>
 
 <!--index.html 전용: splide(top left banner) 설정-->
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<!-- tab메뉴 draggable js -->
+<script>
+    $(function () {
+        //1. ul의 부모공간을 bound될 공간으로서 먼저 찾고
+        var $tabBound = $("#toggle-list");
+        //2. 내부 ul태그를 target으로 찾는다.
+        var $tabTarget = $tabBound.find("ul");
+
+        // $tabTarget.draggable();
+
+        Draggable.create($tabTarget, {
+            type: "x",
+            bounds: $tabBound,
+            throwProps: true,
+            onClick: function (e) {
+            },
+            onDragEnd: function () {
+                // console.log("drag ended");
+            }
+        });
+    })
+</script>
 <script>
     var splide;
 
@@ -3348,6 +3431,9 @@
 </script>
 <!-- benchmark 끝 -->
 
+
+
+
 <!-- fixed 메뉴 -->
 <style>
     .fuceng {
@@ -3442,6 +3528,7 @@
         move();
     }
 </script>
+
 
 </body>
 </html>

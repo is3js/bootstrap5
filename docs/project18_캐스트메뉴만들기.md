@@ -138,16 +138,19 @@
    - span은 `absolute`, top + left 50% + transform: translate(-50%, -50%) 조합으로 가운데 위치시킨 뒤 에서 bg이미지 + cover로 준다.
    - 이 때, w,h를 부모에 대해 50%로 줬다. 직접 픽셀을 정해도 된다.
    - **그러려면 부모인 button들 자체가 `relative`여야한다**
+   - **버튼들은 padding도 삭제해준다**
 ```css
 /* 버튼들 */
 #toggle-all, #toggle-prev, #toggle-next {
     width: 45px;
+    padding: 0;
 
     border: none;
     border-left: 1px solid #dbeef3;
     background: white;
 
     position: relative;
+
 }
 ```
 ```html
@@ -241,6 +244,8 @@
 }
 ```
 
+- **문제는, scroll하려면, 다음줄로 아예 안넘어가야하는데, `ul태그는 공간의 개념이 없이 넘어가버린다`**
+   - scroll 공간이 flex-grow-1을 차지하고 있는 상황에서, **ul태그를 감쌀 중간공간이 추가로 필요하다**
 
 12. 이제 하이라이트를 만들기 전에, 폰트등을 정리한다
    - 나눔스퀘어 : https://github.com/moonspam/NanumSquare
@@ -317,3 +322,83 @@
     height: var(--tab-height);
 }
 ```
+
+16. 크기에 따라 변해야하는 ul의 height + 버튼 width + 우측간격 + 글자크기는 root에 반응형으로 넣어주고 사용한다
+```css
+:root {
+    --tab-height: 45px;
+    --tab-margin-right: 25px;
+    --tab-font-size: 1.1rem;
+}
+
+@media screen and (max-width: 776px) {
+    :root {
+        --tab-height: 35px;
+        --tab-margin-right: 15px;
+        --tab-font-size: 13px;
+    }
+}
+
+.fs-tab {
+    font-size: var(--tab-font-size);
+}
+
+#toggle-all, #toggle-list, #toggle-prev, #toggle-next {
+    float: left;
+    height: var(--tab-height);
+}
+```
+
+
+17. 이제 양옆으로 가리는 효과를 #toggle-list 속 ul 형제로 양옆에 div.opacity.left .right를 생성해서 css로 준다.
+   - 공통인 클래스1개 (opacity) 좌/우 선택 클래스 1개씩으로 2개 클래스로 구성된다.
+```html
+<!-- scroll 공간-->
+<div id="toggle-list" class="flex-grow-1 fs-tab border-start ps-2">
+    <!-- 가리개 -->
+    <div class="opacity left"></div>
+    <ul>
+        <li class="on">한의원 소개</li>
+        <li>길찾기</li>
+        <li>자가진단</li>
+        <li>치료후기</li>
+        <li>연구실적</li>
+        <li>비급여진료비</li>
+        <li>자주묻는 질문</li>
+    </ul>
+    <div class="opacity right"></div>
+</div>
+```
+- 각각은 left:0, right:0으로 시작하는 absolute 아이템들이다.
+- 그럴려면 부모인 ul은 relative여야, 자식 가리개들이 absolute로 덮을 수 있다
+```css
+    /* 가리개 */
+#toggle-list {
+    position: relative;
+}
+
+.opacity {
+    opacity: .8;
+}
+
+.opacity.left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: var(--tab-height);
+    width: 20px;
+
+    background: white;
+}
+
+.opacity.right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: var(--tab-height);
+    width: 20px;
+
+    background: white;
+}
+```
+![img.png](../ui/탭메뉴5.png)
