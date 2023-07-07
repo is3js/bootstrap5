@@ -586,7 +586,6 @@
         width: var(--tab-height);
 
         border: none;
-        border-left: 1px solid #efefef;
         background: white;
 
         position: relative;
@@ -678,10 +677,10 @@
 
 </style>
 <nav>
-    <div class="container">
+    <div class="container mb-0">
         <h3 class="blind">탭 메뉴</h3>
         <!-- tab 메뉴 -->
-        <div class="d-inline-flex w-100 ">
+        <div class="d-inline-flex w-100 border-bottom">
             <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
             <button id="toggle-all">
                 <span class="blind">전체 메뉴</span>
@@ -701,11 +700,11 @@
                 </ul>
             </div>
 
-            <button id="toggle-prev">
+            <button id="toggle-prev" class="border-start">
                 <span class="blind">이전 메뉴</span>
                 <span class="tab-icon"></span>
             </button>
-            <button id="toggle-next">
+            <button id="toggle-next" class="border-start">
                 <span class="blind">다음 메뉴</span>
                 <span class="tab-icon"></span>
             </button>
@@ -716,7 +715,7 @@
 
 
 <!-- mobile 배너 섹션 시작-->
-<section class="mt-1 d-lg-none">
+<section class="d-lg-none">
     <div class="container-fluid">
         <div class="row">
             <div class="col">
