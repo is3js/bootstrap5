@@ -345,8 +345,9 @@
         }
 
     </style>
-    <script src="../../Desktop/다이어트ㅣ건강한 아름다움 규림한의원 - 체질별 맞춤 다이어트로 완벽한 바디라인을 완성하다_files/mobileTap.js"></script>
+
 </head>
+
 <body>
 <!--메뉴 시작-->
 <nav>
@@ -486,11 +487,11 @@
     }
 
     /* 버튼들 */
-    #toggle-all, #toggle-list, #toggle-prev, #toggle-next {
+    #toggle-all, #toggle-prev, #toggle-next {
         width: var(--tab-height);
 
         border: none;
-        border-right: 1px solid #dbeef3;
+        border-left: 1px solid #efefef;
         background: white;
 
         position: relative;
@@ -555,17 +556,20 @@
 
         font-family: var(--tab-font-family);
         font-weight: 700;
+
+        padding: 0 7px;
     }
 
     #toggle-list li {
         float:left;
 
-        margin-right: 10px;
-        padding: 10px 7px 0;
+        margin-right: 15px;
+        padding: 10px 0px 0;
     }
 
     #toggle-list li:hover {
         font-weight: 1000;
+        color: var(--color-submain);
     }
 
     /* 색 입히기 */
@@ -592,10 +596,11 @@
             <!-- scroll 공간-->
             <div id="toggle-list" class="flex-grow-1  fs-13">
                 <ul>
-                    <li class="on">한의원소개</li>
-                    <li>의료진소개</li>
-                    <li>길찾기</li>
+                    <li class="on">한의원 소개</li>
+                    <li>클리닉</li>
                     <li>자가진단</li>
+                    <li>치료후기</li>
+                    <li>자주묻는 질문</li>
                     <li>연구실적</li>
                     <li>비급여진료비</li>
                 </ul>
