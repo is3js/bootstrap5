@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/DPlayer.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Serif+KR:wght@500&display=swap');
+        @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
 
         :root {
             --color-main: #FC5230;
@@ -28,6 +29,7 @@
 
             --primary-font-family: 'Noto Sans KR', sans-serif;
             --secondary-font-family: 'Noto Serif KR', sans-serif;
+            --tab-font-family: 'NanumSquare', sans-serif;
         }
 
         body {
@@ -121,6 +123,15 @@
 
         .bg-clinic-6 {
             background-color: #E7B277;
+        }
+
+        .blind {
+            position: absolute;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            margin: -1px;
+            width: 1px;
+            height: 1px;
         }
 
         /*nav, header, section, footer {*/
@@ -334,6 +345,7 @@
         }
 
     </style>
+    <script src="../../Desktop/다이어트ㅣ건강한 아름다움 규림한의원 - 체질별 맞춤 다이어트로 완벽한 바디라인을 완성하다_files/mobileTap.js"></script>
 </head>
 <body>
 <!--메뉴 시작-->
@@ -460,6 +472,147 @@
     </div>
 </nav>
 <!--메뉴 끝-->
+
+<!-- cast 메뉴 시작-->
+<style>
+
+    :root{
+        --tab-height: 35px;
+    }
+
+    #toggle-all, #toggle-list, #toggle-prev, #toggle-next {
+        float: left;
+        height: var(--tab-height);
+    }
+
+    /* 버튼들 */
+    #toggle-all, #toggle-list, #toggle-prev, #toggle-next {
+        width: var(--tab-height);
+
+        border: none;
+        border-right: 1px solid #dbeef3;
+        background: white;
+
+        position: relative;
+    }
+
+    /* 버튼 icon 그림 삽입 */
+    #toggle-all .tab-icon {
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        background-image: url("images/tabmenu/menu.svg");
+        background-size: cover;
+
+        /*width: 50%;*/
+        /*height: 50%;*/
+        width: 20px;
+        height: 20px;
+    }
+    #toggle-prev .tab-icon {
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        background-image: url("images/tabmenu/left.png");
+        background-size: cover;
+
+        /*width: 30%;*/
+        /*height: 40%;*/
+        width: 12px;
+        height: 16px;
+    }
+    #toggle-next .tab-icon {
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        background-image: url("images/tabmenu/right.png");
+        background-size: cover;
+
+        /*width: 30%;*/
+        /*height: 40%;*/
+        width: 12px;
+        height: 16px;
+    }
+
+    /* scroll 공간 스타일 */
+    #toggle-list ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        height: var(--tab-height);
+        white-space: nowrap;
+        overflow: hidden;
+
+        font-family: var(--tab-font-family);
+        font-weight: 700;
+    }
+
+    #toggle-list li {
+        float:left;
+
+        margin-right: 10px;
+        padding: 10px 7px 0;
+    }
+
+    #toggle-list li:hover {
+        font-weight: 1000;
+    }
+
+    /* 색 입히기 */
+    #toggle-list li.on,  #toggle-list li.active{
+        font-weight: 1000;
+        border-bottom: 2px solid var(--color-submain);
+        color: var(--color-submain);
+
+        height: var(--tab-height);
+    }
+
+</style>
+<nav>
+    <div class="container">
+        <h3 class="blind">탭 메뉴</h3>
+        <!-- tab 메뉴 -->
+        <div class="d-inline-flex w-100 ">
+            <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
+            <button id="toggle-all">
+                <span class="blind">전체 메뉴</span>
+                <span class="tab-icon"></span>
+            </button>
+
+            <!-- scroll 공간-->
+            <div id="toggle-list" class="flex-grow-1  fs-13">
+                <ul>
+                    <li class="on">한의원소개</li>
+                    <li>의료진소개</li>
+                    <li>길찾기</li>
+                    <li>자가진단</li>
+                    <li>연구실적</li>
+                    <li>비급여진료비</li>
+                </ul>
+            </div>
+
+            <button id="toggle-prev">
+                <span class="blind">이전 메뉴</span>
+                <span class="tab-icon"></span>
+            </button>
+            <button id="toggle-next">
+                <span class="blind">다음 메뉴</span>
+                <span class="tab-icon"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+<!-- cast 메뉴 끝-->
 
 <!--헤더 시작-->
 <header class="">
@@ -1641,7 +1794,7 @@
     }
 
     .doctorSwiper .swiper-pagination-bullet-active {
-        width: 20px;
+        width: 15px;
         transition: width .5s;
         border-radius: 5px;
         background: darkgrey;
