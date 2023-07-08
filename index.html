@@ -574,17 +574,19 @@
 <!-- tab 메뉴 시작-->
 <style>
 
-    :root{
+    :root {
         --tab-height: 47px;
-        --tab-margin-right: 12px;
+        --tab-margin: 12px;
         --tab-font-size: 1rem;
+        --tab-font-py: 11px;
     }
 
-    @media screen and (max-width:776px){
-        :root{
+    @media screen and (max-width: 776px) {
+        :root {
             --tab-height: 47px;
-            --tab-margin-right: 9px;
+            --tab-margin: 7px;
             --tab-font-size: 15px;
+            --tab-font-py: 13px;
         }
     }
 
@@ -592,13 +594,13 @@
         font-size: var(--tab-font-size);
     }
 
-    #toggle-all, #toggle-list, #toggle-prev, #toggle-next {
+    #tab-all, #tab-list, #tab-prev, #tab-next {
         float: left;
         height: var(--tab-height);
     }
 
     /* 버튼들 */
-    #toggle-all, #toggle-prev, #toggle-next {
+    #tab-all, #tab-prev, #tab-next {
         width: var(--tab-height);
         padding: 0;
 
@@ -610,7 +612,7 @@
     }
 
     /* 버튼 icon 그림 삽입 */
-    #toggle-all .tab-icon {
+    #tab-all .tab-icon {
         position: absolute;
 
         left: 50%;
@@ -625,7 +627,8 @@
         width: 20px;
         height: 20px;
     }
-    #toggle-prev .tab-icon {
+
+    #tab-prev .tab-icon {
         position: absolute;
 
         left: 50%;
@@ -640,7 +643,8 @@
         width: 12px;
         height: 16px;
     }
-    #toggle-next .tab-icon {
+
+    #tab-next .tab-icon {
         position: absolute;
 
         left: 50%;
@@ -656,7 +660,7 @@
         height: 16px;
     }
 
-    #toggle-list {
+    #tab-list {
         position: relative;
 
         height: var(--tab-height);
@@ -665,7 +669,7 @@
     }
 
     /* scroll 공간 스타일 */
-    #toggle-list ul {
+    #tab-list ul {
         list-style: none;
         margin: 0;
         padding: 0;
@@ -678,25 +682,29 @@
         padding: 0 7px;
     }
 
-    #toggle-list li {
-        float:left;
+    #tab-list li {
+        float: left;
 
-        margin: 0 var(--tab-margin-right);
-        padding: 15px 0 0;
+        margin: 0 var(--tab-margin);
+        padding: var(--tab-font-py) 0 0;
     }
 
-    #toggle-list li:hover {
+    #tab-list li > a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #tab-list li > a:hover {
         /*font-weight: 1000;*/
         color: var(--color-submain);
     }
 
     /* 색 입히기 */
-    #toggle-list li.on,  #toggle-list li.active{
+    #tab-list li > a.on, #tab-list li > a.active {
         /*font-weight: 1000;*/
         /*height: var(--tab-height);*/
         /*border-bottom: 2px solid var(--color-submain);*/
         color: var(--color-submain);
-
     }
 
 
@@ -705,10 +713,11 @@
     .opacity {
         opacity: .8;
     }
+
     .opacity.left {
         position: absolute;
-        left:0;
-        top:0;
+        left: 0;
+        top: 0;
         height: var(--tab-height);
         width: 15px;
 
@@ -717,10 +726,11 @@
         /* draggable(1004)보다 더 위에*/
         z-index: 1005;
     }
+
     .opacity.right {
         position: absolute;
-        right:0;
-        top:0;
+        right: 0;
+        top: 0;
         height: var(--tab-height);
         width: 15px;
 
@@ -736,32 +746,46 @@
         <!-- tab 메뉴 -->
         <div class="d-inline-flex w-100 border-bottom">
             <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
-            <button id="toggle-all" class="me-1" >
+            <button id="tab-all" class="me-1">
                 <span class="blind">전체 메뉴</span>
                 <span class="tab-icon"></span>
             </button>
 
             <!-- scroll 공간-->
-            <div id="toggle-list" class="flex-grow-1 fs-tab ">
+            <div id="tab-list" class="flex-grow-1 fs-tab ">
                 <!-- 가리개 -->
                 <div class="opacity left"></div>
                 <ul>
-                    <li class="on">한의원 소개</li>
-                    <li>길찾기</li>
-                    <li>자가진단</li>
-                    <li>치료후기</li>
-                    <li>연구실적</li>
-                    <li>비급여진료비</li>
-                    <li>자주묻는 질문</li>
+                    <li>
+                        <a href="#">홈</a>
+                    </li>
+                    <li>
+                        <a href="#">길찾기</a>
+                    </li>
+                    <li>
+                        <a href="#">자가진단</a>
+                    </li>
+                    <li>
+                        <a href="#">치료후기</a>
+                    </li>
+                    <li>
+                        <a href="prev">연구실적</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:63342/bootstrap/index.html">비급여진료비</a>
+                    </li>
+                    <li>
+                        <a href="next">자주묻는질문</a>
+                    </li>
                 </ul>
                 <div class="opacity right"></div>
             </div>
 
-            <button id="toggle-prev" class="">
+            <button id="tab-prev" class="">
                 <span class="blind">이전 메뉴</span>
                 <span class="tab-icon"></span>
             </button>
-            <button id="toggle-next" class="">
+            <button id="tab-next" class="">
                 <span class="blind">다음 메뉴</span>
                 <span class="tab-icon"></span>
             </button>
@@ -2920,37 +2944,11 @@
 
 <!--임시 jquery: boostrap 전에 추가-->
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
-
-<script src="js/TweenMax.min.js"></script>
-<script src="js/Draggable.min.js"></script>
-
+<!-- bootstrap -->
 <script src="js/bootstrap.bundle.js"></script>
 
 <!--index.html 전용: splide(top left banner) 설정-->
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-
-<!-- tab메뉴 draggable js -->
-<script>
-    $(function () {
-        //1. ul의 부모공간을 bound될 공간으로서 먼저 찾고
-        var $tabBound = $("#toggle-list");
-        //2. 내부 ul태그를 target으로 찾는다.
-        var $tabTarget = $tabBound.find("ul");
-
-        // $tabTarget.draggable();
-
-        Draggable.create($tabTarget, {
-            type: "x",
-            bounds: $tabBound,
-            throwProps: true,
-            onClick: function (e) {
-            },
-            onDragEnd: function () {
-                // console.log("drag ended");
-            }
-        });
-    })
-</script>
 <script>
     var splide;
 
@@ -2975,6 +2973,97 @@
 
     });
 </script>
+
+<!-- tab메뉴: gsap 전체 대신 필수 TweenMax + Draggable 추가 -->
+<script src="js/TweenMax.min.js"></script>
+<script src="js/Draggable.min.js"></script>
+<!-- tab메뉴 draggable js -->
+<script>
+    $(function () {
+        //1. ul의 부모공간을 bound될 공간으로서 먼저 찾고
+        var $tabBound = $("#tab-list");
+        //2. 내부 ul태그를 target으로 찾는다.
+        var $tabTarget = $tabBound.find("ul");
+        //3. 현재 창의 uri(pathname)을, 해당 a태그의 href가 포함하고 있으면 on을 준다.
+        var uri = window.location.pathname; // console.log(uri) /*/bootstrap/index.html*/
+        // 4. 추가로 TweenMax를 이용해, 동적으로, on된 a태그로 위치를 drag위치를 옮긴다
+        // (1) ul태그(tabTarget)의 outerWidth / 부모div태그(tabBound)의 innerWidth, outerWidth를 각각 구해놓고
+        // (2) a태그들 중 선택된 (this)의 offsetLeft, outerWidth -> eventPoint, textEndPoint를 구해놓은 뒤,
+        //     on에 해당하는 a태그에 대하여, 공식을 적용해, 당겨온다
+        //    -> 확인은 모바일화면에서 뒤쪽의 요소 uri를 index.html로 잡아서 확인한다.
+        var targetOuterWidth = $tabTarget.outerWidth();
+        var boundInnerWidth = $tabBound.width();
+        var boundOuterWidth = $tabBound.outerWidth();
+
+
+        $tabTarget.find("a").each(function () {
+            //3-2. 현재 창의 uri(pathname)을, 해당 a태그의 href가 포함하고 있으면 on을 줘서 -> css가 작동하게 한다.
+            // console.log($(this).attr("href")); /*http://localhost:63342/bootstrap/index.html*/
+            if ($(this).attr("href").includes(uri)) {
+                $(this).addClass("on");
+
+                //4-2.
+                var offsetLeft = $(this).offset().left;
+                var aOuterWidth = $(this).outerWidth();
+                var eventPoint = offsetLeft - aOuterWidth / 2;
+                var textEndPoint = offsetLeft + aOuterWidth / 2;
+
+                if ((boundInnerWidth > targetOuterWidth) || boundInnerWidth / 2 > textEndPoint) {
+                    // 왼쪽 가장자리
+                } else if ((boundInnerWidth < targetOuterWidth) && (targetOuterWidth - boundInnerWidth / 2 < eventPoint)) {
+                    // 오른쪽 가장자리
+                    TweenMax.to($tabTarget, .1, {x: -(targetOuterWidth - boundInnerWidth)});
+                } else {
+                    // 동적인 자리변동
+                    TweenMax.to($tabTarget, .1, {x: -((offsetLeft - boundInnerWidth / 2))});
+                }
+            }
+        });
+
+        Draggable.create($tabTarget, {
+            type: "x",
+            bounds: $tabBound,
+            throwProps: true,
+            onClick: function (e) {
+            },
+            onDragEnd: function () {
+                // console.log("drag ended");
+            }
+        });
+
+        // 5. 이전/다음버튼
+        var currentLiIndex = $tabTarget.find(".on").closest("li").index();
+        var liLength = $tabTarget.find("li").length;
+        // console.log(currentLiIndex, liLength) // 5(0~6), 7
+        var $prev = $("#tab-prev");
+        var $next = $("#tab-next");
+
+        $prev.on("click", function (e) {
+            e.preventDefault();
+
+            if (currentLiIndex <0 ){
+                currentLiIndex = liLength;
+            } else {
+                currentLiIndex--;
+            }
+            //test
+            // console.log($tabTarget.find("li").eq(currentLiIndex).find("a").attr("href"));
+            location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
+        })
+
+        $next.on("click", function (e) {
+            e.preventDefault();
+
+            if (currentLiIndex >= liLength - 1){
+                currentLiIndex = 0;
+            } else {
+                currentLiIndex++;
+            }
+            location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
+        })
+    })
+</script>
+
 
 <!--index.html 전용: jquery(carouselMainPc) 설정-->
 <script>
@@ -3430,8 +3519,6 @@
     })
 </script>
 <!-- benchmark 끝 -->
-
-
 
 
 <!-- fixed 메뉴 -->
