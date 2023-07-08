@@ -781,7 +781,19 @@
 
         text-decoration: none;
         color: #434343;
+        cursor: pointer;
     }
+
+    /* 색 입히기 */
+    #tab-list-all>ul>li>a:hover {
+        font-weight: 900;
+        color: var(--color-submain);
+    }
+
+    #tab-list-all>ul>li>a.on, #tab-list-all>ul>li>a.active {
+        color: var(--color-submain);
+    }
+
 
 </style>
 
@@ -855,7 +867,7 @@
                         <a href="https://is3js.github.io/bootstrap5?prev=true">연구실적</a>
                     </li>
                     <li>
-                        <a href="https://is3js.github.io/bootstrap5/index.html?prev=true">비급여진료비</a>
+                        <a href="https://is3js.github.io/bootstrap5/index.html">비급여진료비</a>
                     </li>
                     <li>
                         <a href="https://is3js.github.io/bootstrap5?next=true">자주묻는질문</a>
@@ -3135,12 +3147,20 @@
             location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
         })
 
-        // 전체메뉴 버튼
+        // 6. 전체메뉴 버튼
         var $allBtn = $("#tabAllBtn");
         var $allTarget = $("#tab-list-all")
         $allBtn.on("click", function (e) {
             e.preventDefault();
             $allTarget.toggleClass("on");
+        });
+
+        //7. 전체메뉴에도 on 토글
+        var $tarAll = $("tab-list-all")
+        $tarAll.find("a").each(function () {
+            if ($(this).attr("href").includes(uri)) {
+                $(this).addClass("on");
+            }
         });
     })
 </script>

@@ -791,3 +791,19 @@ $allBtn.on("click", function (e) {
 ```
 ![img.png](../ui/탭메뉴10.png)
 ![img_1.png](../ui/탭메뉴11.png)
+
+
+9. a태그에 색 옵션을 준다
+```css
+    /* 색 입히기 */
+#tab-list-all > ul > li > a:hover {
+    font-weight: 900;
+    color: var(--color-submain);
+}
+
+#tab-list-all > ul > li > a.on, #tab-list-all > ul > li > a.active {
+    color: var(--color-submain);
+}
+```
+
+10. `on` 선택자를 토글하는 것을 jquery에 추가한다
