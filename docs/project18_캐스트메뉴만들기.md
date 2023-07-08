@@ -698,37 +698,49 @@ $allBtn.on("click", function (e) {
 
 4. 이제 각 요소들을 absolute + flex로 배치할 준비를 한다.
     - 부모가 container밖에 없다. -> **tab메뉴 + 전체메뉴를 묶어주는 부모를 만들고, relative로 주자.**
+
 ```html
+
 <nav>
     <div class="container mb-0">
         <h3 class="blind">탭 메뉴</h3>
         <div class="position-relative">
 ```
+
 ![img.png](../ui/탭메뉴7.png)
 
-5. 이제 전체메뉴  div#tab-list-all에다가 `absolute, 배경색, z-index, w-100`를 다 넣어주자.
+5. 이제 전체메뉴 div#tab-list-all에다가 `absolute, 배경색, z-index, w-100`를 다 넣어주자.
+
 ```html
+
 <div id="tab-list-all" class="position-absolute bg-white w-100" style="z-index: 330">
 ```
+
 6. ul태그에는 `list-style제거 m-0 p-0`에 `flex, flex-wrap, 수직정렬` + `justify-content-left`(왼쪽부터 정렬) 해주자
+
 ```html
+
 <ul class="list-unstyled m-0 p-0 d-flex flex-wrap align-items-center justify-content-start">
 ```
+
 7. 각각의 `li태그들`은 `float:left`를 적용하고, width설정을 위해  `p-0` 및 `min-width 20%`를, 가운데 정렬을 위해 `text-align:center`를 지정해준다
     - **float:left + min-width로 칼럼별 갯수를 정한다.**
     - **min-width 20% -> 최대 5개까지 들어간다.**
-    ![img.png](../ui/탭메뉴8.png)
+      ![img.png](../ui/탭메뉴8.png)
+
 ```css
     #tab-list-all > ul > li {
     float: left;
-    
+
     padding: 0;
     min-width: 20%;
-    
+
     text-align: center;
 }
 ```
+
 - 반응형으로서, 작은화면에서는 min-width를 33.3%로 줘서, 3개까지 들어가게 한다.
+
 ```css
 @media screen and (max-width: 767px) {
     #tab-list-all > ul > li {
@@ -736,18 +748,22 @@ $allBtn.on("click", function (e) {
     }
 }
 ```
-![img.png](../ui/탭메뉴9.png) 
+
+![img.png](../ui/탭메뉴9.png)
 
 8. 이제 li내부 a태그들에게, block으로 만들어놓고 기본 스타일을 지정한다.
     - 폰트종류와 weight는 `ul태그`에서 이미 정해준다.
+
 ```css
-#tab-list-all>ul {
+#tab-list-all > ul {
     font-family: var(--tab-font-family);
     font-weight: 700;
 }
 ```
+
 - 폰트 크기는 ul태그의 부모div에서 css class로 정해준다. `fs-tab-all`
     - 커질땐 원래보다 좀 더 커야한다?
+
 ```css
 :root {
     --tab-font-size: 1rem;
@@ -765,21 +781,27 @@ $allBtn.on("click", function (e) {
         letter-spacing: -.5px;
     }
 ```
+
 ```html
+
 <div id="tab-list-all" class="position-absolute bg-white w-100 fs-tab-all" style="z-index: 330">
 ```
-- height는 작은화면일땐 좀 좁아야하고, 큰화면에서도 tab메뉴보다  좀 더 좁아야한다
+
+- height는 작은화면일땐 좀 좁아야하고, 큰화면에서도 tab메뉴보다 좀 더 좁아야한다
+
 ```css
     :root {
     --tab-height: 47px;
     --tab-all-height: 40px;
 }
+
 @media screen and (max-width: 776px) {
     :root {
         --tab-all-height: 30px;
     }
 }
 ```
+
 ```css
 #tab-list-all > ul > li > a {
     height: var(--tab-all-height);
@@ -789,11 +811,12 @@ $allBtn.on("click", function (e) {
     color: #434343;
 }
 ```
+
 ![img.png](../ui/탭메뉴10.png)
 ![img_1.png](../ui/탭메뉴11.png)
 
-
 9. a태그에 색 옵션을 준다
+
 ```css
     /* 색 입히기 */
 #tab-list-all > ul > li > a:hover {
@@ -807,6 +830,7 @@ $allBtn.on("click", function (e) {
 ```
 
 10. `on` 선택자를 토글하는 것을 jquery에 추가한다
+
 ```js
 //7. 전체메뉴에도 a태그들 돌며 href > uri 비교해서 on 토글
 $allTarget.find("a").each(function () {
@@ -828,7 +852,7 @@ $allTarget.find("a").each(function () {
         box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 0px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
     }
     ```
-    2. **각 li는 작은화면 3칸 / 큰화면 5칸 중에,  각row별 1번째와 마지막을 제외하고 좌우shadow를 준다.**
+    2. **각 li는 작은화면 3칸 / 큰화면 5칸 중에, 각row별 1번째와 마지막을 제외하고 좌우shadow를 준다.**
     ```css
     /* 전체메뉴 box-shadow */
     /* 작을때는, 1번째와, 3번재는 좌우 border를 주지 않는다.*/
@@ -855,6 +879,28 @@ $allTarget.find("a").each(function () {
         }
     }
     ```
-        
+
 ![img.png](../ui/탭메뉴13.png)
 ![img.png](../ui/탭메뉴14.png)
+
+12. 이제 on토글시 fadeIn 애니메이션을 적용하기 위해
+    1. @keyframes로 애니메이션이름 {} 으로 투명도를 정의하고
+    2. .on {} css에 animation을 적용해준다
+    ```css
+    #tab-list-all.on {
+        display: block;
+
+        box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 0px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+
+        animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    ```
