@@ -584,7 +584,7 @@ var liLength = $tabTarget.find("li").length;
 3. 버튼 2개를, id를 통해 element를 잡고 .on("click")을 걸어준다. 이 때, preventDeafult()도 해준다.
     - **현재 index가 줄이다보면 0에서 내릴 경우 -> 현재index를 length로 주고 넘어가게 한다?. 그렇지않으면 1개를 깍는다.**
     - 깍인 index를 통해, li태그들을 찾아서, 해당index의 a태그의 href로 `location.href`로 이동한다.
-    - text는 on대상 a태그의 양옆으로 href에 "prev, next"를 줘서 테스트를 한다.
+    - test는 log로 찍어보고, 넘어가게 한다. (넘어가버리면 로그 안보임)
 ```js
 var $prev = $("#tab-prev");
 var $next = $("#tab-next");
@@ -598,7 +598,7 @@ $prev.on("click", function (e) {
         currentLiIndex--;
     }
     //test
-    // console.log($tabTarget.find("li").eq(currentLiIndex).find("a").attr("href"));
+    console.log($tabTarget.find("li").eq(currentLiIndex).find("a").attr("href"));
     location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
 })
 ```
