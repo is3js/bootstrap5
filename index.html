@@ -596,7 +596,8 @@
     .fs-tab {
         font-size: var(--tab-font-size);
     }
-    .fs-tab-all{
+
+    .fs-tab-all {
         font-size: var(--tab-all-font-size);
         letter-spacing: -.5px;
     }
@@ -747,20 +748,23 @@
     }
 
     /* 전체 메뉴 */
-    #tab-list-all{
+    #tab-list-all {
         display: none;
     }
+
     #tab-list-all.on {
         display: block;
+
+        box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 0px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
     }
 
-    #tab-list-all>ul {
+    #tab-list-all > ul {
         font-family: var(--tab-font-family);
         font-weight: 700;
     }
 
 
-    #tab-list-all>ul>li {
+    #tab-list-all > ul > li {
         float: left;
 
         padding: 0;
@@ -772,12 +776,12 @@
     }
 
     @media screen and (max-width: 767px) {
-        #tab-list-all>ul>li {
+        #tab-list-all > ul > li {
             min-width: 33.3%;
         }
     }
 
-    #tab-list-all>ul>li>a {
+    #tab-list-all > ul > li > a {
         height: var(--tab-all-height);
         line-height: var(--tab-all-height);
 
@@ -787,29 +791,42 @@
     }
 
     /* 색 입히기 */
-    #tab-list-all>ul>li>a:hover {
+    #tab-list-all > ul > li > a:hover {
         font-weight: 900;
         color: var(--color-submain);
     }
 
-    #tab-list-all>ul>li>a.on, #tab-list-all>ul>li>a.active {
+    #tab-list-all > ul > li > a.on, #tab-list-all > ul > li > a.active {
         color: var(--color-submain);
         font-weight: 900;
 
     }
 
     /* 전체메뉴 box-shadow */
-    #tab-list-all>ul>li:nth-of-type(0n+1) {
-        box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
-    }
-
-    #tab-list-all>ul>li:nth-of-type(3n) {
-        box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
-    }
-
-    #tab-list-all>ul>li {
+    /* 작을때는, 1번째와, 3번재는 좌우 border를 주지 않는다.*/
+    /* 클때는 , 1번재와 5번재는 좌우border를 주지 않는다 */
+    #tab-list-all > ul > li {
         box-shadow: 1px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 1px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
     }
+
+    #tab-list-all > ul > li:nth-of-type(3n+1) {
+        box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+    }
+
+    #tab-list-all > ul > li:nth-of-type(3n) {
+        box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+    }
+
+    @media screen and (min-width: 767px) {
+        #tab-list-all > ul > li:nth-of-type(5n+1) {
+            box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 0px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+        }
+
+        #tab-list-all > ul > li:nth-of-type(5n) {
+            box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+        }
+    }
+
 </style>
 
 <nav>
@@ -864,7 +881,7 @@
                 </button>
             </div>
             <!-- 전체 메뉴 -->
-            <div id="tab-list-all" class="position-absolute w-100 fs-tab-all" style="z-index: 330">
+            <div id="tab-list-all" class="position-absolute bg-white w-100 fs-tab-all" style="z-index: 330">
                 <ul class="list-unstyled m-0 p-0 d-flex flex-wrap align-items-center justify-content-start">
                     <li>
                         <a href="#">홈</a>
@@ -3141,7 +3158,7 @@
         prevBtn.on("click", function (e) {
             e.preventDefault();
 
-            if (currentLiIndex <0 ){
+            if (currentLiIndex < 0) {
                 currentLiIndex = liLength;
             } else {
                 currentLiIndex--;
@@ -3154,7 +3171,7 @@
         nextBtn.on("click", function (e) {
             e.preventDefault();
 
-            if (currentLiIndex >= liLength - 1){
+            if (currentLiIndex >= liLength - 1) {
                 currentLiIndex = 0;
             } else {
                 currentLiIndex++;

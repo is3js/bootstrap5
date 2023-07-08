@@ -819,4 +819,42 @@ $allTarget.find("a").each(function () {
 
 ![img.png](../ui/탭메뉴12.png)
 
-11. 각 li태그에 border가 아닌 box-shadow로 줘서, 3개를 못채운 놈은 전체를 벌려서 처리된다?
+11. **이제 box-shadow로 border를 대신하는데**
+    1. ul의 부모 `div#tab-list-all`에는 상하를 준다
+    ```css
+    #tab-list-all.on {
+        display: block;
+        
+        box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 0px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+    }
+    ```
+    2. **각 li는 작은화면 3칸 / 큰화면 5칸 중에,  각row별 1번째와 마지막을 제외하고 좌우shadow를 준다.**
+    ```css
+    /* 전체메뉴 box-shadow */
+    /* 작을때는, 1번째와, 3번재는 좌우 border를 주지 않는다.*/
+    /* 클때는 , 1번재와 5번재는 좌우border를 주지 않는다 */
+    #tab-list-all > ul > li {
+        box-shadow: 1px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 1px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+    }
+
+    #tab-list-all > ul > li:nth-of-type(3n+1) {
+        box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+    }
+
+    #tab-list-all > ul > li:nth-of-type(3n) {
+        box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+    }
+
+    @media screen and (min-width: 767px) {
+        #tab-list-all > ul > li:nth-of-type(5n+1) {
+            box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 0px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+        }
+
+        #tab-list-all > ul > li:nth-of-type(5n) {
+            box-shadow: 0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+        }
+    }
+    ```
+        
+![img.png](../ui/탭메뉴13.png)
+![img.png](../ui/탭메뉴14.png)
