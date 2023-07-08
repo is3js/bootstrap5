@@ -792,9 +792,22 @@
 
     #tab-list-all>ul>li>a.on, #tab-list-all>ul>li>a.active {
         color: var(--color-submain);
+        font-weight: 900;
+
     }
 
+    /* 전체메뉴 box-shadow */
+    /*#tab-list-all>ul>li:nth-of-type(0n+1) {*/
+    /*    box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;*/
+    /*}*/
 
+    /*#tab-list-all>ul>li:nth-of-type(3n) {*/
+    /*    box-shadow:0px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 0px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;*/
+    /*}*/
+
+    #tab-list-all>ul>li {
+        box-shadow: 1px 0 0 0 #e3e3e3, 0 1px 0 0 #e3e3e3, 1px 1px 0 0 #e3e3e3, 1px 0 0 0 #e3e3e3 inset, 0 1px 0 0 #e3e3e3 inset;
+    }
 </style>
 
 <nav>
@@ -830,7 +843,7 @@
                             <a href="https://is3js.github.io/bootstrap5?prev=true">연구실적</a>
                         </li>
                         <li>
-                            <a href="https://is3js.github.io/bootstrap5/index.html?prev=true">비급여진료비</a>
+                            <a href="http://localhost:63342/bootstrap/index.html?prev=true">비급여진료비</a>
                         </li>
                         <li>
                             <a href="https://is3js.github.io/bootstrap5?next=true">자주묻는질문</a>
@@ -867,7 +880,7 @@
                         <a href="https://is3js.github.io/bootstrap5?prev=true">연구실적</a>
                     </li>
                     <li>
-                        <a href="https://is3js.github.io/bootstrap5/index.html">비급여진료비</a>
+                        <a href="http://localhost:63342/bootstrap/index.html">비급여진료비</a>
                     </li>
                     <li>
                         <a href="https://is3js.github.io/bootstrap5?next=true">자주묻는질문</a>
@@ -3155,9 +3168,9 @@
             $allTarget.toggleClass("on");
         });
 
-        //7. 전체메뉴에도 on 토글
-        var $tarAll = $("tab-list-all")
-        $tarAll.find("a").each(function () {
+        //7. 전체메뉴에도 a태그들 돌며 href > uri 비교해서 on 토글
+        $allTarget.find("a").each(function () {
+            console.log(uri)
             if ($(this).attr("href").includes(uri)) {
                 $(this).addClass("on");
             }

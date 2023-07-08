@@ -807,3 +807,16 @@ $allBtn.on("click", function (e) {
 ```
 
 10. `on` 선택자를 토글하는 것을 jquery에 추가한다
+```js
+//7. 전체메뉴에도 a태그들 돌며 href > uri 비교해서 on 토글
+$allTarget.find("a").each(function () {
+    console.log(uri)
+    if ($(this).attr("href").includes(uri)) {
+        $(this).addClass("on");
+    }
+});
+```
+
+![img.png](../ui/탭메뉴12.png)
+
+11. 각 li태그에 border가 아닌 box-shadow로 줘서, 3개를 못채운 놈은 전체를 벌려서 처리된다?
