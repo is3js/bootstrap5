@@ -1,4 +1,5 @@
 ### 디자인
+
 1. 검색엔진을 위해 blind css를 만든다
 
 ```css
@@ -49,16 +50,16 @@
 
 <div>
     <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
-    <button id="tab-all">
+    <button id="tabAllBtn">
         <span class="blind">전체 메뉴</span>
     </button>
     <div id="tab-list">
 
     </div>
-    <button id="tab-prev">
+    <button id="tabPrevBtn">
         <span class="blind">이전 메뉴</span>
     </button>
-    <button id="tab-next">
+    <button id="tabNextBtn">
         <span class="blind">다음 메뉴</span>
     </button>
 </div>
@@ -69,16 +70,16 @@
 
 ```html
 <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
-<button id="tab-all" class="float-start">
+<button id="tabAllBtn" class="float-start">
     <span class="blind">전체 메뉴</span>
 </button>
 <div id="tab-list" class="float-start">
 
 </div>
-<button id="tab-prev" class="float-start">
+<button id="tabPrevBtn" class="float-start">
     <span class="blind">이전 메뉴</span>
 </button>
-<button id="tab-next" class="float-start">
+<button id="tabNextBtn" class="float-start">
     <span class="blind">다음 메뉴</span>
 </button>
 ```
@@ -90,7 +91,7 @@
 <!-- tab 메뉴 -->
 <div class="d-inline-block w-100">
     <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
-    <button id="tab-all" class="float-start">
+    <button id="tabAllBtn" class="float-start">
 ```
 
 - 전체영역의 bottom에 보더를 추가해준다
@@ -105,7 +106,7 @@
 ```html
 
 <style>
-    #tab-all, #tab-list, #tab-prev, #tab-next {
+    #tabAllBtn, #tab-list, #tabPrevBtn, #tabNextBtn {
         height: 45px;
     }
 </style>
@@ -114,7 +115,7 @@
 - 4개를 묶었으니, float-start class도 그냥 css로 준다.
 
 ```css
- #tab-all, #tab-list, #tab-prev, #tab-next {
+ #tabAllBtn, #tab-list, #tabPrevBtn, #tabNextBtn {
     height: 45px;
     float: left;
 }
@@ -126,7 +127,7 @@
 
 ```css
 /* 버튼들 */
-#tab-all, #tab-prev, #tab-next {
+#tabAllBtn, #tabPrevBtn, #tabNextBtn {
     width: 45px;
     border: none;
     border-left: 1px solid #dbeef3;
@@ -141,7 +142,7 @@
 <!-- tab 메뉴 -->
 <div class="d-inline-flex w-100 border-bottom">
     <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
-    <button id="tab-all">
+    <button id="tabAllBtn">
         <span class="blind">전체 메뉴</span>
     </button>
     <!-- scroll 공간-->
@@ -160,7 +161,7 @@
 
 ```css
 /* 버튼들 */
-#tab-all, #tab-prev, #tab-next {
+#tabAllBtn, #tabPrevBtn, #tabNextBtn {
     width: 45px;
     padding: 0;
 
@@ -175,15 +176,15 @@
 
 ```html
 
-<button id="tab-all">
+<button id="tabAllBtn">
     <span class="blind">전체 메뉴</span>
     <span class="tab-icon"></span>
 </button>
-<button id="tab-prev">
+<button id="tabPrevBtn">
     <span class="blind">이전 메뉴</span>
     <span class="tab-icon"></span>
 </button>
-<button id="tab-next">
+<button id="tabNextBtn">
     <span class="blind">다음 메뉴</span>
     <span class="tab-icon"></span>
 </button>
@@ -193,7 +194,7 @@
 
 ```css
     /* 버튼 icon 그림 삽입 */
-#tab-all .tab-icon {
+#tabAllBtn .tab-icon {
     position: absolute;
 
     left: 50%;
@@ -319,12 +320,12 @@
 13. 높이를 모두 45-> 35px로 변경한다
 
 ```css
-#tab-all, #tab-list, #tab-prev, #tab-next {
+#tabAllBtn, #tab-list, #tabPrevBtn, #tabNextBtn {
     float: left;
     height: 35px;
 }
 
-#tab-all, #tab-prev, #tab-next {
+#tabAllBtn, #tabPrevBtn, #tabNextBtn {
     width: 35px;
 }
 
@@ -340,7 +341,7 @@
     --tab-height: 35px;
 }
 
-#tab-all, #tab-list, #tab-prev, #tab-next {
+#tabAllBtn, #tab-list, #tabPrevBtn, #tabNextBtn {
     float: left;
     height: var(--tab-height);
 }
@@ -404,7 +405,7 @@
     font-size: var(--tab-font-size);
 }
 
-#tab-all, #tab-list, #tab-prev, #tab-next {
+#tabAllBtn, #tab-list, #tabPrevBtn, #tabNextBtn {
     float: left;
     height: var(--tab-height);
 }
@@ -468,14 +469,16 @@
 
 ![img.png](../ui/탭메뉴5.png)
 
-
 ### draggable 적용하기
+
 1. 필요 js를 2가지를 추가한다.
+
 ```html
 <!-- tab메뉴: gsap 전체 대신 필수 TweenMax + Draggable 추가 -->
 <script src="js/TweenMax.min.js"></script>
 <script src="js/Draggable.min.js"></script>
 ```
+
 2. Draggable을 만들기 위해선, ul의 부모공간을 bounds옵션에, ul태그를 target으로 `Draggable.create()`를 해주면 된다.
 
 ```html
@@ -502,7 +505,6 @@
 </script>
 ```
 
-
 3. 이제 클릭이 active효과를 내주기 위해선, 각각의 li속에 a태그를 가지고 있도록 변환하고, href = uri 가 같으면 `on` class를 입혀준다.
     - a태그에 text-decoration-none을 걸어, li에 걸어주었던 hover, on, active를 모두 `li>a`태그로 변경한다.
 
@@ -527,6 +529,7 @@
 ```
 
 ### 선택된 a태그의 동적 위치 조정하기
+
 - 4번 주석을 따라간다.
 
 ```js
@@ -573,21 +576,25 @@ $(function () {
 ```
 
 ### on버튼을 기준으로 이전/다음 버튼 클릭구현
+
 1. 일단 현재 `.on`을 가진 `a태그`의 가장 가까운, li태그(부모)의 index를 찾아놓고,
 2. 전체 li태그의 갯수를 찾아놓는다.
+
 ```js
 // 5. 이전/다음버튼
 var currentLiIndex = $tabTarget.find(".on").closest("li").index();
 var liLength = $tabTarget.find("li").length;
 // console.log(currentLiIndex, liLength) // 5(0~6), 7
 ```
+
 3. 버튼 2개를, id를 통해 element를 잡고 .on("click")을 걸어준다. 이 때, preventDeafult()도 해준다.
     - **현재 index가 줄이다보면 0에서 내릴 경우 -> 현재index를 length로 주고 넘어가게 한다?. 그렇지않으면 1개를 깍는다.**
     - 깍인 index를 통해, li태그들을 찾아서, 해당index의 a태그의 href로 `location.href`로 이동한다.
     - test는 log로 찍어보고, 넘어가게 한다. (넘어가버리면 로그 안보임)
+
 ```js
-var $prev = $("#tab-prev");
-var $next = $("#tab-next");
+var $prev = $("#tabPrevBtn");
+var $next = $("#tabNextBtn");
 
 $prev.on("click", function (e) {
     e.preventDefault();
@@ -599,10 +606,12 @@ $prev.on("click", function (e) {
     }
     //test
     console.log($tabTarget.find("li").eq(currentLiIndex).find("a").attr("href"));
-    location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
+    //location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
 })
 ```
+
 ```html
+
 <li>
     <a href="prev">연구실적</a>
 </li>
@@ -614,7 +623,8 @@ $prev.on("click", function (e) {
 </li>
 ```
 
-4. next의 경우, index가 마지막인덱스( length-1)보다 크거나 같다면, 처음으로 돌아가야하므로 index = 0으로 가도록 한다 그외에는 올린다. 
+4. next의 경우, index가 마지막인덱스( length-1)보다 크거나 같다면, 처음으로 돌아가야하므로 index = 0으로 가도록 한다 그외에는 올린다.
+
 ```js
 $next.on("click", function (e) {
     e.preventDefault();
@@ -627,3 +637,157 @@ $next.on("click", function (e) {
     location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
 })
 ```
+
+### 전체메뉴
+
+1. container안에 tab메뉴와 동일한 레벨로 div를 만들고, **on/off시킬 때 찾아야하므로 id를 같이준 뒤, ul>li>a태그를 준다**
+
+```html
+ <!-- 전체 메뉴 -->
+<div id="tab-list-all">
+    <ul>
+        <li>
+            <a href="#">홈</a>
+        </li>
+        <li>
+            <a href="#">길찾기</a>
+        </li>
+        <li>
+            <a href="#">자가진단</a>
+        </li>
+        <li>
+            <a href="#">치료후기</a>
+        </li>
+        <li>
+            <a href="https://is3js.github.io/bootstrap5?prev=true">연구실적</a>
+        </li>
+        <li>
+            <a href="https://is3js.github.io/bootstrap5/index.html?prev=true">비급여진료비</a>
+        </li>
+        <li>
+            <a href="https://is3js.github.io/bootstrap5?next=true">자주묻는질문</a>
+        </li>
+    </ul>
+</div>
+```
+
+2. on/off를 `.toggleClass("on")`으로 .on 선택자로 할 수 있도록 해당div에 css를 정의해준다.
+
+```css
+/* 전체 메뉴 */
+#tab-list-all {
+    display: none;
+}
+
+#tab-list-all.on {
+    display: block;
+}
+```
+
+3. jquery로 전체메뉴버튼 클릭시 .on 선택자를 toggle하게 한다.
+
+```js
+// 전체메뉴 버튼
+var $allBtn = $("#tabAllBtn");
+var $allTarget = $("#tab-list-all")
+$allBtn.on("click", function (e) {
+    e.preventDefault();
+    $allTarget.toggleClass("on");
+});
+```
+
+4. 이제 각 요소들을 absolute + flex로 배치할 준비를 한다.
+    - 부모가 container밖에 없다. -> **tab메뉴 + 전체메뉴를 묶어주는 부모를 만들고, relative로 주자.**
+```html
+<nav>
+    <div class="container mb-0">
+        <h3 class="blind">탭 메뉴</h3>
+        <div class="position-relative">
+```
+![img.png](../ui/탭메뉴7.png)
+
+5. 이제 전체메뉴  div#tab-list-all에다가 `absolute, 배경색, z-index, w-100`를 다 넣어주자.
+```html
+<div id="tab-list-all" class="position-absolute bg-white w-100" style="z-index: 330">
+```
+6. ul태그에는 `list-style제거 m-0 p-0`에 `flex, flex-wrap, 수직정렬` + `justify-content-left`(왼쪽부터 정렬) 해주자
+```html
+<ul class="list-unstyled m-0 p-0 d-flex flex-wrap align-items-center justify-content-start">
+```
+7. 각각의 `li태그들`은 `float:left`를 적용하고, width설정을 위해  `p-0` 및 `min-width 20%`를, 가운데 정렬을 위해 `text-align:center`를 지정해준다
+    - **float:left + min-width로 칼럼별 갯수를 정한다.**
+    - **min-width 20% -> 최대 5개까지 들어간다.**
+    ![img.png](../ui/탭메뉴8.png)
+```css
+    #tab-list-all > ul > li {
+    float: left;
+    
+    padding: 0;
+    min-width: 20%;
+    
+    text-align: center;
+}
+```
+- 반응형으로서, 작은화면에서는 min-width를 33.3%로 줘서, 3개까지 들어가게 한다.
+```css
+@media screen and (max-width: 767px) {
+    #tab-list-all > ul > li {
+        min-width: 33.3%;
+    }
+}
+```
+![img.png](../ui/탭메뉴9.png) 
+
+8. 이제 li내부 a태그들에게, block으로 만들어놓고 기본 스타일을 지정한다.
+    - 폰트종류와 weight는 `ul태그`에서 이미 정해준다.
+```css
+#tab-list-all>ul {
+    font-family: var(--tab-font-family);
+    font-weight: 700;
+}
+```
+- 폰트 크기는 ul태그의 부모div에서 css class로 정해준다. `fs-tab-all`
+    - 커질땐 원래보다 좀 더 커야한다?
+```css
+:root {
+    --tab-font-size: 1rem;
+    --tab-all-font-size: 1rem;
+}
+
+@media screen and (max-width: 776px) {
+    :root {
+        --tab-font-size: 15px;
+        --tab-all-font-size: 13px;
+    }
+
+    .fs-tab-all {
+        font-size: var(--tab-all-font-size);
+        letter-spacing: -.5px;
+    }
+```
+```html
+<div id="tab-list-all" class="position-absolute bg-white w-100 fs-tab-all" style="z-index: 330">
+```
+- height는 작은화면일땐 좀 좁아야하고, 큰화면에서도 tab메뉴보다  좀 더 좁아야한다
+```css
+    :root {
+    --tab-height: 47px;
+    --tab-all-height: 40px;
+}
+@media screen and (max-width: 776px) {
+    :root {
+        --tab-all-height: 30px;
+    }
+}
+```
+```css
+#tab-list-all > ul > li > a {
+    height: var(--tab-all-height);
+    line-height: var(--tab-all-height);
+
+    text-decoration: none;
+    color: #434343;
+}
+```
+![img.png](../ui/탭메뉴10.png)
+![img_1.png](../ui/탭메뉴11.png)

@@ -576,16 +576,19 @@
 
     :root {
         --tab-height: 47px;
+        --tab-all-height: 40px;
         --tab-margin: 12px;
         --tab-font-size: 1rem;
+        --tab-all-font-size: 1rem;
         --tab-font-py: 11px;
     }
 
     @media screen and (max-width: 776px) {
         :root {
-            --tab-height: 47px;
+            --tab-all-height: 30px;
             --tab-margin: 7px;
             --tab-font-size: 15px;
+            --tab-all-font-size: 13px;
             --tab-font-py: 13px;
         }
     }
@@ -593,14 +596,18 @@
     .fs-tab {
         font-size: var(--tab-font-size);
     }
+    .fs-tab-all{
+        font-size: var(--tab-all-font-size);
+        letter-spacing: -.5px;
+    }
 
-    #tab-all, #tab-list, #tab-prev, #tab-next {
+    #tabAllBtn, #tab-list, #tabPrevBtn, #tabNextBtn {
         float: left;
         height: var(--tab-height);
     }
 
     /* 버튼들 */
-    #tab-all, #tab-prev, #tab-next {
+    #tabAllBtn, #tabPrevBtn, #tabNextBtn {
         width: var(--tab-height);
         padding: 0;
 
@@ -612,7 +619,7 @@
     }
 
     /* 버튼 icon 그림 삽입 */
-    #tab-all .tab-icon {
+    #tabAllBtn .tab-icon {
         position: absolute;
 
         left: 50%;
@@ -628,7 +635,7 @@
         height: 20px;
     }
 
-    #tab-prev .tab-icon {
+    #tabPrevBtn .tab-icon {
         position: absolute;
 
         left: 50%;
@@ -644,7 +651,7 @@
         height: 16px;
     }
 
-    #tab-next .tab-icon {
+    #tabNextBtn .tab-icon {
         position: absolute;
 
         left: 50%;
@@ -739,23 +746,99 @@
         z-index: 1005;
     }
 
+    /* 전체 메뉴 */
+    #tab-list-all{
+        display: none;
+    }
+    #tab-list-all.on {
+        display: block;
+    }
+
+    #tab-list-all>ul {
+        font-family: var(--tab-font-family);
+        font-weight: 700;
+    }
+
+
+    #tab-list-all>ul>li {
+        float: left;
+
+        padding: 0;
+        min-width: 20%;
+
+        text-align: center;
+    }
+
+    @media screen and (max-width: 767px) {
+        #tab-list-all>ul>li {
+            min-width: 33.3%;
+        }
+    }
+
+    #tab-list-all>ul>li>a {
+        height: var(--tab-all-height);
+        line-height: var(--tab-all-height);
+
+        text-decoration: none;
+        color: #434343;
+    }
+
 </style>
+
 <nav>
     <div class="container mb-0">
         <h3 class="blind">탭 메뉴</h3>
-        <!-- tab 메뉴 -->
-        <div class="d-inline-flex w-100 border-bottom">
-            <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
-            <button id="tab-all" class="me-1">
-                <span class="blind">전체 메뉴</span>
-                <span class="tab-icon"></span>
-            </button>
+        <div class="position-relative">
+            <!-- tab 메뉴 -->
+            <div class="d-inline-flex w-100 border-bottom">
+                <!-- 전체 | 구역 | 왼쪽 | 오른쪽-->
+                <button id="tabAllBtn" class="me-1">
+                    <span class="blind">전체 메뉴</span>
+                    <span class="tab-icon"></span>
+                </button>
 
-            <!-- scroll 공간-->
-            <div id="tab-list" class="flex-grow-1 fs-tab ">
-                <!-- 가리개 -->
-                <div class="opacity left"></div>
-                <ul>
+                <!-- scroll 공간-->
+                <div id="tab-list" class="flex-grow-1 fs-tab ">
+                    <!-- 가리개 -->
+                    <div class="opacity left"></div>
+                    <ul>
+                        <li>
+                            <a href="#">홈</a>
+                        </li>
+                        <li>
+                            <a href="#">길찾기</a>
+                        </li>
+                        <li>
+                            <a href="#">자가진단</a>
+                        </li>
+                        <li>
+                            <a href="#">치료후기</a>
+                        </li>
+                        <li>
+                            <a href="https://is3js.github.io/bootstrap5?prev=true">연구실적</a>
+                        </li>
+                        <li>
+                            <a href="https://is3js.github.io/bootstrap5/index.html?prev=true">비급여진료비</a>
+                        </li>
+                        <li>
+                            <a href="https://is3js.github.io/bootstrap5?next=true">자주묻는질문</a>
+                        </li>
+                    </ul>
+                    <div class="opacity right"></div>
+                </div>
+
+                <button id="tabPrevBtn" class="">
+                    <span class="blind">이전 메뉴</span>
+                    <span class="tab-icon"></span>
+                </button>
+                <button id="tabNextBtn" class="">
+                    <span class="blind">다음 메뉴</span>
+                    <span class="tab-icon"></span>
+                </button>
+            </div>
+            <!-- 전체 메뉴 -->
+            <div id="tab-list-all" class="position-absolute bg-white w-100 fs-tab-all" style="z-index: 330">
+                <ul class="list-unstyled m-0 p-0 d-flex flex-wrap align-items-center justify-content-start">
                     <li>
                         <a href="#">홈</a>
                     </li>
@@ -778,17 +861,7 @@
                         <a href="https://is3js.github.io/bootstrap5?next=true">자주묻는질문</a>
                     </li>
                 </ul>
-                <div class="opacity right"></div>
             </div>
-
-            <button id="tab-prev" class="">
-                <span class="blind">이전 메뉴</span>
-                <span class="tab-icon"></span>
-            </button>
-            <button id="tab-next" class="">
-                <span class="blind">다음 메뉴</span>
-                <span class="tab-icon"></span>
-            </button>
         </div>
     </div>
 </nav>
@@ -3035,10 +3108,10 @@
         var currentLiIndex = $tabTarget.find(".on").closest("li").index();
         var liLength = $tabTarget.find("li").length;
         // console.log(currentLiIndex, liLength) // 5(0~6), 7
-        var $prev = $("#tab-prev");
-        var $next = $("#tab-next");
+        var prevBtn = $("#tabPrevBtn");
+        var nextBtn = $("#tabNextBtn");
 
-        $prev.on("click", function (e) {
+        prevBtn.on("click", function (e) {
             e.preventDefault();
 
             if (currentLiIndex <0 ){
@@ -3051,7 +3124,7 @@
             location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
         })
 
-        $next.on("click", function (e) {
+        nextBtn.on("click", function (e) {
             e.preventDefault();
 
             if (currentLiIndex >= liLength - 1){
@@ -3061,6 +3134,14 @@
             }
             location.href = $tabTarget.find("li").eq(currentLiIndex).find("a").attr("href");
         })
+
+        // 전체메뉴 버튼
+        var $allBtn = $("#tabAllBtn");
+        var $allTarget = $("#tab-list-all")
+        $allBtn.on("click", function (e) {
+            e.preventDefault();
+            $allTarget.toggleClass("on");
+        });
     })
 </script>
 
